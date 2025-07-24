@@ -1,0 +1,26 @@
+# Nmap 7.94SVN scan initiated Tue Jul 15 13:08:57 2025 as: /usr/libWarning: 10.129.95.232 giving up on port because retransmission cap hit (6).
+Nmap scan report for 10.129.95.232
+Host is up (0.12s latency).
+Not shown: 65486 closed tcp ports (reset), 39 filtered tcp ports (no-response)
+PORT      STATE SERVICE     VERSION
+21/tcp    open  ftp?
+22/tcp    open  ssh         OpenSSH 8.2p1 Ubuntu 4ubuntu0.2 (Ubuntu Linux; protocol 2.0)
+111/tcp   open  rpcbind
+139/tcp   open  netbios-ssn Samba smbd 4.6.2
+445/tcp   open  netbios-ssn Samba smbd 4.6.2
+2049/tcp  open  rpcbind
+37981/tcp open  rpcbind
+51061/tcp open  rpcbind
+58051/tcp open  rpcbind
+59685/tcp open  rpcbind
+1 service unrecognized despite returning data. If you know the service/version, please submit the following fingerprint at https://nmap.org/cgi-bin/submit.cgi?new-service :
+SF-Port21-TCP:V=7.94SVN%I=7%D=7/15%Time=687647D5%P=x86_64-pc-linux-gnu%r(G
+SF:enericLines,74,"220\x20InFreight\x20FTP\x20v1\.1\r\n500\x20Invalid\x20c
+SF:ommand:\x20try\x20being\x20more\x20creative\r\n500\x20Invalid\x20comman
+SF:d:\x20try\x20being\x20more\x20creative\r\n");
+Service Info: OS: Linux; CPE: cpe:/o:linux:linux_kernel
+
+Service detection performed. Please report any incorrect results at https://nmap.org/submit/ .
+Nmap done: 1 IP address (1 host up) scanned in 847.64 seconds
+https://nmap.org/submit/ .
+# Nmap done at Tue Jul 15 13:23:05 2025 -- 1 IP address (1 host up) scanned in 847.64 seconds

@@ -1,0 +1,4 @@
+python-nmap
+jinja2
+weasyprint
+rich

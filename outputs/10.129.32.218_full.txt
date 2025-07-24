@@ -1,0 +1,1 @@
+Starting Nmap 7.94SVN ( https://nmap.org ) at 2025-07-19 16:29 +01
