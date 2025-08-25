@@ -10,3 +10,12 @@ gui/frontend/dist/
 .env
 config/settings.json
 hydra.restore
+hydra.restore
+node_modules/
+gui/frontend/node_modules/
+gui/frontend/dist/
+outputs/
+logs/
+.venv/
+__pycache__/
+*.pyc
