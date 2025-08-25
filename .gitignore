@@ -9,3 +9,4 @@ gui/frontend/node_modules/
 gui/frontend/dist/
 .env
 config/settings.json
+hydra.restore
