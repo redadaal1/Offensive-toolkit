@@ -1,0 +1,8 @@
+node_modules/
+gui/frontend/node_modules/
+gui/frontend/dist/
+outputs/
+logs/
+.venv/
+__pycache__/
+*.pyc
