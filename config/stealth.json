@@ -1,0 +1,9 @@
+{
+    "delay_range": [1, 5],
+    "obfuscation_enabled": true,
+    "max_retries": 3,
+    "user_agent_rotation": true,
+    "ids_detection": true,
+    "adaptive_stealth": true,
+    "log_activities": true
+}

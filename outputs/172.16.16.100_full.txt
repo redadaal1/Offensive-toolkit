@@ -1,9 +1,0 @@
-# Nmap 7.94SVN scan initiated Sat Jul 19 16:07:24 2025 as: /usr/libNmap scan report for 172.16.16.100 (172.16.16.100)
-Host is up (0.015s latency).
-All 65535 scanned ports on 172.16.16.100 (172.16.16.100) are in ignored states.
-Not shown: 53686 filtered tcp ports (time-exceeded), 11849 filtered tcp ports (no-response)
-
-Service detection performed. Please report any incorrect results at https://nmap.org/submit/ .
-Nmap done: 1 IP address (1 host up) scanned in 25.57 seconds
- https://nmap.org/submit/ .
-# Nmap done at Sat Jul 19 16:07:49 2025 -- 1 IP address (1 host up) scanned in 25.57 seconds

@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Recon Report - {{ target }}</title>
+    <style>
+        body { font-family: Arial, sans-serif; margin: 20px; }
+        h1 { color: #333; }
+        h2 { color: #555; }
+        pre { background: #f4f4f4; padding: 10px; border: 1px solid #ddd; white-space: pre-wrap; }
+    </style>
+</head>
+<body>
+    <h1>Reconnaissance Report for {{ target }}</h1>
+    <p>Generated on: {{ date }}</p>
+    {% for service, data in results.items() %}
+        <h2>{{ service }}</h2>
+        {% for key, value in data.items() %}
+            <h3>{{ key }}:</h3>
+            <pre>{{ value or 'No data' }}</pre>
+        {% endfor %}
+    {% endfor %}
+</body>
+</html>

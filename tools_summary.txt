@@ -1,0 +1,45 @@
+Nmap: To discover hosts, open ports, services, and versions, and to perform OS fingerprinting.
+
+Hydra: To perform fast brute-force attacks against various network services to crack logins and passwords.
+
+Metasploit Framework (msfconsole): To launch exploits against known vulnerabilities, manage sessions, and aid in post-exploitation.
+
+SQLMap: To automatically detect and exploit SQL injection vulnerabilities in web applications.
+
+Nikto: To scan web servers for thousands of known vulnerabilities, misconfigurations, and dangerous files.
+
+Gobuster: To brute-force directories, files, and DNS subdomains/vhosts to discover hidden web content.
+
+enum4linux: To enumerate information from Windows and Samba systems, such as users, shares, and policies.
+
+smbclient: To interact with SMB/CIFS shares, allowing for file listing, downloading, and uploading.
+
+FTP (client): To interact with FTP servers for tasks like testing anonymous access and transferring files.
+
+Telnet (client): To interact with Telnet servers, often for banner grabbing or testing default credentials.
+
+SSH (client): To connect to SSH servers, used in post-exploitation to execute commands remotely.
+
+cURL: To transfer data with URLs, primarily used for grabbing HTTP headers and web page content.
+
+LinkFinder: To discover endpoints and parameters hidden within JavaScript files on a website.
+
+dnsrecon: To perform DNS enumeration to discover subdomains and other DNS records for a target domain.
+
+dirb: To discover hidden web objects by brute-forcing directories and files on a web server.
+
+wfuzz: To fuzz web applications by replacing any part of an HTTP request with a wordlist payload.
+
+WhatWeb: To identify the various technologies used by a website, including CMS, frameworks, and server software.
+
+WPScan: To perform specialized vulnerability scanning against WordPress websites.
+
+JoomScan: To perform specialized vulnerability scanning against Joomla websites.
+
+SearchSploit: To search a local copy of the Exploit-DB database for known public exploits.
+
+Netcat (nc): To read from and write to network connections, used for banner grabbing and testing port connectivity.
+
+OpenSSL: To interact with SSL/TLS protocols, used for grabbing TLS banners from services like FTPS.
+
+sshpass: To provide a password to the `ssh` command non-interactively, enabling automated remote command execution.

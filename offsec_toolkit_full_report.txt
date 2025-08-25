@@ -1,0 +1,466 @@
+Offensive Security Automation Toolkit — Full Project Report
+
+1) What this project is
+- Offensive Security Automation Toolkit that automates a full penetration testing lifecycle: reconnaissance, exploitation, post‑exploitation, and reporting, with both CLI and optional GUI. It orchestrates external tools, normalizes results into JSON, and generates comprehensive Markdown/PDF reports and walkthroughs.
+
+2) Installation and quick usage
+- Install Python dependencies: pip install -r requirements.txt
+- Install external tools (Kali recommended): nmap, hydra, metasploit-framework, sqlmap, nikto, gobuster, dnsrecon/dnsenum, smbclient, ssh-audit, etc.
+- Configure: edit config/settings.json (output dir, Burp integration, service timeouts, rockyou path, etc.).
+- Run phases:
+  - Recon: python3 -m cli.main --target <ip> --recon --no-confirm
+  - Exploitation: python3 -m cli.main --target <ip> --attacker-ip <attacker> --exploit --no-confirm
+  - Post‑exploitation: python3 -m cli.main --target <ip> --attacker-ip <attacker> --post-exploit --no-confirm
+  - Report: python3 -m cli.main --target <ip> --report
+  - Walkthrough: python3 -m cli.main --target <ip> --generate-walkthrough
+  - Full walkthrough: python3 -m cli.main --target <ip> --attacker-ip <attacker> --walkthrough --no-confirm
+- Tests: python3 -m pytest tests/ -v
+- GUI server: python3 -m gui.server → http://localhost:8000
+
+3) Global logic and data flow
+- Phases: Recon → Exploit → Post‑Exploit → Reporting/Walkthrough.
+- Output directory: outputs/
+  - Nmap scans: <target>_tcp_fast.txt, <target>_tcp_full.txt, <target>_udp_fast.txt
+  - Recon service metadata: <target>_<service>_<port>_<proto>_metadata.json (plus markdown reports per service)
+  - Aggregated recon: <target>_combined_report.json, <target>_scans.json
+  - Exploit results: <target>_<service>_exploit.json
+  - Post‑exploit results: <target>_*_post_exploit.json
+  - Final docs: <target>_comprehensive_report.md/.pdf, <target>_walkthrough.md
+- JSON is the backbone: Every phase writes structured JSON consumed by subsequent phases and the reporters.
+
+4) CLI orchestration (cli/main.py)
+- Validates target, parses options (e.g., --services http,ssh, --use-rockyou, --no-confirm).
+- Runs phases:
+  - Recon: core.recon.run_recon(target, services)
+  - Exploit: python3 -m core.exploit target --attacker-ip --attacker-port [--use-rockyou] [--services]
+  - Post‑exploit: python3 -m core.post_exploit target --attacker-ip --attacker-port [--services]
+  - Report: python3 -m core.report_generator target
+  - Walkthrough: python3 -m core.walkthrough_generator target
+
+5) GUI server (gui/server.py) and frontend
+- FastAPI app providing endpoints to run phases, stream logs (Server-Sent Events), list outputs, pause/resume/stop tasks. Optionally mounts React build at /app.
+- Frontend: gui/frontend (Vite + TypeScript + Tailwind). Main code in src/main.tsx.
+
+6) Configuration (core/config.py, config/settings.json, config/stealth.json)
+- Config class exposes .get("dot.notation") and helpers (service enable/timeout, rockyou path, credentials, etc.).
+- settings.json covers: general, reconnaissance Nmap flags, exploitation defaults and timeouts, post_exploitation toggles, reporting formats, per-service tool lists, and integrations (Burp REST and optional Burp runner).
+- stealth.json provides optional throttling/user-agent/IDS toggles (not directly wired into orchestrators yet).
+
+7) Reconnaissance orchestrator (core/recon.py)
+- Runs in parallel three Nmap sweeps: FAST (-sV -T4 -Pn), FULL (-sV -p- -T4 -Pn), UDP (-sU -F -T4 -Pn).
+- Parses discovered services and for each one imports core.services.<service> and calls footprint(target, port=...).
+- Saves per-service metadata JSONs and reports; aggregates all to <target>_combined_report.json (adds risk scoring and consolidation) and renders PDF using core/templates/combined_report.html.
+- Utilities: clean ANSI codes, robust file I/O and aggregation with error handling.
+
+8) Per-service logic (Recon / Exploit / Post‑Exploit)
+
+8.1) HTTP
+- Recon (core/services/http.py):
+  - Helpers: _run (shell exec with per-tool timeout), _fetch_url, strip_ansi.
+  - Metasploit/Exploit‑DB lookup: search_msf(query), search_exploitdb(query) → modules + CVEs.
+  - Parsers: parse_nikto, parse_gobuster_dir (categorizes endpoints), parse_linkfinder (extracts URLs+params), parse_wayback, parse_dnsrecon, parse_whatweb (tech stack), parse_wpscan, parse_joomscan, parse_sqlmap_basic.
+  - Vuln testers: test_sql_injection_endpoints, test_xss_endpoints, test_lfi_endpoints, test_upload_endpoints.
+  - Login form SQLi flow: find_login_form → build_request_file (.req for sqlmap) → test_login_form_sql_injection.
+  - Burp integrations (optional via config):
+    - core/integrations/burp.py: REST client; tries multiple endpoints/bodies, normalizes issues, saves <target>_burp_issues.json and <target>_http_burp_metadata.json.
+    - core/integrations/burp_runner.py: headless JAR launcher; waits for REST, starts scan, polls, fetches issues, saves artifacts.
+  - Orchestrator: footprint(target) runs tools (curl, nikto, gobuster dir/dns/vhost, linkfinder, Wayback, dnsrecon, dirb, wfuzz, whatweb, wpscan, joomscan, sqlmap); compiles endpoints, technologies, vulnerabilities; searches MSF/Exploit‑DB; writes <target>_http_metadata.json and MD report.
+- Exploit (core/exploit/http_exploit.py):
+  - Functions: run_metasploit_exploit, test_sql_injection_with_sqlmap, test_xss_with_payload, test_file_upload_and_shell, test_lfi_and_file_download, test_rce_and_proof, exploit_target.
+  - Tools: msfconsole, sqlmap, HTTP client.
+  - Output: <target>_http_exploit.json (successful_exploits entries with type/details/PoC/evidence).
+- Post‑Exploit (core/post-exploit/http_post_exploit.py):
+  - Functions: use_rce_for_enumeration, targeted_lfi_download, sqlmap_extract_from_exploit, exploit_admin_panels (default creds), exploit_upload_vulnerabilities, post_exploit_target.
+  - Output: <target>_http_post_exploit.json.
+
+8.2) FTP
+- Recon (core/services/ftp.py):
+  - Functions: run_cmd, parse_ftp_version, parse_ftp_syst (NSE output), grab_tls_banner (openssl STARTTLS), anon_ftp_command, check_anon_upload, search_exploits (SearchSploit + MSF), footprint.
+  - Tools: nmap ftp scripts (ftp-anon, ftp-syst, vsftpd backdoor), nc, openssl s_client, ftp client, searchsploit, msfconsole.
+  - Output: <target>_<port>_ftp_metadata.json + MD.
+- Exploit (core/exploit/ftp_exploit.py): test_ftp_anonymous_access, test_ftp_brute_force (Hydra), test_ftp_vsftpd_backdoor, run_metasploit_exploit, exploit_target. Output: <target>_ftp_exploit.json.
+- Post‑Exploit (core/post-exploit/ftp_post_exploit.py): download_files_via_ftp, upload_file_via_ftp, post_exploit_via_ftp. Output: <target>_ftp_post_exploit.json.
+
+8.3) SSH
+- Recon (core/services/ssh.py):
+  - Functions: run_cmd, parse_ssh_version (OpenSSH), search_exploits (SearchSploit + MSF), parse_ssh_audit (weak/good algorithms by section), footprint (nmap ssh-auth-methods, ssh2-enum-algos; ssh-audit -T).
+  - Output: <target>_<port>_ssh_metadata.json + MD.
+- Exploit (core/exploit/ssh_exploit.py): test_ssh_default_credentials, test_ssh_brute_force (Hydra), test_ssh_keys, exploit_target. Output: <target>_ssh_exploit.json.
+- Post‑Exploit (core/post-exploit/ssh_post_exploit.py): execute_remote_command (sshpass), gather_system_information, download_sensitive_files, post_exploit_via_ssh. Output: <target>_ssh_post_exploit.json.
+
+8.4) SMB
+- Recon (core/services/smb.py):
+  - Functions: run_command, parse_nmap_vulns (MS17‑010 and anonymous/guest shares), footprint (nmap smb-enum-shares,smb-os-discovery,smb-vuln*; smbclient -L), save_smb_report.
+  - Output: <target>_<port>_smb_metadata.json + MD.
+- Exploit (core/exploit/smb_exploit.py): test_smb_anonymous_shares, test_smb_brute_force (Hydra), run_metasploit_smb_exploit (EternalBlue), exploit_target. Output: <target>_smb_exploit.json.
+- Post‑Exploit (core/post-exploit/smb_post_exploit.py): psexec_shell (Impacket), smb_download_files, post_exploit_via_smb. Output: <target>_smb_post_exploit.json.
+
+8.5) Telnet
+- Recon (core/services/telnet.py):
+  - Functions: run_command, clean_ansi_codes, parse_telnet_banner, check_anonymous_access (Hydra with blank passwords list), search_exploits, footprint (nmap telnet-ntlm-info).
+  - Output: <target>_<port>_telnet_metadata.json + MD.
+- Exploit (core/exploit/telnet_exploit.py): test_telnet_brute_force (Hydra), exploit_target. Output: <target>_telnet_exploit.json.
+- Post‑Exploit (core/post-exploit/telnet_post_exploit.py): gather_system_information, post_exploit_via_telnet. Output: <target>_telnet_post_exploit.json.
+
+8.6) DNS
+- Recon (core/services/dns.py):
+  - Functions: _run (dig), _fetch_url, strip_ansi, search_msf, parse_axfr, parse_dnsenum, parse_dnsrecon, parse_ns_servers, footprint (NS/SOA/MX/TXT/AXFR per‑NS, dnsenum, MSF search).
+  - Output: <target>_dns_metadata.json + MD.
+- Exploit (core/exploit/dns_exploit.py): test_dns_zone_transfer, exploit_target. Output: <target>_dns_exploit.json.
+- Post‑Exploit (core/post-exploit/dns_post_exploit.py): post_exploit_via_dns (summarize records). Output: <target>_dns_post_exploit.json.
+
+8.7) VNC
+- Recon (core/services/vnc.py): nmap 5900, nc banner, search_msf; footprint → <target>_vnc_metadata.json + MD.
+- Exploit (core/exploit/vnc_exploit.py): test_vnc_brute_force (Hydra), exploit_target → <target>_vnc_exploit.json.
+- Post‑Exploit (core/post-exploit/vnc_post_exploit.py): capture_vnc_screenshot, post_exploit_via_vnc → <target>_vnc_post_exploit.json.
+
+8.8) MySQL
+- Recon (core/services/mysql.py): nmap 3306, nc banner, search_msf; footprint → <target>_mysql_metadata.json + MD.
+- Exploit (core/exploit/mysql_exploit.py): test_mysql_brute_force (Hydra), exploit_target → <target>_mysql_exploit.json.
+- Post‑Exploit (core/post-exploit/mysql_post_exploit.py): mysql_execute_query, post_exploit_via_mysql → <target>_mysql_post_exploit.json.
+
+8.9) PostgreSQL
+- Recon (core/services/postgresql.py): nmap 5432, note on banners, search_msf; footprint → <target>_postgresql_report.json + MD.
+- Exploit (core/exploit/postgresql_exploit.py): test_postgresql_brute_force (Hydra), exploit_target → <target>_postgresql_exploit.json.
+
+8.10) AJP (Apache JServ Protocol)
+- Recon (core/services/ajp.py): nmap 8009, ajp_banner_grab (raw socket), search_msf; footprint → <target>_ajp_metadata.json + MD.
+- Exploit (core/exploit/ajp_exploit.py): typical Ghostcat‑style via MSF, exploit_target → JSON.
+
+8.11) Java RMI
+- Recon (core/services/java_rmi.py): nmap 1099, search_msf; footprint → <target>_java_rmi_metadata.json + MD.
+- Exploit (core/exploit/java_rmi_exploit.py): MSF‑driven exploit_target → JSON.
+
+8.12) RPC
+- Recon (core/services/rpc.py): nmap 111, search_msf; footprint → <target>_rpc_metadata.json + MD.
+- Exploit (core/exploit/rpc_exploit.py): MSF‑driven placeholder → JSON.
+
+8.13) IRC
+- Recon (core/services/irc.py): raw banner (socket NICK/USER), nmap 6667, search_msf; footprint → <target>_irc_metadata.json + MD.
+- Exploit (core/exploit/irc_exploit.py): MSF‑driven placeholder → JSON.
+
+8.14) NetBIOS
+- Recon (core/services/netbios.py): nmap 137/138/139, nbtscan, (search_msf placeholder); footprint → <target>_netbios_metadata.json + MD.
+- Exploit: commonly part of SMB; placeholder in exploits.
+
+8.15) Oracle TNS
+- Recon (core/services/tns.py): nmap 1521, NSE oracle-sid-brute with wordlist, ODAT all, optional sqlplus enumeration, ODAT putFile; search_msf (banner and SIDs). Output: <target>_tns_metadata.json + MD.
+- Exploit (core/exploit/tns_exploit.py): MSF‑driven (listener/SID/credential vulns) → JSON.
+
+8.16) Others present or implied
+- SNMP, SMTP, MSSQL, NFS: follow similar pattern (nmap scripts, service‑specific tools) and have exploit/post‑exploit scripts per the summaries.
+
+9) Exploitation orchestrator (core/exploit.py)
+- Preconditions: checks hydra, msfconsole, nmap, gcc are installed; verifies recon completed (<target>_combined_report.json and at least one scan file).
+- Reads services→ports from combined JSON, maps to scripts in core/exploit/, runs each with attacker IP/port and optional --use-rockyou.
+- Each exploit writes <target>_<service>_exploit.json; aggregator generates exploitation_summary.md (status, outputs, next steps).
+
+10) Post‑Exploitation orchestrator (core/post_exploit.py)
+- Collects all successful exploit JSONs; filters by requested services; maps to core/post-exploit/*.py.
+- Runs each; writes post_exploitation_summary.md and post_exploitation_metadata.json (normalizes script outputs).
+
+11) Reporting (core/report_generator.py)
+- Collectors: all exploit JSONs, post‑exploit JSONs, and recon metadata JSONs.
+- Builds comprehensive report (Markdown) with: Executive Summary, Risk Summary, Attack Chain Analysis, Confirmed Vulnerabilities, Burp Summary (if present), Potential Vulnerabilities, Prioritized Remediation, Detailed Recon Findings, Appendices with exploit PoCs.
+- Saves: <target>_comprehensive_report.md, <target>_comprehensive_report.json (metadata), and tries PDF via weasyprint to <target>_comprehensive_report.pdf.
+
+12) Walkthrough (core/walkthrough_generator.py)
+- Aggregates recon, exploit, and post‑exploit data across services, and produces step‑by‑step guide with PoCs and outputs.
+- Saves: <target>_walkthrough.md and <target>_walkthrough.json (metadata stub).
+
+13) Resume capability (core/resume.py)
+- Manages <target>_resume_state.json with phase statuses and completed/failed services; can compute pending services by reading outputs; supports reset/cleanup.
+
+14) Integrations: Burp (core/integrations/burp.py, burp_runner.py)
+- burp.py: generic REST client supporting multiple adapters (different paths, bodies, and auth headers), normalizes issues and severity counts, persists artifacts.
+- burp_runner.py: launches Burp headless, ensures REST readiness, starts scan, polls state until done/timeout, fetches issues, saves artifacts, kills process.
+
+15) External tools (what and why)
+- Nmap: discover hosts/ports/services/versions; run protocol/service scripts.
+- Hydra: brute‑force logins (SSH, FTP, Telnet, VNC, DBs).
+- Metasploit: search and exploit known vulnerabilities.
+- SQLMap: detect/exploit SQL injection.
+- Nikto: web server misconfig/vuln scan.
+- Gobuster/Dirb/Wfuzz: enumerate directories/files/vhosts/parameters.
+- WhatWeb, WPScan, JoomScan: tech stack and CMS vuln checks.
+- dnsrecon/dnsenum/dig: DNS enumeration and zone transfer testing.
+- ssh-audit: SSH cipher/KEX/key health.
+- smbclient/enum4linux: SMB enumeration.
+- OpenSSL s_client: TLS banners; curl: HTTP banners/requests; linkfinder: JS endpoints.
+- Others per service (ODAT/sqlplus for Oracle, nbtscan for NetBIOS).
+
+16) Testing and quality
+- Run tests: python3 -m pytest tests/ -v
+- Lint/type/security: flake8, mypy, bandit (make lint). Format: black/isort (make format).
+- Coverage: make test-cov.
+
+17) Using the toolkit for an exam/evaluation
+- Prep: verify dependencies; set attacker IP and integration config.
+- Execute: run full walkthrough with --no-confirm (optionally restrict --services). Monitor logs (CLI or GUI /api/logs).
+- Evidence: keep outputs/ as the evidence pack (scans, metadata, exploit/post‑exploit JSON, final MD/PDF).
+- Deliverables: submit <target>_comprehensive_report.pdf and <target>_walkthrough.md with key artifacts (e.g., Burp issues, attack chains, successful_exploits).
+
+18) Notes and gotchas
+- Ensure external tools are in PATH; tune timeouts for your environment.
+- HTTP recon is expansive; consider limiting tools or disabling Burp to reduce runtime.
+- UDP scans can be slow/noisy; partial outputs are normal (your open file shows retransmission cap warnings from Nmap).
+- Some services may lack a footprint() implementation; recon still stores basic metadata when module missing.
+- PDF generation requires weasyprint system deps; if unavailable, MD reports are still generated.
+
+19) Current recon example (your open file)
+- outputs/192.168.1.190_udp_fast.txt: Nmap UDP fast scan file referenced by core/recon.py; its existence and size are included in <target>_scans.json and its raw contents are merged into <target>_combined_report.json for reporting.
+
+20) Appendix: Where things live
+- Entry points: cli/main.py (CLI), gui/server.py (GUI).
+- Orchestrators: core/recon.py, core/exploit.py, core/post_exploit.py, core/report_generator.py, core/walkthrough_generator.py.
+- Services: core/services/*.py with footprint() per protocol.
+- Exploits: core/exploit/*_exploit.py (per service orchestrators).
+- Post‑Exploits: core/post-exploit/*_post_exploit.py.
+- Integrations: core/integrations/burp.py, burp_runner.py.
+- Templates: core/templates/combined_report.html (PDF from recon), master_report.html (base template).
+- Config: config/settings.json, config/stealth.json.
+
+End of report.
+
+APPENDIX A: Detailed Tools Reference (commands and purpose)
+
+Nmap
+- Purpose: Port discovery, service/version detection, scriptable probes.
+- Recon usage:
+  - TCP fast: nmap -sV -T4 -Pn <target>
+  - TCP full: nmap -sV -p- -T4 -Pn <target>
+  - UDP fast: nmap -sU -F -T4 -Pn <target>
+  - HTTP extras appear in service modules (e.g., -O OS detection).
+  - SMB: nmap -p 445 --script smb-enum-shares,smb-os-discovery,smb-vuln* -sV -Pn <target>
+  - FTP: nmap -p <port> -sV --script ftp-anon,ftp-syst,ftp-vsftpd-backdoor,ftp-bounce,ftp-proftpd-backdoor,ftp-vuln-cve2010-4221 <target>
+  - SSH: nmap -Pn -p<port> -sV --script ssh-auth-methods,ssh2-enum-algos <target>
+  - DNS: nmap -sV --script oracle-sid-brute (for TNS) and standard service scans per module.
+
+Hydra
+- Purpose: Brute-force authentication.
+- Typical usage:
+  - FTP: hydra -L users.txt -P passwords.txt ftp://<target>:21
+  - SSH: hydra -L users.txt -P passwords.txt ssh://<target>:22
+  - Telnet (blank passwords check in code): hydra -L <generated_users> -p "" -t 4 telnet://<target>:<port>
+  - VNC: hydra -P passwords.txt vnc://<target>:5900
+
+Metasploit (msfconsole)
+- Purpose: Module search and exploitation.
+- Search modules: msfconsole -q -x 'search <query>; exit'
+- Module info (for CVE extraction): msfconsole -q -x 'info <module>; exit'
+- Scripts call msfconsole programmatically; exploitation modules are invoked inside per-service exploit scripts.
+
+SQLMap
+- Purpose: Detect/exploit SQL injection.
+- Usage in HTTP footprint:
+  - Basic scan: sqlmap -u http://<target>/ --batch --random-agent --level 1 --risk 1
+  - Login form testing: sqlmap -r <request.req> -p <param> --risk=3 --level=5 --batch --random-agent --timeout=15 --threads=1
+
+Nikto
+- Purpose: Web server vulnerability/misconfiguration scanning.
+- Usage: nikto -h <target> -Tuning b
+
+Gobuster
+- Purpose: Directory, DNS subdomain, and vhost brute-force.
+- Dir: gobuster dir -u http://<target> -w <wordlist> -x php,txt,bak,zip,config -t 50
+- DNS subdomains: gobuster dns -d <domain> -w <wordlist>
+- Vhost: gobuster vhost -u http://<target> -w <wordlist>
+
+LinkFinder
+- Purpose: Extract endpoints from JavaScript.
+- Usage: python3 <linkfinder.py> -i http://<target> -o cli
+
+WhatWeb
+- Purpose: Technology fingerprinting.
+- Usage: whatweb http://<target>
+
+WPScan / JoomScan
+- Purpose: CMS-specific enumeration.
+- WPScan: wpscan --url http://<target> --enumerate p --random-user-agent --no-update --force --request-timeout 30
+- JoomScan: joomscan --url http://<target>
+
+Dirb / Wfuzz
+- Dirb: dirb http://<target> /usr/share/dirb/wordlists/common.txt
+- Wfuzz: wfuzz -w <wordlist> -u http://<target>/FUZZ
+
+dnsrecon / dnsenum / dig
+- dnsrecon: dnsrecon -d <domain> -t std
+- dnsenum: dnsenum --dnsserver <ns_or_8.8.8.8> --enum -f <wordlist> <domain>
+- dig (NS/SOA/MX/TXT/AXFR): dig NS <domain> +noall +answer ; dig @<ns> AXFR <domain> +noall +answer
+
+ssh-audit
+- Purpose: SSH cipher/KEX/key audit.
+- Usage: ssh-audit -T <target>:<port>
+
+smbclient / enum4linux
+- smbclient: smbclient -L //<target>/ -N
+- enum4linux: enum4linux -a <target> (not always invoked in code but commonly paired)
+
+OpenSSL s_client
+- Purpose: TLS banner over STARTTLS for FTP and similar.
+- Usage: openssl s_client -connect <target>:<port> -starttls ftp -quiet
+
+curl / netcat (nc)
+- curl -I http(s)://<target> (headers/banners)
+- nc <target> <port> (raw banner grabbing; wrapped with timeout in code)
+
+ODAT / sqlplus (Oracle TNS)
+- ODAT all: odat.py all -s <target>
+- ODAT putFile test: odat.py utlfile -s <target> -d XE -U scott -P tiger --sysdba --putFile testing.txt ./testing.txt
+- sqlplus enumeration: echo "SQL..." | sqlplus -s scott/tiger@<target>/XE
+
+nbtscan (NetBIOS)
+- nbtscan <target>
+
+APPENDIX B: Function-by-Function Breakdown (by service)
+
+HTTP (core/services/http.py)
+- Helpers: _run (exec with timeout from config), _fetch_url (requests.get), strip_ansi (ANSI cleanup).
+- Search: search_msf (module/CVE discovery), search_exploitdb (searchsploit output parsing).
+- Parsers: parse_nikto (headers/misconfigs/endpoints), parse_gobuster_dir (categorize endpoints and parameters), parse_linkfinder (URL+param extraction), parse_wayback (CDX API), parse_dnsrecon, parse_whatweb (tech stack), parse_wpscan, parse_joomscan, parse_sqlmap_basic (injectables/DBMS/technique).
+- Vuln tests: test_sql_injection_endpoints, test_xss_endpoints, test_lfi_endpoints, test_upload_endpoints.
+- Login SQLi flow: find_login_form → build_request_file (.req content with headers/cookies) → test_login_form_sql_injection.
+- Burp integration: burp.scan_urls (REST) and burp_runner.run_single_target (headless JAR); results normalized and persisted.
+- Orchestrator: footprint(target) runs tools, aggregates/normalizes, performs MSF/ExploitDB searches, writes <target>_http_metadata.json and a detailed MD.
+
+FTP (core/services/ftp.py)
+- run_cmd (exec with robust error handling), parse_ftp_version (server/version from nmap), parse_ftp_syst (NSE section), grab_tls_banner (openssl), anon_ftp_command (stdin piping), check_anon_upload (proof via put/delete), search_exploits (searchsploit+MSF), footprint (full flow and reporting).
+
+SSH (core/services/ssh.py)
+- run_cmd, parse_ssh_version (OpenSSH X.Y.Z), search_exploits (dedup titles/CVEs), parse_ssh_audit (weak/good per (kex)/(key)/(mac)/(enc)), footprint (nmap scripts + ssh-audit, report/JSON).
+
+SMB (core/services/smb.py)
+- run_command, clean_ansi_codes, parse_nmap_vulns (anonymous share access, MS17-010 detection), footprint (nmap + smbclient -L), save_smb_report (JSON+MD writer).
+
+Telnet (core/services/telnet.py)
+- run_command, clean_ansi_codes, parse_telnet_banner (line cleanup), check_anonymous_access (temporary user list + Hydra blank password), search_exploits (searchsploit/MSF), footprint.
+
+DNS (core/services/dns.py)
+- _run, _fetch_url, strip_ansi, search_msf, parse_axfr (allowed/denied), parse_dnsenum (count), parse_dnsrecon (names), parse_ns_servers (NS list), footprint (per-NS AXFR, CH/TXT version.bind, etc.).
+
+VNC (core/services/vnc.py)
+- _run (nmap/nc), search_msf, footprint (report+JSON).
+
+MySQL (core/services/mysql.py)
+- _run (nmap/nc), strip_ansi, search_msf, footprint (report+JSON).
+
+PostgreSQL (core/services/postgresql.py)
+- _run (nmap), strip_ansi, search_msf, footprint (notes on banners, report+JSON).
+
+AJP (core/services/ajp.py)
+- _run (nmap), ajp_banner_grab (raw socket hex), strip_ansi, search_msf, footprint.
+
+Java RMI (core/services/java_rmi.py)
+- _run (nmap), strip_ansi, search_msf, footprint.
+
+RPC (core/services/rpc.py)
+- _run (nmap), strip_ansi, search_msf, footprint.
+
+IRC (core/services/irc.py)
+- irc_banner_grab (NICK/USER handshake), _run (nmap), strip_ansi, search_msf, footprint.
+
+NetBIOS (core/services/netbios.py)
+- _run (nmap, nbtscan), strip_ansi, search_msf (placeholder), footprint.
+
+TNS/Oracle (core/services/tns.py)
+- _run (exec wrapper), strip_ansi, search_msf.
+- footprint: nmap -p1521 -sV, NSE oracle-sid-brute with sidFile wordlist, ODAT all, optional sqlplus enumeration, ODAT putFile test; banner/SID MSF searches; writes JSON+MD.
+
+APPENDIX C: Exploit and Post-Exploit Functions (by service)
+
+HTTP Exploits (core/exploit/http_exploit.py)
+- run_metasploit_exploit: invoke specific MSF module with RHOSTS/RPORT/PAYLOAD, capture output.
+- test_sql_injection_with_sqlmap: deep SQLi against URL/param, enumerate DBs/dump.
+- test_xss_with_payload: iterate XSS payloads, reflect/execute detection.
+- test_file_upload_and_shell: attempt malicious upload for RCE/webshell.
+- test_lfi_and_file_download: enumerate and read sensitive files (e.g., /etc/passwd).
+- test_rce_and_proof: command injection/RCE proofs.
+- exploit_target: orchestrates all above using recon hints.
+
+FTP Exploits (core/exploit/ftp_exploit.py)
+- test_ftp_anonymous_access, test_ftp_brute_force (Hydra), test_ftp_vsftpd_backdoor, run_metasploit_exploit, exploit_target.
+
+SSH Exploits (core/exploit/ssh_exploit.py)
+- test_ssh_default_credentials, test_ssh_brute_force (Hydra), test_ssh_keys, exploit_target.
+
+SMB Exploits (core/exploit/smb_exploit.py)
+- test_smb_anonymous_shares, test_smb_brute_force, run_metasploit_smb_exploit (e.g., EternalBlue), exploit_target.
+
+Telnet Exploits (core/exploit/telnet_exploit.py)
+- test_telnet_brute_force, exploit_target.
+
+NFS Exploits (core/exploit/nfs_exploit.py)
+- test_nfs_shares (showmount -e), test_nfs_mount (mount and access), exploit_target.
+
+VNC Exploits (core/exploit/vnc_exploit.py)
+- test_vnc_brute_force, exploit_target.
+
+MySQL/PostgreSQL Exploits
+- test_mysql_brute_force / test_postgresql_brute_force, exploit_target.
+
+SMTP/DNS/IRC/RMI/RPC Exploits
+- Service-specific checks and MSF launches; exploit_target orchestrates.
+
+HTTP Post-Exploitation (core/post-exploit/http_post_exploit.py)
+- use_rce_for_enumeration, targeted_lfi_download, sqlmap_extract_from_exploit, exploit_admin_panels, exploit_upload_vulnerabilities, post_exploit_target.
+
+SSH Post-Exploitation (core/post-exploit/ssh_post_exploit.py)
+- execute_remote_command (sshpass), gather_system_information, download_sensitive_files, post_exploit_via_ssh.
+
+FTP Post-Exploitation (core/post-exploit/ftp_post_exploit.py)
+- download_files_via_ftp, upload_file_via_ftp, post_exploit_via_ftp.
+
+SMB Post-Exploitation (core/post-exploit/smb_post_exploit.py)
+- psexec_shell (impacket psexec.py), smb_download_files, post_exploit_via_smb.
+
+VNC Post-Exploitation (core/post-exploit/vnc_post_exploit.py)
+- capture_vnc_screenshot, post_exploit_via_vnc.
+
+MySQL Post-Exploitation (core/post-exploit/mysql_post_exploit.py)
+- mysql_execute_query (list DBs/users/tables), post_exploit_via_mysql.
+
+DNS Post-Exploitation (core/post-exploit/dns_post_exploit.py)
+- post_exploit_via_dns: collate transferred zone data for reporting.
+
+APPENDIX D: Orchestrators — key functions
+
+Recon (core/recon.py)
+- nmap_scan(flags,name): runs Nmap with proper flags, writes .txt outputs.
+- extract_services(nmap_output): parses service/port/proto per line.
+- run_footprint_for_services(...): dynamic import core.services.<service>, call footprint, persist per-service metadata JSON.
+- validate_metadata/clean_ansi_codes: normalize structures/strings recursively.
+- aggregate_json_results(target): read scans + all *_metadata.json, consolidate, risk-score, and write <target>_combined_report.json and <target>_scans.json.
+- build_combined_report: render Jinja2 template to PDF (combined_report.html).
+- run_recon: orchestrates fast/full/udp scans in ThreadPool, filtering (e.g., netbios-ssn→smb), mail_footprint, aggregation & PDF.
+
+Exploit (core/exploit.py)
+- run_command: robust command execution, timeout handling.
+- detect_exploitation_success: pattern-based detector per service.
+- check_recon_completion: verify combined JSON and at least one scan exists.
+- get_services_from_outputs: parse combined JSON services→ports.
+- map_services_to_scripts: known service→exploit scripts mapping.
+- run_exploit_script: build cmd (python3 script --port --attacker-ip/port [--use-rockyou] --no-confirm), parse per-script JSON.
+- aggregate_results: build exploitation_summary.md (status, output excerpts, next steps).
+- main: CLI parsing, dependency checks, filtering via --services, run sequence.
+
+Post-Exploit (core/post_exploit.py)
+- check_exploitation_completion: sanity read of *_exploit.json files.
+- get_successful_exploits: collect services with successful exploits and their ports.
+- map_services_to_post_exploit_scripts: known service→post-exploit scripts mapping.
+- run_post_exploit_script: run python3 post-exploit script with args, collect any per-script JSON, return normalized record.
+- aggregate_post_exploit_results: build post_exploitation_summary.md.
+- main: CLI parse, deps, filtering, run sequence, save post_exploitation_metadata.json.
+
+Reporting (core/report_generator.py)
+- collect_exploit_results / collect_post_exploit_results / collect_recon_results: gather JSON across outputs.
+- analyze_attack_chains: example LFI→/etc/passwd→bruteforce chain builder.
+- generate_comprehensive_report: builds MD sections (Executive, Risks, Chains, Confirmed Vulns, Burp summary, Potential Vulns, Remediation, Recon details, Appendices).
+- save_comprehensive_report: write MD + minimal JSON metadata; attempt PDF via weasyprint (markdown→HTML→PDF).
+
+Walkthrough (core/walkthrough_generator.py)
+- collect_all_data: aggregate recon/exploit/post JSONs.
+- generate_service_walkthrough: per-service Recon/Exploitation/Post sections with PoCs.
+- generate_comprehensive_walkthrough: overall structure, methodology, detailed walkthrough, impact, remediation.
+- save_walkthrough_report: write MD + minimal JSON metadata.
+
+End of appendices.

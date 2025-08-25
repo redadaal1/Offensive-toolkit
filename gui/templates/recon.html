@@ -1,0 +1,67 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8"/><meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <title>Recon | Offsec Dashboard</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css">
+  <style>
+    body{font-family:Inter;background:#05080f;color:#e5e7eb}
+    .card{background:#0b1426;border:1px solid #14223d;border-radius:14px}
+    .btn{background:#00ff9c;color:#08111c;padding:.65rem 1.05rem;border-radius:.55rem;font-weight:700}
+    .field{background:#0b1426;border:1px solid #14223d;border-radius:8px;color:#e5e7eb}
+    .log{background:#050a13;border:1px solid #14223d;border-radius:12px}
+    a.link{color:#7dd3fc}
+  </style>
+</head>
+<body class="p-6">
+  <div class="max-w-6xl mx-auto space-y-6">
+    <header class="flex items-center justify-between">
+      <div>
+        <h1 class="text-2xl font-extrabold">Recon</h1>
+        <p class="text-sm text-gray-400">Run service discovery and footprints, with optional Burp integration.</p>
+      </div>
+      <a href="/dashboard" class="link">Back to Dashboard</a>
+    </header>
+
+    <section class="grid grid-cols-1 md:grid-cols-2 gap-4">
+      <div class="card p-4 space-y-3">
+        <label class="block text-sm">Target
+          <input id="target" class="w-full mt-1 p-2 field" placeholder="192.168.1.27" />
+        </label>
+        <label class="block text-sm">Services (comma-separated)
+          <input id="services" class="w-full mt-1 p-2 field" placeholder="http,ssh,ftp" />
+        </label>
+        <button class="btn" onclick="run()">Run Recon</button>
+      </div>
+      <div class="card p-4 space-y-3">
+        <h3 class="font-semibold">Live Log</h3>
+        <pre id="log" class="log p-3 h-96 overflow-auto text-xs"></pre>
+      </div>
+    </section>
+
+    <section class="card p-4 space-y-3">
+      <div class="flex items-center justify-between">
+        <h3 class="font-semibold">Outputs</h3>
+        <button class="btn" onclick="refresh()">Refresh</button>
+      </div>
+      <ul id="outputs" class="space-y-1 text-sm"></ul>
+    </section>
+  </div>
+
+  <script>
+    let es;
+    function s(id){return document.getElementById(id)}
+    function startLogs(){ if(es) es.close(); es = new EventSource('/api/logs'); es.onmessage=(e)=>{ s('log').textContent += e.data + "\n"; s('log').scrollTop=s('log').scrollHeight; } }
+    async function run(){
+      const body = { action:'recon', target:s('target').value.trim(), services:s('services').value.split(',').map(x=>x.trim()).filter(Boolean), no_confirm:true };
+      if (!body.target){ alert('Target required'); return; }
+      s('log').textContent=''; startLogs();
+      await fetch('/api/run',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify(body)});
+      setTimeout(refresh, 2000);
+    }
+    async function refresh(){ const r=await fetch('/api/outputs'); const j=await r.json(); s('outputs').innerHTML = j.files.map(f=>`<li><a class="link" href="/outputs/${encodeURIComponent(f)}" target="_blank">${f}</a></li>`).join(''); }
+    window.addEventListener('load', ()=>{ startLogs(); refresh(); });
+  </script>
+</body>
+</html>

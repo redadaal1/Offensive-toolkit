@@ -1,4 +1,14 @@
+# Production requirements
+requests
+# For Nmap integration
 python-nmap
-jinja2
-weasyprint
+paramiko
+# Add rich for better console output
 rich
+weasyprint
+colorama
+lxml
+beautifulsoup4
+Markdown
+fastapi
+uvicorn

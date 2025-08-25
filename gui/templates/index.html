@@ -1,0 +1,163 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <title>Offsec Dashboard</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css">
+  <style>
+    /* Hacker / neon theme */
+    :root{
+      --bg:#05080f; --panel:#0b1220; --border:#0f1b31; --muted:#6b7280;
+      --primary:#00ff9c; --primary-dim:#00c77d; --accent:#5eead4; --danger:#ff5f6d; --link:#7dd3fc;
+    }
+    body{font-family:Inter,system-ui,-apple-system,Segoe UI,Roboto,Ubuntu,Cantarell,Noto Sans,sans-serif;background:radial-gradient(1200px 600px at 10% -10%,rgba(0,255,156,0.08),transparent), radial-gradient(900px 500px at 110% 10%,rgba(94,234,212,.08),transparent), var(--bg)}
+    .card{background:linear-gradient(180deg,rgba(11,18,32,.9),rgba(7,12,22,.95));border:1px solid var(--border);border-radius:14px;box-shadow:0 0 0 1px rgba(0,255,156,.05), 0 10px 30px rgba(0,0,0,.35)}
+    .btn{background:linear-gradient(90deg,var(--primary),var(--accent));color:#08111c;padding:.65rem 1.05rem;border-radius:.55rem;font-weight:700;letter-spacing:.02em;box-shadow:0 0 18px rgba(0,255,156,.25), inset 0 -1px 0 rgba(0,0,0,.3)}
+    .btn:hover{filter:brightness(1.05)}
+    .btn:disabled{opacity:.6;filter:grayscale(.3)}
+    .btn-ghost{background:var(--panel);border:1px solid var(--border);color:#e5e7eb}
+    .badge{background:rgba(0,255,156,.1);color:var(--primary);border:1px solid rgba(0,255,156,.25);border-radius:9999px;padding:.25rem .7rem;font-weight:700;box-shadow:0 0 14px rgba(0,255,156,.15)}
+    .badge.running{background:rgba(250,204,21,.08);color:#facc15;border-color:rgba(250,204,21,.35)}
+    .badge.idle{background:rgba(0,255,156,.1)}
+    .badge.error{background:rgba(255,95,109,.08);color:#ff7b86;border-color:rgba(255,95,109,.35)}
+    .log{background:#050a13;color:#cde3ff;border:1px solid var(--border);border-radius:12px}
+    .terminal-title{color:var(--muted)}
+    .field{background:#0b1426;border:1px solid var(--border);border-radius:8px;color:#e5e7eb}
+    .field:focus{outline:none;box-shadow:0 0 0 2px rgba(0,255,156,.25)}
+    a.link{color:var(--link)}
+  </style>
+</head>
+<body class="bg-gray-900 text-gray-100">
+<div class="max-w-6xl mx-auto p-6 space-y-6">
+  <header class="flex items-center justify-between">
+    <div class="flex items-center gap-3">
+      <svg width="30" height="30" viewBox="0 0 24 24" fill="none"><path d="M4 6h16M4 12h16M4 18h16" stroke="var(--primary)" stroke-width="2" stroke-linecap="round"/></svg>
+      <div>
+        <h1 class="text-3xl font-extrabold" style="color:var(--primary)">Offsec Dashboard</h1>
+        <p class="text-sm text-gray-400">Recon • Exploit • Post-Exploit • Reporting • Walkthrough</p>
+      </div>
+    </div>
+    <div class="flex items-center gap-2">
+      <div id="statusBadge" class="badge idle">Idle</div>
+      <div class="flex items-center gap-1">
+        <button class="btn btn-ghost" onclick="pauseTask()">Pause</button>
+        <button class="btn btn-ghost" onclick="resumeTask()">Continue</button>
+        <button class="btn btn-ghost" onclick="stopTask()">Stop</button>
+        <button class="btn btn-ghost" onclick="clearOutputsFromServer()">Clear</button>
+      </div>
+    </div>
+  </header>
+
+  <section class="grid grid-cols-1 md:grid-cols-3 gap-4">
+    <div class="card p-4 space-y-3">
+      <h3 class="font-semibold">Target</h3>
+      <label class="block text-sm">Target IP or Host
+        <input id="target" class="w-full mt-1 p-2 field" placeholder="192.168.1.27" />
+      </label>
+      <label class="block text-sm">Services (comma-separated)
+        <input id="services" class="w-full mt-1 p-2 field" placeholder="http,ssh,ftp" />
+      </label>
+      <label class="flex items-center gap-2 text-sm">
+        <input id="rockyou" type="checkbox" /> Use rockyou.txt
+      </label>
+    </div>
+
+    <div class="card p-4 space-y-3">
+      <h3 class="font-semibold">Attacker</h3>
+      <label class="block text-sm">Attacker IP
+        <input id="attacker_ip" class="w-full mt-1 p-2 field" placeholder="192.168.1.16" />
+      </label>
+      <label class="block text-sm">Attacker Port
+        <input id="attacker_port" value="4444" class="w-full mt-1 p-2 field" />
+      </label>
+    </div>
+
+    <div class="card p-4 space-y-3">
+      <h3 class="font-semibold">Actions</h3>
+      <div class="grid grid-cols-2 gap-2">
+        <button class="btn" onclick="run('recon')">Recon</button>
+        <button class="btn" onclick="run('exploit')">Exploit</button>
+        <button class="btn" onclick="run('post-exploit')">Post-Exploit</button>
+        <button class="btn" onclick="run('report')">Report</button>
+        <button class="btn" onclick="run('walkthrough')">Walkthrough</button>
+        <button class="btn btn-ghost" onclick="run('walkthrough-full')">Full Workflow</button>
+      </div>
+    </div>
+  </section>
+
+  <section class="grid grid-cols-1 md:grid-cols-2 gap-4">
+    <div class="card p-4 space-y-3">
+      <div class="flex items-center justify-between">
+        <h3 class="font-semibold" style="color:var(--accent)">Live Log</h3>
+        <button class="btn btn-ghost" onclick="clearLog()">Clear</button>
+      </div>
+      <div class="terminal-title text-xs">session: offsec | shell: subprocess</div>
+      <pre id="log" class="log p-3 h-96 overflow-auto text-xs"></pre>
+    </div>
+    <div class="card p-4 space-y-3">
+      <div class="flex items-center justify-between">
+        <h3 class="font-semibold" style="color:var(--accent)">Outputs</h3>
+        <button class="btn btn-ghost" onclick="refreshOutputs()">Refresh</button>
+      </div>
+      <ul id="outputs" class="space-y-1 text-sm"></ul>
+    </div>
+  </section>
+</div>
+
+<script>
+let es;
+function s(el){return document.getElementById(el)}
+function payload(action){
+  return {
+    action,
+    target: s('target').value.trim(),
+    attacker_ip: s('attacker_ip').value.trim() || null,
+    attacker_port: s('attacker_port').value.trim() || '4444',
+    services: s('services').value.split(',').map(x=>x.trim()).filter(Boolean),
+    use_rockyou: s('rockyou').checked,
+    no_confirm: true
+  }
+}
+function startLogs(){
+  if (es) es.close();
+  es = new EventSource('/api/logs');
+  es.onmessage = (ev)=>{
+    s('log').textContent += ev.data + "\n";
+    s('log').scrollTop = s('log').scrollHeight;
+  };
+}
+function clearLog(){ s('log').textContent=''; }
+async function run(action){
+  const body = payload(action);
+  if (!body.target){ alert('Target is required'); return; }
+  clearLog(); startLogs(); setStatus('Running ' + action, 'running');
+  const res = await fetch('/api/run',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify(body)});
+  const j = await res.json(); if (j.error) alert(j.error);
+  setTimeout(refreshOutputs, 2000);
+}
+async function refreshOutputs(){
+  const res = await fetch('/api/outputs'); const j = await res.json();
+  s('outputs').innerHTML = j.files.map(f=>`<li><a class="link" href="/outputs/${encodeURIComponent(f)}" target="_blank">${f}</a></li>`).join('');
+}
+async function pollStatus(){
+  try{
+    const r = await fetch('/api/status'); const j = await r.json();
+    if (j && j.state){
+      const t = j.state==='idle' ? 'Idle' : `Running ${j.action||''}`;
+      setStatus(t, j.state);
+    }
+  }catch(e){}
+}
+function setStatus(text, state){ const el=s('statusBadge'); el.textContent=text; el.classList.remove('idle','running','error'); if(state) el.classList.add(state); }
+async function pauseTask(){ try{ await fetch('/api/pause',{method:'POST'}); setStatus('Paused','running'); }catch(e){} }
+async function resumeTask(){ try{ await fetch('/api/resume',{method:'POST'}); setStatus('Running','running'); }catch(e){} }
+async function stopTask(){ try{ await fetch('/api/stop',{method:'POST'}); setStatus('Idle','idle'); }catch(e){} }
+async function clearOutputsFromServer(){ try{ await fetch('/api/clear-outputs',{method:'POST'}); await refreshOutputs(); }catch(e){} }
+window.addEventListener('load', ()=>{ startLogs(); refreshOutputs(); setInterval(pollStatus, 1000); });
+</script>
+</body>
+</html>

@@ -1,2 +1,11 @@
 hydra.restore
 hydra.restore
+outputs/
+logs/
+.venv/
+__pycache__/
+*.pyc
+gui/frontend/node_modules/
+gui/frontend/dist/
+.env
+config/settings.json
