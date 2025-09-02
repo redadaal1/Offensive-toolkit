@@ -1,0 +1,51 @@
+{
+    "general": {
+        "output_directory": "outputs",
+        "log_level": "INFO",
+        "log_format": "%(asctime)s - %(levelname)s - %(message)s",
+        "default_timeout": null,
+        "max_concurrent_processes": 4
+    },
+    "integrations": {
+        "burp": {
+            "enabled": true,
+            "mode": "rest",
+            "rest_url": "http://127.0.0.1:1337",
+            "api_key": "lZkjNFKXhzI14n1nGWslHHkKTgn9S0x5",
+            "timeout_seconds": 0,
+            "scan_configuration": "Audit - Passive",
+            "scan_id_probe_max": 200
+        },
+        "burpRunner": {
+            "enabled": false
+        },
+        "nessus": {
+            "enabled": false
+        },
+        "nuclei": {
+            "enabled": true,
+            "binary": "nuclei",
+            "rate_limit": 50,
+            "concurrency": 50,
+            "severity": "low,medium,high,critical",
+            "templates": ""
+        },
+        "sslyze": {
+            "enabled": true,
+            "binary": "sslyze"
+        },
+        "ssh_audit": {
+            "enabled": true,
+            "binary": "ssh-audit"
+        },
+        "nmap_vuln": {
+            "enabled": true,
+            "binary": "nmap"
+        },
+        "smb_checks": {
+            "enabled": true,
+            "binary": "nmap"
+        }
+    }
+}
+

@@ -96,7 +96,7 @@ python3 -m cli.main --help
 python3 -m cli.main --target 192.168.1.10 --attacker-ip 192.168.1.16 --walkthrough
 
 # With specific services
-python3 -m cli.main --target 192.168.1.10 --attacker-ip 192.168.1.16 --walkthrough --services http,ssh,ftp
+python3 -m cli.main --target 192.168.1.10 --walkthrough --services http,ssh,ftp
 
 # With rockyou.txt for brute forcing
 python3 -m cli.main --target 192.168.1.10 --attacker-ip 192.168.1.16 --walkthrough --use-rockyou
@@ -108,10 +108,10 @@ python3 -m cli.main --target 192.168.1.10 --attacker-ip 192.168.1.16 --walkthrou
 python3 -m cli.main --target 192.168.1.10 --recon
 
 # Exploitation only (requires recon output)
-python3 -m cli.main --target 192.168.1.10 --attacker-ip 192.168.1.16 --exploit
+python3 -m cli.main --target 192.168.1.10 --exploit  # --attacker-ip auto-detected; override with --attacker-ip
 
 # Post-exploitation only (requires exploit output)
-python3 -m cli.main --target 192.168.1.10 --post-exploit
+python3 -m cli.main --target 192.168.1.10 --post-exploit  # --attacker-ip auto-detected; override with --attacker-ip
 
 # Report generation
 python3 -m cli.main --target 192.168.1.10 --report

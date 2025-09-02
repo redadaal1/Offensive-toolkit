@@ -40,6 +40,60 @@ class Config:
                 "default_timeout": None,
                 "max_concurrent_processes": 4
             },
+            "integrations": {
+                "burp": {
+                    "enabled": False,
+                    "mode": "rest",
+                    "rest_url": "http://127.0.0.1:1337",
+                    "api_key": "",
+                    "timeout_seconds": 3600
+                },
+                "burpRunner": {
+                    "enabled": False,
+                    "java": "/usr/bin/java",
+                    "burpJar": "/opt/burpsuite/burpsuite_pro.jar",
+                    "project_file": "/opt/burpsuite/default.burp",
+                    "memory": "1536m",
+                    "headless": True,
+                    "retry": 8,
+                    "timeout_minutes": 10,
+                    "scan_configuration": "Audit - Passive"
+                },
+                "nessus": {
+                    "enabled": False,
+                    "url": "https://127.0.0.1:8834",
+                    "access_key": "",
+                    "secret_key": "",
+                    "mode": "fast",  # fast | full
+                    "fast_template_uuid": "",  # UUID for light/fast policy
+                    "scan_template_uuid": "",  # UUID for deeper policy
+                    "timeout_minutes": 30
+                },
+                "nuclei": {
+                    "enabled": False,
+                    "binary": "nuclei",
+                    "rate_limit": 50,
+                    "concurrency": 50,
+                    "severity": "low,medium,high,critical",
+                    "templates": ""
+                },
+                "sslyze": {
+                    "enabled": False,
+                    "binary": "sslyze"
+                },
+                "ssh_audit": {
+                    "enabled": False,
+                    "binary": "ssh-audit"
+                },
+                "nmap_vuln": {
+                    "enabled": False,
+                    "binary": "nmap"
+                },
+                "smb_checks": {
+                    "enabled": False,
+                    "binary": "nmap"
+                }
+            },
             "exploitation": {
                 "default_attacker_ip": "192.168.1.16",
                 "default_attacker_port": "4444",
@@ -49,6 +103,11 @@ class Config:
                 "enable_rockyou_by_default": False,
                 "rockyou_path": "/usr/share/wordlists/rockyou.txt",
                 "common_passwords_path": "commonpasswords.txt"
+            },
+            "services": {
+                "http": {
+                    "timeout": 300
+                }
             },
             "credentials": {
                 "metasploitable2": {

@@ -67,6 +67,8 @@ def extract_services(nmap_output: Path) -> List[Tuple[str, int, str]]:
 
 def run_footprint_for_services(target: str, services: List[Tuple[str, int, str]], service_data: Dict, footprinted_services: set):
     for service, port, proto in services:
+        # Sanitize service name for filesystem safety (avoid characters like '/')
+        safe_service = re.sub(r"[^A-Za-z0-9._-]", "-", service)
         if service in footprinted_services:
             logger.info(f"Skipping footprint for {service} on {port}/{proto}, already processed")
             continue
@@ -81,7 +83,7 @@ def run_footprint_for_services(target: str, services: List[Tuple[str, int, str]]
                 "protocol": proto,
                 "note": f"No footprint module available for {service}"
             }
-            json_path = OUTPUT_DIR / f"{target}_{service}_{port}_{proto}_metadata.json"
+            json_path = OUTPUT_DIR / f"{target}_{safe_service}_{port}_{proto}_metadata.json"
             with open(json_path, "w", encoding='utf-8') as f:
                 json.dump(service_data[f"{service}_{port}_{proto}"], f, indent=4)
             logger.info(f"Saved basic metadata to {json_path}")
@@ -93,7 +95,7 @@ def run_footprint_for_services(target: str, services: List[Tuple[str, int, str]]
                 result = mod.footprint(target, port=port) if "port" in mod.footprint.__code__.co_varnames else mod.footprint(target)
                 if isinstance(result, dict):
                     service_data[f"{service}_{port}_{proto}"] = result
-                    json_path = OUTPUT_DIR / f"{target}_{service}_{port}_{proto}_metadata.json"
+                    json_path = OUTPUT_DIR / f"{target}_{safe_service}_{port}_{proto}_metadata.json"
                     with open(json_path, "w", encoding='utf-8') as f:
                         json.dump(result, f, indent=4)
                     logger.info(f"Saved service metadata to {json_path}")
@@ -107,7 +109,7 @@ def run_footprint_for_services(target: str, services: List[Tuple[str, int, str]]
                     "protocol": proto,
                     "error": f"Decoding error: {str(e)}"
                 }
-                json_path = OUTPUT_DIR / f"{target}_{service}_{port}_{proto}_metadata.json"
+                json_path = OUTPUT_DIR / f"{target}_{safe_service}_{port}_{proto}_metadata.json"
                 with open(json_path, "w", encoding='utf-8') as f:
                     json.dump(service_data[f"{service}_{port}_{proto}"], f, indent=4)
                 logger.info(f"Saved error metadata to {json_path}")
@@ -119,7 +121,7 @@ def run_footprint_for_services(target: str, services: List[Tuple[str, int, str]]
                     "protocol": proto,
                     "error": f"Footprint error: {str(e)}"
                 }
-                json_path = OUTPUT_DIR / f"{target}_{service}_{port}_{proto}_metadata.json"
+                json_path = OUTPUT_DIR / f"{target}_{safe_service}_{port}_{proto}_metadata.json"
                 with open(json_path, "w", encoding='utf-8') as f:
                     json.dump(service_data[f"{service}_{port}_{proto}"], f, indent=4)
                 logger.info(f"Saved error metadata to {json_path}")
@@ -131,7 +133,7 @@ def run_footprint_for_services(target: str, services: List[Tuple[str, int, str]]
                 "protocol": proto,
                 "note": f"No footprint function for {service}"
             }
-            json_path = OUTPUT_DIR / f"{target}_{service}_{port}_{proto}_metadata.json"
+            json_path = OUTPUT_DIR / f"{target}_{safe_service}_{port}_{proto}_metadata.json"
             with open(json_path, "w", encoding='utf-8') as f:
                 json.dump(service_data[f"{service}_{port}_{proto}"], f, indent=4)
             logger.info(f"Saved basic metadata to {json_path}")

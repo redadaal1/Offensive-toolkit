@@ -680,37 +680,9 @@ def footprint(target: str) -> Dict:
             unique_endpoints.append(endpoint)
             seen_urls.add(endpoint["url"])
 
-    # Optional: Run Burp Suite scan against discovered URLs (existing REST client)
+    # Burp Suite moved to Vulnerability Assessment. Keep placeholders empty here.
     burp_summary = {}
-    if config.get("integrations.burp.enabled", False) and burp is not None:
-        try:
-            seed_urls = [f"http://{target}/"]
-            seed_urls.extend([e["url"] for e in unique_endpoints if e.get("url")])
-            # Deduplicate and cap to reasonable size
-            deduped = []
-            seen = set()
-            for u in seed_urls:
-                if u not in seen:
-                    seen.add(u)
-                    deduped.append(u)
-            urls_to_scan = deduped[:100]
-            burp_result = burp.scan_urls(target, urls_to_scan)
-            burp_summary = burp_result.get("summary", {}) or {}
-        except Exception as e:
-            print(f"[!] Burp integration error: {e}")
-
-    # Optional: Run Burp via local runner (headless jar + REST)
     burp_runner_result = {}
-    if config.get("integrations.burpRunner.enabled", False) and burp_runner is not None:
-        try:
-            ok, issues_path, meta_path = burp_runner.run_single_target(f"http://{target}/")
-            if meta_path and str(meta_path):
-                try:
-                    burp_runner_result = json.loads(Path(meta_path).read_text(encoding="utf-8"))
-                except Exception:
-                    burp_runner_result = {"meta_path": str(meta_path)}
-        except Exception as e:
-            print(f"[!] Burp runner error: {e}")
     
     # Test endpoints for specific vulnerabilities
     sql_vulnerable = test_sql_injection_endpoints(unique_endpoints)

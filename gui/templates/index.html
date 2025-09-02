@@ -64,6 +64,12 @@
       <label class="flex items-center gap-2 text-sm">
         <input id="rockyou" type="checkbox" /> Use rockyou.txt
       </label>
+      <label class="flex items-center gap-2 text-sm">
+        <input id="with_va" type="checkbox" /> Run VA with Recon/Full Workflow
+      </label>
+      <label class="flex items-center gap-2 text-sm">
+        <input id="no_confirm" type="checkbox" checked /> Skip confirmations
+      </label>
     </div>
 
     <div class="card p-4 space-y-3">
@@ -83,8 +89,11 @@
         <button class="btn" onclick="run('exploit')">Exploit</button>
         <button class="btn" onclick="run('post-exploit')">Post-Exploit</button>
         <button class="btn" onclick="run('report')">Report</button>
-        <button class="btn" onclick="run('walkthrough')">Walkthrough</button>
+        <button class="btn" onclick="run('walkthrough')">Walkthrough (report)</button>
         <button class="btn btn-ghost" onclick="run('walkthrough-full')">Full Workflow</button>
+        <button class="btn" onclick="run('vuln-assess')">Vuln Assessment</button>
+        <button class="btn" onclick="run('evasion')">Evasion</button>
+        <button class="btn btn-ghost" onclick="run('list-services')">List Services</button>
       </div>
     </div>
   </section>
@@ -109,7 +118,7 @@
 </div>
 
 <script>
-let es;
+let es; let sessionId = '';
 function s(el){return document.getElementById(el)}
 function payload(action){
   return {
@@ -119,12 +128,14 @@ function payload(action){
     attacker_port: s('attacker_port').value.trim() || '4444',
     services: s('services').value.split(',').map(x=>x.trim()).filter(Boolean),
     use_rockyou: s('rockyou').checked,
-    no_confirm: true
+    no_confirm: s('no_confirm') ? s('no_confirm').checked : true,
+    with_vuln_assess: s('with_va') ? s('with_va').checked : false
   }
 }
 function startLogs(){
   if (es) es.close();
-  es = new EventSource('/api/logs');
+  const sid = sessionId || 'default';
+  es = new EventSource(`/api/logs/${sid}`);
   es.onmessage = (ev)=>{
     s('log').textContent += ev.data + "\n";
     s('log').scrollTop = s('log').scrollHeight;
@@ -135,8 +146,8 @@ async function run(action){
   const body = payload(action);
   if (!body.target){ alert('Target is required'); return; }
   clearLog(); startLogs(); setStatus('Running ' + action, 'running');
-  const res = await fetch('/api/run',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify(body)});
-  const j = await res.json(); if (j.error) alert(j.error);
+  const res = await fetch('/api/run',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({...body, session_id: sessionId||undefined})});
+  const j = await res.json(); if (j.error) alert(j.error); if (j.session_id) sessionId = j.session_id;
   setTimeout(refreshOutputs, 2000);
 }
 async function refreshOutputs(){
@@ -145,7 +156,7 @@ async function refreshOutputs(){
 }
 async function pollStatus(){
   try{
-    const r = await fetch('/api/status'); const j = await r.json();
+    const r = await fetch(`/api/status?session_id=${encodeURIComponent(sessionId||'')}`); const j = await r.json();
     if (j && j.state){
       const t = j.state==='idle' ? 'Idle' : `Running ${j.action||''}`;
       setStatus(t, j.state);

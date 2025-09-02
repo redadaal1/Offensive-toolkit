@@ -1,35 +1,56 @@
-hydra.restore
-hydra.restore
-outputs/
-logs/
-.venv/
+# Python
 __pycache__/
-*.pyc
-gui/frontend/node_modules/
-gui/frontend/dist/
+*.py[cod]
+*.pyo
+*.pyd
+*.so
+*.egg-info/
+.eggs/
+.build/
+.pytest_cache/
+.mypy_cache/
+.coverage*
+htmlcov/
+.tox/
+.venv/
+venv/
+ENV/
 .env
-config/settings.json
-hydra.restore
-hydra.restore
-node_modules/
-gui/frontend/node_modules/
-gui/frontend/dist/
-outputs/
+.env.*
+
+# Byte-compiled / optimized / DLL files
+*$py.class
+
+# Logs
 logs/
-.venv/
-__pycache__/
-*.pyc
-hydra.restore
+*.log
+
+# Outputs and generated reports
 outputs/
-logs/
-.venv/
-__pycache__/
-*.pyc
-gui/frontend/node_modules/
-gui/frontend/dist/
+!outputs/.gitkeep
+
+# Node / Frontend
 node_modules/
-gui/frontend/node_modules/
-gui/frontend/dist/
-.venv/
-__pycache__/
-*.pyc
+*.tsbuildinfo
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+.pnpm-debug.log*
+
+# Frontend build
+/dist/
+/gui/frontend/dist/
+.gui-frontend-cache/
+
+# IDE / OS
+.DS_Store
+Thumbs.db
+.idea/
+.vscode/
+*.swp
+
+# Misc
+server.out
+server.frontend.out
+nohup.out
+

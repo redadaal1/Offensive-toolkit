@@ -9,7 +9,9 @@ export default {
   },
   plugins: [require('daisyui')],
   daisyui: {
+    // Include built-in themes plus custom 'hacker'
     themes: [
+      'dark', 'business', 'synthwave', 'night', 'dracula', 'cyberpunk',
       {
         hacker: {
           'primary': '#00ff9c',
