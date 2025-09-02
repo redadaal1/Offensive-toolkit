@@ -54,3 +54,6 @@ server.out
 server.frontend.out
 nohup.out
 
+
+# Ignore nested repo copy
+Offsec/
