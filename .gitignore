@@ -57,3 +57,6 @@ nohup.out
 
 # Ignore nested repo copy
 Offsec/
+
+# Ignore nested repo copy
+Offsec/
