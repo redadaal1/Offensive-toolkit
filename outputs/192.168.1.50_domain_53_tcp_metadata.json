@@ -1,6 +1,0 @@
-{
-    "target": "192.168.1.50",
-    "port": 53,
-    "protocol": "tcp",
-    "note": "No footprint module available for domain"
-}

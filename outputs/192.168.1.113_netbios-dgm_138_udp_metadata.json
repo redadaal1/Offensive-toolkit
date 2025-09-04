@@ -1,6 +1,0 @@
-{
-    "target": "192.168.1.113",
-    "port": 138,
-    "protocol": "udp",
-    "note": "No footprint module available for netbios-dgm"
-}

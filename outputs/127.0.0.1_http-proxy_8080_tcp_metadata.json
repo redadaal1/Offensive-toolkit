@@ -1,6 +1,0 @@
-{
-    "target": "127.0.0.1",
-    "port": 8080,
-    "protocol": "tcp",
-    "note": "No footprint module available for http-proxy"
-}

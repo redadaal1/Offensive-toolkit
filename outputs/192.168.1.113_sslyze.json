@@ -1,8 +1,0 @@
-{
-  "tool": "sslyze",
-  "summary": {
-    "findings": 0
-  },
-  "raw_path": "/home/reda_daal/Desktop/Offsec/outputs/192.168.1.113_sslyze_raw.json",
-  "data_present": true
-}

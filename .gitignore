@@ -60,3 +60,6 @@ Offsec/
 
 # Ignore nested repo copy
 Offsec/
+outputs/
+*.pyc
+.env.local
