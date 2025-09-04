@@ -11,7 +11,7 @@
       "type": "FirstOrderEvidence",
       "detail": {
         "payload": {
-          "bytes": "cHRxJmN2cz0x",
+          "bytes": "bnJxJnVoaT0x",
           "flags": 0
         },
         "band_flags": [
@@ -19,28 +19,28 @@
         ]
       },
       "request_response": {
-        "url": "http://10.1.3.2/mutillidae/index.php?page=ptq%26cvs%3d1",
+        "url": "http://10.1.3.2/mutillidae/index.php?page=source-viewer.php",
         "request": [
           {
             "type": "DataSegment",
-            "data": "R0VUIC9tdXRpbGxpZGFlL2luZGV4LnBocD9wYWdlPQ==",
-            "length": 31
+            "data": "UE9TVCAvbXV0aWxsaWRhZS9pbmRleC5waHA/cGFnZT1zb3VyY2Utdmlld2VyLnBocCBIVFRQLzEuMQ0KSG9zdDogMTAuMS4zLjINCkNhY2hlLUNvbnRyb2w6IG1heC1hZ2U9MA0KU2VjLUNILVVBOiAiR29vZ2xlIENocm9tZSI7dj0iMTM4IiwgIk5vdD1BP0JyYW5kIjt2PSI4IiwgIkNocm9taXVtIjt2PSIxMzgiDQpTZWMtQ0gtVUEtTW9iaWxlOiA/MA0KU2VjLUNILVVBLVBsYXRmb3JtOiAiTGludXgiDQpBY2NlcHQtTGFuZ3VhZ2U6IGVuLVVTO3E9MC45LGVuO3E9MC44DQpVc2VyLUFnZW50OiBNb3ppbGxhLzUuMCAoWDExOyBMaW51eCB4ODZfNjQpIEFwcGxlV2ViS2l0LzUzNy4zNiAoS0hUTUwsIGxpa2UgR2Vja28pIENocm9tZS8xMzguMC4wLjAgU2FmYXJpLzUzNy4zNg0KQWNjZXB0OiB0ZXh0L2h0bWwsYXBwbGljYXRpb24veGh0bWwreG1sLGFwcGxpY2F0aW9uL3htbDtxPTAuOSxpbWFnZS9hdmlmLGltYWdlL3dlYnAsaW1hZ2UvYXBuZywqLyo7cT0wLjgsYXBwbGljYXRpb24vc2lnbmVkLWV4Y2hhbmdlO3Y9YjM7cT0wLjcNClNlYy1GZXRjaC1TaXRlOiBub25lDQpTZWMtRmV0Y2gtTW9kZTogbmF2aWdhdGUNClNlYy1GZXRjaC1Vc2VyOiA/MQ0KU2VjLUZldGNoLURlc3Q6IGRvY3VtZW50DQpBY2NlcHQtRW5jb2Rpbmc6IGd6aXAsIGRlZmxhdGUsIGJyDQpDb25uZWN0aW9uOiBjbG9zZQ0KQ29va2llOiBQSFBTRVNTSUQ9ZWRmNDdmNDNiMjUxYWIzYTM3ZmUxMmM0ZTU1ZTY3NGUNCk9yaWdpbjogaHR0cDovLzEwLjEuMy4yDQpVcGdyYWRlLUluc2VjdXJlLVJlcXVlc3RzOiAxDQpSZWZlcmVyOiBodHRwOi8vMTAuMS4zLjIvbXV0aWxsaWRhZS9pbmRleC5waHA/cGFnZT1zb3VyY2Utdmlld2VyLnBocA0KQ29udGVudC1UeXBlOiBhcHBsaWNhdGlvbi94LXd3dy1mb3JtLXVybGVuY29kZWQNCkNvbnRlbnQtTGVuZ3RoOiA5MA0KDQpwYWdlPQ==",
+            "length": 931
           },
           {
             "type": "HighlightSegment",
-            "data": "cHRxJTI2Y3ZzJTNkMQ==",
+            "data": "bnJxJTI2dWhpJTNkMQ==",
             "length": 13
           },
           {
             "type": "DataSegment",
-            "data": "IEhUVFAvMS4xDQpIb3N0OiAxMC4xLjMuMg0KQ2FjaGUtQ29udHJvbDogbWF4LWFnZT0wDQpTZWMtQ0gtVUE6ICJHb29nbGUgQ2hyb21lIjt2PSIxMzgiLCAiTm90PUE/QnJhbmQiO3Y9IjgiLCAiQ2hyb21pdW0iO3Y9IjEzOCINClNlYy1DSC1VQS1Nb2JpbGU6ID8wDQpTZWMtQ0gtVUEtUGxhdGZvcm06ICJMaW51eCINCkFjY2VwdC1MYW5ndWFnZTogZW4tVVM7cT0wLjksZW47cT0wLjgNClVzZXItQWdlbnQ6IE1vemlsbGEvNS4wIChYMTE7IExpbnV4IHg4Nl82NCkgQXBwbGVXZWJLaXQvNTM3LjM2IChLSFRNTCwgbGlrZSBHZWNrbykgQ2hyb21lLzEzOC4wLjAuMCBTYWZhcmkvNTM3LjM2DQpBY2NlcHQ6IHRleHQvaHRtbCxhcHBsaWNhdGlvbi94aHRtbCt4bWwsYXBwbGljYXRpb24veG1sO3E9MC45LGltYWdlL2F2aWYsaW1hZ2Uvd2VicCxpbWFnZS9hcG5nLCovKjtxPTAuOCxhcHBsaWNhdGlvbi9zaWduZWQtZXhjaGFuZ2U7dj1iMztxPTAuNw0KU2VjLUZldGNoLVNpdGU6IG5vbmUNClNlYy1GZXRjaC1Nb2RlOiBuYXZpZ2F0ZQ0KU2VjLUZldGNoLVVzZXI6ID8xDQpTZWMtRmV0Y2gtRGVzdDogZG9jdW1lbnQNCkFjY2VwdC1FbmNvZGluZzogZ3ppcCwgZGVmbGF0ZSwgYnINCkNvbm5lY3Rpb246IGNsb3NlDQpDb29raWU6IFBIUFNFU1NJRD1iYjg3ZDhlNDNiZTMwZDNhODNmNzdlYmQ1NDI0ZDNkYw0KVXBncmFkZS1JbnNlY3VyZS1SZXF1ZXN0czogMQ0KUmVmZXJlcjogaHR0cDovLzEwLjEuMy4yL211dGlsbGlkYWUvDQpDb250ZW50LUxlbmd0aDogMA0KDQo=",
-            "length": 770
+            "data": "JnBocGZpbGU9c2hvdy1sb2cucGhwJnNvdXJjZS1maWxlLXZpZXdlci1waHAtc3VibWl0LWJ1dHRvbj1WaWV3K0ZpbGU=",
+            "length": 68
           }
         ],
         "response": [
           {
             "type": "DataSegment",
-            "data": "SFRUUC8xLjEgMjAwIE9LDQpEYXRlOiBUaHUsIDA0IFNlcCAyMDI1IDEzOjM4OjE1IEdNVA0KU2VydmVyOiBBcGFjaGUvMi4yLjggKFVidW50dSkgREFWLzINClgtUG93ZXJlZC1CeTogUEhQLzUuMi40LTJ1YnVudHU1LjEwDQpFeHBpcmVzOiBUaHUsIDE5IE5vdiAxOTgxIDA4OjUyOjAwIEdNVA0KTG9nZ2VkLUluLVVzZXI6IA0KQ2FjaGUtQ29udHJvbDogcHVibGljDQpQcmFnbWE6IHB1YmxpYw0KTGFzdC1Nb2RpZmllZDogVGh1LCAwNCBTZXAgMjAyNSAxMzozODoxNiBHTVQNCkNvbm5lY3Rpb246IGNsb3NlDQpDb250ZW50LVR5cGU6IHRleHQvaHRtbA0KQ29udGVudC1MZW5ndGg6IDIxODE4DQoNCg0KCQkJPCEtLSBJIHRoaW5rIHRoZSBkYXRhYmFzZSBwYXNzd29yZCBpcyBzZXQgdG8gYmxhbmsgb3IgcGVyaGFwcyBzYW11cmFpLg0KCQkJSXQgZGVwZW5kcyBvbiB3aGV0aGVyIHlvdSBpbnN0YWxsZWQgdGhpcyB3ZWIgYXBwIGZyb20gaXJvbmdlZWtzIHNpdGUgb3INCgkJCWFyZSB1c2luZyBpdCBpbnNpZGUgS2V2aW4gSm9obnNvbnMgU2FtdXJhaSB3",
+            "data": "SFRUUC8xLjEgMjAwIE9LDQpEYXRlOiBUaHUsIDA0IFNlcCAyMDI1IDE1OjIxOjEzIEdNVA0KU2VydmVyOiBBcGFjaGUvMi4yLjggKFVidW50dSkgREFWLzINClgtUG93ZXJlZC1CeTogUEhQLzUuMi40LTJ1YnVudHU1LjEwDQpFeHBpcmVzOiBUaHUsIDE5IE5vdiAxOTgxIDA4OjUyOjAwIEdNVA0KTG9nZ2VkLUluLVVzZXI6IA0KQ2FjaGUtQ29udHJvbDogcHVibGljDQpQcmFnbWE6IHB1YmxpYw0KTGFzdC1Nb2RpZmllZDogVGh1LCAwNCBTZXAgMjAyNSAxNToyMToxMyBHTVQNCkNvbm5lY3Rpb246IGNsb3NlDQpDb250ZW50LVR5cGU6IHRleHQvaHRtbA0KQ29udGVudC1MZW5ndGg6IDIxODE4DQoNCg0KCQkJPCEtLSBJIHRoaW5rIHRoZSBkYXRhYmFzZSBwYXNzd29yZCBpcyBzZXQgdG8gYmxhbmsgb3IgcGVyaGFwcyBzYW11cmFpLg0KCQkJSXQgZGVwZW5kcyBvbiB3aGV0aGVyIHlvdSBpbnN0YWxsZWQgdGhpcyB3ZWIgYXBwIGZyb20gaXJvbmdlZWtzIHNpdGUgb3INCgkJCWFyZSB1c2luZyBpdCBpbnNpZGUgS2V2aW4gSm9obnNvbnMgU2FtdXJhaSB3",
             "length": 540
           },
           {
@@ -54,7 +54,7 @@
           },
           {
             "type": "HighlightSegment",
-            "data": "cHRxJmN2cz0x",
+            "data": "bnJxJnVoaT0x",
             "length": 9
           },
           {
@@ -68,11 +68,11 @@
           }
         ],
         "was_redirect_followed": false,
-        "request_time": "332"
+        "request_time": "279"
       }
     }
   ],
-  "description": "The value of the <b>page</b> request parameter is copied into the response within the query string of a URL.<br><br> The payload <b>ptq&amp;cvs=1</b> was submitted in the page parameter. This input was echoed unmodified within the \"href\" attribute of an \"a\" tag.<br><br>This proof-of-concept attack demonstrates that it is possible to inject arbitrary query string parameters into URLs in the application's response.",
+  "description": "The value of the <b>page</b> request parameter is copied into the response within the query string of a URL.<br><br> The payload <b>nrq&amp;uhi=1</b> was submitted in the page parameter. This input was echoed unmodified within the \"href\" attribute of an \"a\" tag.<br><br>This proof-of-concept attack demonstrates that it is possible to inject arbitrary query string parameters into URLs in the application's response.",
   "remediation": "",
   "references": []
 }

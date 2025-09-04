@@ -1,0 +1,1054 @@
+{
+  "name": "File path manipulation",
+  "type": "vulnerability",
+  "severity": "Info",
+  "confidence": "Tentative",
+  "host": "",
+  "path": "/twiki/bin/view/Main/WebHome",
+  "url": "/twiki/bin/view/Main/WebHome",
+  "evidence": [
+    {
+      "type": "DiffableEvidence",
+      "first_evidence": {
+        "type": "FirstOrderEvidence",
+        "detail": {
+          "payload": {
+            "bytes": "Li8=",
+            "flags": 0
+          },
+          "band_flags": [
+            "in_band"
+          ]
+        },
+        "request_response": {
+          "url": "http://10.1.3.2/twiki/bin/view/Main/WebHome?topic=.%2f",
+          "request": [
+            {
+              "type": "DataSegment",
+              "data": "R0VUIC90d2lraS9iaW4vdmlldy9NYWluL1dlYkhvbWU/dG9waWM9",
+              "length": 39
+            },
+            {
+              "type": "HighlightSegment",
+              "data": "LiUyZg==",
+              "length": 4
+            },
+            {
+              "type": "DataSegment",
+              "data": "IEhUVFAvMS4xDQpIb3N0OiAxMC4xLjMuMg0KQ2FjaGUtQ29udHJvbDogbWF4LWFnZT0wDQpTZWMtQ0gtVUE6ICJHb29nbGUgQ2hyb21lIjt2PSIxMzgiLCAiTm90PUE/QnJhbmQiO3Y9IjgiLCAiQ2hyb21pdW0iO3Y9IjEzOCINClNlYy1DSC1VQS1Nb2JpbGU6ID8wDQpTZWMtQ0gtVUEtUGxhdGZvcm06ICJMaW51eCINCkFjY2VwdC1MYW5ndWFnZTogZW4tVVM7cT0wLjksZW47cT0wLjgNClVzZXItQWdlbnQ6IE1vemlsbGEvNS4wIChYMTE7IExpbnV4IHg4Nl82NCkgQXBwbGVXZWJLaXQvNTM3LjM2IChLSFRNTCwgbGlrZSBHZWNrbykgQ2hyb21lLzEzOC4wLjAuMCBTYWZhcmkvNTM3LjM2DQpBY2NlcHQ6IHRleHQvaHRtbCxhcHBsaWNhdGlvbi94aHRtbCt4bWwsYXBwbGljYXRpb24veG1sO3E9MC45LGltYWdlL2F2aWYsaW1hZ2Uvd2VicCxpbWFnZS9hcG5nLCovKjtxPTAuOCxhcHBsaWNhdGlvbi9zaWduZWQtZXhjaGFuZ2U7dj1iMztxPTAuNw0KU2VjLUZldGNoLVNpdGU6IG5vbmUNClNlYy1GZXRjaC1Nb2RlOiBuYXZpZ2F0ZQ0KU2VjLUZldGNoLVVzZXI6ID8xDQpTZWMtRmV0Y2gtRGVzdDogZG9jdW1lbnQNCkFjY2VwdC1FbmNvZGluZzogZ3ppcCwgZGVmbGF0ZSwgYnINCkNvbm5lY3Rpb246IGNsb3NlDQpVcGdyYWRlLUluc2VjdXJlLVJlcXVlc3RzOiAxDQpSZWZlcmVyOiBodHRwOi8vMTAuMS4zLjIvdHdpa2kvYmluL3ZpZXcvTWFpbi9XZWJIb21lDQpDb250ZW50LUxlbmd0aDogMA0KDQo=",
+              "length": 734
+            }
+          ],
+          "response": [
+            {
+              "type": "DataSegment",
+              "data": "SFRUUC8xLjEgMjAwIE9LDQpEYXRlOiBUaHUsIDA0IFNlcCAyMDI1IDE1OjIyOjE2IEdNVA0KU2VydmVyOiBBcGFjaGUvMi4yLjggKFVidW50dSkgREFWLzINCkNvbm5lY3Rpb246IGNsb3NlDQpDb250ZW50LVR5cGU6IHRleHQvaHRtbDsgY2hhcnNldD1JU08tODg1OS0xDQpDb250ZW50LUxlbmd0aDogNDc3NA0KDQo8IURPQ1RZUEUgaHRtbCBQVUJMSUMgIi0vL1czQy8vRFREIFhIVE1MIDEuMCBUcmFuc2l0aW9uYWwvL0VOIiAiaHR0cDovL3d3dy53My5vcmcvVFIveGh0bWwxL0RURC94aHRtbDEtdHJhbnNpdGlvbmFsLmR0ZCI+CjxodG1sIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5L3hodG1sIiB4bWw6bGFuZz0iZW4iIGxhbmc9ImVuIj4gCjxoZWFkPgogPA==",
+              "length": 379
+            },
+            {
+              "type": "SnipSegment",
+              "length": 418
+            },
+            {
+              "type": "DataSegment",
+              "data": "PA==",
+              "length": 1
+            },
+            {
+              "type": "HighlightSegment",
+              "data": "YQ==",
+              "length": 1
+            },
+            {
+              "type": "DataSegment",
+              "data": "IGhyZWY9Ig==",
+              "length": 7
+            },
+            {
+              "type": "HighlightSegment",
+              "data": "aHR0cDovL1RXaWtpLm9yZy8=",
+              "length": 17
+            },
+            {
+              "type": "DataSegment",
+              "data": "Ij48aW1nIHNyYz0iaHR0cDovLzEwLjEuMy4yL3R3aWtpL3B1Yi9UV2lraS9UV2lraUxvZ29zL3R3aWtpUm9ib3Q0Nng1MC5naWYiIGJvcmRlcj0iMCIgYWx0PSI=",
+              "length": 92
+            },
+            {
+              "type": "HighlightSegment",
+              "data": "VFdpa2kgaG9tZQ==",
+              "length": 10
+            },
+            {
+              "type": "DataSegment",
+              "data": "IiAvPg==",
+              "length": 4
+            },
+            {
+              "type": "SnipSegment",
+              "length": 20
+            },
+            {
+              "type": "DataSegment",
+              "data": "PA==",
+              "length": 1
+            },
+            {
+              "type": "HighlightSegment",
+              "data": "YQ==",
+              "length": 1
+            },
+            {
+              "type": "DataSegment",
+              "data": "IGhyZWY9Ig==",
+              "length": 7
+            },
+            {
+              "type": "HighlightSegment",
+              "data": "aHR0cDovLzEwLjEuMy4yL3R3aWtpL2Jpbi92aWV3L01haW4vV2ViSG9tZQ==",
+              "length": 43
+            },
+            {
+              "type": "DataSegment",
+              "data": "Ij4=",
+              "length": 2
+            },
+            {
+              "type": "HighlightSegment",
+              "data": "VFdpa2k=",
+              "length": 5
+            },
+            {
+              "type": "DataSegment",
+              "data": "PC9hPgogICAmZ3Q7IDw=",
+              "length": 14
+            },
+            {
+              "type": "HighlightSegment",
+              "data": "YQ==",
+              "length": 1
+            },
+            {
+              "type": "DataSegment",
+              "data": "IGhyZWY9Ig==",
+              "length": 7
+            },
+            {
+              "type": "HighlightSegment",
+              "data": "aHR0cDovLzEwLjEuMy4yL3R3aWtpL2Jpbi92aWV3Ly4vV2ViSG9tZQ==",
+              "length": 40
+            },
+            {
+              "type": "DataSegment",
+              "data": "Ij4=",
+              "length": 2
+            },
+            {
+              "type": "HighlightSegment",
+              "data": "Lg==",
+              "length": 1
+            },
+            {
+              "type": "DataSegment",
+              "data": "PC9hPg==",
+              "length": 4
+            },
+            {
+              "type": "SnipSegment",
+              "length": 121
+            },
+            {
+              "type": "DataSegment",
+              "data": "PA==",
+              "length": 1
+            },
+            {
+              "type": "HighlightSegment",
+              "data": "YQ==",
+              "length": 1
+            },
+            {
+              "type": "DataSegment",
+              "data": "IGhyZWY9Ig==",
+              "length": 7
+            },
+            {
+              "type": "HighlightSegment",
+              "data": "L3R3aWtpL2Jpbi92aWV3L01haW4vV2ViSG9tZQ==",
+              "length": 28
+            },
+            {
+              "type": "DataSegment",
+              "data": "Ij4=",
+              "length": 2
+            },
+            {
+              "type": "HighlightSegment",
+              "data": "TWFpbg==",
+              "length": 4
+            },
+            {
+              "type": "DataSegment",
+              "data": "PC9hPiAgfCAgPA==",
+              "length": 10
+            },
+            {
+              "type": "HighlightSegment",
+              "data": "YQ==",
+              "length": 1
+            },
+            {
+              "type": "DataSegment",
+              "data": "IGhyZWY9Ig==",
+              "length": 7
+            },
+            {
+              "type": "HighlightSegment",
+              "data": "L3R3aWtpL2Jpbi92aWV3L1RXaWtpL1dlYkhvbWU=",
+              "length": 29
+            },
+            {
+              "type": "DataSegment",
+              "data": "Ij4=",
+              "length": 2
+            },
+            {
+              "type": "HighlightSegment",
+              "data": "VFdpa2k=",
+              "length": 5
+            },
+            {
+              "type": "DataSegment",
+              "data": "PC9hPiAgfCAgPA==",
+              "length": 10
+            },
+            {
+              "type": "HighlightSegment",
+              "data": "YQ==",
+              "length": 1
+            },
+            {
+              "type": "DataSegment",
+              "data": "IGhyZWY9Ig==",
+              "length": 7
+            },
+            {
+              "type": "HighlightSegment",
+              "data": "L3R3aWtpL2Jpbi92aWV3L0tub3cvV2ViSG9tZQ==",
+              "length": 28
+            },
+            {
+              "type": "DataSegment",
+              "data": "Ij4=",
+              "length": 2
+            },
+            {
+              "type": "HighlightSegment",
+              "data": "S25vdw==",
+              "length": 4
+            },
+            {
+              "type": "DataSegment",
+              "data": "PC9hPiAgfCAgPA==",
+              "length": 10
+            },
+            {
+              "type": "HighlightSegment",
+              "data": "YQ==",
+              "length": 1
+            },
+            {
+              "type": "DataSegment",
+              "data": "IGhyZWY9Ig==",
+              "length": 7
+            },
+            {
+              "type": "HighlightSegment",
+              "data": "L3R3aWtpL2Jpbi92aWV3L1NhbmRib3gvV2ViSG9tZQ==",
+              "length": 31
+            },
+            {
+              "type": "DataSegment",
+              "data": "Ij4=",
+              "length": 2
+            },
+            {
+              "type": "HighlightSegment",
+              "data": "U2FuZGJveA==",
+              "length": 7
+            },
+            {
+              "type": "DataSegment",
+              "data": "PC9hPg==",
+              "length": 4
+            },
+            {
+              "type": "SnipSegment",
+              "length": 156
+            },
+            {
+              "type": "DataSegment",
+              "data": "PA==",
+              "length": 1
+            },
+            {
+              "type": "HighlightSegment",
+              "data": "YQ==",
+              "length": 1
+            },
+            {
+              "type": "DataSegment",
+              "data": "IGhyZWY9Ig==",
+              "length": 7
+            },
+            {
+              "type": "HighlightSegment",
+              "data": "L3R3aWtpL2Jpbi9lZGl0Ly4vV2ViQ2hhbmdlcz90b3BpY3BhcmVudD0uLldlYkhvbWU=",
+              "length": 50
+            },
+            {
+              "type": "DataSegment",
+              "data": "Ij4=",
+              "length": 2
+            },
+            {
+              "type": "HighlightSegment",
+              "data": "Pw==",
+              "length": 1
+            },
+            {
+              "type": "DataSegment",
+              "data": "PC9hPg==",
+              "length": 4
+            },
+            {
+              "type": "SnipSegment",
+              "length": 82
+            },
+            {
+              "type": "DataSegment",
+              "data": "PA==",
+              "length": 1
+            },
+            {
+              "type": "HighlightSegment",
+              "data": "YQ==",
+              "length": 1
+            },
+            {
+              "type": "DataSegment",
+              "data": "IGhyZWY9Ig==",
+              "length": 7
+            },
+            {
+              "type": "HighlightSegment",
+              "data": "L3R3aWtpL2Jpbi9lZGl0Ly4vV2ViSW5kZXg/dG9waWNwYXJlbnQ9Li5XZWJIb21l",
+              "length": 48
+            },
+            {
+              "type": "DataSegment",
+              "data": "Ij4=",
+              "length": 2
+            },
+            {
+              "type": "HighlightSegment",
+              "data": "Pw==",
+              "length": 1
+            },
+            {
+              "type": "DataSegment",
+              "data": "PC9hPg==",
+              "length": 4
+            },
+            {
+              "type": "SnipSegment",
+              "length": 83
+            },
+            {
+              "type": "DataSegment",
+              "data": "PA==",
+              "length": 1
+            },
+            {
+              "type": "HighlightSegment",
+              "data": "YQ==",
+              "length": 1
+            },
+            {
+              "type": "DataSegment",
+              "data": "IGhyZWY9Ig==",
+              "length": 7
+            },
+            {
+              "type": "HighlightSegment",
+              "data": "L3R3aWtpL2Jpbi9lZGl0Ly4vV2ViU2VhcmNoP3RvcGljcGFyZW50PS4uV2ViSG9tZQ==",
+              "length": 49
+            },
+            {
+              "type": "DataSegment",
+              "data": "Ij4=",
+              "length": 2
+            },
+            {
+              "type": "HighlightSegment",
+              "data": "Pw==",
+              "length": 1
+            },
+            {
+              "type": "DataSegment",
+              "data": "PC9hPg==",
+              "length": 4
+            },
+            {
+              "type": "SnipSegment",
+              "length": 93
+            },
+            {
+              "type": "DataSegment",
+              "data": "PA==",
+              "length": 1
+            },
+            {
+              "type": "HighlightSegment",
+              "data": "YQ==",
+              "length": 1
+            },
+            {
+              "type": "DataSegment",
+              "data": "IG5hbWU9Ik5PVEVfVGhpc19XaWtpX3RvcGljX2RvZXNfbm90X2V4Ij4=",
+              "length": 41
+            },
+            {
+              "type": "HighlightSegment",
+              "data": "IA==",
+              "length": 1
+            },
+            {
+              "type": "DataSegment",
+              "data": "PC9hPg==",
+              "length": 4
+            },
+            {
+              "type": "SnipSegment",
+              "length": 58
+            },
+            {
+              "type": "DataSegment",
+              "data": "PA==",
+              "length": 1
+            },
+            {
+              "type": "HighlightSegment",
+              "data": "YQ==",
+              "length": 1
+            },
+            {
+              "type": "DataSegment",
+              "data": "IG5hbWU9IklmX3lvdV93b3VsZF9saWtlX3RvX2NyZWF0ZV90aGlzIj4=",
+              "length": 41
+            },
+            {
+              "type": "HighlightSegment",
+              "data": "IElmIHlvdSB3b3VsZCBsaWtlIHRvIGNyZWF0ZSB0aGlzIHBhZ2U6IA==",
+              "length": 40
+            },
+            {
+              "type": "DataSegment",
+              "data": "PC9hPg==",
+              "length": 4
+            },
+            {
+              "type": "SnipSegment",
+              "length": 45
+            },
+            {
+              "type": "DataSegment",
+              "data": "PA==",
+              "length": 1
+            },
+            {
+              "type": "HighlightSegment",
+              "data": "QQ==",
+              "length": 1
+            },
+            {
+              "type": "DataSegment",
+              "data": "IGhyZWY9Ig==",
+              "length": 7
+            },
+            {
+              "type": "HighlightSegment",
+              "data": "L3R3aWtpL2Jpbi9lZGl0Ly4vV2ViSG9tZQ==",
+              "length": 25
+            },
+            {
+              "type": "DataSegment",
+              "data": "Ij48Qj4=",
+              "length": 5
+            },
+            {
+              "type": "HighlightSegment",
+              "data": "Q3JlYXRl",
+              "length": 6
+            },
+            {
+              "type": "DataSegment",
+              "data": "PC9CPg==",
+              "length": 4
+            },
+            {
+              "type": "SnipSegment",
+              "length": 68
+            },
+            {
+              "type": "DataSegment",
+              "data": "PA==",
+              "length": 1
+            },
+            {
+              "type": "HighlightSegment",
+              "data": "YQ==",
+              "length": 1
+            },
+            {
+              "type": "DataSegment",
+              "data": "IG5hbWU9IklmX3lvdV9pbnRlbmRfdG9fZG9fYV9mdWxsX3RleHRfIj4=",
+              "length": 41
+            },
+            {
+              "type": "HighlightSegment",
+              "data": "IElmIHlvdSBpbnRlbmQgdG8gZG8gYSBmdWxsIHRleHQgc2VhcmNoOiA=",
+              "length": 41
+            },
+            {
+              "type": "DataSegment",
+              "data": "PC9hPg==",
+              "length": 4
+            },
+            {
+              "type": "SnipSegment",
+              "length": 84
+            },
+            {
+              "type": "DataSegment",
+              "data": "PA==",
+              "length": 1
+            },
+            {
+              "type": "HighlightSegment",
+              "data": "YQ==",
+              "length": 1
+            },
+            {
+              "type": "DataSegment",
+              "data": "IGhyZWY9Ig==",
+              "length": 7
+            },
+            {
+              "type": "HighlightSegment",
+              "data": "V2ViU2VhcmNo",
+              "length": 9
+            },
+            {
+              "type": "DataSegment",
+              "data": "Ij4=",
+              "length": 2
+            },
+            {
+              "type": "HighlightSegment",
+              "data": "U2VhcmNo",
+              "length": 6
+            },
+            {
+              "type": "DataSegment",
+              "data": "PC9hPg==",
+              "length": 4
+            },
+            {
+              "type": "SnipSegment",
+              "length": 107
+            },
+            {
+              "type": "DataSegment",
+              "data": "PA==",
+              "length": 1
+            },
+            {
+              "type": "HighlightSegment",
+              "data": "aW5wdXQ=",
+              "length": 5
+            },
+            {
+              "type": "DataSegment",
+              "data": "IHR5cGU9InN1Ym1pdCIgdmFsdWU9IlNlYXJjaCI+",
+              "length": 30
+            },
+            {
+              "type": "SnipSegment",
+              "length": 211
+            },
+            {
+              "type": "DataSegment",
+              "data": "PA==",
+              "length": 1
+            },
+            {
+              "type": "HighlightSegment",
+              "data": "YQ==",
+              "length": 1
+            },
+            {
+              "type": "DataSegment",
+              "data": "IGhyZWY9Ig==",
+              "length": 7
+            },
+            {
+              "type": "HighlightSegment",
+              "data": "L3R3aWtpL2Jpbi9lZGl0Ly4vV2ViU2VhcmNoP3RvcGljcGFyZW50PS4uV2ViSG9tZQ==",
+              "length": 49
+            },
+            {
+              "type": "DataSegment",
+              "data": "Ij4=",
+              "length": 2
+            },
+            {
+              "type": "HighlightSegment",
+              "data": "Pw==",
+              "length": 1
+            },
+            {
+              "type": "DataSegment",
+              "data": "PC9hPg==",
+              "length": 4
+            },
+            {
+              "type": "SnipSegment",
+              "length": 40
+            },
+            {
+              "type": "DataSegment",
+              "data": "PA==",
+              "length": 1
+            },
+            {
+              "type": "HighlightSegment",
+              "data": "YQ==",
+              "length": 1
+            },
+            {
+              "type": "DataSegment",
+              "data": "IG5hbWU9IklmX3lvdV91c2VkX3RoZV9Hb19mZWF0dXJlX3RvX2p1Ij4=",
+              "length": 41
+            },
+            {
+              "type": "HighlightSegment",
+              "data": "IElmIHlvdSB1c2VkIHRoZSAiR28iIGZlYXR1cmUgdG8ganVtcCB0byB0aGlzIHBhZ2U6IA==",
+              "length": 52
+            },
+            {
+              "type": "DataSegment",
+              "data": "PC9hPg==",
+              "length": 4
+            },
+            {
+              "type": "SnipSegment",
+              "length": 51
+            },
+            {
+              "type": "DataSegment",
+              "data": "PA==",
+              "length": 1
+            },
+            {
+              "type": "HighlightSegment",
+              "data": "YQ==",
+              "length": 1
+            },
+            {
+              "type": "DataSegment",
+              "data": "IGhyZWY9Ig==",
+              "length": 7
+            },
+            {
+              "type": "HighlightSegment",
+              "data": "L3R3aWtpL2Jpbi92aWV3L1RXaWtpL1dpa2lXb3Jk",
+              "length": 30
+            },
+            {
+              "type": "DataSegment",
+              "data": "Ij4=",
+              "length": 2
+            },
+            {
+              "type": "HighlightSegment",
+              "data": "V2lraVdvcmQ=",
+              "length": 8
+            },
+            {
+              "type": "DataSegment",
+              "data": "PC9hPg==",
+              "length": 4
+            },
+            {
+              "type": "SnipSegment",
+              "length": 120
+            },
+            {
+              "type": "DataSegment",
+              "data": "PA==",
+              "length": 1
+            },
+            {
+              "type": "HighlightSegment",
+              "data": "YQ==",
+              "length": 1
+            },
+            {
+              "type": "DataSegment",
+              "data": "IGhyZWY9Ig==",
+              "length": 7
+            },
+            {
+              "type": "HighlightSegment",
+              "data": "aHR0cDovLzEwLjEuMy4yL3R3aWtpL2Jpbi9zZWFyY2gvLi8/c2NvcGU9dG9waWMmYW1wO25vc3VtbWFyeT1vbiZhbXA7bm90b3RhbD1vbiZhbXA7c2VhcmNoPVdlYkhvbWU=",
+              "length": 98
+            },
+            {
+              "type": "DataSegment",
+              "data": "IiB0YXJnZXQ9Il90b3AiPg==",
+              "length": 16
+            },
+            {
+              "type": "HighlightSegment",
+              "data": "Li4u",
+              "length": 3
+            },
+            {
+              "type": "DataSegment",
+              "data": "PC9hPg==",
+              "length": 4
+            },
+            {
+              "type": "SnipSegment",
+              "length": 29
+            },
+            {
+              "type": "DataSegment",
+              "data": "PA==",
+              "length": 1
+            },
+            {
+              "type": "HighlightSegment",
+              "data": "YQ==",
+              "length": 1
+            },
+            {
+              "type": "DataSegment",
+              "data": "IGhyZWY9Ig==",
+              "length": 7
+            },
+            {
+              "type": "HighlightSegment",
+              "data": "aHR0cDovLzEwLjEuMy4yL3R3aWtpL2Jpbi9zZWFyY2gvLi8/d2ViPWFsbCZhbXA7c2NvcGU9dG9waWMmYW1wO25vc3VtbWFyeT1vbiZhbXA7bm90b3RhbD1vbiZhbXA7c2VhcmNoPVdlYkhvbWU=",
+              "length": 110
+            },
+            {
+              "type": "DataSegment",
+              "data": "IiB0YXJnZXQ9Il90b3AiPg==",
+              "length": 16
+            },
+            {
+              "type": "HighlightSegment",
+              "data": "U2VhcmNo",
+              "length": 6
+            },
+            {
+              "type": "DataSegment",
+              "data": "PC9hPg==",
+              "length": 4
+            },
+            {
+              "type": "SnipSegment",
+              "length": 216
+            },
+            {
+              "type": "DataSegment",
+              "data": "PA==",
+              "length": 1
+            },
+            {
+              "type": "HighlightSegment",
+              "data": "YQ==",
+              "length": 1
+            },
+            {
+              "type": "DataSegment",
+              "data": "IGhyZWY9Ig==",
+              "length": 7
+            },
+            {
+              "type": "HighlightSegment",
+              "data": "L3R3aWtpL2Jpbi9lZGl0Ly4vV2ViSG9tZT90PTE3NTY5OTkzMzc=",
+              "length": 38
+            },
+            {
+              "type": "DataSegment",
+              "data": "Ij48Yj4=",
+              "length": 5
+            },
+            {
+              "type": "HighlightSegment",
+              "data": "Q3JlYXRl",
+              "length": 6
+            },
+            {
+              "type": "DataSegment",
+              "data": "PC9iPjwvYT4KICAgfCAgPA==",
+              "length": 16
+            },
+            {
+              "type": "HighlightSegment",
+              "data": "YQ==",
+              "length": 1
+            },
+            {
+              "type": "DataSegment",
+              "data": "IGhyZWY9Ig==",
+              "length": 7
+            },
+            {
+              "type": "HighlightSegment",
+              "data": "L3R3aWtpL2Jpbi9hdHRhY2gvLi9XZWJIb21l",
+              "length": 27
+            },
+            {
+              "type": "DataSegment",
+              "data": "Ij4=",
+              "length": 2
+            },
+            {
+              "type": "HighlightSegment",
+              "data": "QXR0YWNo",
+              "length": 6
+            },
+            {
+              "type": "DataSegment",
+              "data": "PC9hPgogICB8ICA8",
+              "length": 12
+            },
+            {
+              "type": "HighlightSegment",
+              "data": "YQ==",
+              "length": 1
+            },
+            {
+              "type": "DataSegment",
+              "data": "IGhyZWY9Ig==",
+              "length": 7
+            },
+            {
+              "type": "HighlightSegment",
+              "data": "L3R3aWtpL2Jpbi9zZWFyY2gvLi9TZWFyY2hSZXN1bHQ/c2NvcGU9dGV4dCZhbXA7cmVnZXg9b24mYW1wO3NlYXJjaD1XZWIlMjAqSG9tZSU1QiU1RUEtWmEteiU1RA==",
+              "length": 94
+            },
+            {
+              "type": "DataSegment",
+              "data": "Ij4=",
+              "length": 2
+            },
+            {
+              "type": "HighlightSegment",
+              "data": "UmVmLUJ5",
+              "length": 6
+            },
+            {
+              "type": "DataSegment",
+              "data": "PC9hPgogICB8ICA8",
+              "length": 12
+            },
+            {
+              "type": "HighlightSegment",
+              "data": "YQ==",
+              "length": 1
+            },
+            {
+              "type": "DataSegment",
+              "data": "IGhyZWY9Ig==",
+              "length": 7
+            },
+            {
+              "type": "HighlightSegment",
+              "data": "L3R3aWtpL2Jpbi92aWV3Ly4vV2ViSG9tZT9za2luPXByaW50",
+              "length": 36
+            },
+            {
+              "type": "DataSegment",
+              "data": "Ij4=",
+              "length": 2
+            },
+            {
+              "type": "HighlightSegment",
+              "data": "UHJpbnRhYmxl",
+              "length": 9
+            },
+            {
+              "type": "DataSegment",
+              "data": "PC9hPgogICB8ICA8",
+              "length": 12
+            },
+            {
+              "type": "HighlightSegment",
+              "data": "YQ==",
+              "length": 1
+            },
+            {
+              "type": "DataSegment",
+              "data": "IGhyZWY9Ig==",
+              "length": 7
+            },
+            {
+              "type": "HighlightSegment",
+              "data": "L3R3aWtpL2Jpbi9yZGlmZi8uL1dlYkhvbWU=",
+              "length": 26
+            },
+            {
+              "type": "DataSegment",
+              "data": "Ij4=",
+              "length": 2
+            },
+            {
+              "type": "HighlightSegment",
+              "data": "RGlmZnM=",
+              "length": 5
+            },
+            {
+              "type": "DataSegment",
+              "data": "PC9hPiAgfCByMS4xCiAgIHwgIDw=",
+              "length": 20
+            },
+            {
+              "type": "HighlightSegment",
+              "data": "YQ==",
+              "length": 1
+            },
+            {
+              "type": "DataSegment",
+              "data": "IGhyZWY9Ig==",
+              "length": 7
+            },
+            {
+              "type": "HighlightSegment",
+              "data": "L3R3aWtpL2Jpbi9vb3BzLy4vV2ViSG9tZT90ZW1wbGF0ZT1vb3BzbW9yZSZhbXA7cGFyYW0xPTEuMSZhbXA7cGFyYW0yPTEuMQ==",
+              "length": 73
+            },
+            {
+              "type": "DataSegment",
+              "data": "Ij4=",
+              "length": 2
+            },
+            {
+              "type": "HighlightSegment",
+              "data": "TW9yZQ==",
+              "length": 4
+            },
+            {
+              "type": "DataSegment",
+              "data": "PC9hPg==",
+              "length": 4
+            },
+            {
+              "type": "SnipSegment",
+              "length": 392
+            },
+            {
+              "type": "DataSegment",
+              "data": "PA==",
+              "length": 1
+            },
+            {
+              "type": "HighlightSegment",
+              "data": "YQ==",
+              "length": 1
+            },
+            {
+              "type": "DataSegment",
+              "data": "IGhyZWY9Ig==",
+              "length": 7
+            },
+            {
+              "type": "HighlightSegment",
+              "data": "bWFpbHRvOndlYm1hc3RlckB5b3VyLmNvbXBhbnk/c3ViamVjdD1UV2lraSYjMzI7RmVlZGJhY2smIzMyO29uJiMzMjsuLldlYkhvbWU=",
+              "length": 77
+            },
+            {
+              "type": "DataSegment",
+              "data": "Ij4=",
+              "length": 2
+            },
+            {
+              "type": "HighlightSegment",
+              "data": "U2VuZA==",
+              "length": 4
+            },
+            {
+              "type": "DataSegment",
+              "data": "PC9hPg==",
+              "length": 4
+            },
+            {
+              "type": "SnipSegment",
+              "length": 118
+            }
+          ],
+          "was_redirect_followed": false,
+          "request_time": "1756999408585"
+        }
+      },
+      "second_evidence": {
+        "type": "FirstOrderEvidence",
+        "detail": {
+          "payload": {
+            "bytes": "Li4uLw==",
+            "flags": 0
+          },
+          "band_flags": [
+            "in_band"
+          ]
+        },
+        "request_response": {
+          "url": "http://10.1.3.2/twiki/bin/view/Main/WebHome?topic=...%2f",
+          "request": [
+            {
+              "type": "DataSegment",
+              "data": "R0VUIC90d2lraS9iaW4vdmlldy9NYWluL1dlYkhvbWU/dG9waWM9",
+              "length": 39
+            },
+            {
+              "type": "HighlightSegment",
+              "data": "Li4uJTJm",
+              "length": 6
+            },
+            {
+              "type": "DataSegment",
+              "data": "IEhUVFAvMS4xDQpIb3N0OiAxMC4xLjMuMg0KQ2FjaGUtQ29udHJvbDogbWF4LWFnZT0wDQpTZWMtQ0gtVUE6ICJHb29nbGUgQ2hyb21lIjt2PSIxMzgiLCAiTm90PUE/QnJhbmQiO3Y9IjgiLCAiQ2hyb21pdW0iO3Y9IjEzOCINClNlYy1DSC1VQS1Nb2JpbGU6ID8wDQpTZWMtQ0gtVUEtUGxhdGZvcm06ICJMaW51eCINCkFjY2VwdC1MYW5ndWFnZTogZW4tVVM7cT0wLjksZW47cT0wLjgNClVzZXItQWdlbnQ6IE1vemlsbGEvNS4wIChYMTE7IExpbnV4IHg4Nl82NCkgQXBwbGVXZWJLaXQvNTM3LjM2IChLSFRNTCwgbGlrZSBHZWNrbykgQ2hyb21lLzEzOC4wLjAuMCBTYWZhcmkvNTM3LjM2DQpBY2NlcHQ6IHRleHQvaHRtbCxhcHBsaWNhdGlvbi94aHRtbCt4bWwsYXBwbGljYXRpb24veG1sO3E9MC45LGltYWdlL2F2aWYsaW1hZ2Uvd2VicCxpbWFnZS9hcG5nLCovKjtxPTAuOCxhcHBsaWNhdGlvbi9zaWduZWQtZXhjaGFuZ2U7dj1iMztxPTAuNw0KU2VjLUZldGNoLVNpdGU6IG5vbmUNClNlYy1GZXRjaC1Nb2RlOiBuYXZpZ2F0ZQ0KU2VjLUZldGNoLVVzZXI6ID8xDQpTZWMtRmV0Y2gtRGVzdDogZG9jdW1lbnQNCkFjY2VwdC1FbmNvZGluZzogZ3ppcCwgZGVmbGF0ZSwgYnINCkNvbm5lY3Rpb246IGNsb3NlDQpVcGdyYWRlLUluc2VjdXJlLVJlcXVlc3RzOiAxDQpSZWZlcmVyOiBodHRwOi8vMTAuMS4zLjIvdHdpa2kvYmluL3ZpZXcvTWFpbi9XZWJIb21lDQpDb250ZW50LUxlbmd0aDogMA0KDQo=",
+              "length": 734
+            }
+          ],
+          "response": [
+            {
+              "type": "DataSegment",
+              "data": "SFRUUC8xLjEgMzAyIE1vdmVkDQpEYXRlOiBUaHUsIDA0IFNlcCAyMDI1IDE1OjIyOjE0IEdNVA0KU2VydmVyOiBBcGFjaGUvMi4yLjggKFVidW50dSkgREFWLzINCkxvY2F0aW9uOiBodHRwOi8vMTAuMS4zLjIvdHdpa2kvYmluL29vcHMvLi4uL1dlYkhvbWU/dGVtcGxhdGU9b29wc25vd2ViDQpDb250ZW50LUxlbmd0aDogMA0KQ29ubmVjdGlvbjogY2xvc2UNCkNvbnRlbnQtVHlwZTogdGV4dC9wbGFpbg0KDQo=",
+              "length": 233
+            }
+          ],
+          "was_redirect_followed": false,
+          "request_time": "1756999408590"
+        }
+      }
+    }
+  ],
+  "description": "The <b>topic</b> parameter appears to be vulnerable to file path manipulation attacks. <br><br>The payload <b>./</b> was submitted in the topic parameter. This returned the same content as the base request. The payload <b>.../</b> was then submitted, and this returned a different response. This indicates that the application may be vulnerable to file path manipulation.",
+  "remediation": "",
+  "references": []
+}

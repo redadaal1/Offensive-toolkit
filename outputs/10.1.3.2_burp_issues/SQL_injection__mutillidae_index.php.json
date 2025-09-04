@@ -1,0 +1,126 @@
+{
+  "name": "SQL injection",
+  "type": "vulnerability",
+  "severity": "High",
+  "confidence": "Certain",
+  "host": "",
+  "path": "/mutillidae/index.php",
+  "url": "/mutillidae/index.php",
+  "evidence": [
+    {
+      "type": "DiffableEvidence",
+      "first_evidence": {
+        "type": "FirstOrderEvidence",
+        "detail": {
+          "payload": {
+            "bytes": "Jw==",
+            "flags": 32
+          },
+          "band_flags": [
+            "in_band"
+          ]
+        },
+        "request_response": {
+          "url": "http://10.1.3.2/mutillidae/index.php?page=login.php",
+          "request": [
+            {
+              "type": "DataSegment",
+              "data": "UE9TVCAvbXV0aWxsaWRhZS9pbmRleC5waHA/cGFnZT1sb2dpbi5waHAgSFRUUC8xLjENCkhvc3Q6IDEwLjEuMy4yDQpDYWNoZS1Db250cm9sOiBtYXgtYWdlPTANClNlYy1DSC1VQTogIkdvb2dsZSBDaHJvbWUiO3Y9IjEzOCIsICJOb3Q9QT9CcmFuZCI7dj0iOCIsICJDaHJvbWl1bSI7dj0iMTM4Ig0KU2VjLUNILVVBLU1vYmlsZTogPzANClNlYy1DSC1VQS1QbGF0Zm9ybTogIkxpbnV4Ig0KQWNjZXB0LUxhbmd1YWdlOiBlbi1VUztxPTAuOSxlbjtxPTAuOA0KVXNlci1BZ2VudDogTW96aWxsYS81LjAgKFgxMTsgTGludXggeDg2XzY0KSBBcHBsZVdlYktpdC81MzcuMzYgKEtIVE1MLCBsaWtlIEdlY2tvKSBDaHJvbWUvMTM4LjAuMC4wIFNhZmFyaS81MzcuMzYNCkFjY2VwdDogdGV4dC9odG1sLGFwcGxpY2F0aW9uL3hodG1sK3htbCxhcHBsaWNhdGlvbi94bWw7cT0wLjksaW1hZ2UvYXZpZixpbWFnZS93ZWJwLGltYWdlL2FwbmcsKi8qO3E9MC44LGFwcGxpY2F0aW9uL3NpZ25lZC1leGNoYW5nZTt2PWIzO3E9MC43DQpTZWMtRmV0Y2gtU2l0ZTogbm9uZQ0KU2VjLUZldGNoLU1vZGU6IG5hdmlnYXRlDQpTZWMtRmV0Y2gtVXNlcjogPzENClNlYy1GZXRjaC1EZXN0OiBkb2N1bWVudA0KQWNjZXB0LUVuY29kaW5nOiBnemlwLCBkZWZsYXRlLCBicg0KQ29ubmVjdGlvbjogY2xvc2UNCkNvb2tpZTogUEhQU0VTU0lEPWE4MjcyOTZlMTY0Yzk0NzEwMGQyYmIwMDA1NDE0ZjBkDQpPcmlnaW46IGh0dHA6Ly8xMC4xLjMuMg0KVXBncmFkZS1JbnNlY3VyZS1SZXF1ZXN0czogMQ0KUmVmZXJlcjogaHR0cDovLzEwLjEuMy4yL211dGlsbGlkYWUvaW5kZXgucGhwP3BhZ2U9bG9naW4ucGhwDQpDb250ZW50LVR5cGU6IGFwcGxpY2F0aW9uL3gtd3d3LWZvcm0tdXJsZW5jb2RlZA0KQ29udGVudC1MZW5ndGg6IDcxDQoNCnVzZXJuYW1lPVVma29idmtM",
+              "length": 927
+            },
+            {
+              "type": "HighlightSegment",
+              "data": "Jw==",
+              "length": 1
+            },
+            {
+              "type": "DataSegment",
+              "data": "JnBhc3N3b3JkPWo3RyUyMWwxciUyMUIzJmxvZ2luLXBocC1zdWJtaXQtYnV0dG9uPUxvZ2lu",
+              "length": 54
+            }
+          ],
+          "response": [
+            {
+              "type": "DataSegment",
+              "data": "SFRUUC8xLjEgMjAwIE9LDQpEYXRlOiBUaHUsIDA0IFNlcCAyMDI1IDE1OjE3OjU1IEdNVA0KU2VydmVyOiBBcGFjaGUvMi4yLjggKFVidW50dSkgREFWLzINClgtUG93ZXJlZC1CeTogUEhQLzUuMi40LTJ1YnVudHU1LjEwDQpFeHBpcmVzOiBUaHUsIDE5IE5vdiAxOTgxIDA4OjUyOjAwIEdNVA0KQ2FjaGUtQ29udHJvbDogbm8tc3RvcmUsIG5vLWNhY2hlLCBtdXN0LXJldmFsaWRhdGUsIHBvc3QtY2hlY2s9MCwgcHJlLWNoZWNrPTANClByYWdtYTogbm8tY2FjaGUNCkNvbm5lY3Rpb246IGNsb3NlDQpDb250ZW50LVR5cGU6IHRleHQvaHRtbA0KQ29udGVudC1MZW5ndGg6IDI3Njc4DQoNCjx0YWJsZT4NCgkJCTx0cj48dGQgY29sc3Bhbj0iMiI+Jm5ic3A7PC90ZD48L3RyPg0KCQkJPHRyPg0KCQkJCTx0ZCBjb2xzcGFuPSIyIiBjbGFzcz0iZXJyb3ItaGVhZGVyIj5FcnJvcjogRmFpbHVyZSBpcyBhbHdheXMgYW4gb3B0aW9uIGFuZCB0aGlzIHNpdHVhdGlvbiBwcm92ZXMgaXQ8L3RkPg0KCQkJPC90cj4NCgkJCTx0cj4NCgkJCQk8dGQgY2xh",
+              "length": 534
+            },
+            {
+              "type": "SnipSegment",
+              "length": 341
+            },
+            {
+              "type": "DataSegment",
+              "data": "PHRkIGNsYXNzPSJlcnJvci1kZXRhaWwiPkVycm9yIGV4ZWN1dGluZyBxdWVyeTog",
+              "length": 48
+            },
+            {
+              "type": "HighlightSegment",
+              "data": "WW91IGhhdmUgYW4gZXJyb3IgaW4geW91ciBTUUwgc3ludGF4",
+              "length": 36
+            },
+            {
+              "type": "DataSegment",
+              "data": "OyBjaGVjayB0aGUgbWFudWFsIHRoYXQgY29ycmVzcG9uZHMgdG8geW91ciBNeVNRTCBzZXJ2ZXIgdmVyc2lvbiBmb3IgdGhlIHJpZ2h0IHN5bnRheCB0byB1c2UgbmVhciAnajdHIWwxciFCMycnIGF0IGxpbmUgMTwvdGQ+",
+              "length": 126
+            },
+            {
+              "type": "SnipSegment",
+              "length": 26927
+            }
+          ],
+          "was_redirect_followed": false,
+          "request_time": "1007"
+        }
+      },
+      "second_evidence": {
+        "type": "FirstOrderEvidence",
+        "detail": {
+          "payload": {
+            "bytes": "Jyc=",
+            "flags": 0
+          },
+          "band_flags": [
+            "in_band"
+          ]
+        },
+        "request_response": {
+          "url": "http://10.1.3.2/mutillidae/index.php?page=login.php",
+          "request": [
+            {
+              "type": "DataSegment",
+              "data": "UE9TVCAvbXV0aWxsaWRhZS9pbmRleC5waHA/cGFnZT1sb2dpbi5waHAgSFRUUC8xLjENCkhvc3Q6IDEwLjEuMy4yDQpDYWNoZS1Db250cm9sOiBtYXgtYWdlPTANClNlYy1DSC1VQTogIkdvb2dsZSBDaHJvbWUiO3Y9IjEzOCIsICJOb3Q9QT9CcmFuZCI7dj0iOCIsICJDaHJvbWl1bSI7dj0iMTM4Ig0KU2VjLUNILVVBLU1vYmlsZTogPzANClNlYy1DSC1VQS1QbGF0Zm9ybTogIkxpbnV4Ig0KQWNjZXB0LUxhbmd1YWdlOiBlbi1VUztxPTAuOSxlbjtxPTAuOA0KVXNlci1BZ2VudDogTW96aWxsYS81LjAgKFgxMTsgTGludXggeDg2XzY0KSBBcHBsZVdlYktpdC81MzcuMzYgKEtIVE1MLCBsaWtlIEdlY2tvKSBDaHJvbWUvMTM4LjAuMC4wIFNhZmFyaS81MzcuMzYNCkFjY2VwdDogdGV4dC9odG1sLGFwcGxpY2F0aW9uL3hodG1sK3htbCxhcHBsaWNhdGlvbi94bWw7cT0wLjksaW1hZ2UvYXZpZixpbWFnZS93ZWJwLGltYWdlL2FwbmcsKi8qO3E9MC44LGFwcGxpY2F0aW9uL3NpZ25lZC1leGNoYW5nZTt2PWIzO3E9MC43DQpTZWMtRmV0Y2gtU2l0ZTogbm9uZQ0KU2VjLUZldGNoLU1vZGU6IG5hdmlnYXRlDQpTZWMtRmV0Y2gtVXNlcjogPzENClNlYy1GZXRjaC1EZXN0OiBkb2N1bWVudA0KQWNjZXB0LUVuY29kaW5nOiBnemlwLCBkZWZsYXRlLCBicg0KQ29ubmVjdGlvbjogY2xvc2UNCkNvb2tpZTogUEhQU0VTU0lEPWE4MjcyOTZlMTY0Yzk0NzEwMGQyYmIwMDA1NDE0ZjBkDQpPcmlnaW46IGh0dHA6Ly8xMC4xLjMuMg0KVXBncmFkZS1JbnNlY3VyZS1SZXF1ZXN0czogMQ0KUmVmZXJlcjogaHR0cDovLzEwLjEuMy4yL211dGlsbGlkYWUvaW5kZXgucGhwP3BhZ2U9bG9naW4ucGhwDQpDb250ZW50LVR5cGU6IGFwcGxpY2F0aW9uL3gtd3d3LWZvcm0tdXJsZW5jb2RlZA0KQ29udGVudC1MZW5ndGg6IDcxDQoNCnVzZXJuYW1lPVVma29idmtM",
+              "length": 927
+            },
+            {
+              "type": "HighlightSegment",
+              "data": "Jyc=",
+              "length": 2
+            },
+            {
+              "type": "DataSegment",
+              "data": "JnBhc3N3b3JkPWo3RyUyMWwxciUyMUIzJmxvZ2luLXBocC1zdWJtaXQtYnV0dG9uPUxvZ2lu",
+              "length": 54
+            }
+          ],
+          "response": [
+            {
+              "type": "DataSegment",
+              "data": "SFRUUC8xLjEgMjAwIE9LDQpEYXRlOiBUaHUsIDA0IFNlcCAyMDI1IDE1OjE4OjA1IEdNVA0KU2VydmVyOiBBcGFjaGUvMi4yLjggKFVidW50dSkgREFWLzINClgtUG93ZXJlZC1CeTogUEhQLzUuMi40LTJ1YnVudHU1LjEwDQpFeHBpcmVzOiBUaHUsIDE5IE5vdiAxOTgxIDA4OjUyOjAwIEdNVA0KQ2FjaGUtQ29udHJvbDogbm8tc3RvcmUsIG5vLWNhY2hlLCBtdXN0LXJldmFsaWRhdGUsIHBvc3QtY2hlY2s9MCwgcHJlLWNoZWNrPTANClByYWdtYTogbm8tY2FjaGUNCkNvbm5lY3Rpb246IGNsb3NlDQpDb250ZW50LVR5cGU6IHRleHQvaHRtbA0KQ29udGVudC1MZW5ndGg6IDI3NTYzDQoNCjx0YWJsZT4NCgkJCTx0cj48dGQgY29sc3Bhbj0iMiI+Jm5ic3A7PC90ZD48L3RyPg0KCQkJPHRyPg0KCQkJCTx0ZCBjb2xzcGFuPSIyIiBjbGFzcz0iZXJyb3ItaGVhZGVyIj5FcnJvcjogRmFpbHVyZSBpcyBhbHdheXMgYW4gb3B0aW9uIGFuZCB0aGlzIHNpdHVhdGlvbiBwcm92ZXMgaXQ8L3RkPg0KCQkJPC90cj4NCgkJCTx0cj4NCgkJCQk8dGQgY2xh",
+              "length": 534
+            },
+            {
+              "type": "SnipSegment",
+              "length": 27363
+            }
+          ],
+          "was_redirect_followed": false,
+          "request_time": "465"
+        }
+      }
+    }
+  ],
+  "description": "The <b>username</b> parameter appears to be vulnerable to SQL injection attacks. A single quote was submitted in the username parameter, and a database error message was returned. Two single quotes were then submitted and the error message disappeared. You should review the contents of the error message, and the application's handling of other input, to confirm whether a vulnerability is present.<br><br>The database appears to be MySQL.",
+  "remediation": "The application should handle errors gracefully and prevent SQL error messages from being returned in responses. ",
+  "references": []
+}

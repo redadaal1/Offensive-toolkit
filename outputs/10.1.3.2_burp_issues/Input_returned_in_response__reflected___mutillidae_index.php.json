@@ -11,7 +11,7 @@
       "type": "FirstOrderEvidence",
       "detail": {
         "payload": {
-          "bytes": "ZzR2NWk3eGYyMQ==",
+          "bytes": "aXc1NWExcWMxaQ==",
           "flags": 0
         },
         "band_flags": [
@@ -19,60 +19,98 @@
         ]
       },
       "request_response": {
-        "url": "http://10.1.3.2/mutillidae/index.php?page=home.php",
+        "url": "http://10.1.3.2/mutillidae/index.php?page=source-viewer.php",
         "request": [
           {
             "type": "DataSegment",
-            "data": "R0VUIC9tdXRpbGxpZGFlL2luZGV4LnBocD9wYWdlPWhvbWUucGhwIEhUVFAvMS4xDQpIb3N0OiAxMC4xLjMuMg0KQ2FjaGUtQ29udHJvbDogbWF4LWFnZT0wDQpTZWMtQ0gtVUE6ICJHb29nbGUgQ2hyb21lIjt2PSIxMzgiLCAiTm90PUE/QnJhbmQiO3Y9IjgiLCAiQ2hyb21pdW0iO3Y9IjEzOCINClNlYy1DSC1VQS1Nb2JpbGU6ID8wDQpTZWMtQ0gtVUEtUGxhdGZvcm06ICJMaW51eCINCkFjY2VwdC1MYW5ndWFnZTogZW4tVVM7cT0wLjksZW47cT0wLjgNClVzZXItQWdlbnQ6IE1vemlsbGEvNS4wIChYMTE7IExpbnV4IHg4Nl82NCkgQXBwbGVXZWJLaXQvNTM3LjM2IChLSFRNTCwgbGlrZSBHZWNrbykgQ2hyb21lLzEzOC4wLjAuMCBTYWZhcmkvNTM3LjM2DQpBY2NlcHQ6IHRleHQvaHRtbCxhcHBsaWNhdGlvbi94aHRtbCt4bWwsYXBwbGljYXRpb24veG1sO3E9MC45LGltYWdlL2F2aWYsaW1hZ2Uvd2VicCxpbWFnZS9hcG5nLCovKjtxPTAuOCxhcHBsaWNhdGlvbi9zaWduZWQtZXhjaGFuZ2U7dj1iMztxPTAuNw0KU2VjLUZldGNoLVNpdGU6IG5vbmUNClNlYy1GZXRjaC1Nb2RlOiBuYXZpZ2F0ZQ0KU2VjLUZldGNoLVVzZXI6ID8xDQpTZWMtRmV0Y2gtRGVzdDogZG9jdW1lbnQNCkFjY2VwdC1FbmNvZGluZzogZ3ppcCwgZGVmbGF0ZSwgYnINCkNvbm5lY3Rpb246IGNsb3NlDQpDb29raWU6IHNob3doaW50cz0x",
-            "length": 687
+            "data": "UE9TVCAvbXV0aWxsaWRhZS9pbmRleC5waHA/cGFnZT1zb3VyY2Utdmlld2VyLnBocCBIVFRQLzEuMQ0KSG9zdDogMTAuMS4zLjINCkNhY2hlLUNvbnRyb2w6IG1heC1hZ2U9MA0KU2VjLUNILVVBOiAiR29vZ2xlIENocm9tZSI7dj0iMTM4IiwgIk5vdD1BP0JyYW5kIjt2PSI4IiwgIkNocm9taXVtIjt2PSIxMzgiDQpTZWMtQ0gtVUEtTW9iaWxlOiA/MA0KU2VjLUNILVVBLVBsYXRmb3JtOiAiTGludXgiDQpBY2NlcHQtTGFuZ3VhZ2U6IGVuLVVTO3E9MC45LGVuO3E9MC44DQpVc2VyLUFnZW50OiBNb3ppbGxhLzUuMCAoWDExOyBMaW51eCB4ODZfNjQpIEFwcGxlV2ViS2l0LzUzNy4zNiAoS0hUTUwsIGxpa2UgR2Vja28pIENocm9tZS8xMzguMC4wLjAgU2FmYXJpLzUzNy4zNg0KQWNjZXB0OiB0ZXh0L2h0bWwsYXBwbGljYXRpb24veGh0bWwreG1sLGFwcGxpY2F0aW9uL3htbDtxPTAuOSxpbWFnZS9hdmlmLGltYWdlL3dlYnAsaW1hZ2UvYXBuZywqLyo7cT0wLjgsYXBwbGljYXRpb24vc2lnbmVkLWV4Y2hhbmdlO3Y9YjM7cT0wLjcNClNlYy1GZXRjaC1TaXRlOiBub25lDQpTZWMtRmV0Y2gtTW9kZTogbmF2aWdhdGUNClNlYy1GZXRjaC1Vc2VyOiA/MQ0KU2VjLUZldGNoLURlc3Q6IGRvY3VtZW50DQpBY2NlcHQtRW5jb2Rpbmc6IGd6aXAsIGRlZmxhdGUsIGJyDQpDb25uZWN0aW9uOiBjbG9zZQ0KQ29va2llOiBQSFBTRVNTSUQ9ZWRmNDdmNDNiMjUxYWIzYTM3ZmUxMmM0ZTU1ZTY3NGUNCk9yaWdpbjogaHR0cDovLzEwLjEuMy4yDQpVcGdyYWRlLUluc2VjdXJlLVJlcXVlc3RzOiAxDQpSZWZlcmVyOiBodHRwOi8vMTAuMS4zLjIvbXV0aWxsaWRhZS9pbmRleC5waHA/cGFnZT1zb3VyY2Utdmlld2VyLnBocA0KQ29udGVudC1UeXBlOiBhcHBsaWNhdGlvbi94LXd3dy1mb3JtLXVybGVuY29kZWQNCkNvbnRlbnQtTGVuZ3RoOiA5MA0KDQpwYWdlPXNvdXJjZS12aWV3ZXIucGhwJnBocGZpbGU9c2hvdy1sb2cucGhw",
+            "length": 969
           },
           {
             "type": "HighlightSegment",
-            "data": "ZzR2NWk3eGYyMQ==",
+            "data": "aXc1NWExcWMxaQ==",
             "length": 10
           },
           {
             "type": "DataSegment",
-            "data": "OyBQSFBTRVNTSUQ9NTgyN2NmZDllZThmYWJmZGE4NTc2Mjc5OWVkMjU0OTUNClVwZ3JhZGUtSW5zZWN1cmUtUmVxdWVzdHM6IDENClJlZmVyZXI6IGh0dHA6Ly9mOTJiY2U5YS05ODE4LTRmNjgtYmMzMi03MTM4NjI3MzUwNWYuY29tLw0KDQo=",
-            "length": 137
+            "data": "JnNvdXJjZS1maWxlLXZpZXdlci1waHAtc3VibWl0LWJ1dHRvbj1WaWV3K0ZpbGU=",
+            "length": 47
           }
         ],
         "response": [
           {
             "type": "DataSegment",
-            "data": "SFRUUC8xLjEgMjAwIE9LDQpEYXRlOiBUaHUsIDA0IFNlcCAyMDI1IDEzOjQ0OjIwIEdNVA0KU2VydmVyOiBBcGFjaGUvMi4yLjggKFVidW50dSkgREFWLzINClgtUG93ZXJlZC1CeTogUEhQLzUuMi40LTJ1YnVudHU1LjEwDQpFeHBpcmVzOiBUaHUsIDE5IE5vdiAxOTgxIDA4OjUyOjAwIEdNVA0KTG9nZ2VkLUluLVVzZXI6IA0KQ2FjaGUtQ29udHJvbDogcHVibGljDQpQcmFnbWE6IHB1YmxpYw0KTGFzdC1Nb2RpZmllZDogVGh1LCAwNCBTZXAgMjAyNSAxMzo0NDoyMCBHTVQNCkNvbm5lY3Rpb246IGNsb3NlDQpDb250ZW50LVR5cGU6IHRleHQvaHRtbA0KQ29udGVudC1MZW5ndGg6IDI2MTIxDQoNCg0KCQkJPCEtLSBJIHRoaW5rIHRoZSBkYXRhYmFzZSBwYXNzd29yZCBpcyBzZXQgdG8gYmxhbmsgb3IgcGVyaGFwcyBzYW11cmFpLg0KCQkJSXQgZGVwZW5kcyBvbiB3aGV0aGVyIHlvdSBpbnN0YWxsZWQgdGhpcyB3ZWIgYXBwIGZyb20gaXJvbmdlZWtzIHNpdGUgb3INCgkJCWFyZSB1c2luZyBpdCBpbnNpZGUgS2V2aW4gSm9obnNvbnMgU2FtdXJhaSB3",
+            "data": "SFRUUC8xLjEgMjAwIE9LDQpEYXRlOiBUaHUsIDA0IFNlcCAyMDI1IDE1OjIyOjQ5IEdNVA0KU2VydmVyOiBBcGFjaGUvMi4yLjggKFVidW50dSkgREFWLzINClgtUG93ZXJlZC1CeTogUEhQLzUuMi40LTJ1YnVudHU1LjEwDQpFeHBpcmVzOiBUaHUsIDE5IE5vdiAxOTgxIDA4OjUyOjAwIEdNVA0KTG9nZ2VkLUluLVVzZXI6IA0KQ2FjaGUtQ29udHJvbDogcHVibGljDQpQcmFnbWE6IHB1YmxpYw0KTGFzdC1Nb2RpZmllZDogVGh1LCAwNCBTZXAgMjAyNSAxNToyMjo1MCBHTVQNCkNvbnRlbnQtTGVuZ3RoOiAyNTg0Mg0KQ29ubmVjdGlvbjogY2xvc2UNCkNvbnRlbnQtVHlwZTogdGV4dC9odG1sDQoNCg0KCQkJPCEtLSBJIHRoaW5rIHRoZSBkYXRhYmFzZSBwYXNzd29yZCBpcyBzZXQgdG8gYmxhbmsgb3IgcGVyaGFwcyBzYW11cmFpLg0KCQkJSXQgZGVwZW5kcyBvbiB3aGV0aGVyIHlvdSBpbnN0YWxsZWQgdGhpcyB3ZWIgYXBwIGZyb20gaXJvbmdlZWtzIHNpdGUgb3INCgkJCWFyZSB1c2luZyBpdCBpbnNpZGUgS2V2aW4gSm9obnNvbnMgU2FtdXJhaSB3",
             "length": 540
           },
           {
             "type": "SnipSegment",
-            "length": 1868
+            "length": 24235
           },
           {
             "type": "DataSegment",
-            "data": "PHNjcmlwdCB0eXBlPSJ0ZXh0L2phdmFzY3JpcHQiPg0KCQl2YXIgb25Mb2FkT2ZCb2R5ID0gZnVuY3Rpb24odGhlQm9keSl7DQoJCQl2YXIgbF9zZWN1cml0eUxldmVsID0gJzAnOw0KCQkJCQkJdmFyIGxfaGludHNTdGF0dXMgPSAnRW5hYmxlZCAoMQ==",
-            "length": 142
+            "data": "PHAgY2xhc3M9ImxhYmVsIj5GaWxlOiBzaG93LWxvZy5waHA=",
+            "length": 35
           },
           {
             "type": "HighlightSegment",
-            "data": "ZzR2NWk3eGYyMQ==",
+            "data": "aXc1NWExcWMxaQ==",
             "length": 10
           },
           {
             "type": "DataSegment",
-            "data": "IC0gNWNyMXB0IEsxZGQxZSknOw0KCQkJDQoJCQlzd2l0Y2gobF9zZWN1cml0eUxldmVsKXsNCgkJCQljYXNlICIwIjogdmFyIGxfc2VjdXJpdHlMZXZlbERlc2NyaXB0aW9uID0gJ0hvc2VkJzsgYnJlYWs7DQoJCQkJY2FzZSAiMSI6IHZhciBsX3NlY3VyaXR5TGV2ZWxEZXNjcmlwdGlvbiA9ICdBcnJvZ2VudCc7IGJyZWFrOw0KCQkJCWNhc2UgIjIiOiB2",
-            "length": 201
+            "data": "PC9wPg==",
+            "length": 4
           },
           {
             "type": "SnipSegment",
-            "length": 23700
+            "length": 22
+          },
+          {
+            "type": "DataSegment",
+            "data": "PC9iPjogIGhpZ2hsaWdodF9maWxlKHNob3ctbG9nLnBocA==",
+            "length": 34
+          },
+          {
+            "type": "HighlightSegment",
+            "data": "aXc1NWExcWMxaQ==",
+            "length": 10
+          },
+          {
+            "type": "DataSegment",
+            "data": "KSBbPGEgaHJlZj0nZnVuY3Rpb24uaGlnaGxpZ2h0LWZpbGUnPg==",
+            "length": 37
+          },
+          {
+            "type": "SnipSegment",
+            "length": 251
+          },
+          {
+            "type": "DataSegment",
+            "data": "PC9hPl06IEZhaWxlZCBvcGVuaW5nICdzaG93LWxvZy5waHA=",
+            "length": 35
+          },
+          {
+            "type": "HighlightSegment",
+            "data": "aXc1NWExcWMxaQ==",
+            "length": 10
+          },
+          {
+            "type": "DataSegment",
+            "data": "JyBmb3IgaGlnaGxpZ2h0aW5nIGluIDxiPg==",
+            "length": 25
+          },
+          {
+            "type": "SnipSegment",
+            "length": 934
           }
         ],
         "was_redirect_followed": false,
-        "request_time": "1756993462851"
+        "request_time": "1756999372574"
       }
     }
   ],
-  "description": "The value of the <b>showhints</b> cookie is copied into the application's response.",
+  "description": "The value of the <b>phpfile</b> request parameter is copied into the application's response.",
   "remediation": "",
   "references": []
 }

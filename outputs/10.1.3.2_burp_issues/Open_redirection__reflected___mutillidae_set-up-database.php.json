@@ -1,0 +1,78 @@
+{
+  "name": "Open redirection (reflected)",
+  "type": "vulnerability",
+  "severity": "Info",
+  "confidence": "Certain",
+  "host": "",
+  "path": "/mutillidae/set-up-database.php",
+  "url": "/mutillidae/set-up-database.php",
+  "evidence": [
+    {
+      "type": "FirstOrderEvidence",
+      "detail": {
+        "payload": {
+          "bytes": "aHR0cDovL2EzbHZscWt3amxxL2E/aHR0cDovLzEwLjEuMy4yL211dGlsbGlkYWUv",
+          "flags": 0
+        },
+        "band_flags": [
+          "in_band"
+        ]
+      },
+      "request_response": {
+        "url": "http://10.1.3.2/mutillidae/set-up-database.php",
+        "request": [
+          {
+            "type": "DataSegment",
+            "data": "R0VUIC9tdXRpbGxpZGFlL3NldC11cC1kYXRhYmFzZS5waHAgSFRUUC8xLjENCkhvc3Q6IDEwLjEuMy4yDQpDYWNoZS1Db250cm9sOiBtYXgtYWdlPTANClNlYy1DSC1VQTogIkdvb2dsZSBDaHJvbWUiO3Y9IjEzOCIsICJOb3Q9QT9CcmFuZCI7dj0iOCIsICJDaHJvbWl1bSI7dj0iMTM4Ig0KU2VjLUNILVVBLU1vYmlsZTogPzANClNlYy1DSC1VQS1QbGF0Zm9ybTogIkxpbnV4Ig0KQWNjZXB0LUxhbmd1YWdlOiBlbi1VUztxPTAuOSxlbjtxPTAuOA0KVXNlci1BZ2VudDogTW96aWxsYS81LjAgKFgxMTsgTGludXggeDg2XzY0KSBBcHBsZVdlYktpdC81MzcuMzYgKEtIVE1MLCBsaWtlIEdlY2tvKSBDaHJvbWUvMTM4LjAuMC4wIFNhZmFyaS81MzcuMzYNCkFjY2VwdDogdGV4dC9odG1sLGFwcGxpY2F0aW9uL3hodG1sK3htbCxhcHBsaWNhdGlvbi94bWw7cT0wLjksaW1hZ2UvYXZpZixpbWFnZS93ZWJwLGltYWdlL2FwbmcsKi8qO3E9MC44LGFwcGxpY2F0aW9uL3NpZ25lZC1leGNoYW5nZTt2PWIzO3E9MC43DQpTZWMtRmV0Y2gtU2l0ZTogbm9uZQ0KU2VjLUZldGNoLU1vZGU6IG5hdmlnYXRlDQpTZWMtRmV0Y2gtVXNlcjogPzENClNlYy1GZXRjaC1EZXN0OiBkb2N1bWVudA0KQWNjZXB0LUVuY29kaW5nOiBnemlwLCBkZWZsYXRlLCBicg0KQ29ubmVjdGlvbjogY2xvc2UNCkNvb2tpZTogUEhQU0VTU0lEPTBhMjNiNDk0NDNiZjNlMTIzNDBhYzhmY2FjMzJlOTQyDQpVcGdyYWRlLUluc2VjdXJlLVJlcXVlc3RzOiAxDQpSZWZlcmVyOiA=",
+            "length": 755
+          },
+          {
+            "type": "HighlightSegment",
+            "data": "aHR0cDovL2EzbHZscWt3amxxL2E/aHR0cDovLzEwLjEuMy4yL211dGlsbGlkYWUv",
+            "length": 48
+          },
+          {
+            "type": "DataSegment",
+            "data": "DQpDb250ZW50LUxlbmd0aDogMA0KDQo=",
+            "length": 23
+          }
+        ],
+        "response": [
+          {
+            "type": "DataSegment",
+            "data": "SFRUUC8xLjEgMjAwIE9LDQpEYXRlOiBUaHUsIDA0IFNlcCAyMDI1IDE0OjEwOjI0IEdNVA0KU2VydmVyOiBBcGFjaGUvMi4yLjggKFVidW50dSkgREFWLzINClgtUG93ZXJlZC1CeTogUEhQLzUuMi40LTJ1YnVudHU1LjEwDQpDb25uZWN0aW9uOiBjbG9zZQ0KQ29udGVudC1UeXBlOiB0ZXh0L2h0bWwNCkNvbnRlbnQtTGVuZ3RoOiAyODM3DQoNCjwhRE9DVFlQRSBIVE1MIFBVQkxJQyAiLS8vVzNDLy9EVEQgSFRNTCA0LjAxIFRyYW5zaXRpb25hbC8vRU4iICJodHRwOi8vd3d3LnczLm9yZy9UUi8xOTk5L1JFQy1odG1sNDAxLTE5OTkxMjI0L2xvb3NlLmR0ZCI+DQo8aHRtbD4NCgk8aGVhZD4NCgkJPGxpbmsgcmVsPSJzaG9ydGN1dCBpY29uIiBocmVmPSJmYXZpY29uLmljbyIgdHlwZT0iaW1hZ2Uv",
+            "length": 396
+          },
+          {
+            "type": "SnipSegment",
+            "length": 2396
+          },
+          {
+            "type": "DataSegment",
+            "data": "PHNjcmlwdD5pZihjb25maXJtKCJObyBQSFAgb3IgTXlTUUwgZXJyb3JzIHdlcmUgZGV0ZWN0ZWQgd2hlbiByZXNldHRpbmcgdGhlIGRhdGFiYXNlLlxuXG5DbGljayBPSyB0byBwcm9jZWVkIG9yIENhbmNlbCB0byBzdGF5IG9uIHRoaXMgcGFnZS4iKSl7ZG9jdW1lbnQubG9jYXRpb249Ig==",
+            "length": 163
+          },
+          {
+            "type": "HighlightSegment",
+            "data": "aHR0cDovL2EzbHZscWt3amxxL2E/aHR0cDovLzEwLjEuMy4yL211dGlsbGlkYWUv",
+            "length": 48
+          },
+          {
+            "type": "DataSegment",
+            "data": "In07PC9zY3JpcHQ+",
+            "length": 12
+          },
+          {
+            "type": "SnipSegment",
+            "length": 18
+          }
+        ],
+        "was_redirect_followed": false,
+        "request_time": "22"
+      }
+    }
+  ],
+  "description": "The value of the <b>Referer</b> HTTP header is used to perform a redirect initiated from JavaScript. The payload <b>http://a3lvlqkwjlq/a?http://10.1.3.2/mutillidae/</b> was submitted in the Referer HTTP header. This caused a redirection to the following URL:<ul><li>http://a3lvlqkwjlq/a?http://10.1.3.2/mutillidae/</li></ul><br><br>Because the data used in the redirection is submitted within a header, the application's behavior is unlikely to be directly useful in lending credibility to a phishing attack. This limitation considerably mitigates the impact of the vulnerability.",
+  "remediation": "",
+  "references": []
+}
