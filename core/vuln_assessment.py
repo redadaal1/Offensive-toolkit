@@ -9,6 +9,7 @@ from typing import Dict
 import requests
 import subprocess
 import re
+import socket
 
 from core.config import config
 from concurrent.futures import ThreadPoolExecutor, as_completed
@@ -218,12 +219,20 @@ def run_nuclei(target: str) -> Dict:
     url = f"http://{target}"
     safe = _safe_name(target)
     out_path = OUTPUT_DIR / f"{safe}_nuclei.ndjson"
-    cmd = [bin_path, "-u", url, "-rate-limit", rate, "-c", conc, "-severity", sev, "-json", "-o", str(out_path)]
+    # Prefer modern JSON Lines flag; fall back if unsupported
+    cmd_jsonl = [bin_path, "-u", url, "-rate-limit", rate, "-c", conc, "-severity", sev, "-jsonl", "-o", str(out_path)]
+    cmd_json = [bin_path, "-u", url, "-rate-limit", rate, "-c", conc, "-severity", sev, "-json", "-o", str(out_path)]
     if templates:
-        cmd.extend(["-t", templates])
+        cmd_jsonl.extend(["-t", templates])
+        cmd_json.extend(["-t", templates])
     try:
-        logger.info(f"[VULN][nuclei] Running: {' '.join(cmd)}")
-        subprocess.run(cmd, stdout=subprocess.DEVNULL, stderr=subprocess.DEVNULL, text=True, check=False)
+        logger.info(f"[VULN][nuclei] Running: {' '.join(cmd_jsonl)}")
+        subprocess.run(cmd_jsonl, stdout=subprocess.DEVNULL, stderr=subprocess.DEVNULL, text=True, check=False)
+        # If no output produced, retry with legacy flag
+        content = out_path.read_text(encoding="utf-8") if out_path.exists() else ""
+        if not content.strip():
+            logger.info("[VULN][nuclei] No output with -jsonl; retrying with -json")
+            subprocess.run(cmd_json, stdout=subprocess.DEVNULL, stderr=subprocess.DEVNULL, text=True, check=False)
         issues = []
         if out_path.exists():
             for line in out_path.read_text(encoding="utf-8").splitlines():
@@ -248,11 +257,21 @@ def run_nuclei(target: str) -> Dict:
 
 def run_sslyze(target: str) -> Dict:
     bin_path = config.get("integrations.sslyze.binary", "sslyze")
+    port = int(config.get("integrations.sslyze.port", 443) or 443)
+    skip_if_closed = bool(config.get("integrations.sslyze.skip_if_closed", True))
     safe = _safe_name(target)
     out_path = OUTPUT_DIR / f"{safe}_sslyze_raw.json"
     try:
+        # Optional: skip if port not open
+        if skip_if_closed:
+            try:
+                with socket.create_connection((target, port), timeout=3):
+                    pass
+            except Exception:
+                logger.info(f"[VULN][sslyze] Skipping; {target}:{port} is closed or TLS handshake not accepted")
+                return {"tool": "sslyze", "skipped": True, "port": port, "reason": "port_closed"}
         # Prefer JSON output file if supported
-        cmd = [bin_path, f"{target}:443", f"--json_out={str(out_path)}"]
+        cmd = [bin_path, f"{target}:{port}", f"--json_out={str(out_path)}"]
         logger.info(f"[VULN][sslyze] Running: {' '.join(cmd)}")
         subprocess.run(cmd, stdout=subprocess.DEVNULL, stderr=subprocess.DEVNULL, text=True, check=False)
         summary = {"findings": 0}

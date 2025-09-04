@@ -1,0 +1,64 @@
+{
+  "name": "File upload functionality",
+  "type": "vulnerability",
+  "severity": "Info",
+  "confidence": "Certain",
+  "host": "",
+  "path": "/twiki/bin/attach/Main/WebPreferences",
+  "url": "/twiki/bin/attach/Main/WebPreferences",
+  "evidence": [
+    {
+      "type": "FirstOrderEvidence",
+      "detail": {
+        "band_flags": [
+          "in_band"
+        ]
+      },
+      "request_response": {
+        "url": "http://192.168.1.50/twiki/bin/attach/Main/WebPreferences",
+        "request": [
+          {
+            "type": "DataSegment",
+            "data": "R0VUIC90d2lraS9iaW4vYXR0YWNoL01haW4vV2ViUHJlZmVyZW5jZXMgSFRUUC8xLjENCkhvc3Q6IDE5Mi4xNjguMS41MA0KQ2FjaGUtQ29udHJvbDogbWF4LWFnZT0wDQpTZWMtQ0gtVUE6ICJHb29nbGUgQ2hyb21lIjt2PSIxMzgiLCAiTm90PUE/QnJhbmQiO3Y9IjgiLCAiQ2hyb21pdW0iO3Y9IjEzOCINClNlYy1DSC1VQS1Nb2JpbGU6ID8wDQpTZWMtQ0gtVUEtUGxhdGZvcm06ICJMaW51eCINCkFjY2VwdC1MYW5ndWFnZTogZW4tVVM7cT0wLjksZW47cT0wLjgNClVzZXItQWdlbnQ6IE1vemlsbGEvNS4wIChYMTE7IExpbnV4IHg4Nl82NCkgQXBwbGVXZWJLaXQvNTM3LjM2IChLSFRNTCwgbGlrZSBHZWNrbykgQ2hyb21lLzEzOC4wLjAuMCBTYWZhcmkvNTM3LjM2DQpBY2NlcHQ6IHRleHQvaHRtbCxhcHBsaWNhdGlvbi94aHRtbCt4bWwsYXBwbGljYXRpb24veG1sO3E9MC45LGltYWdlL2F2aWYsaW1hZ2Uvd2VicCxpbWFnZS9hcG5nLCovKjtxPTAuOCxhcHBsaWNhdGlvbi9zaWduZWQtZXhjaGFuZ2U7dj1iMztxPTAuNw0KU2VjLUZldGNoLVNpdGU6IG5vbmUNClNlYy1GZXRjaC1Nb2RlOiBuYXZpZ2F0ZQ0KU2VjLUZldGNoLVVzZXI6ID8xDQpTZWMtRmV0Y2gtRGVzdDogZG9jdW1lbnQNCkFjY2VwdC1FbmNvZGluZzogZ3ppcCwgZGVmbGF0ZSwgYnINCkNvbm5lY3Rpb246IGNsb3NlDQpVcGdyYWRlLUluc2VjdXJlLVJlcXVlc3RzOiAxDQpSZWZlcmVyOiBodHRwOi8vMTkyLjE2OC4xLjUwL3R3aWtpL2Jpbi92aWV3L01haW4vV2ViUHJlZmVyZW5jZXMNCg0K",
+            "length": 771
+          }
+        ],
+        "response": [
+          {
+            "type": "DataSegment",
+            "data": "SFRUUC8xLjEgMjAwIE9LDQpEYXRlOiBUdWUsIDAyIFNlcCAyMDI1IDE1OjI3OjUzIEdNVA0KU2VydmVyOiBBcGFjaGUvMi4yLjggKFVidW50dSkgREFWLzINCkNvbm5lY3Rpb246IGNsb3NlDQpDb250ZW50LVR5cGU6IHRleHQvaHRtbDsgY2hhcnNldD1JU08tODg1OS0xDQpDb250ZW50LUxlbmd0aDogNDQxOQ0KDQo8IURPQ1RZUEUgaHRtbCBQVUJMSUMgIi0vL1czQy8vRFREIFhIVE1MIDEuMCBUcmFuc2l0aW9uYWwvL0VOIiAiaHR0cDovL3d3dy53My5vcmcvVFIveGh0bWwxL0RURC94aHRtbDEtdHJhbnNpdGlvbmFsLmR0ZCI+CjxodG1sIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5L3hodG1sIiB4bWw6bGFuZz0iZW4iIGxhbmc9ImVuIj4gCjxoZWFkPgogPA==",
+            "length": 379
+          },
+          {
+            "type": "SnipSegment",
+            "length": 2198
+          },
+          {
+            "type": "DataSegment",
+            "data": "PGlucHV0IHR5cGU9ImhpZGRlbiIgbmFtZT0iZmlsZW5hbWUiIHZhbHVlPSIiIC8+CiAgIA==",
+            "length": 52
+          },
+          {
+            "type": "HighlightSegment",
+            "data": "PGlucHV0IHR5cGU9ImZpbGUiIG5hbWU9ImZpbGVwYXRoIiB2YWx1ZT0iIiBzaXplPSI1MCIgLz4=",
+            "length": 56
+          },
+          {
+            "type": "DataSegment",
+            "data": "CiAgPC90ZD4=",
+            "length": 8
+          },
+          {
+            "type": "SnipSegment",
+            "length": 1905
+          }
+        ],
+        "was_redirect_followed": false,
+        "request_time": "1756826875517"
+      }
+    }
+  ],
+  "description": "The page contains a form which is used to submit a user-supplied file to the following URL:<ul><li>http://192.168.1.50/twiki/bin/upload/Main/WebPreferences</li></ul>Note that Burp has not identified any specific security vulnerabilities with this functionality, and you should manually review it to determine whether any problems exist.",
+  "remediation": "",
+  "references": []
+}

@@ -1,0 +1,107 @@
+{
+  "name": "File path manipulation",
+  "type": "vulnerability",
+  "severity": "Info",
+  "confidence": "Tentative",
+  "host": "",
+  "path": "/twiki/bin/search/Main/",
+  "url": "/twiki/bin/search/Main/",
+  "evidence": [
+    {
+      "type": "DiffableEvidence",
+      "first_evidence": {
+        "type": "FirstOrderEvidence",
+        "detail": {
+          "payload": {
+            "bytes": "Li9vbg==",
+            "flags": 0
+          },
+          "band_flags": [
+            "in_band"
+          ]
+        },
+        "request_response": {
+          "url": "http://192.168.1.50/twiki/bin/search/Main/?scope=text&web=.%2fon&bookview=on&search=rbzEWw",
+          "request": [
+            {
+              "type": "DataSegment",
+              "data": "R0VUIC90d2lraS9iaW4vc2VhcmNoL01haW4vP3Njb3BlPXRleHQmd2ViPQ==",
+              "length": 43
+            },
+            {
+              "type": "HighlightSegment",
+              "data": "LiUyZm9u",
+              "length": 6
+            },
+            {
+              "type": "DataSegment",
+              "data": "JmJvb2t2aWV3PW9uJnNlYXJjaD1yYnpFV3cgSFRUUC8xLjENCkhvc3Q6IDE5Mi4xNjguMS41MA0KQ2FjaGUtQ29udHJvbDogbWF4LWFnZT0wDQpTZWMtQ0gtVUE6ICJHb29nbGUgQ2hyb21lIjt2PSIxMzgiLCAiTm90PUE/QnJhbmQiO3Y9IjgiLCAiQ2hyb21pdW0iO3Y9IjEzOCINClNlYy1DSC1VQS1Nb2JpbGU6ID8wDQpTZWMtQ0gtVUEtUGxhdGZvcm06ICJMaW51eCINCkFjY2VwdC1MYW5ndWFnZTogZW4tVVM7cT0wLjksZW47cT0wLjgNClVzZXItQWdlbnQ6IE1vemlsbGEvNS4wIChYMTE7IExpbnV4IHg4Nl82NCkgQXBwbGVXZWJLaXQvNTM3LjM2IChLSFRNTCwgbGlrZSBHZWNrbykgQ2hyb21lLzEzOC4wLjAuMCBTYWZhcmkvNTM3LjM2DQpBY2NlcHQ6IHRleHQvaHRtbCxhcHBsaWNhdGlvbi94aHRtbCt4bWwsYXBwbGljYXRpb24veG1sO3E9MC45LGltYWdlL2F2aWYsaW1hZ2Uvd2VicCxpbWFnZS9hcG5nLCovKjtxPTAuOCxhcHBsaWNhdGlvbi9zaWduZWQtZXhjaGFuZ2U7dj1iMztxPTAuNw0KU2VjLUZldGNoLVNpdGU6IG5vbmUNClNlYy1GZXRjaC1Nb2RlOiBuYXZpZ2F0ZQ0KU2VjLUZldGNoLVVzZXI6ID8xDQpTZWMtRmV0Y2gtRGVzdDogZG9jdW1lbnQNCkFjY2VwdC1FbmNvZGluZzogZ3ppcCwgZGVmbGF0ZSwgYnINCkNvbm5lY3Rpb246IGNsb3NlDQpVcGdyYWRlLUluc2VjdXJlLVJlcXVlc3RzOiAxDQpSZWZlcmVyOiBodHRwOi8vMTkyLjE2OC4xLjUwL3R3aWtpL2Jpbi92aWV3L01haW4vV2ViU2VhcmNoDQpDb250ZW50LUxlbmd0aDogMA0KDQo=",
+              "length": 770
+            }
+          ],
+          "response": [
+            {
+              "type": "DataSegment",
+              "data": "SFRUUC8xLjEgMjAwIE9LDQpEYXRlOiBUdWUsIDAyIFNlcCAyMDI1IDE1OjI3OjIyIEdNVA0KU2VydmVyOiBBcGFjaGUvMi4yLjggKFVidW50dSkgREFWLzINCkNvbm5lY3Rpb246IGNsb3NlDQpDb250ZW50LVR5cGU6IHRleHQvaHRtbDsgY2hhcnNldD1JU08tODg1OS0xDQpDb250ZW50LUxlbmd0aDogMjU1OQ0KDQo8IURPQ1RZUEUgaHRtbCBQVUJMSUMgIi0vL1czQy8vRFREIFhIVE1MIDEuMCBUcmFuc2l0aW9uYWwvL0VOIiAiaHR0cDovL3d3dy53My5vcmcvVFIveGh0bWwxL0RURC94aHRtbDEtdHJhbnNpdGlvbmFsLmR0ZCI+CjxodG1sIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5L3hodG1sIiB4bWw6bGFuZz0iZW4iIGxhbmc9ImVuIj4gCjxoZWFkPgogPA==",
+              "length": 379
+            },
+            {
+              "type": "SnipSegment",
+              "length": 2359
+            }
+          ],
+          "was_redirect_followed": false,
+          "request_time": "1756826921165"
+        }
+      },
+      "second_evidence": {
+        "type": "FirstOrderEvidence",
+        "detail": {
+          "payload": {
+            "bytes": "Li4uL29u",
+            "flags": 0
+          },
+          "band_flags": [
+            "in_band"
+          ]
+        },
+        "request_response": {
+          "url": "http://192.168.1.50/twiki/bin/search/Main/?scope=text&web=...%2fon&bookview=on&search=rbzEWw",
+          "request": [
+            {
+              "type": "DataSegment",
+              "data": "R0VUIC90d2lraS9iaW4vc2VhcmNoL01haW4vP3Njb3BlPXRleHQmd2ViPQ==",
+              "length": 43
+            },
+            {
+              "type": "HighlightSegment",
+              "data": "Li4uJTJmb24=",
+              "length": 8
+            },
+            {
+              "type": "DataSegment",
+              "data": "JmJvb2t2aWV3PW9uJnNlYXJjaD1yYnpFV3cgSFRUUC8xLjENCkhvc3Q6IDE5Mi4xNjguMS41MA0KQ2FjaGUtQ29udHJvbDogbWF4LWFnZT0wDQpTZWMtQ0gtVUE6ICJHb29nbGUgQ2hyb21lIjt2PSIxMzgiLCAiTm90PUE/QnJhbmQiO3Y9IjgiLCAiQ2hyb21pdW0iO3Y9IjEzOCINClNlYy1DSC1VQS1Nb2JpbGU6ID8wDQpTZWMtQ0gtVUEtUGxhdGZvcm06ICJMaW51eCINCkFjY2VwdC1MYW5ndWFnZTogZW4tVVM7cT0wLjksZW47cT0wLjgNClVzZXItQWdlbnQ6IE1vemlsbGEvNS4wIChYMTE7IExpbnV4IHg4Nl82NCkgQXBwbGVXZWJLaXQvNTM3LjM2IChLSFRNTCwgbGlrZSBHZWNrbykgQ2hyb21lLzEzOC4wLjAuMCBTYWZhcmkvNTM3LjM2DQpBY2NlcHQ6IHRleHQvaHRtbCxhcHBsaWNhdGlvbi94aHRtbCt4bWwsYXBwbGljYXRpb24veG1sO3E9MC45LGltYWdlL2F2aWYsaW1hZ2Uvd2VicCxpbWFnZS9hcG5nLCovKjtxPTAuOCxhcHBsaWNhdGlvbi9zaWduZWQtZXhjaGFuZ2U7dj1iMztxPTAuNw0KU2VjLUZldGNoLVNpdGU6IG5vbmUNClNlYy1GZXRjaC1Nb2RlOiBuYXZpZ2F0ZQ0KU2VjLUZldGNoLVVzZXI6ID8xDQpTZWMtRmV0Y2gtRGVzdDogZG9jdW1lbnQNCkFjY2VwdC1FbmNvZGluZzogZ3ppcCwgZGVmbGF0ZSwgYnINCkNvbm5lY3Rpb246IGNsb3NlDQpVcGdyYWRlLUluc2VjdXJlLVJlcXVlc3RzOiAxDQpSZWZlcmVyOiBodHRwOi8vMTkyLjE2OC4xLjUwL3R3aWtpL2Jpbi92aWV3L01haW4vV2ViU2VhcmNoDQpDb250ZW50LUxlbmd0aDogMA0KDQo=",
+              "length": 770
+            }
+          ],
+          "response": [
+            {
+              "type": "DataSegment",
+              "data": "SFRUUC8xLjEgMjAwIE9LDQpEYXRlOiBUdWUsIDAyIFNlcCAyMDI1IDE1OjI3OjIxIEdNVA0KU2VydmVyOiBBcGFjaGUvMi4yLjggKFVidW50dSkgREFWLzINCkNvbm5lY3Rpb246IGNsb3NlDQpDb250ZW50LVR5cGU6IHRleHQvaHRtbDsgY2hhcnNldD1JU08tODg1OS0xDQpDb250ZW50LUxlbmd0aDogMjU1OQ0KDQo8IURPQ1RZUEUgaHRtbCBQVUJMSUMgIi0vL1czQy8vRFREIFhIVE1MIDEuMCBUcmFuc2l0aW9uYWwvL0VOIiAiaHR0cDovL3d3dy53My5vcmcvVFIveGh0bWwxL0RURC94aHRtbDEtdHJhbnNpdGlvbmFsLmR0ZCI+CjxodG1sIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5L3hodG1sIiB4bWw6bGFuZz0iZW4iIGxhbmc9ImVuIj4gCjxoZWFkPgogPA==",
+              "length": 379
+            },
+            {
+              "type": "SnipSegment",
+              "length": 2359
+            }
+          ],
+          "was_redirect_followed": false,
+          "request_time": "1756826921165"
+        }
+      }
+    }
+  ],
+  "description": "The <b>web</b> parameter appears to be vulnerable to file path manipulation attacks. <br><br>The payload <b>./on</b> was submitted in the web parameter. This returned the same content as the base request. The payload <b>.../on</b> was then submitted, and this returned a different response. This indicates that the application may be vulnerable to file path manipulation.",
+  "remediation": "",
+  "references": []
+}

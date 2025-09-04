@@ -1,0 +1,526 @@
+{
+  "target": "10.3.2.1",
+  "generated": "2025-09-03T23:04:13.637705",
+  "steps": [
+    {
+      "name": "TCP ACK scan (firewall rule mapping)",
+      "tool": "nmap",
+      "command": "nmap 10.3.2.1 -n -Pn -p 22,80,445,139,443,3389,53 -sA",
+      "rationale": "Map stateful filtering: ACK reveals filtered vs unfiltered without opening connections.",
+      "returncode": 0,
+      "stdout_full": "Starting Nmap 7.95 ( https://nmap.org ) at 2025-09-03 21:48 +01\nNmap scan report for 10.3.2.1\nHost is up.\n\nPORT     STATE    SERVICE\n22/tcp   filtered ssh\n53/tcp   filtered domain\n80/tcp   filtered http\n139/tcp  filtered netbios-ssn\n443/tcp  filtered https\n445/tcp  filtered microsoft-ds\n3389/tcp filtered ms-wbt-server\n\nNmap done: 1 IP address (1 host up) scanned in 3.19 seconds\n",
+      "stderr_full": "",
+      "stdout": "Starting Nmap 7.95 ( https://nmap.org ) at 2025-09-03 21:48 +01\nNmap scan report for 10.3.2.1\nHost is up.\n\nPORT     STATE    SERVICE\n22/tcp   filtered ssh\n53/tcp   filtered domain\n80/tcp   filtered http\n139/tcp  filtered netbios-ssn\n443/tcp  filtered https\n445/tcp  filtered microsoft-ds\n3389/tcp filtered ms-wbt-server\n\nNmap done: 1 IP address (1 host up) scanned in 3.19 seconds\n",
+      "stderr": "",
+      "interpretation": "Nmap parsed states: filtered=7",
+      "skipped": false,
+      "success": true
+    },
+    {
+      "name": "SYN scan baseline",
+      "tool": "nmap",
+      "command": "nmap 10.3.2.1 -n -Pn -p 22,80,445,139,443,3389,53 -sS --scan-delay 100ms",
+      "rationale": "Establish baseline open/closed ports with stealthy SYN before evasion.",
+      "returncode": 0,
+      "stdout_full": "Starting Nmap 7.95 ( https://nmap.org ) at 2025-09-03 21:48 +01\nNmap scan report for 10.3.2.1\nHost is up.\n\nPORT     STATE    SERVICE\n22/tcp   filtered ssh\n53/tcp   filtered domain\n80/tcp   filtered http\n139/tcp  filtered netbios-ssn\n443/tcp  filtered https\n445/tcp  filtered microsoft-ds\n3389/tcp filtered ms-wbt-server\n\nNmap done: 1 IP address (1 host up) scanned in 3.93 seconds\n",
+      "stderr_full": "",
+      "stdout": "Starting Nmap 7.95 ( https://nmap.org ) at 2025-09-03 21:48 +01\nNmap scan report for 10.3.2.1\nHost is up.\n\nPORT     STATE    SERVICE\n22/tcp   filtered ssh\n53/tcp   filtered domain\n80/tcp   filtered http\n139/tcp  filtered netbios-ssn\n443/tcp  filtered https\n445/tcp  filtered microsoft-ds\n3389/tcp filtered ms-wbt-server\n\nNmap done: 1 IP address (1 host up) scanned in 3.93 seconds\n",
+      "stderr": "",
+      "interpretation": "Nmap parsed states: filtered=7",
+      "skipped": false,
+      "success": true
+    },
+    {
+      "name": "Decoy SYN scan",
+      "tool": "nmap",
+      "command": "sudo -n nmap 10.3.2.1 -p 80 -sS -Pn -n --disable-arp-ping --packet-trace -D RND:5",
+      "rationale": "If baseline hints at monitoring, use decoys to obscure scanner identity while validating reachability.",
+      "returncode": 1,
+      "stdout_full": "",
+      "stderr_full": "sudo: a password is required\n",
+      "stdout": "",
+      "stderr": "sudo: a password is required\n",
+      "interpretation": "No parsable Nmap port table; possibly filtered or host unreachable",
+      "skipped": false,
+      "success": false
+    },
+    {
+      "name": "SYN scan with spoofed source port 53",
+      "tool": "nmap",
+      "command": "sudo -n nmap 10.3.2.1 -p 50000 -sS -Pn -n --disable-arp-ping --packet-trace --source-port 53",
+      "rationale": "Test firewall trust of DNS by sending from source port 53 to traverse ACLs.",
+      "returncode": 1,
+      "stdout_full": "",
+      "stderr_full": "sudo: a password is required\n",
+      "stdout": "",
+      "stderr": "sudo: a password is required\n",
+      "interpretation": "No parsable Nmap port table; possibly filtered or host unreachable",
+      "skipped": false,
+      "success": false
+    },
+    {
+      "name": "FIN stealth scan",
+      "tool": "nmap",
+      "command": "nmap 10.3.2.1 -n -Pn -p 22,80,445,139,443,3389,53 -sF --max-retries 2 --scan-delay 150ms",
+      "rationale": "FIN probes can slip past stateless filters; closed ports should RST.",
+      "returncode": 0,
+      "stdout_full": "Starting Nmap 7.95 ( https://nmap.org ) at 2025-09-03 21:48 +01\nNmap scan report for 10.3.2.1\nHost is up.\n\nPORT     STATE         SERVICE\n22/tcp   open|filtered ssh\n53/tcp   open|filtered domain\n80/tcp   open|filtered http\n139/tcp  open|filtered netbios-ssn\n443/tcp  open|filtered https\n445/tcp  open|filtered microsoft-ds\n3389/tcp open|filtered ms-wbt-server\n\nNmap done: 1 IP address (1 host up) scanned in 4.23 seconds\n",
+      "stderr_full": "",
+      "stdout": "Starting Nmap 7.95 ( https://nmap.org ) at 2025-09-03 21:48 +01\nNmap scan report for 10.3.2.1\nHost is up.\n\nPORT     STATE         SERVICE\n22/tcp   open|filtered ssh\n53/tcp   open|filtered domain\n80/tcp   open|filtered http\n139/tcp  open|filtered netbios-ssn\n443/tcp  open|filtered https\n445/tcp  open|filtered microsoft-ds\n3389/tcp open|filtered ms-wbt-server\n\nNmap done: 1 IP address (1 host up) scanned in 4.23 seconds\n",
+      "stderr": "",
+      "interpretation": "Nmap parsed states: open|filtered=7",
+      "skipped": false,
+      "success": true
+    },
+    {
+      "name": "NULL stealth scan",
+      "tool": "nmap",
+      "command": "nmap 10.3.2.1 -n -Pn -p 22,80,445,139,443,3389,53 -sN --max-retries 2 --scan-delay 150ms",
+      "rationale": "NULL probes can bypass simplistic detection; closed ports RST.",
+      "returncode": 0,
+      "stdout_full": "Starting Nmap 7.95 ( https://nmap.org ) at 2025-09-03 21:48 +01\nNmap scan report for 10.3.2.1\nHost is up.\n\nPORT     STATE         SERVICE\n22/tcp   open|filtered ssh\n53/tcp   open|filtered domain\n80/tcp   open|filtered http\n139/tcp  open|filtered netbios-ssn\n443/tcp  open|filtered https\n445/tcp  open|filtered microsoft-ds\n3389/tcp open|filtered ms-wbt-server\n\nNmap done: 1 IP address (1 host up) scanned in 4.23 seconds\n",
+      "stderr_full": "",
+      "stdout": "Starting Nmap 7.95 ( https://nmap.org ) at 2025-09-03 21:48 +01\nNmap scan report for 10.3.2.1\nHost is up.\n\nPORT     STATE         SERVICE\n22/tcp   open|filtered ssh\n53/tcp   open|filtered domain\n80/tcp   open|filtered http\n139/tcp  open|filtered netbios-ssn\n443/tcp  open|filtered https\n445/tcp  open|filtered microsoft-ds\n3389/tcp open|filtered ms-wbt-server\n\nNmap done: 1 IP address (1 host up) scanned in 4.23 seconds\n",
+      "stderr": "",
+      "interpretation": "Nmap parsed states: open|filtered=7",
+      "skipped": false,
+      "success": true
+    },
+    {
+      "name": "XMAS stealth scan",
+      "tool": "nmap",
+      "command": "nmap 10.3.2.1 -n -Pn -p 22,80,445,139,443,3389,53 -sX --max-retries 2 --scan-delay 150ms",
+      "rationale": "XMAS probes test RFC compliance and filtering behavior.",
+      "returncode": 0,
+      "stdout_full": "Starting Nmap 7.95 ( https://nmap.org ) at 2025-09-03 21:48 +01\nNmap scan report for 10.3.2.1\nHost is up.\n\nPORT     STATE         SERVICE\n22/tcp   open|filtered ssh\n53/tcp   open|filtered domain\n80/tcp   open|filtered http\n139/tcp  open|filtered netbios-ssn\n443/tcp  open|filtered https\n445/tcp  open|filtered microsoft-ds\n3389/tcp open|filtered ms-wbt-server\n\nNmap done: 1 IP address (1 host up) scanned in 4.20 seconds\n",
+      "stderr_full": "",
+      "stdout": "Starting Nmap 7.95 ( https://nmap.org ) at 2025-09-03 21:48 +01\nNmap scan report for 10.3.2.1\nHost is up.\n\nPORT     STATE         SERVICE\n22/tcp   open|filtered ssh\n53/tcp   open|filtered domain\n80/tcp   open|filtered http\n139/tcp  open|filtered netbios-ssn\n443/tcp  open|filtered https\n445/tcp  open|filtered microsoft-ds\n3389/tcp open|filtered ms-wbt-server\n\nNmap done: 1 IP address (1 host up) scanned in 4.20 seconds\n",
+      "stderr": "",
+      "interpretation": "Nmap parsed states: open|filtered=7",
+      "skipped": false,
+      "success": true
+    },
+    {
+      "name": "Packet fragmentation",
+      "tool": "nmap",
+      "command": "nmap 10.3.2.1 -n -Pn -p 22,80,445,139,443,3389,53 -sS -f --mtu 16 -T0",
+      "rationale": "Fragment TCP headers to evade stateless ACLs and signature-based IDS.",
+      "returncode": 0,
+      "stdout_full": "Starting Nmap 7.95 ( https://nmap.org ) at 2025-09-03 21:48 +01\nNmap scan report for 10.3.2.1\nHost is up.\n\nPORT     STATE    SERVICE\n22/tcp   filtered ssh\n53/tcp   filtered domain\n80/tcp   filtered http\n139/tcp  filtered netbios-ssn\n443/tcp  filtered https\n445/tcp  filtered microsoft-ds\n3389/tcp filtered ms-wbt-server\n\nNmap done: 1 IP address (1 host up) scanned in 4502.69 seconds\n",
+      "stderr_full": "",
+      "stdout": "Starting Nmap 7.95 ( https://nmap.org ) at 2025-09-03 21:48 +01\nNmap scan report for 10.3.2.1\nHost is up.\n\nPORT     STATE    SERVICE\n22/tcp   filtered ssh\n53/tcp   filtered domain\n80/tcp   filtered http\n139/tcp  filtered netbios-ssn\n443/tcp  filtered https\n445/tcp  filtered microsoft-ds\n3389/tcp filtered ms-wbt-server\n\nNmap done: 1 IP address (1 host up) scanned in 4502.69 seconds\n",
+      "stderr": "",
+      "interpretation": "Nmap parsed states: filtered=7",
+      "skipped": false,
+      "success": true
+    },
+    {
+      "name": "DNS version.bind (CHAOS)",
+      "tool": "dig",
+      "command": "dig @10.3.2.1 version.bind CHAOS TXT",
+      "rationale": "If DNS responds, reveal BIND version to assess defense stack exposure.",
+      "returncode": 9,
+      "stdout_full": ";; communications error to 10.3.2.1#53: timed out\n;; communications error to 10.3.2.1#53: timed out\n;; communications error to 10.3.2.1#53: timed out\n\n; <<>> DiG 9.20.9-1-Debian <<>> @10.3.2.1 version.bind CHAOS TXT\n; (1 server found)\n;; global options: +cmd\n;; no servers could be reached\n",
+      "stderr_full": "",
+      "stdout": ";; communications error to 10.3.2.1#53: timed out\n;; communications error to 10.3.2.1#53: timed out\n;; communications error to 10.3.2.1#53: timed out\n\n; <<>> DiG 9.20.9-1-Debian <<>> @10.3.2.1 version.bind CHAOS TXT\n; (1 server found)\n;; global options: +cmd\n;; no servers could be reached\n",
+      "stderr": "",
+      "interpretation": "DNS CHAOS query failed (no DNS reachable on target)",
+      "skipped": false,
+      "success": false
+    },
+    {
+      "name": "nc validate from source port 53",
+      "tool": "ncat",
+      "command": "ncat -nv --source-port 53 10.3.2.1 50000",
+      "rationale": "Validate port accessibility using DNS-like source port to confirm Nmap findings.",
+      "returncode": 1,
+      "stdout_full": "",
+      "stderr_full": "Ncat: Version 7.95 ( https://nmap.org/ncat )\nNcat: TIMEOUT.\n",
+      "stdout": "",
+      "stderr": "Ncat: Version 7.95 ( https://nmap.org/ncat )\nNcat: TIMEOUT.\n",
+      "interpretation": "Netcat timed out (likely filtered)",
+      "skipped": false,
+      "success": false
+    },
+    {
+      "name": "proxychains nmap TCP connect",
+      "tool": "proxychains,nmap",
+      "command": "proxychains nmap -sT -Pn -p 80,443 10.3.2.1",
+      "rationale": "Demonstrate scanning via proxies to bypass IP-based blocks/EDR egress rules.",
+      "returncode": 0,
+      "stdout_full": "Starting Nmap 7.95 ( https://nmap.org ) at 2025-09-03 23:03 +01\nNmap scan report for 10.3.2.1\nHost is up.\n\nPORT    STATE    SERVICE\n80/tcp  filtered http\n443/tcp filtered https\n\nNmap done: 1 IP address (1 host up) scanned in 3.08 seconds\n",
+      "stderr_full": "[proxychains] config file found: /etc/proxychains4.conf\n[proxychains] preloading /usr/lib/x86_64-linux-gnu/libproxychains.so.4\n[proxychains] DLL init: proxychains-ng 4.17\n[proxychains] DLL init: proxychains-ng 4.17\n[proxychains] DLL init: proxychains-ng 4.17\n",
+      "stdout": "Starting Nmap 7.95 ( https://nmap.org ) at 2025-09-03 23:03 +01\nNmap scan report for 10.3.2.1\nHost is up.\n\nPORT    STATE    SERVICE\n80/tcp  filtered http\n443/tcp filtered https\n\nNmap done: 1 IP address (1 host up) scanned in 3.08 seconds\n",
+      "stderr": "[proxychains] config file found: /etc/proxychains4.conf\n[proxychains] preloading /usr/lib/x86_64-linux-gnu/libproxychains.so.4\n[proxychains] DLL init: proxychains-ng 4.17\n[proxychains] DLL init: proxychains-ng 4.17\n[proxychains] DLL init: proxychains-ng 4.17\n",
+      "interpretation": "Nmap parsed states: filtered=2",
+      "skipped": false,
+      "success": true
+    },
+    {
+      "name": "SYN from source port 53 on filtered ports",
+      "tool": "nmap",
+      "command": "sudo -n nmap 10.3.2.1 -p 22,53,80,139,443,445,3389 -sS -Pn -n --disable-arp-ping --packet-trace --source-port 53",
+      "returncode": 1,
+      "stdout_full": "",
+      "stderr_full": "sudo: a password is required\n",
+      "stdout": "",
+      "stderr": "sudo: a password is required\n",
+      "interpretation": "No parsable Nmap port table; possibly filtered or host unreachable",
+      "skipped": false,
+      "success": false
+    },
+    {
+      "name": "FIN stealth scan (focused)",
+      "tool": "nmap",
+      "command": "nmap 10.3.2.1 -n -Pn -p 22,53,80,139,443,445,3389,50000 -sF --max-retries 1 --scan-delay 200ms",
+      "returncode": 0,
+      "stdout_full": "Starting Nmap 7.95 ( https://nmap.org ) at 2025-09-03 23:03 +01\nNmap scan report for 10.3.2.1\nHost is up.\n\nPORT      STATE         SERVICE\n22/tcp    open|filtered ssh\n53/tcp    open|filtered domain\n80/tcp    open|filtered http\n139/tcp   open|filtered netbios-ssn\n443/tcp   open|filtered https\n445/tcp   open|filtered microsoft-ds\n3389/tcp  open|filtered ms-wbt-server\n50000/tcp open|filtered ibm-db2\n\nNmap done: 1 IP address (1 host up) scanned in 5.79 seconds\n",
+      "stderr_full": "",
+      "stdout": "Starting Nmap 7.95 ( https://nmap.org ) at 2025-09-03 23:03 +01\nNmap scan report for 10.3.2.1\nHost is up.\n\nPORT      STATE         SERVICE\n22/tcp    open|filtered ssh\n53/tcp    open|filtered domain\n80/tcp    open|filtered http\n139/tcp   open|filtered netbios-ssn\n443/tcp   open|filtered https\n445/tcp   open|filtered microsoft-ds\n3389/tcp  open|filtered ms-wbt-server\n50000/tcp open|filtered ibm-db2\n\nNmap done: 1 IP address (1 host up) scanned in 5.79 seconds\n",
+      "stderr": "",
+      "interpretation": "Nmap parsed states: open|filtered=8",
+      "skipped": false,
+      "success": true
+    },
+    {
+      "name": "NULL stealth scan (focused)",
+      "tool": "nmap",
+      "command": "nmap 10.3.2.1 -n -Pn -p 22,53,80,139,443,445,3389,50000 -sN --max-retries 1 --scan-delay 200ms",
+      "returncode": 0,
+      "stdout_full": "Starting Nmap 7.95 ( https://nmap.org ) at 2025-09-03 23:04 +01\nNmap scan report for 10.3.2.1\nHost is up.\n\nPORT      STATE         SERVICE\n22/tcp    open|filtered ssh\n53/tcp    open|filtered domain\n80/tcp    open|filtered http\n139/tcp   open|filtered netbios-ssn\n443/tcp   open|filtered https\n445/tcp   open|filtered microsoft-ds\n3389/tcp  open|filtered ms-wbt-server\n50000/tcp open|filtered ibm-db2\n\nNmap done: 1 IP address (1 host up) scanned in 5.74 seconds\n",
+      "stderr_full": "",
+      "stdout": "Starting Nmap 7.95 ( https://nmap.org ) at 2025-09-03 23:04 +01\nNmap scan report for 10.3.2.1\nHost is up.\n\nPORT      STATE         SERVICE\n22/tcp    open|filtered ssh\n53/tcp    open|filtered domain\n80/tcp    open|filtered http\n139/tcp   open|filtered netbios-ssn\n443/tcp   open|filtered https\n445/tcp   open|filtered microsoft-ds\n3389/tcp  open|filtered ms-wbt-server\n50000/tcp open|filtered ibm-db2\n\nNmap done: 1 IP address (1 host up) scanned in 5.74 seconds\n",
+      "stderr": "",
+      "interpretation": "Nmap parsed states: open|filtered=8",
+      "skipped": false,
+      "success": true
+    },
+    {
+      "name": "XMAS stealth scan (focused)",
+      "tool": "nmap",
+      "command": "nmap 10.3.2.1 -n -Pn -p 22,53,80,139,443,445,3389,50000 -sX --max-retries 1 --scan-delay 200ms",
+      "returncode": 0,
+      "stdout_full": "Starting Nmap 7.95 ( https://nmap.org ) at 2025-09-03 23:04 +01\nNmap scan report for 10.3.2.1\nHost is up.\n\nPORT      STATE         SERVICE\n22/tcp    open|filtered ssh\n53/tcp    open|filtered domain\n80/tcp    open|filtered http\n139/tcp   open|filtered netbios-ssn\n443/tcp   open|filtered https\n445/tcp   open|filtered microsoft-ds\n3389/tcp  open|filtered ms-wbt-server\n50000/tcp open|filtered ibm-db2\n\nNmap done: 1 IP address (1 host up) scanned in 5.80 seconds\n",
+      "stderr_full": "",
+      "stdout": "Starting Nmap 7.95 ( https://nmap.org ) at 2025-09-03 23:04 +01\nNmap scan report for 10.3.2.1\nHost is up.\n\nPORT      STATE         SERVICE\n22/tcp    open|filtered ssh\n53/tcp    open|filtered domain\n80/tcp    open|filtered http\n139/tcp   open|filtered netbios-ssn\n443/tcp   open|filtered https\n445/tcp   open|filtered microsoft-ds\n3389/tcp  open|filtered ms-wbt-server\n50000/tcp open|filtered ibm-db2\n\nNmap done: 1 IP address (1 host up) scanned in 5.80 seconds\n",
+      "stderr": "",
+      "interpretation": "Nmap parsed states: open|filtered=8",
+      "skipped": false,
+      "success": true
+    }
+  ],
+  "analysis": {
+    "22": {
+      "final": "filtered",
+      "history": [
+        {
+          "from": "ACK",
+          "state": "filtered"
+        },
+        {
+          "from": "SYN",
+          "state": "filtered"
+        },
+        {
+          "from": "NMAP",
+          "state": "open|filtered"
+        },
+        {
+          "from": "NMAP",
+          "state": "open|filtered"
+        },
+        {
+          "from": "NMAP",
+          "state": "open|filtered"
+        },
+        {
+          "from": "ACK",
+          "state": "filtered"
+        },
+        {
+          "from": "NMAP",
+          "state": "open|filtered"
+        },
+        {
+          "from": "NMAP",
+          "state": "open|filtered"
+        },
+        {
+          "from": "NMAP",
+          "state": "open|filtered"
+        }
+      ]
+    },
+    "53": {
+      "final": "filtered",
+      "history": [
+        {
+          "from": "ACK",
+          "state": "filtered"
+        },
+        {
+          "from": "SYN",
+          "state": "filtered"
+        },
+        {
+          "from": "NMAP",
+          "state": "open|filtered"
+        },
+        {
+          "from": "NMAP",
+          "state": "open|filtered"
+        },
+        {
+          "from": "NMAP",
+          "state": "open|filtered"
+        },
+        {
+          "from": "ACK",
+          "state": "filtered"
+        },
+        {
+          "from": "NMAP",
+          "state": "open|filtered"
+        },
+        {
+          "from": "NMAP",
+          "state": "open|filtered"
+        },
+        {
+          "from": "NMAP",
+          "state": "open|filtered"
+        }
+      ]
+    },
+    "80": {
+      "final": "filtered",
+      "history": [
+        {
+          "from": "ACK",
+          "state": "filtered"
+        },
+        {
+          "from": "SYN",
+          "state": "filtered"
+        },
+        {
+          "from": "NMAP",
+          "state": "open|filtered"
+        },
+        {
+          "from": "NMAP",
+          "state": "open|filtered"
+        },
+        {
+          "from": "NMAP",
+          "state": "open|filtered"
+        },
+        {
+          "from": "ACK",
+          "state": "filtered"
+        },
+        {
+          "from": "NMAP",
+          "state": "filtered"
+        },
+        {
+          "from": "NMAP",
+          "state": "open|filtered"
+        },
+        {
+          "from": "NMAP",
+          "state": "open|filtered"
+        },
+        {
+          "from": "NMAP",
+          "state": "open|filtered"
+        }
+      ]
+    },
+    "139": {
+      "final": "filtered",
+      "history": [
+        {
+          "from": "ACK",
+          "state": "filtered"
+        },
+        {
+          "from": "SYN",
+          "state": "filtered"
+        },
+        {
+          "from": "NMAP",
+          "state": "open|filtered"
+        },
+        {
+          "from": "NMAP",
+          "state": "open|filtered"
+        },
+        {
+          "from": "NMAP",
+          "state": "open|filtered"
+        },
+        {
+          "from": "ACK",
+          "state": "filtered"
+        },
+        {
+          "from": "NMAP",
+          "state": "open|filtered"
+        },
+        {
+          "from": "NMAP",
+          "state": "open|filtered"
+        },
+        {
+          "from": "NMAP",
+          "state": "open|filtered"
+        }
+      ]
+    },
+    "443": {
+      "final": "filtered",
+      "history": [
+        {
+          "from": "ACK",
+          "state": "filtered"
+        },
+        {
+          "from": "SYN",
+          "state": "filtered"
+        },
+        {
+          "from": "NMAP",
+          "state": "open|filtered"
+        },
+        {
+          "from": "NMAP",
+          "state": "open|filtered"
+        },
+        {
+          "from": "NMAP",
+          "state": "open|filtered"
+        },
+        {
+          "from": "ACK",
+          "state": "filtered"
+        },
+        {
+          "from": "NMAP",
+          "state": "filtered"
+        },
+        {
+          "from": "NMAP",
+          "state": "open|filtered"
+        },
+        {
+          "from": "NMAP",
+          "state": "open|filtered"
+        },
+        {
+          "from": "NMAP",
+          "state": "open|filtered"
+        }
+      ]
+    },
+    "445": {
+      "final": "filtered",
+      "history": [
+        {
+          "from": "ACK",
+          "state": "filtered"
+        },
+        {
+          "from": "SYN",
+          "state": "filtered"
+        },
+        {
+          "from": "NMAP",
+          "state": "open|filtered"
+        },
+        {
+          "from": "NMAP",
+          "state": "open|filtered"
+        },
+        {
+          "from": "NMAP",
+          "state": "open|filtered"
+        },
+        {
+          "from": "ACK",
+          "state": "filtered"
+        },
+        {
+          "from": "NMAP",
+          "state": "open|filtered"
+        },
+        {
+          "from": "NMAP",
+          "state": "open|filtered"
+        },
+        {
+          "from": "NMAP",
+          "state": "open|filtered"
+        }
+      ]
+    },
+    "3389": {
+      "final": "filtered",
+      "history": [
+        {
+          "from": "ACK",
+          "state": "filtered"
+        },
+        {
+          "from": "SYN",
+          "state": "filtered"
+        },
+        {
+          "from": "NMAP",
+          "state": "open|filtered"
+        },
+        {
+          "from": "NMAP",
+          "state": "open|filtered"
+        },
+        {
+          "from": "NMAP",
+          "state": "open|filtered"
+        },
+        {
+          "from": "ACK",
+          "state": "filtered"
+        },
+        {
+          "from": "NMAP",
+          "state": "open|filtered"
+        },
+        {
+          "from": "NMAP",
+          "state": "open|filtered"
+        },
+        {
+          "from": "NMAP",
+          "state": "open|filtered"
+        }
+      ]
+    },
+    "50000": {
+      "final": "unknown",
+      "history": [
+        {
+          "from": "NMAP",
+          "state": "open|filtered"
+        },
+        {
+          "from": "NMAP",
+          "state": "open|filtered"
+        },
+        {
+          "from": "NMAP",
+          "state": "open|filtered"
+        }
+      ]
+    }
+  }
+}

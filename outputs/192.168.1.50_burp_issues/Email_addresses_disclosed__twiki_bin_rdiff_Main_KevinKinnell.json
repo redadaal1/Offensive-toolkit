@@ -1,0 +1,101 @@
+{
+  "name": "Email addresses disclosed",
+  "type": "vulnerability",
+  "severity": "Info",
+  "confidence": "Certain",
+  "host": "",
+  "path": "/twiki/bin/rdiff/Main/KevinKinnell",
+  "url": "/twiki/bin/rdiff/Main/KevinKinnell",
+  "evidence": [
+    {
+      "type": "InformationListEvidence",
+      "request_response": {
+        "url": "http://192.168.1.50/twiki/bin/rdiff/Main/KevinKinnell",
+        "request": [
+          {
+            "type": "DataSegment",
+            "data": "R0VUIC90d2lraS9iaW4vcmRpZmYvTWFpbi9LZXZpbktpbm5lbGwgSFRUUC8xLjENCkhvc3Q6IDE5Mi4xNjguMS41MA0KQ2FjaGUtQ29udHJvbDogbWF4LWFnZT0wDQpTZWMtQ0gtVUE6ICJHb29nbGUgQ2hyb21lIjt2PSIxMzgiLCAiTm90PUE/QnJhbmQiO3Y9IjgiLCAiQ2hyb21pdW0iO3Y9IjEzOCINClNlYy1DSC1VQS1Nb2JpbGU6ID8wDQpTZWMtQ0gtVUEtUGxhdGZvcm06ICJMaW51eCINCkFjY2VwdC1MYW5ndWFnZTogZW4tVVM7cT0wLjksZW47cT0wLjgNClVzZXItQWdlbnQ6IE1vemlsbGEvNS4wIChYMTE7IExpbnV4IHg4Nl82NCkgQXBwbGVXZWJLaXQvNTM3LjM2IChLSFRNTCwgbGlrZSBHZWNrbykgQ2hyb21lLzEzOC4wLjAuMCBTYWZhcmkvNTM3LjM2DQpBY2NlcHQ6IHRleHQvaHRtbCxhcHBsaWNhdGlvbi94aHRtbCt4bWwsYXBwbGljYXRpb24veG1sO3E9MC45LGltYWdlL2F2aWYsaW1hZ2Uvd2VicCxpbWFnZS9hcG5nLCovKjtxPTAuOCxhcHBsaWNhdGlvbi9zaWduZWQtZXhjaGFuZ2U7dj1iMztxPTAuNw0KU2VjLUZldGNoLVNpdGU6IG5vbmUNClNlYy1GZXRjaC1Nb2RlOiBuYXZpZ2F0ZQ0KU2VjLUZldGNoLVVzZXI6ID8xDQpTZWMtRmV0Y2gtRGVzdDogZG9jdW1lbnQNCkFjY2VwdC1FbmNvZGluZzogZ3ppcCwgZGVmbGF0ZSwgYnINCkNvbm5lY3Rpb246IGNsb3NlDQpVcGdyYWRlLUluc2VjdXJlLVJlcXVlc3RzOiAxDQpSZWZlcmVyOiBodHRwOi8vMTkyLjE2OC4xLjUwL3R3aWtpL2Jpbi92aWV3L01haW4vV2ViQ2hhbmdlcw0KDQo=",
+            "length": 764
+          }
+        ],
+        "response": [
+          {
+            "type": "DataSegment",
+            "data": "SFRUUC8xLjEgMjAwIE9LDQpEYXRlOiBUdWUsIDAyIFNlcCAyMDI1IDE1OjEzOjU5IEdNVA0KU2VydmVyOiBBcGFjaGUvMi4yLjggKFVidW50dSkgREFWLzINCkNvbm5lY3Rpb246IGNsb3NlDQpDb250ZW50LVR5cGU6IHRleHQvaHRtbDsgY2hhcnNldD1JU08tODg1OS0xDQpDb250ZW50LUxlbmd0aDogNzIxOA0KDQo8IURPQ1RZUEUgaHRtbCBQVUJMSUMgIi0vL1czQy8vRFREIFhIVE1MIDEuMCBUcmFuc2l0aW9uYWwvL0VOIiAiaHR0cDovL3d3dy53My5vcmcvVFIveGh0bWwxL0RURC94aHRtbDEtdHJhbnNpdGlvbmFsLmR0ZCI+CjxodG1sIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5L3hodG1sIiB4bWw6bGFuZz0iZW4iIGxhbmc9ImVuIj4gCjxoZWFkPgogPA==",
+            "length": 379
+          },
+          {
+            "type": "SnipSegment",
+            "length": 2325
+          },
+          {
+            "type": "DataSegment",
+            "data": "PGEgaHJlZj0ibWFpbHRvOg==",
+            "length": 16
+          },
+          {
+            "type": "HighlightSegment",
+            "data": "a2Vqb2tpQG5ldGRvb3IuY29t",
+            "length": 18
+          },
+          {
+            "type": "DataSegment",
+            "data": "Ij4=",
+            "length": 2
+          },
+          {
+            "type": "HighlightSegment",
+            "data": "a2Vqb2tpQG5ldGRvb3IuY29t",
+            "length": 18
+          },
+          {
+            "type": "DataSegment",
+            "data": "PC9hPg==",
+            "length": 4
+          },
+          {
+            "type": "SnipSegment",
+            "length": 2186
+          },
+          {
+            "type": "DataSegment",
+            "data": "PGEgaHJlZj0ibWFpbHRvOg==",
+            "length": 16
+          },
+          {
+            "type": "HighlightSegment",
+            "data": "a2Vqb2tpQG5ldGRvb3IuY29t",
+            "length": 18
+          },
+          {
+            "type": "DataSegment",
+            "data": "Ij4=",
+            "length": 2
+          },
+          {
+            "type": "HighlightSegment",
+            "data": "a2Vqb2tpQG5ldGRvb3IuY29t",
+            "length": 18
+          },
+          {
+            "type": "DataSegment",
+            "data": "PC9hPg==",
+            "length": 4
+          },
+          {
+            "type": "SnipSegment",
+            "length": 2391
+          }
+        ],
+        "was_redirect_followed": false,
+        "request_time": "1756826042652"
+      },
+      "information_items": [
+        "kejoki@netdoor.com"
+      ]
+    }
+  ],
+  "description": "The following email address was disclosed in the response:<ul><li>kejoki@netdoor.com</li></ul>",
+  "remediation": "",
+  "references": []
+}

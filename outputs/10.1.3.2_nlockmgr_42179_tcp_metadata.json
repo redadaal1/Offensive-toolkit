@@ -1,0 +1,6 @@
+{
+    "target": "10.1.3.2",
+    "port": 42179,
+    "protocol": "tcp",
+    "note": "No footprint module available for nlockmgr"
+}

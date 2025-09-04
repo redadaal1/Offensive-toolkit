@@ -1,0 +1,8 @@
+root
+admin
+user
+test
+mail
+postmaster
+webmaster
+guest

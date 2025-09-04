@@ -1,0 +1,6 @@
+{
+    "target": "192.168.1.50",
+    "port": 120,
+    "protocol": "udp",
+    "note": "No footprint module available for cfdptkt"
+}

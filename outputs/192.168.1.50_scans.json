@@ -1,0 +1,21 @@
+{
+    "target": "192.168.1.50",
+    "timestamp": "2025-09-02T16:34:48.714154",
+    "scans": {
+        "tcp_fast": {
+            "file": "/home/reda_daal/Desktop/Offsec/outputs/192.168.1.50_tcp_fast.txt",
+            "exists": true,
+            "size": 1859
+        },
+        "tcp_full": {
+            "file": "/home/reda_daal/Desktop/Offsec/outputs/192.168.1.50_tcp_full.txt",
+            "exists": true,
+            "size": 2276
+        },
+        "udp_fast": {
+            "file": "/home/reda_daal/Desktop/Offsec/outputs/192.168.1.50_udp_fast.txt",
+            "exists": true,
+            "size": 716
+        }
+    }
+}

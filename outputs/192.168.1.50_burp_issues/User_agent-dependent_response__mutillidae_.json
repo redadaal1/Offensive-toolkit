@@ -1,0 +1,157 @@
+{
+  "name": "User agent-dependent response",
+  "type": "vulnerability",
+  "severity": "Info",
+  "confidence": "Firm",
+  "host": "",
+  "path": "/mutillidae/",
+  "url": "/mutillidae/",
+  "evidence": [
+    {
+      "type": "DiffableEvidence",
+      "first_evidence": {
+        "type": "FirstOrderEvidence",
+        "detail": {
+          "band_flags": [
+            "in_band"
+          ]
+        },
+        "request_response": {
+          "url": "http://192.168.1.50/mutillidae/?page=add-to-your-blog.php",
+          "request": [
+            {
+              "type": "DataSegment",
+              "data": "R0VUIC9tdXRpbGxpZGFlLz9wYWdlPWFkZC10by15b3VyLWJsb2cucGhwIEhUVFAvMS4xDQpIb3N0OiAxOTIuMTY4LjEuNTANCkNhY2hlLUNvbnRyb2w6IG1heC1hZ2U9MA0KU2VjLUNILVVBOiAiR29vZ2xlIENocm9tZSI7dj0iMTM4IiwgIk5vdD1BP0JyYW5kIjt2PSI4IiwgIkNocm9taXVtIjt2PSIxMzgiDQpTZWMtQ0gtVUEtTW9iaWxlOiA/MA0KU2VjLUNILVVBLVBsYXRmb3JtOiAiTGludXgiDQpBY2NlcHQtTGFuZ3VhZ2U6IGVuLVVTO3E9MC45LGVuO3E9MC44DQo=",
+              "length": 266
+            },
+            {
+              "type": "HighlightSegment",
+              "data": "VXNlci1BZ2VudDogTW96aWxsYS81LjAgKFgxMTsgTGludXggeDg2XzY0KSBBcHBsZVdlYktpdC81MzcuMzYgKEtIVE1MLCBsaWtlIEdlY2tvKSBDaHJvbWUvMTM4LjAuMC4wIFNhZmFyaS81MzcuMzY=",
+              "length": 113
+            },
+            {
+              "type": "DataSegment",
+              "data": "DQpBY2NlcHQ6IHRleHQvaHRtbCxhcHBsaWNhdGlvbi94aHRtbCt4bWwsYXBwbGljYXRpb24veG1sO3E9MC45LGltYWdlL2F2aWYsaW1hZ2Uvd2VicCxpbWFnZS9hcG5nLCovKjtxPTAuOCxhcHBsaWNhdGlvbi9zaWduZWQtZXhjaGFuZ2U7dj1iMztxPTAuNw0KU2VjLUZldGNoLVNpdGU6IG5vbmUNClNlYy1GZXRjaC1Nb2RlOiBuYXZpZ2F0ZQ0KU2VjLUZldGNoLVVzZXI6ID8xDQpTZWMtRmV0Y2gtRGVzdDogZG9jdW1lbnQNCkFjY2VwdC1FbmNvZGluZzogZ3ppcCwgZGVmbGF0ZSwgYnINCkNvbm5lY3Rpb246IGNsb3NlDQpDb29raWU6IFBIUFNFU1NJRD0zZTZlOWEzODQxOWNhYmFkYzUyZDI5ODY5OGEzZjNlNg0KVXBncmFkZS1JbnNlY3VyZS1SZXF1ZXN0czogMQ0KUmVmZXJlcjogaHR0cDovLzE5Mi4xNjguMS41MC9tdXRpbGxpZGFlLw0KQ29udGVudC1MZW5ndGg6IDANCg0K",
+              "length": 441
+            }
+          ],
+          "response": [
+            {
+              "type": "DataSegment",
+              "data": "SFRUUC8xLjEgMjAwIE9LDQpEYXRlOiBUdWUsIDAyIFNlcCAyMDI1IDE1OjA3OjE1IEdNVA0KU2VydmVyOiBBcGFjaGUvMi4yLjggKFVidW50dSkgREFWLzINClgtUG93ZXJlZC1CeTogUEhQLzUuMi40LTJ1YnVudHU1LjEwDQpFeHBpcmVzOiBUaHUsIDE5IE5vdiAxOTgxIDA4OjUyOjAwIEdNVA0KTG9nZ2VkLUluLVVzZXI6IA0KQ2FjaGUtQ29udHJvbDogcHVibGljDQpQcmFnbWE6IHB1YmxpYw0KTGFzdC1Nb2RpZmllZDogVHVlLCAwMiBTZXAgMjAyNSAxNTowNzoxNiBHTVQNCkNvbm5lY3Rpb246IGNsb3NlDQpDb250ZW50LVR5cGU6IHRleHQvaHRtbA0KQ29udGVudC1MZW5ndGg6IA==",
+              "length": 331
+            },
+            {
+              "type": "HighlightSegment",
+              "data": "MjU0NDk=",
+              "length": 5
+            },
+            {
+              "type": "DataSegment",
+              "data": "DQoNCg0KCQkJPCEtLSBJIHRoaW5rIHRoZSBkYXRhYmFzZSBwYXNzd29yZCBpcyBzZXQgdG8gYmxhbmsgb3IgcGVyaGFwcyBzYW11cmFpLg0KCQkJSXQgZGVwZW5kcyBvbiB3aGV0aGVyIHlvdSBpbnN0YWxsZWQgdGhpcyB3ZWIgYXBwIGZyb20gaXJvbmdlZWtzIHNpdGUgb3INCgkJCWFyZSB1c2luZyBpdCBpbnNpZGUgS2V2aW4gSm9obnNvbnMgU2FtdXJhaSB3",
+              "length": 204
+            },
+            {
+              "type": "SnipSegment",
+              "length": 24464
+            },
+            {
+              "type": "DataSegment",
+              "data": "PGRpdiBjbGFzcz0iZm9vdGVyIj4=",
+              "length": 20
+            },
+            {
+              "type": "HighlightSegment",
+              "data": "QnJvd3NlcjogTW96aWxsYS81LjAgKFgxMTsgTGludXggeDg2XzY0KSBBcHBsZVdlYktpdC81MzcuMzYgKEtIVE1MLCBsaWtlIEdlY2tvKSBDaHJvbWUvMTM4LjAuMC4wIFNhZmFyaS81MzcuMzY=",
+              "length": 110
+            },
+            {
+              "type": "DataSegment",
+              "data": "PC9kaXY+",
+              "length": 6
+            },
+            {
+              "type": "SnipSegment",
+              "length": 649
+            }
+          ],
+          "was_redirect_followed": false,
+          "request_time": "1756825657873"
+        }
+      },
+      "second_evidence": {
+        "type": "FirstOrderEvidence",
+        "detail": {
+          "band_flags": [
+            "in_band"
+          ]
+        },
+        "request_response": {
+          "url": "http://192.168.1.50/mutillidae/?page=add-to-your-blog.php",
+          "request": [
+            {
+              "type": "DataSegment",
+              "data": "R0VUIC9tdXRpbGxpZGFlLz9wYWdlPWFkZC10by15b3VyLWJsb2cucGhwIEhUVFAvMS4xDQpIb3N0OiAxOTIuMTY4LjEuNTANCkNhY2hlLUNvbnRyb2w6IG1heC1hZ2U9MA0KU2VjLUNILVVBOiAiR29vZ2xlIENocm9tZSI7dj0iMTM4IiwgIk5vdD1BP0JyYW5kIjt2PSI4IiwgIkNocm9taXVtIjt2PSIxMzgiDQpTZWMtQ0gtVUEtTW9iaWxlOiA/MA0KU2VjLUNILVVBLVBsYXRmb3JtOiAiTGludXgiDQpBY2NlcHQtTGFuZ3VhZ2U6IGVuLVVTO3E9MC45LGVuO3E9MC44DQo=",
+              "length": 266
+            },
+            {
+              "type": "HighlightSegment",
+              "data": "VXNlci1BZ2VudDogTW96aWxsYS81LjAgKGlQaG9uZTsgQ1BVIGlQaG9uZSBPUyA1XzEgbGlrZSBNYWMgT1MgWCkgQXBwbGVXZWJLaXQvNTM0LjQ2IChLSFRNTCwgbGlrZSBHZWNrbykgVmVyc2lvbi81LjEgTW9iaWxlLzlCMTc2IFNhZmFyaS83NTM0LjQ4LjM=",
+              "length": 146
+            },
+            {
+              "type": "DataSegment",
+              "data": "DQpBY2NlcHQ6IHRleHQvaHRtbCxhcHBsaWNhdGlvbi94aHRtbCt4bWwsYXBwbGljYXRpb24veG1sO3E9MC45LGltYWdlL2F2aWYsaW1hZ2Uvd2VicCxpbWFnZS9hcG5nLCovKjtxPTAuOCxhcHBsaWNhdGlvbi9zaWduZWQtZXhjaGFuZ2U7dj1iMztxPTAuNw0KU2VjLUZldGNoLVNpdGU6IG5vbmUNClNlYy1GZXRjaC1Nb2RlOiBuYXZpZ2F0ZQ0KU2VjLUZldGNoLVVzZXI6ID8xDQpTZWMtRmV0Y2gtRGVzdDogZG9jdW1lbnQNCkFjY2VwdC1FbmNvZGluZzogZ3ppcCwgZGVmbGF0ZSwgYnINCkNvbm5lY3Rpb246IGNsb3NlDQpDb29raWU6IFBIUFNFU1NJRD0zZTZlOWEzODQxOWNhYmFkYzUyZDI5ODY5OGEzZjNlNg0KVXBncmFkZS1JbnNlY3VyZS1SZXF1ZXN0czogMQ0KUmVmZXJlcjogaHR0cDovLzE5Mi4xNjguMS41MC9tdXRpbGxpZGFlLw0KQ29udGVudC1MZW5ndGg6IDANCg0K",
+              "length": 441
+            }
+          ],
+          "response": [
+            {
+              "type": "DataSegment",
+              "data": "SFRUUC8xLjEgMjAwIE9LDQpEYXRlOiBUdWUsIDAyIFNlcCAyMDI1IDE1OjA3OjE3IEdNVA0KU2VydmVyOiBBcGFjaGUvMi4yLjggKFVidW50dSkgREFWLzINClgtUG93ZXJlZC1CeTogUEhQLzUuMi40LTJ1YnVudHU1LjEwDQpFeHBpcmVzOiBUaHUsIDE5IE5vdiAxOTgxIDA4OjUyOjAwIEdNVA0KTG9nZ2VkLUluLVVzZXI6IA0KQ2FjaGUtQ29udHJvbDogcHVibGljDQpQcmFnbWE6IHB1YmxpYw0KTGFzdC1Nb2RpZmllZDogVHVlLCAwMiBTZXAgMjAyNSAxNTowNzoxOCBHTVQNCkNvbm5lY3Rpb246IGNsb3NlDQpDb250ZW50LVR5cGU6IHRleHQvaHRtbA0KQ29udGVudC1MZW5ndGg6IA==",
+              "length": 331
+            },
+            {
+              "type": "HighlightSegment",
+              "data": "MjU0ODI=",
+              "length": 5
+            },
+            {
+              "type": "DataSegment",
+              "data": "DQoNCg0KCQkJPCEtLSBJIHRoaW5rIHRoZSBkYXRhYmFzZSBwYXNzd29yZCBpcyBzZXQgdG8gYmxhbmsgb3IgcGVyaGFwcyBzYW11cmFpLg0KCQkJSXQgZGVwZW5kcyBvbiB3aGV0aGVyIHlvdSBpbnN0YWxsZWQgdGhpcyB3ZWIgYXBwIGZyb20gaXJvbmdlZWtzIHNpdGUgb3INCgkJCWFyZSB1c2luZyBpdCBpbnNpZGUgS2V2aW4gSm9obnNvbnMgU2FtdXJhaSB3",
+              "length": 204
+            },
+            {
+              "type": "SnipSegment",
+              "length": 24464
+            },
+            {
+              "type": "DataSegment",
+              "data": "PGRpdiBjbGFzcz0iZm9vdGVyIj4=",
+              "length": 20
+            },
+            {
+              "type": "HighlightSegment",
+              "data": "QnJvd3NlcjogTW96aWxsYS81LjAgKGlQaG9uZTsgQ1BVIGlQaG9uZSBPUyA1XzEgbGlrZSBNYWMgT1MgWCkgQXBwbGVXZWJLaXQvNTM0LjQ2IChLSFRNTCwgbGlrZSBHZWNrbykgVmVyc2lvbi81LjEgTW9iaWxlLzlCMTc2IFNhZmFyaS83NTM0LjQ4LjM=",
+              "length": 143
+            },
+            {
+              "type": "DataSegment",
+              "data": "PC9kaXY+",
+              "length": 6
+            },
+            {
+              "type": "SnipSegment",
+              "length": 649
+            }
+          ],
+          "was_redirect_followed": false,
+          "request_time": "1756825657873"
+        }
+      }
+    }
+  ],
+  "description": "",
+  "remediation": "",
+  "references": []
+}

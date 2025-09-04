@@ -1,0 +1,119 @@
+{
+  "name": "File path manipulation",
+  "type": "vulnerability",
+  "severity": "Info",
+  "confidence": "Tentative",
+  "host": "",
+  "path": "/twiki/bin/register/Main/WebHome",
+  "url": "/twiki/bin/register/Main/WebHome",
+  "evidence": [
+    {
+      "type": "DiffableEvidence",
+      "first_evidence": {
+        "type": "FirstOrderEvidence",
+        "detail": {
+          "payload": {
+            "bytes": "Li4uL1dlYkhvbWU=",
+            "flags": 0
+          },
+          "band_flags": [
+            "in_band"
+          ]
+        },
+        "request_response": {
+          "url": "http://192.168.1.50/twiki/bin/register/Main/WebHome",
+          "request": [
+            {
+              "type": "DataSegment",
+              "data": "UE9TVCAvdHdpa2kvYmluL3JlZ2lzdGVyL01haW4vV2ViSG9tZSBIVFRQLzEuMQ0KSG9zdDogMTkyLjE2OC4xLjUwDQpDYWNoZS1Db250cm9sOiBtYXgtYWdlPTANClNlYy1DSC1VQTogIkdvb2dsZSBDaHJvbWUiO3Y9IjEzOCIsICJOb3Q9QT9CcmFuZCI7dj0iOCIsICJDaHJvbWl1bSI7dj0iMTM4Ig0KU2VjLUNILVVBLU1vYmlsZTogPzANClNlYy1DSC1VQS1QbGF0Zm9ybTogIkxpbnV4Ig0KQWNjZXB0LUxhbmd1YWdlOiBlbi1VUztxPTAuOSxlbjtxPTAuOA0KVXNlci1BZ2VudDogTW96aWxsYS81LjAgKFgxMTsgTGludXggeDg2XzY0KSBBcHBsZVdlYktpdC81MzcuMzYgKEtIVE1MLCBsaWtlIEdlY2tvKSBDaHJvbWUvMTM4LjAuMC4wIFNhZmFyaS81MzcuMzYNCkFjY2VwdDogdGV4dC9odG1sLGFwcGxpY2F0aW9uL3hodG1sK3htbCxhcHBsaWNhdGlvbi94bWw7cT0wLjksaW1hZ2UvYXZpZixpbWFnZS93ZWJwLGltYWdlL2FwbmcsKi8qO3E9MC44LGFwcGxpY2F0aW9uL3NpZ25lZC1leGNoYW5nZTt2PWIzO3E9MC43DQpTZWMtRmV0Y2gtU2l0ZTogbm9uZQ0KU2VjLUZldGNoLU1vZGU6IG5hdmlnYXRlDQpTZWMtRmV0Y2gtVXNlcjogPzENClNlYy1GZXRjaC1EZXN0OiBkb2N1bWVudA0KQWNjZXB0LUVuY29kaW5nOiBnemlwLCBkZWZsYXRlLCBicg0KQ29ubmVjdGlvbjogY2xvc2UNCk9yaWdpbjogaHR0cDovLzE5Mi4xNjguMS41MA0KVXBncmFkZS1JbnNlY3VyZS1SZXF1ZXN0czogMQ0KUmVmZXJlcjogaHR0cDovLzE5Mi4xNjguMS41MC90d2lraS9iaW4vdmlldy9UV2lraS9UV2lraVJlZ2lzdHJhdGlvbg0KQ29udGVudC1UeXBlOiBhcHBsaWNhdGlvbi94LXd3dy1mb3JtLXVybGVuY29kZWQNCkNvbnRlbnQtTGVuZ3RoOiAxMzENCg0KVHdrMU5hbWU9JlR3azFXaWtpTmFtZT0=",
+              "length": 893
+            },
+            {
+              "type": "HighlightSegment",
+              "data": "Li4uJTJmV2ViSG9tZQ==",
+              "length": 13
+            },
+            {
+              "type": "DataSegment",
+              "data": "JlR3azFMb2dpbk5hbWU9JlR3azFFbWFpbD0mVHdrMFBob25lPSZUd2swRGVwYXJ0bWVudD0mVHdrMUxvY2F0aW9uPSZUd2swQ29tbWVudD0mVG9waWNOYW1lPVRXaWtpUmVnaXN0cmF0aW9u",
+              "length": 108
+            }
+          ],
+          "response": [
+            {
+              "type": "DataSegment",
+              "data": "SFRUUC8xLjEgMzAyIE1vdmVkDQpEYXRlOiBUdWUsIDAyIFNlcCAyMDI1IDE1OjM4OjExIEdNVA0KU2VydmVyOiBBcGFjaGUvMi4yLjggKFVidW50dSkgREFWLzINCkxvY2F0aW9uOiA=",
+              "length": 104
+            },
+            {
+              "type": "HighlightSegment",
+              "data": "aHR0cDovLzE5Mi4xNjguMS41MC90d2lraS9iaW4vb29wcy9NYWluL1RXaWtpUmVnaXN0cmF0aW9uP3RlbXBsYXRlPW9vcHNyZWdyZXF1",
+              "length": 78
+            },
+            {
+              "type": "DataSegment",
+              "data": "DQpDb250ZW50LUxlbmd0aDogMA0KQ29ubmVjdGlvbjogY2xvc2UNCkNvbnRlbnQtVHlwZTogdGV4dC9wbGFpbg0KDQo=",
+              "length": 68
+            }
+          ],
+          "was_redirect_followed": false,
+          "request_time": "1756827520101"
+        }
+      },
+      "second_evidence": {
+        "type": "FirstOrderEvidence",
+        "detail": {
+          "payload": {
+            "bytes": "Li4uLw==",
+            "flags": 0
+          },
+          "band_flags": [
+            "in_band"
+          ]
+        },
+        "request_response": {
+          "url": "http://192.168.1.50/twiki/bin/register/Main/WebHome",
+          "request": [
+            {
+              "type": "DataSegment",
+              "data": "UE9TVCAvdHdpa2kvYmluL3JlZ2lzdGVyL01haW4vV2ViSG9tZSBIVFRQLzEuMQ0KSG9zdDogMTkyLjE2OC4xLjUwDQpDYWNoZS1Db250cm9sOiBtYXgtYWdlPTANClNlYy1DSC1VQTogIkdvb2dsZSBDaHJvbWUiO3Y9IjEzOCIsICJOb3Q9QT9CcmFuZCI7dj0iOCIsICJDaHJvbWl1bSI7dj0iMTM4Ig0KU2VjLUNILVVBLU1vYmlsZTogPzANClNlYy1DSC1VQS1QbGF0Zm9ybTogIkxpbnV4Ig0KQWNjZXB0LUxhbmd1YWdlOiBlbi1VUztxPTAuOSxlbjtxPTAuOA0KVXNlci1BZ2VudDogTW96aWxsYS81LjAgKFgxMTsgTGludXggeDg2XzY0KSBBcHBsZVdlYktpdC81MzcuMzYgKEtIVE1MLCBsaWtlIEdlY2tvKSBDaHJvbWUvMTM4LjAuMC4wIFNhZmFyaS81MzcuMzYNCkFjY2VwdDogdGV4dC9odG1sLGFwcGxpY2F0aW9uL3hodG1sK3htbCxhcHBsaWNhdGlvbi94bWw7cT0wLjksaW1hZ2UvYXZpZixpbWFnZS93ZWJwLGltYWdlL2FwbmcsKi8qO3E9MC44LGFwcGxpY2F0aW9uL3NpZ25lZC1leGNoYW5nZTt2PWIzO3E9MC43DQpTZWMtRmV0Y2gtU2l0ZTogbm9uZQ0KU2VjLUZldGNoLU1vZGU6IG5hdmlnYXRlDQpTZWMtRmV0Y2gtVXNlcjogPzENClNlYy1GZXRjaC1EZXN0OiBkb2N1bWVudA0KQWNjZXB0LUVuY29kaW5nOiBnemlwLCBkZWZsYXRlLCBicg0KQ29ubmVjdGlvbjogY2xvc2UNCk9yaWdpbjogaHR0cDovLzE5Mi4xNjguMS41MA0KVXBncmFkZS1JbnNlY3VyZS1SZXF1ZXN0czogMQ0KUmVmZXJlcjogaHR0cDovLzE5Mi4xNjguMS41MC90d2lraS9iaW4vdmlldy9UV2lraS9UV2lraVJlZ2lzdHJhdGlvbg0KQ29udGVudC1UeXBlOiBhcHBsaWNhdGlvbi94LXd3dy1mb3JtLXVybGVuY29kZWQNCkNvbnRlbnQtTGVuZ3RoOiAxMzENCg0KVHdrMU5hbWU9JlR3azFXaWtpTmFtZT0=",
+              "length": 893
+            },
+            {
+              "type": "HighlightSegment",
+              "data": "Li4uJTJm",
+              "length": 6
+            },
+            {
+              "type": "DataSegment",
+              "data": "JlR3azFMb2dpbk5hbWU9JlR3azFFbWFpbD0mVHdrMFBob25lPSZUd2swRGVwYXJ0bWVudD0mVHdrMUxvY2F0aW9uPSZUd2swQ29tbWVudD0mVG9waWNOYW1lPVRXaWtpUmVnaXN0cmF0aW9u",
+              "length": 108
+            }
+          ],
+          "response": [
+            {
+              "type": "DataSegment",
+              "data": "SFRUUC8xLjEgMzAyIE1vdmVkDQpEYXRlOiBUdWUsIDAyIFNlcCAyMDI1IDE1OjM4OjA5IEdNVA0KU2VydmVyOiBBcGFjaGUvMi4yLjggKFVidW50dSkgREFWLzINCkxvY2F0aW9uOiA=",
+              "length": 104
+            },
+            {
+              "type": "HighlightSegment",
+              "data": "aHR0cDovLzE5Mi4xNjguMS41MC90d2lraS9iaW4vb29wcy9NYWluL1RXaWtpUmVnaXN0cmF0aW9uP3RlbXBsYXRlPW9vcHNyZWdyZXF1",
+              "length": 78
+            },
+            {
+              "type": "DataSegment",
+              "data": "DQpDb250ZW50LUxlbmd0aDogMA0KQ29ubmVjdGlvbjogY2xvc2UNCkNvbnRlbnQtVHlwZTogdGV4dC9wbGFpbg0KDQo=",
+              "length": 68
+            }
+          ],
+          "was_redirect_followed": false,
+          "request_time": "1756827520101"
+        }
+      }
+    }
+  ],
+  "description": "The <b>Twk1WikiName</b> parameter appears to be vulnerable to file path manipulation attacks. <br><br>The payload <b>.../WebHome</b> was submitted in the Twk1WikiName parameter. This returned the same content as the base request. The payload <b>.../</b> was then submitted, and this returned a different response. This indicates that the application may be vulnerable to file path manipulation.",
+  "remediation": "",
+  "references": []
+}

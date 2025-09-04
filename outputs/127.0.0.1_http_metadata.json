@@ -1,0 +1,80 @@
+{
+  "target": "127.0.0.1",
+  "os_fingerprint": "Linux 2.6.32, Linux 5.0 - 6.2",
+  "http_banner": "unknown",
+  "https_banner": "unknown",
+  "discovered_endpoints": [],
+  "vulnerable_endpoints": {
+    "sql_injection": [],
+    "xss": [],
+    "lfi": [],
+    "file_upload": []
+  },
+  "auth_bypass_opportunities": [],
+  "exposed_directories": [],
+  "default_files": [],
+  "misconfigurations": [],
+  "outdated_software": [],
+  "exploitable_versions": {},
+  "vhosts": [],
+  "subdomains": [],
+  "wayback_urls": [],
+  "dns_records": [],
+  "technologies": {
+    "web_server": [],
+    "programming_language": [],
+    "framework": [],
+    "cms": [],
+    "database": [],
+    "javascript": [],
+    "other": []
+  },
+  "wordpress_findings": {
+    "version": "unknown",
+    "plugins": [],
+    "themes": [],
+    "vulnerabilities": []
+  },
+  "joomla_findings": {
+    "version": "unknown",
+    "components": [],
+    "vulnerabilities": []
+  },
+  "sqlmap_findings": {
+    "injectable_parameters": [],
+    "database_type": "unknown",
+    "technique": "unknown"
+  },
+  "burp_summary": {},
+  "burp_runner": {},
+  "login_form_sql_injection": {
+    "success": false,
+    "proof": "",
+    "poc": "",
+    "evidence": {}
+  },
+  "os_exploit_found": "no",
+  "os_exploit_mods": [
+    "none"
+  ],
+  "os_exploit_cves": [
+    "none"
+  ],
+  "os_exploitdb_exploits": [],
+  "http_exploit_found": "no",
+  "http_exploit_mods": [
+    "none"
+  ],
+  "http_exploit_cves": [
+    "none"
+  ],
+  "http_exploitdb_exploits": [],
+  "https_exploit_found": "no",
+  "https_exploit_mods": [
+    "none"
+  ],
+  "https_exploit_cves": [
+    "none"
+  ],
+  "software_exploitdb_exploits": []
+}

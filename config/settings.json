@@ -32,7 +32,9 @@
         },
         "sslyze": {
             "enabled": true,
-            "binary": "sslyze"
+            "binary": "sslyze",
+            "port": 443,
+            "skip_if_closed": true
         },
         "ssh_audit": {
             "enabled": true,

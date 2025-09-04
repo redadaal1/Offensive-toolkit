@@ -1,0 +1,216 @@
+{
+  "name": "Private IP addresses disclosed",
+  "type": "vulnerability",
+  "severity": "Info",
+  "confidence": "Certain",
+  "host": "",
+  "path": "/",
+  "url": "/",
+  "evidence": [
+    {
+      "type": "InformationListEvidence",
+      "request_response": {
+        "url": "http://192.168.1.50/mutillidae/index.php?page=capture-data.php",
+        "request": [
+          {
+            "type": "DataSegment",
+            "data": "R0VUIC9tdXRpbGxpZGFlL2luZGV4LnBocD9wYWdlPWNhcHR1cmUtZGF0YS5waHAgSFRUUC8xLjENCkhvc3Q6IDE5Mi4xNjguMS41MA0KQ2FjaGUtQ29udHJvbDogbWF4LWFnZT0wDQpTZWMtQ0gtVUE6ICJHb29nbGUgQ2hyb21lIjt2PSIxMzgiLCAiTm90PUE/QnJhbmQiO3Y9IjgiLCAiQ2hyb21pdW0iO3Y9IjEzOCINClNlYy1DSC1VQS1Nb2JpbGU6ID8wDQpTZWMtQ0gtVUEtUGxhdGZvcm06ICJMaW51eCINCkFjY2VwdC1MYW5ndWFnZTogZW4tVVM7cT0wLjksZW47cT0wLjgNClVzZXItQWdlbnQ6IE1vemlsbGEvNS4wIChYMTE7IExpbnV4IHg4Nl82NCkgQXBwbGVXZWJLaXQvNTM3LjM2IChLSFRNTCwgbGlrZSBHZWNrbykgQ2hyb21lLzEzOC4wLjAuMCBTYWZhcmkvNTM3LjM2DQpBY2NlcHQ6IHRleHQvaHRtbCxhcHBsaWNhdGlvbi94aHRtbCt4bWwsYXBwbGljYXRpb24veG1sO3E9MC45LGltYWdlL2F2aWYsaW1hZ2Uvd2VicCxpbWFnZS9hcG5nLCovKjtxPTAuOCxhcHBsaWNhdGlvbi9zaWduZWQtZXhjaGFuZ2U7dj1iMztxPTAuNw0KU2VjLUZldGNoLVNpdGU6IG5vbmUNClNlYy1GZXRjaC1Nb2RlOiBuYXZpZ2F0ZQ0KU2VjLUZldGNoLVVzZXI6ID8xDQpTZWMtRmV0Y2gtRGVzdDogZG9jdW1lbnQNCkFjY2VwdC1FbmNvZGluZzogZ3ppcCwgZGVmbGF0ZSwgYnINCkNvbm5lY3Rpb246IGNsb3NlDQpDb29raWU6IFBIUFNFU1NJRD1iNzVlNGFhNGVlZDk3ZjVjNzU5ZmFhMjExMmJlMDBiMQ0KVXBncmFkZS1JbnNlY3VyZS1SZXF1ZXN0czogMQ0KUmVmZXJlcjogaHR0cDovLzE5Mi4xNjguMS41MC9tdXRpbGxpZGFlLw0KDQo=",
+            "length": 806
+          }
+        ],
+        "response": [
+          {
+            "type": "DataSegment",
+            "data": "SFRUUC8xLjEgMjAwIE9LDQpEYXRlOiBUdWUsIDAyIFNlcCAyMDI1IDEzOjE4OjM0IEdNVA0KU2VydmVyOiBBcGFjaGUvMi4yLjggKFVidW50dSkgREFWLzINClgtUG93ZXJlZC1CeTogUEhQLzUuMi40LTJ1YnVudHU1LjEwDQpFeHBpcmVzOiBUaHUsIDE5IE5vdiAxOTgxIDA4OjUyOjAwIEdNVA0KTG9nZ2VkLUluLVVzZXI6IA0KQ2FjaGUtQ29udHJvbDogcHVibGljDQpQcmFnbWE6IHB1YmxpYw0KTGFzdC1Nb2RpZmllZDogVHVlLCAwMiBTZXAgMjAyNSAxMzoxODozNSBHTVQNCkNvbm5lY3Rpb246IGNsb3NlDQpDb250ZW50LVR5cGU6IHRleHQvaHRtbA0KQ29udGVudC1MZW5ndGg6IDI0NzMzDQoNCg0KCQkJPCEtLSBJIHRoaW5rIHRoZSBkYXRhYmFzZSBwYXNzd29yZCBpcyBzZXQgdG8gYmxhbmsgb3IgcGVyaGFwcyBzYW11cmFpLg0KCQkJSXQgZGVwZW5kcyBvbiB3aGV0aGVyIHlvdSBpbnN0YWxsZWQgdGhpcyB3ZWIgYXBwIGZyb20gaXJvbmdlZWtzIHNpdGUgb3INCgkJCWFyZSB1c2luZyBpdCBpbnNpZGUgS2V2aW4gSm9obnNvbnMgU2FtdXJhaSB3",
+            "length": 540
+          },
+          {
+            "type": "SnipSegment",
+            "length": 21177
+          },
+          {
+            "type": "DataSegment",
+            "data": "PHRkIGNsYXNzPSJlcnJvci1kZXRhaWwiPklOU0VSVCBJTlRPIGNhcHR1cmVkX2RhdGEoaXBfYWRkcmVzcywgaG9zdG5hbWUsIHBvcnQsIHVzZXJfYWdlbnRfc3RyaW5nLCByZWZlcnJlciwgZGF0YSwgY2FwdHVyZV9kYXRlKSBWQUxVRVMgKCc=",
+            "length": 137
+          },
+          {
+            "type": "HighlightSegment",
+            "data": "MTkyLjE2OC4xLjE2",
+            "length": 12
+          },
+          {
+            "type": "DataSegment",
+            "data": "JywgJw==",
+            "length": 4
+          },
+          {
+            "type": "HighlightSegment",
+            "data": "MTkyLjE2OC4xLjE2",
+            "length": 12
+          },
+          {
+            "type": "DataSegment",
+            "data": "JywgJzM3MTQ4JywgJ01vemlsbGEvNS4wIChYMTE7IExpbnV4IHg4Nl82NCkgQXBwbGVXZWJLaXQvNTM3LjM2IChLSFRNTCwgbGlrZSBHZWNrbykgQ2hyb21lLzEzOC4wLjAuMCBTYWZhcmkvNTM3LjM2JywgJ2h0dHA6Ly8xOTIuMTY4LjEuNTAvbXV0aWxsaWRhZS8nLCAncGFnZSA9IGNhcHR1cmUtZGF0YS5waHAKUEhQU0VTU0lEID0gYjc1ZTRhYTRlZWQ5",
+            "length": 201
+          },
+          {
+            "type": "SnipSegment",
+            "length": 2990
+          }
+        ],
+        "was_redirect_followed": false,
+        "request_time": "1756819119802"
+      },
+      "information_items": [
+        "192.168.1.16"
+      ]
+    },
+    {
+      "type": "InformationListEvidence",
+      "request_response": {
+        "url": "http://192.168.1.50/mutillidae/index.php?page=browser-info.php",
+        "request": [
+          {
+            "type": "DataSegment",
+            "data": "R0VUIC9tdXRpbGxpZGFlL2luZGV4LnBocD9wYWdlPWJyb3dzZXItaW5mby5waHAgSFRUUC8xLjENCkhvc3Q6IDE5Mi4xNjguMS41MA0KQ2FjaGUtQ29udHJvbDogbWF4LWFnZT0wDQpTZWMtQ0gtVUE6ICJHb29nbGUgQ2hyb21lIjt2PSIxMzgiLCAiTm90PUE/QnJhbmQiO3Y9IjgiLCAiQ2hyb21pdW0iO3Y9IjEzOCINClNlYy1DSC1VQS1Nb2JpbGU6ID8wDQpTZWMtQ0gtVUEtUGxhdGZvcm06ICJMaW51eCINCkFjY2VwdC1MYW5ndWFnZTogZW4tVVM7cT0wLjksZW47cT0wLjgNClVzZXItQWdlbnQ6IE1vemlsbGEvNS4wIChYMTE7IExpbnV4IHg4Nl82NCkgQXBwbGVXZWJLaXQvNTM3LjM2IChLSFRNTCwgbGlrZSBHZWNrbykgQ2hyb21lLzEzOC4wLjAuMCBTYWZhcmkvNTM3LjM2DQpBY2NlcHQ6IHRleHQvaHRtbCxhcHBsaWNhdGlvbi94aHRtbCt4bWwsYXBwbGljYXRpb24veG1sO3E9MC45LGltYWdlL2F2aWYsaW1hZ2Uvd2VicCxpbWFnZS9hcG5nLCovKjtxPTAuOCxhcHBsaWNhdGlvbi9zaWduZWQtZXhjaGFuZ2U7dj1iMztxPTAuNw0KU2VjLUZldGNoLVNpdGU6IG5vbmUNClNlYy1GZXRjaC1Nb2RlOiBuYXZpZ2F0ZQ0KU2VjLUZldGNoLVVzZXI6ID8xDQpTZWMtRmV0Y2gtRGVzdDogZG9jdW1lbnQNCkFjY2VwdC1FbmNvZGluZzogZ3ppcCwgZGVmbGF0ZSwgYnINCkNvbm5lY3Rpb246IGNsb3NlDQpDb29raWU6IFBIUFNFU1NJRD05MTk2N2FkMmJiY2ZkODhiMDVkYjFlNTEyYTI1NmRkYQ0KVXBncmFkZS1JbnNlY3VyZS1SZXF1ZXN0czogMQ0KUmVmZXJlcjogaHR0cDovLzE5Mi4xNjguMS41MC9tdXRpbGxpZGFlLw0KDQo=",
+            "length": 806
+          }
+        ],
+        "response": [
+          {
+            "type": "DataSegment",
+            "data": "SFRUUC8xLjEgMjAwIE9LDQpEYXRlOiBUdWUsIDAyIFNlcCAyMDI1IDEzOjIyOjA1IEdNVA0KU2VydmVyOiBBcGFjaGUvMi4yLjggKFVidW50dSkgREFWLzINClgtUG93ZXJlZC1CeTogUEhQLzUuMi40LTJ1YnVudHU1LjEwDQpFeHBpcmVzOiBUaHUsIDE5IE5vdiAxOTgxIDA4OjUyOjAwIEdNVA0KTG9nZ2VkLUluLVVzZXI6IA0KQ2FjaGUtQ29udHJvbDogcHVibGljDQpQcmFnbWE6IHB1YmxpYw0KTGFzdC1Nb2RpZmllZDogVHVlLCAwMiBTZXAgMjAyNSAxMzoyMjowNSBHTVQNCkNvbm5lY3Rpb246IGNsb3NlDQpDb250ZW50LVR5cGU6IHRleHQvaHRtbA0KQ29udGVudC1MZW5ndGg6IDI5MDM5DQoNCg0KCQkJPCEtLSBJIHRoaW5rIHRoZSBkYXRhYmFzZSBwYXNzd29yZCBpcyBzZXQgdG8gYmxhbmsgb3IgcGVyaGFwcyBzYW11cmFpLg0KCQkJSXQgZGVwZW5kcyBvbiB3aGV0aGVyIHlvdSBpbnN0YWxsZWQgdGhpcyB3ZWIgYXBwIGZyb20gaXJvbmdlZWtzIHNpdGUgb3INCgkJCWFyZSB1c2luZyBpdCBpbnNpZGUgS2V2aW4gSm9obnNvbnMgU2FtdXJhaSB3",
+            "length": 540
+          },
+          {
+            "type": "SnipSegment",
+            "length": 21059
+          },
+          {
+            "type": "DataSegment",
+            "data": "PHRkPg==",
+            "length": 4
+          },
+          {
+            "type": "HighlightSegment",
+            "data": "MTkyLjE2OC4xLjE2",
+            "length": 12
+          },
+          {
+            "type": "DataSegment",
+            "data": "PC90ZD4=",
+            "length": 5
+          },
+          {
+            "type": "SnipSegment",
+            "length": 66
+          },
+          {
+            "type": "DataSegment",
+            "data": "PHRkPg==",
+            "length": 4
+          },
+          {
+            "type": "HighlightSegment",
+            "data": "MTkyLjE2OC4xLjE2",
+            "length": 12
+          },
+          {
+            "type": "DataSegment",
+            "data": "PC90ZD4=",
+            "length": 5
+          },
+          {
+            "type": "SnipSegment",
+            "length": 726
+          },
+          {
+            "type": "DataSegment",
+            "data": "dy5hcmluLm5ldC9yZXNvdXJjZXMvcmVnaXN0cnkvd2hvaXMvaW5hY2N1cmFjeV9yZXBvcnRpbmcvCiMKIyBDb3B5cmlnaHQgMTk5Ny0yMDI1LCBBbWVyaWNhbiBSZWdpc3RyeSBmb3IgSW50ZXJuZXQgTnVtYmVycywgTHRkLgojCgoKIwojIFF1ZXJ5IHRlcm1zIGFyZSBhbWJpZ3VvdXMuICBUaGUgcXVlcnkgaXMgYXNzdW1lZCB0byBiZToKIyAgICAgIm4g",
+            "length": 201
+          },
+          {
+            "type": "HighlightSegment",
+            "data": "MTkyLjE2OC4xLjE2",
+            "length": 12
+          },
+          {
+            "type": "DataSegment",
+            "data": "IgojCiMgVXNlICI/IiB0byBnZXQgaGVscC4KIwoKTmV0UmFuZ2U6ICAgICAgIDE5Mi4xNjguMC4wIC0gMTkyLjE2OC4yNTUuMjU1CkNJRFI6ICAgICAgICAgICAxOTIuMTY4LjAuMC8xNgpOZXROYW1lOiAgICAgICAgUFJJVkFURS1BRERSRVNTLUNCTEstUkZDMTkxOC1JQU5BLVJFU0VSVkVECk5ldEhhbmRsZTogICAgICBORVQtMTkyLTE2OC0wLTAtMQpQ",
+            "length": 201
+          },
+          {
+            "type": "SnipSegment",
+            "length": 6532
+          }
+        ],
+        "was_redirect_followed": false,
+        "request_time": "1756819331046"
+      },
+      "information_items": [
+        "192.168.1.16"
+      ]
+    },
+    {
+      "type": "InformationListEvidence",
+      "request_response": {
+        "url": "http://192.168.1.50/mutillidae/index.php?page=capture-data.php",
+        "request": [
+          {
+            "type": "DataSegment",
+            "data": "R0VUIC9tdXRpbGxpZGFlL2luZGV4LnBocD9wYWdlPWNhcHR1cmUtZGF0YS5waHAgSFRUUC8xLjENCkhvc3Q6IDE5Mi4xNjguMS41MA0KQ2FjaGUtQ29udHJvbDogbWF4LWFnZT0wDQpTZWMtQ0gtVUE6ICJHb29nbGUgQ2hyb21lIjt2PSIxMzgiLCAiTm90PUE/QnJhbmQiO3Y9IjgiLCAiQ2hyb21pdW0iO3Y9IjEzOCINClNlYy1DSC1VQS1Nb2JpbGU6ID8wDQpTZWMtQ0gtVUEtUGxhdGZvcm06ICJMaW51eCINCkFjY2VwdC1MYW5ndWFnZTogZW4tVVM7cT0wLjksZW47cT0wLjgNClVzZXItQWdlbnQ6IE1vemlsbGEvNS4wIChYMTE7IExpbnV4IHg4Nl82NCkgQXBwbGVXZWJLaXQvNTM3LjM2IChLSFRNTCwgbGlrZSBHZWNrbykgQ2hyb21lLzEzOC4wLjAuMCBTYWZhcmkvNTM3LjM2DQpBY2NlcHQ6IHRleHQvaHRtbCxhcHBsaWNhdGlvbi94aHRtbCt4bWwsYXBwbGljYXRpb24veG1sO3E9MC45LGltYWdlL2F2aWYsaW1hZ2Uvd2VicCxpbWFnZS9hcG5nLCovKjtxPTAuOCxhcHBsaWNhdGlvbi9zaWduZWQtZXhjaGFuZ2U7dj1iMztxPTAuNw0KU2VjLUZldGNoLVNpdGU6IG5vbmUNClNlYy1GZXRjaC1Nb2RlOiBuYXZpZ2F0ZQ0KU2VjLUZldGNoLVVzZXI6ID8xDQpTZWMtRmV0Y2gtRGVzdDogZG9jdW1lbnQNCkFjY2VwdC1FbmNvZGluZzogZ3ppcCwgZGVmbGF0ZSwgYnINCkNvbm5lY3Rpb246IGNsb3NlDQpDb29raWU6IHNob3doaW50cz0xOyBQSFBTRVNTSUQ9ZjU2ZjUxZGU5MWZjODBlNjY1Yzc0ZmQ4ZDdiMTY2ZGUNClVwZ3JhZGUtSW5zZWN1cmUtUmVxdWVzdHM6IDENClJlZmVyZXI6IGh0dHA6Ly8xOTIuMTY4LjEuNTAvbXV0aWxsaWRhZS9pbmRleC5waHA/cGFnZT1jYXB0dXJlLWRhdGEucGhwDQoNCg==",
+            "length": 850
+          }
+        ],
+        "response": [
+          {
+            "type": "DataSegment",
+            "data": "SFRUUC8xLjEgMjAwIE9LDQpEYXRlOiBUdWUsIDAyIFNlcCAyMDI1IDE0OjI2OjE4IEdNVA0KU2VydmVyOiBBcGFjaGUvMi4yLjggKFVidW50dSkgREFWLzINClgtUG93ZXJlZC1CeTogUEhQLzUuMi40LTJ1YnVudHU1LjEwDQpFeHBpcmVzOiBUaHUsIDE5IE5vdiAxOTgxIDA4OjUyOjAwIEdNVA0KTG9nZ2VkLUluLVVzZXI6IA0KQ2FjaGUtQ29udHJvbDogcHVibGljDQpQcmFnbWE6IHB1YmxpYw0KTGFzdC1Nb2RpZmllZDogVHVlLCAwMiBTZXAgMjAyNSAxNDoyNjoxOCBHTVQNCkNvbm5lY3Rpb246IGNsb3NlDQpDb250ZW50LVR5cGU6IHRleHQvaHRtbA0KQ29udGVudC1MZW5ndGg6IDI2MDc5DQoNCg0KCQkJPCEtLSBJIHRoaW5rIHRoZSBkYXRhYmFzZSBwYXNzd29yZCBpcyBzZXQgdG8gYmxhbmsgb3IgcGVyaGFwcyBzYW11cmFpLg0KCQkJSXQgZGVwZW5kcyBvbiB3aGV0aGVyIHlvdSBpbnN0YWxsZWQgdGhpcyB3ZWIgYXBwIGZyb20gaXJvbmdlZWtzIHNpdGUgb3INCgkJCWFyZSB1c2luZyBpdCBpbnNpZGUgS2V2aW4gSm9obnNvbnMgU2FtdXJhaSB3",
+            "length": 540
+          },
+          {
+            "type": "SnipSegment",
+            "length": 21177
+          },
+          {
+            "type": "DataSegment",
+            "data": "PHRkIGNsYXNzPSJlcnJvci1kZXRhaWwiPklOU0VSVCBJTlRPIGNhcHR1cmVkX2RhdGEoaXBfYWRkcmVzcywgaG9zdG5hbWUsIHBvcnQsIHVzZXJfYWdlbnRfc3RyaW5nLCByZWZlcnJlciwgZGF0YSwgY2FwdHVyZV9kYXRlKSBWQUxVRVMgKCc=",
+            "length": 137
+          },
+          {
+            "type": "HighlightSegment",
+            "data": "MTkyLjE2OC4xLjE2",
+            "length": 12
+          },
+          {
+            "type": "DataSegment",
+            "data": "JywgJw==",
+            "length": 4
+          },
+          {
+            "type": "HighlightSegment",
+            "data": "MTkyLjE2OC4xLjE2",
+            "length": 12
+          },
+          {
+            "type": "DataSegment",
+            "data": "JywgJzU2ODU0JywgJ01vemlsbGEvNS4wIChYMTE7IExpbnV4IHg4Nl82NCkgQXBwbGVXZWJLaXQvNTM3LjM2IChLSFRNTCwgbGlrZSBHZWNrbykgQ2hyb21lLzEzOC4wLjAuMCBTYWZhcmkvNTM3LjM2JywgJ2h0dHA6Ly8xOTIuMTY4LjEuNTAvbXV0aWxsaWRhZS9pbmRleC5waHA/cGFnZT1jYXB0dXJlLWRhdGEucGhwJywgJ3BhZ2UgPSBjYXB0dXJlLWRh",
+            "length": 201
+          },
+          {
+            "type": "SnipSegment",
+            "length": 4336
+          }
+        ],
+        "was_redirect_followed": false,
+        "request_time": "1756823180993"
+      },
+      "information_items": [
+        "192.168.1.16"
+      ]
+    }
+  ],
+  "description": "The following RFC 1918 IP address was disclosed in the response:<ul><li>192.168.1.16</li></ul>This issue was found in multiple locations under the reported path.",
+  "remediation": "",
+  "references": []
+}

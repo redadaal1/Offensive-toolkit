@@ -1,0 +1,62 @@
+{
+  "name": "Email addresses disclosed",
+  "type": "vulnerability",
+  "severity": "Info",
+  "confidence": "Certain",
+  "host": "",
+  "path": "/twiki/bin/view/TWiki/TextFormattingRules",
+  "url": "/twiki/bin/view/TWiki/TextFormattingRules",
+  "evidence": [
+    {
+      "type": "InformationListEvidence",
+      "request_response": {
+        "url": "http://192.168.1.50/twiki/bin/view/TWiki/TextFormattingRules",
+        "request": [
+          {
+            "type": "DataSegment",
+            "data": "R0VUIC90d2lraS9iaW4vdmlldy9UV2lraS9UZXh0Rm9ybWF0dGluZ1J1bGVzIEhUVFAvMS4xDQpIb3N0OiAxOTIuMTY4LjEuNTANCkNhY2hlLUNvbnRyb2w6IG1heC1hZ2U9MA0KU2VjLUNILVVBOiAiR29vZ2xlIENocm9tZSI7dj0iMTM4IiwgIk5vdD1BP0JyYW5kIjt2PSI4IiwgIkNocm9taXVtIjt2PSIxMzgiDQpTZWMtQ0gtVUEtTW9iaWxlOiA/MA0KU2VjLUNILVVBLVBsYXRmb3JtOiAiTGludXgiDQpBY2NlcHQtTGFuZ3VhZ2U6IGVuLVVTO3E9MC45LGVuO3E9MC44DQpVc2VyLUFnZW50OiBNb3ppbGxhLzUuMCAoWDExOyBMaW51eCB4ODZfNjQpIEFwcGxlV2ViS2l0LzUzNy4zNiAoS0hUTUwsIGxpa2UgR2Vja28pIENocm9tZS8xMzguMC4wLjAgU2FmYXJpLzUzNy4zNg0KQWNjZXB0OiB0ZXh0L2h0bWwsYXBwbGljYXRpb24veGh0bWwreG1sLGFwcGxpY2F0aW9uL3htbDtxPTAuOSxpbWFnZS9hdmlmLGltYWdlL3dlYnAsaW1hZ2UvYXBuZywqLyo7cT0wLjgsYXBwbGljYXRpb24vc2lnbmVkLWV4Y2hhbmdlO3Y9YjM7cT0wLjcNClNlYy1GZXRjaC1TaXRlOiBub25lDQpTZWMtRmV0Y2gtTW9kZTogbmF2aWdhdGUNClNlYy1GZXRjaC1Vc2VyOiA/MQ0KU2VjLUZldGNoLURlc3Q6IGRvY3VtZW50DQpBY2NlcHQtRW5jb2Rpbmc6IGd6aXAsIGRlZmxhdGUsIGJyDQpDb25uZWN0aW9uOiBjbG9zZQ0KVXBncmFkZS1JbnNlY3VyZS1SZXF1ZXN0czogMQ0KUmVmZXJlcjogaHR0cDovLzE5Mi4xNjguMS41MC90d2lraS9iaW4vdmlldy9NYWluL1dlYkhvbWUNCg0K",
+            "length": 768
+          }
+        ],
+        "response": [
+          {
+            "type": "DataSegment",
+            "data": "SFRUUC8xLjEgMjAwIE9LDQpEYXRlOiBUdWUsIDAyIFNlcCAyMDI1IDE0OjA5OjQ3IEdNVA0KU2VydmVyOiBBcGFjaGUvMi4yLjggKFVidW50dSkgREFWLzINCkNvbnRlbnQtTGVuZ3RoOiAyODc5Ng0KQ29ubmVjdGlvbjogY2xvc2UNCkNvbnRlbnQtVHlwZTogdGV4dC9odG1sOyBjaGFyc2V0PUlTTy04ODU5LTENCg0KPCFET0NUWVBFIGh0bWwgUFVCTElDICItLy9XM0MvL0RURCBYSFRNTCAxLjAgVHJhbnNpdGlvbmFsLy9FTiIgImh0dHA6Ly93d3cudzMub3JnL1RSL3hodG1sMS9EVEQveGh0bWwxLXRyYW5zaXRpb25hbC5kdGQiPgo8aHRtbCB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMTk5OS94aHRtbCIgeG1sOmxhbmc9ImVuIiBsYW5nPSJlbiI+IAo8aGVhZD4KIDw=",
+            "length": 380
+          },
+          {
+            "type": "SnipSegment",
+            "length": 20758
+          },
+          {
+            "type": "DataSegment",
+            "data": "PGNvZGU+",
+            "length": 6
+          },
+          {
+            "type": "HighlightSegment",
+            "data": "bmFtZUBkb21haW4uY29t",
+            "length": 15
+          },
+          {
+            "type": "DataSegment",
+            "data": "PC9jb2RlPg==",
+            "length": 7
+          },
+          {
+            "type": "SnipSegment",
+            "length": 7810
+          }
+        ],
+        "was_redirect_followed": false,
+        "request_time": "1756822191496"
+      },
+      "information_items": [
+        "name@domain.com"
+      ]
+    }
+  ],
+  "description": "The following email address was disclosed in the response:<ul><li>name@domain.com</li></ul>",
+  "remediation": "",
+  "references": []
+}

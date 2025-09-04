@@ -1,0 +1,62 @@
+{
+  "name": "Session token in URL",
+  "type": "vulnerability",
+  "severity": "Medium",
+  "confidence": "Firm",
+  "host": "",
+  "path": "/phpMyAdmin/",
+  "url": "/phpMyAdmin/",
+  "evidence": [
+    {
+      "type": "InformationListEvidence",
+      "request_response": {
+        "url": "http://192.168.1.50/phpMyAdmin/",
+        "request": [
+          {
+            "type": "DataSegment",
+            "data": "R0VUIC9waHBNeUFkbWluLyBIVFRQLzEuMQ0KSG9zdDogMTkyLjE2OC4xLjUwDQpDYWNoZS1Db250cm9sOiBtYXgtYWdlPTANClNlYy1DSC1VQTogIkdvb2dsZSBDaHJvbWUiO3Y9IjEzOCIsICJOb3Q9QT9CcmFuZCI7dj0iOCIsICJDaHJvbWl1bSI7dj0iMTM4Ig0KU2VjLUNILVVBLU1vYmlsZTogPzANClNlYy1DSC1VQS1QbGF0Zm9ybTogIkxpbnV4Ig0KQWNjZXB0LUxhbmd1YWdlOiBlbi1VUztxPTAuOSxlbjtxPTAuOA0KVXNlci1BZ2VudDogTW96aWxsYS81LjAgKFgxMTsgTGludXggeDg2XzY0KSBBcHBsZVdlYktpdC81MzcuMzYgKEtIVE1MLCBsaWtlIEdlY2tvKSBDaHJvbWUvMTM4LjAuMC4wIFNhZmFyaS81MzcuMzYNCkFjY2VwdDogdGV4dC9odG1sLGFwcGxpY2F0aW9uL3hodG1sK3htbCxhcHBsaWNhdGlvbi94bWw7cT0wLjksaW1hZ2UvYXZpZixpbWFnZS93ZWJwLGltYWdlL2FwbmcsKi8qO3E9MC44LGFwcGxpY2F0aW9uL3NpZ25lZC1leGNoYW5nZTt2PWIzO3E9MC43DQpTZWMtRmV0Y2gtU2l0ZTogbm9uZQ0KU2VjLUZldGNoLU1vZGU6IG5hdmlnYXRlDQpTZWMtRmV0Y2gtVXNlcjogPzENClNlYy1GZXRjaC1EZXN0OiBkb2N1bWVudA0KQWNjZXB0LUVuY29kaW5nOiBnemlwLCBkZWZsYXRlLCBicg0KQ29ubmVjdGlvbjogY2xvc2UNClVwZ3JhZGUtSW5zZWN1cmUtUmVxdWVzdHM6IDENClJlZmVyZXI6IGh0dHA6Ly8xOTIuMTY4LjEuNTAvDQoNCg==",
+            "length": 712
+          }
+        ],
+        "response": [
+          {
+            "type": "DataSegment",
+            "data": "SFRUUC8xLjEgMjAwIE9LDQpEYXRlOiBUdWUsIDAyIFNlcCAyMDI1IDEzOjA5OjAyIEdNVA0KU2VydmVyOiBBcGFjaGUvMi4yLjggKFVidW50dSkgREFWLzINClgtUG93ZXJlZC1CeTogUEhQLzUuMi40LTJ1YnVudHU1LjEwDQpFeHBpcmVzOiBUaHUsIDE5IE5vdiAxOTgxIDA4OjUyOjAwIEdNVA0KQ2FjaGUtQ29udHJvbDogcHJpdmF0ZSwgbWF4LWFnZT0xMDgwMCwgcHJlLWNoZWNrPTEwODAwDQpTZXQtQ29va2llOiBwaHBNeUFkbWluPWFhMzIwNGE2MTNjMzAzYWMwYWQyMWJjZGZkYjNlMTk5NDI1NmM0YWU7IHBhdGg9L3BocE15QWRtaW4vOyBIdHRwT25seQ0KU2V0LUNvb2tpZTogcG1hX2xhbmc9ZW4tdXRmLTg7IGV4cGlyZXM9VGh1LCAwMi1PY3QtMjAyNSAxMzowOTowMiBHTVQ7IHBhdGg9L3BocE15QWRtaW4vOyBodHRwb25seQ0KU2V0LUNvb2tpZTogcG1hX2NoYXJzZXQ9dXRmLTg7IGV4cGlyZXM9VGh1LCAwMi1PY3QtMjAyNSAxMzowOTowMiBHTVQ7IHBhdGg9L3BocE15QWRtaW4vOyBodHRwb25seQ0KU2V0LUNvb2tpZTogcG1hX2NvbGxhdGlvbl9jb25uZWN0aW9uPWRlbGV0ZWQ7IGV4cGlyZXM9TW9uLCAwMi1TZXAtMjAyNCAxMzowOTowMSBHTVQ7IHBhdGg9L3BocE15QWRtaW4vOyBodHRwb25seQ0KU2V0LUNvb2tpZTogcG1hX3RoZW1lPW9yaWdpbmFsOyBleHBpcmVzPVRodSwgMDItT2N0LTIwMjUgMTM6MDk6MDIgR01UOyBwYXRoPS9waHBNeUFkbWluLzsgaHR0cG9ubHkNCkxhc3QtTW9kaWZpZWQ6IFR1ZSwgMDkgRGVjIDIwMDggMTc6MjQ6MDAgR01UDQpDb25uZWN0aW9uOiBjbG9zZQ0KQ29udGVudC1UeXBlOiB0ZXh0L2h0bWw7IGNoYXJzZXQ9dXRmLTgNCkNvbnRlbnQtTGVuZ3RoOiA0MTQ1DQoNCjwhRE9DVFlQRSBodG1sIFBVQkxJQyAiLS8vVzNDLy9EVEQgWEhUTUwgMS4wIFRyYW5zaXRpb25hbC8vRU4iCiAgICAiaHR0cDovL3d3dy53My5vcmcvVFIveGh0bWwxL0RURC94aHRtbDEtdHJhbnNpdGlvbmFsLmR0ZCI+CjxodG1sIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5L3hodG1sIiB4bWw6bGFuZz0iZW4iIGxhbmc9ImVuIiBkaXI9Imx0",
+            "length": 1059
+          },
+          {
+            "type": "SnipSegment",
+            "length": 246
+          },
+          {
+            "type": "DataSegment",
+            "data": "PC90aXRsZT4KICAgIA==",
+            "length": 13
+          },
+          {
+            "type": "HighlightSegment",
+            "data": "PGxpbmsgcmVsPSJzdHlsZXNoZWV0IiB0eXBlPSJ0ZXh0L2NzcyIgaHJlZj0icGhwbXlhZG1pbi5jc3MucGhwP2xhbmc9ZW4tdXRmLTgmYW1wO2NvbnZjaGFyc2V0PXV0Zi04JmFtcDt0b2tlbj1lODE1MzhlMjIxN2Y4YzIxNTdkZDI2ZWZhNWM5Y2RlYSZhbXA7anNfZnJhbWU9cmlnaHQmYW1wO25vY2FjaGU9MjQ1NzY4NzE1MSIgLz4=",
+            "length": 188
+          },
+          {
+            "type": "DataSegment",
+            "data": "CiAgICA8bGluayByZWw9InN0eWxlc2hlZXQiIHR5cGU9InRleHQvY3NzIiBocmVmPSJwcmludC5jc3MiIG1lZGlhPSJwcmludCIgLz4=",
+            "length": 77
+          },
+          {
+            "type": "SnipSegment",
+            "length": 3421
+          }
+        ],
+        "was_redirect_followed": false,
+        "request_time": "1756818544022"
+      },
+      "information_items": [
+        "http://192.168.1.50/phpMyAdmin/phpmyadmin.css.php?lang=en-utf-8&convcharset=utf-8&token=e81538e2217f8c2157dd26efa5c9cdea&js_frame=right&nocache=2457687151"
+      ]
+    }
+  ],
+  "description": "The response contains the following links that appear to contain session tokens:<ul><li>http://192.168.1.50/phpMyAdmin/phpmyadmin.css.php?lang=en-utf-8&amp;convcharset=utf-8&amp;token=e81538e2217f8c2157dd26efa5c9cdea&amp;js_frame=right&amp;nocache=2457687151</li></ul>",
+  "remediation": "",
+  "references": []
+}

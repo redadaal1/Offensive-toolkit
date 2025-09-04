@@ -1,0 +1,6 @@
+{
+    "target": "192.168.1.50",
+    "port": 8009,
+    "protocol": "tcp",
+    "note": "No footprint module available for ajp13"
+}

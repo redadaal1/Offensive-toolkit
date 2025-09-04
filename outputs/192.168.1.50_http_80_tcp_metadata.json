@@ -1,0 +1,553 @@
+{
+    "target": "192.168.1.50",
+    "os_fingerprint": "Linux 2.6.9 - 2.6.33",
+    "http_banner": "Apache/2.2.8 (Ubuntu) DAV/2",
+    "https_banner": "unknown",
+    "discovered_endpoints": [
+        {
+            "url": "http://192.168.1.50/.htaccess.zip",
+            "type": "general_endpoint",
+            "parameters": [
+                "id",
+                "file",
+                "page",
+                "param",
+                "action"
+            ]
+        },
+        {
+            "url": "http://192.168.1.50/.htpasswd.php",
+            "type": "dynamic_file",
+            "parameters": [
+                "id",
+                "file",
+                "page",
+                "include",
+                "path",
+                "cmd",
+                "exec",
+                "param",
+                "action"
+            ]
+        },
+        {
+            "url": "http://192.168.1.50/.htaccess.txt",
+            "type": "general_endpoint",
+            "parameters": [
+                "id",
+                "file",
+                "page",
+                "param",
+                "action"
+            ]
+        },
+        {
+            "url": "http://192.168.1.50/.hta.zip",
+            "type": "general_endpoint",
+            "parameters": [
+                "id",
+                "file",
+                "page",
+                "param",
+                "action"
+            ]
+        },
+        {
+            "url": "http://192.168.1.50/.htpasswd.zip",
+            "type": "general_endpoint",
+            "parameters": [
+                "id",
+                "file",
+                "page",
+                "param",
+                "action"
+            ]
+        },
+        {
+            "url": "http://192.168.1.50/.htaccess.config",
+            "type": "sensitive_file",
+            "parameters": [
+                "file",
+                "path",
+                "include"
+            ]
+        },
+        {
+            "url": "http://192.168.1.50/server-status",
+            "type": "general_endpoint",
+            "parameters": [
+                "id",
+                "file",
+                "page",
+                "param",
+                "action"
+            ]
+        },
+        {
+            "url": "http://192.168.1.50/.hta.config",
+            "type": "sensitive_file",
+            "parameters": [
+                "file",
+                "path",
+                "include"
+            ]
+        },
+        {
+            "url": "http://192.168.1.50/.htpasswd",
+            "type": "general_endpoint",
+            "parameters": [
+                "id",
+                "file",
+                "page",
+                "param",
+                "action"
+            ]
+        },
+        {
+            "url": "http://192.168.1.50/cgi-bin/",
+            "type": "general_endpoint",
+            "parameters": [
+                "id",
+                "file",
+                "page",
+                "param",
+                "action"
+            ]
+        },
+        {
+            "url": "http://192.168.1.50/test",
+            "type": "general_endpoint",
+            "parameters": [
+                "id",
+                "file",
+                "page",
+                "param",
+                "action"
+            ]
+        },
+        {
+            "url": "http://192.168.1.50/phpMyAdmin",
+            "type": "admin_panel",
+            "parameters": [
+                "username",
+                "password",
+                "user",
+                "pass",
+                "admin",
+                "login",
+                "auth"
+            ]
+        },
+        {
+            "url": "http://192.168.1.50/phpinfo.php",
+            "type": "dynamic_file",
+            "parameters": [
+                "id",
+                "file",
+                "page",
+                "include",
+                "path",
+                "cmd",
+                "exec",
+                "param",
+                "action"
+            ]
+        },
+        {
+            "url": "http://192.168.1.50/twiki",
+            "type": "general_endpoint",
+            "parameters": [
+                "id",
+                "file",
+                "page",
+                "param",
+                "action"
+            ]
+        },
+        {
+            "url": "http://192.168.1.50/.htpasswd.txt",
+            "type": "general_endpoint",
+            "parameters": [
+                "id",
+                "file",
+                "page",
+                "param",
+                "action"
+            ]
+        },
+        {
+            "url": "http://192.168.1.50/phpinfo",
+            "type": "general_endpoint",
+            "parameters": [
+                "id",
+                "file",
+                "page",
+                "param",
+                "action"
+            ]
+        },
+        {
+            "url": "http://192.168.1.50/.htpasswd.config",
+            "type": "sensitive_file",
+            "parameters": [
+                "file",
+                "path",
+                "include"
+            ]
+        },
+        {
+            "url": "http://192.168.1.50/.htaccess.php",
+            "type": "dynamic_file",
+            "parameters": [
+                "id",
+                "file",
+                "page",
+                "include",
+                "path",
+                "cmd",
+                "exec",
+                "param",
+                "action"
+            ]
+        },
+        {
+            "url": "http://192.168.1.50/index",
+            "type": "general_endpoint",
+            "parameters": [
+                "id",
+                "file",
+                "page",
+                "param",
+                "action"
+            ]
+        },
+        {
+            "url": "http://192.168.1.50/index.php",
+            "type": "dynamic_file",
+            "parameters": [
+                "id",
+                "file",
+                "page",
+                "include",
+                "path",
+                "cmd",
+                "exec",
+                "param",
+                "action"
+            ]
+        },
+        {
+            "url": "http://192.168.1.50/.hta.php",
+            "type": "dynamic_file",
+            "parameters": [
+                "id",
+                "file",
+                "page",
+                "include",
+                "path",
+                "cmd",
+                "exec",
+                "param",
+                "action"
+            ]
+        },
+        {
+            "url": "http://192.168.1.50/.htaccess",
+            "type": "general_endpoint",
+            "parameters": [
+                "id",
+                "file",
+                "page",
+                "param",
+                "action"
+            ]
+        },
+        {
+            "url": "http://192.168.1.50/.htaccess.bak",
+            "type": "sensitive_file",
+            "parameters": [
+                "file",
+                "path",
+                "include"
+            ]
+        },
+        {
+            "url": "http://192.168.1.50/.hta.txt",
+            "type": "general_endpoint",
+            "parameters": [
+                "id",
+                "file",
+                "page",
+                "param",
+                "action"
+            ]
+        },
+        {
+            "url": "http://192.168.1.50/.htpasswd.bak",
+            "type": "sensitive_file",
+            "parameters": [
+                "file",
+                "path",
+                "include"
+            ]
+        },
+        {
+            "url": "http://192.168.1.50/.hta.bak",
+            "type": "sensitive_file",
+            "parameters": [
+                "file",
+                "path",
+                "include"
+            ]
+        },
+        {
+            "url": "http://192.168.1.50/.hta",
+            "type": "general_endpoint",
+            "parameters": [
+                "id",
+                "file",
+                "page",
+                "param",
+                "action"
+            ]
+        },
+        {
+            "url": "http://192.168.1.50/tikiwiki",
+            "type": "general_endpoint",
+            "parameters": [
+                "id",
+                "file",
+                "page",
+                "param",
+                "action"
+            ]
+        }
+    ],
+    "vulnerable_endpoints": {
+        "sql_injection": [
+            {
+                "url": "http://192.168.1.50/phpinfo.php",
+                "parameter": "id",
+                "type": "sql_injection",
+                "evidence": "SQL error detected"
+            },
+            {
+                "url": "http://192.168.1.50/phpinfo.php",
+                "parameter": "file",
+                "type": "sql_injection",
+                "evidence": "SQL error detected"
+            },
+            {
+                "url": "http://192.168.1.50/phpinfo.php",
+                "parameter": "page",
+                "type": "sql_injection",
+                "evidence": "SQL error detected"
+            },
+            {
+                "url": "http://192.168.1.50/phpinfo.php",
+                "parameter": "include",
+                "type": "sql_injection",
+                "evidence": "SQL error detected"
+            },
+            {
+                "url": "http://192.168.1.50/phpinfo.php",
+                "parameter": "path",
+                "type": "sql_injection",
+                "evidence": "SQL error detected"
+            },
+            {
+                "url": "http://192.168.1.50/phpinfo.php",
+                "parameter": "cmd",
+                "type": "sql_injection",
+                "evidence": "SQL error detected"
+            },
+            {
+                "url": "http://192.168.1.50/phpinfo.php",
+                "parameter": "exec",
+                "type": "sql_injection",
+                "evidence": "SQL error detected"
+            },
+            {
+                "url": "http://192.168.1.50/phpinfo.php",
+                "parameter": "param",
+                "type": "sql_injection",
+                "evidence": "SQL error detected"
+            },
+            {
+                "url": "http://192.168.1.50/phpinfo.php",
+                "parameter": "action",
+                "type": "sql_injection",
+                "evidence": "SQL error detected"
+            },
+            {
+                "url": "http://192.168.1.50/phpinfo",
+                "parameter": "id",
+                "type": "sql_injection",
+                "evidence": "SQL error detected"
+            },
+            {
+                "url": "http://192.168.1.50/phpinfo",
+                "parameter": "file",
+                "type": "sql_injection",
+                "evidence": "SQL error detected"
+            },
+            {
+                "url": "http://192.168.1.50/phpinfo",
+                "parameter": "page",
+                "type": "sql_injection",
+                "evidence": "SQL error detected"
+            },
+            {
+                "url": "http://192.168.1.50/phpinfo",
+                "parameter": "param",
+                "type": "sql_injection",
+                "evidence": "SQL error detected"
+            },
+            {
+                "url": "http://192.168.1.50/phpinfo",
+                "parameter": "action",
+                "type": "sql_injection",
+                "evidence": "SQL error detected"
+            }
+        ],
+        "xss": [],
+        "lfi": [
+            {
+                "url": "http://192.168.1.50/phpinfo.php",
+                "parameter": "file",
+                "type": "lfi",
+                "evidence": "LFI vulnerability confirmed (passwd markers present)"
+            },
+            {
+                "url": "http://192.168.1.50/phpinfo.php",
+                "parameter": "page",
+                "type": "lfi",
+                "evidence": "LFI vulnerability confirmed (passwd markers present)"
+            },
+            {
+                "url": "http://192.168.1.50/phpinfo.php",
+                "parameter": "include",
+                "type": "lfi",
+                "evidence": "LFI vulnerability confirmed (passwd markers present)"
+            },
+            {
+                "url": "http://192.168.1.50/phpinfo.php",
+                "parameter": "path",
+                "type": "lfi",
+                "evidence": "LFI vulnerability confirmed (passwd markers present)"
+            },
+            {
+                "url": "http://192.168.1.50/phpinfo",
+                "parameter": "file",
+                "type": "lfi",
+                "evidence": "LFI vulnerability confirmed (passwd markers present)"
+            },
+            {
+                "url": "http://192.168.1.50/phpinfo",
+                "parameter": "page",
+                "type": "lfi",
+                "evidence": "LFI vulnerability confirmed (passwd markers present)"
+            }
+        ],
+        "file_upload": []
+    },
+    "auth_bypass_opportunities": [
+        "HTTP TRACE Method"
+    ],
+    "exposed_directories": [
+        "/phpMyAdmin/changelog.php:",
+        "/phpMyAdmin/ChangeLog:",
+        "/phpMyAdmin/ChangeLog:",
+        "/phpMyAdmin/:",
+        "/phpMyAdmin/Documentation.html:",
+        "/phpMyAdmin/README:"
+    ],
+    "default_files": [
+        "/index:",
+        "/phpMyAdmin/changelog.php:"
+    ],
+    "misconfigurations": [
+        "mod_negotiation + MultiViews Enabled (Brute-force Files)",
+        "HTTP TRACE Method Enabled (XST Attack)",
+        "ETag Information Leak (Inode Leakage)"
+    ],
+    "outdated_software": [
+        "Apache/2.2.8",
+        "PHP/5.2.4-2ubuntu5.10.",
+        "Apache/2.2.8",
+        "Apache/2.4.54)."
+    ],
+    "exploitable_versions": {},
+    "vhosts": [],
+    "subdomains": [],
+    "wayback_urls": [],
+    "dns_records": [],
+    "technologies": {
+        "web_server": [
+            "Apache"
+        ],
+        "programming_language": [
+            "PHP"
+        ],
+        "framework": [],
+        "cms": [],
+        "database": [],
+        "javascript": [],
+        "other": []
+    },
+    "wordpress_findings": {
+        "version": "unknown",
+        "plugins": [],
+        "themes": [],
+        "vulnerabilities": []
+    },
+    "joomla_findings": {
+        "version": "unknown",
+        "components": [],
+        "vulnerabilities": []
+    },
+    "sqlmap_findings": {
+        "injectable_parameters": [],
+        "database_type": "unknown",
+        "technique": "unknown"
+    },
+    "burp_summary": {},
+    "burp_runner": {},
+    "login_form_sql_injection": {
+        "success": false,
+        "proof": "",
+        "poc": "",
+        "evidence": {}
+    },
+    "os_exploit_found": "yes",
+    "os_exploit_mods": [
+        "exploit/linux/http/dreambox_openpli_shell",
+        "exploit/linux/local/netfilter_xtables_heap_oob_write_priv_esc",
+        "exploit/linux/local/rds_rds_page_copy_user_priv_esc",
+        "exploit/linux/local/sock_sendpage",
+        "exploit/linux/pop3/cyrus_pop3d_popsubfolders"
+    ],
+    "os_exploit_cves": [
+        "CVE-2006-2502",
+        "CVE-2009-2692",
+        "CVE-2010-3904",
+        "CVE-2021-22555"
+    ],
+    "os_exploitdb_exploits": [],
+    "http_exploit_found": "no",
+    "http_exploit_mods": [
+        "none"
+    ],
+    "http_exploit_cves": [
+        "none"
+    ],
+    "http_exploitdb_exploits": [],
+    "https_exploit_found": "no",
+    "https_exploit_mods": [
+        "none"
+    ],
+    "https_exploit_cves": [
+        "none"
+    ],
+    "software_exploitdb_exploits": []
+}

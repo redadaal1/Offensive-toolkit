@@ -1,0 +1,55 @@
+{
+  "name": "HTML does not specify charset",
+  "type": "vulnerability",
+  "severity": "Info",
+  "confidence": "Certain",
+  "host": "",
+  "path": "/twiki/TWikiDocumentation.html",
+  "url": "/twiki/TWikiDocumentation.html",
+  "evidence": [
+    {
+      "type": "FirstOrderEvidence",
+      "detail": {
+        "band_flags": [
+          "in_band"
+        ]
+      },
+      "request_response": {
+        "url": "http://192.168.1.50/twiki/TWikiDocumentation.html?filename=Sample.txt&filepath=file.txt&filecomment=Just+a+sample&createlink=on&hidefile=on&changeproperties=Change+properties",
+        "request": [
+          {
+            "type": "DataSegment",
+            "data": "R0VUIC90d2lraS9UV2lraURvY3VtZW50YXRpb24uaHRtbD9maWxlbmFtZT1TYW1wbGUudHh0JmZpbGVwYXRoPWZpbGUudHh0JmZpbGVjb21tZW50PUp1c3QrYStzYW1wbGUmY3JlYXRlbGluaz1vbiZoaWRlZmlsZT1vbiZjaGFuZ2Vwcm9wZXJ0aWVzPUNoYW5nZStwcm9wZXJ0aWVzIEhUVFAvMS4xDQpIb3N0OiAxOTIuMTY4LjEuNTANCkNhY2hlLUNvbnRyb2w6IG1heC1hZ2U9MA0KU2VjLUNILVVBOiAiR29vZ2xlIENocm9tZSI7dj0iMTM4IiwgIk5vdD1BP0JyYW5kIjt2PSI4IiwgIkNocm9taXVtIjt2PSIxMzgiDQpTZWMtQ0gtVUEtTW9iaWxlOiA/MA0KU2VjLUNILVVBLVBsYXRmb3JtOiAiTGludXgiDQpBY2NlcHQtTGFuZ3VhZ2U6IGVuLVVTO3E9MC45LGVuO3E9MC44DQpVc2VyLUFnZW50OiBNb3ppbGxhLzUuMCAoWDExOyBMaW51eCB4ODZfNjQpIEFwcGxlV2ViS2l0LzUzNy4zNiAoS0hUTUwsIGxpa2UgR2Vja28pIENocm9tZS8xMzguMC4wLjAgU2FmYXJpLzUzNy4zNg0KQWNjZXB0OiB0ZXh0L2h0bWwsYXBwbGljYXRpb24veGh0bWwreG1sLGFwcGxpY2F0aW9uL3htbDtxPTAuOSxpbWFnZS9hdmlmLGltYWdlL3dlYnAsaW1hZ2UvYXBuZywqLyo7cT0wLjgsYXBwbGljYXRpb24vc2lnbmVkLWV4Y2hhbmdlO3Y9YjM7cT0wLjcNClNlYy1GZXRjaC1TaXRlOiBub25lDQpTZWMtRmV0Y2gtTW9kZTogbmF2aWdhdGUNClNlYy1GZXRjaC1Vc2VyOiA/MQ0KU2VjLUZldGNoLURlc3Q6IGRvY3VtZW50DQpBY2NlcHQtRW5jb2Rpbmc6IGd6aXAsIGRlZmxhdGUsIGJyDQpDb25uZWN0aW9uOiBjbG9zZQ0KVXBncmFkZS1JbnNlY3VyZS1SZXF1ZXN0czogMQ0KUmVmZXJlcjogaHR0cDovLzE5Mi4xNjguMS41MC90d2lraS9UV2lraURvY3VtZW50YXRpb24uaHRtbA0KDQo=",
+            "length": 884
+          }
+        ],
+        "response": [
+          {
+            "type": "DataSegment",
+            "data": "SFRUUC8xLjEgMjAwIE9LDQpEYXRlOiBUdWUsIDAyIFNlcCAyMDI1IDE0OjQ0OjA4IEdNVA0KU2VydmVyOiBBcGFjaGUvMi4yLjggKFVidW50dSkgREFWLzINCkxhc3QtTW9kaWZpZWQ6IFN1biwgMDIgRmViIDIwMDMgMDI6NDU6MTQgR01UDQpFVGFnOiAiMTJhZTgtNmViNjUtM2I1YTcwNzIyODI4MCINCkFjY2VwdC1SYW5nZXM6IGJ5dGVzDQpDb250ZW50LUxlbmd0aDogNDUzNDc3DQpDb25uZWN0aW9uOiBjbG9zZQ0K",
+            "length": 237
+          },
+          {
+            "type": "HighlightSegment",
+            "data": "Q29udGVudC1UeXBlOiB0ZXh0L2h0bWw=",
+            "length": 23
+          },
+          {
+            "type": "DataSegment",
+            "data": "DQoNCjxodG1sPjxoZWFkPgo8dGl0bGU+VFdpa2lEb2N1bWVudGF0aW9uPC90aXRsZT4KPC9oZWFkPjxib2R5IGJnY29sb3I9IiNmZmZmZmYiPgo8aDE+PGEgbmFtZT0iX1RXaWtpX1JlZmVyZW5jZV9NYW51YWxfMDFfRmViXzIiPiAgVFdpa2kgUmVmZXJlbmNlIE1hbnVhbCAoMDEgRmViIDIwMDMpIDwvYT48L2gxPgo8cCAvPgo8c2NyaXB0IGxhbmd1YWdlPSJK",
+            "length": 204
+          },
+          {
+            "type": "SnipSegment",
+            "length": 453277
+          }
+        ],
+        "was_redirect_followed": false,
+        "request_time": "1756824297108"
+      }
+    }
+  ],
+  "description": "",
+  "remediation": "",
+  "references": []
+}

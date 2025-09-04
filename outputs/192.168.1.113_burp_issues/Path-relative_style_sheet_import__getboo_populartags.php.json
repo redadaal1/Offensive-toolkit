@@ -1,0 +1,165 @@
+{
+  "name": "Path-relative style sheet import",
+  "type": "vulnerability",
+  "severity": "Info",
+  "confidence": "Firm",
+  "host": "",
+  "path": "/getboo/populartags.php",
+  "url": "/getboo/populartags.php",
+  "evidence": [
+    {
+      "type": "FirstOrderEvidence",
+      "detail": {
+        "band_flags": [
+          "in_band"
+        ]
+      },
+      "request_response": {
+        "url": "http://192.168.1.113/getboo/populartags.php?sortOrder=alphabet",
+        "request": [
+          {
+            "type": "DataSegment",
+            "data": "R0VUIC9nZXRib28vcG9wdWxhcnRhZ3MucGhwP3NvcnRPcmRlcj1hbHBoYWJldCBIVFRQLzEuMQ0KSG9zdDogMTkyLjE2OC4xLjExMw0KQ2FjaGUtQ29udHJvbDogbWF4LWFnZT0wDQpTZWMtQ0gtVUE6ICJHb29nbGUgQ2hyb21lIjt2PSIxMzgiLCAiTm90PUE/QnJhbmQiO3Y9IjgiLCAiQ2hyb21pdW0iO3Y9IjEzOCINClNlYy1DSC1VQS1Nb2JpbGU6ID8wDQpTZWMtQ0gtVUEtUGxhdGZvcm06ICJMaW51eCINCkFjY2VwdC1MYW5ndWFnZTogZW4tVVM7cT0wLjksZW47cT0wLjgNClVzZXItQWdlbnQ6IE1vemlsbGEvNS4wIChYMTE7IExpbnV4IHg4Nl82NCkgQXBwbGVXZWJLaXQvNTM3LjM2IChLSFRNTCwgbGlrZSBHZWNrbykgQ2hyb21lLzEzOC4wLjAuMCBTYWZhcmkvNTM3LjM2DQpBY2NlcHQ6IHRleHQvaHRtbCxhcHBsaWNhdGlvbi94aHRtbCt4bWwsYXBwbGljYXRpb24veG1sO3E9MC45LGltYWdlL2F2aWYsaW1hZ2Uvd2VicCxpbWFnZS9hcG5nLCovKjtxPTAuOCxhcHBsaWNhdGlvbi9zaWduZWQtZXhjaGFuZ2U7dj1iMztxPTAuNw0KU2VjLUZldGNoLVNpdGU6IG5vbmUNClNlYy1GZXRjaC1Nb2RlOiBuYXZpZ2F0ZQ0KU2VjLUZldGNoLVVzZXI6ID8xDQpTZWMtRmV0Y2gtRGVzdDogZG9jdW1lbnQNCkFjY2VwdC1FbmNvZGluZzogZ3ppcCwgZGVmbGF0ZSwgYnINCkNvbm5lY3Rpb246IGNsb3NlDQpDb29raWU6IFBIUFNFU1NJRD1pdGJ0NXZrOHQwdTdjc2MwNWk2YmQ0aTNrNjsgYWNvcGVuZGl2aWRzPXN3aW5nc2V0LGpvdHRvLHBocGJiMixyZWRtaW5lOyBhY2dyb3Vwc3dpdGhwZXJzaXN0PW5hZGENClVwZ3JhZGUtSW5zZWN1cmUtUmVxdWVzdHM6IDENClJlZmVyZXI6IGh0dHA6Ly8xOTIuMTY4LjEuMTEzL2dldGJvby9wb3B1bGFydGFncy5waHANCg0K",
+            "length": 882
+          }
+        ],
+        "response": [
+          {
+            "type": "DataSegment",
+            "data": "SFRUUC8xLjEgMjAwIE9LDQpEYXRlOiBNb24sIDAxIFNlcCAyMDI1IDIzOjUwOjQ2IEdNVA0KU2VydmVyOiBBcGFjaGUvMi4yLjE0IChVYnVudHUpIG1vZF9tb25vLzIuNC4zIFBIUC81LjMuMi0xdWJ1bnR1NC4zMCB3aXRoIFN1aG9zaW4tUGF0Y2ggcHJveHlfaHRtbC8zLjAuMSBtb2RfcHl0aG9uLzMuMy4xIFB5dGhvbi8yLjYuNSBtb2Rfc3NsLzIuMi4xNCBPcGVuU1NMLzAuOS44ayBQaHVzaW9uX1Bhc3Nlbmdlci80LjAuMzggbW9kX3BlcmwvMi4wLjQgUGVybC92NS4xMC4xDQpYLVBvd2VyZWQtQnk6IFBIUC81LjMuMi0xdWJ1bnR1NC4zMA0KRXhwaXJlczogVGh1LCAxOSBOb3YgMTk4MSAwODo1MjowMCBHTVQNCkNhY2hlLUNvbnRyb2w6IG5vLXN0b3JlLCBuby1jYWNoZSwgbXVzdC1yZXZhbGlkYXRlLCBwb3N0LWNoZWNrPTAsIHByZS1jaGVjaz0wDQpQcmFnbWE6IG5vLWNhY2hlDQpWYXJ5OiBBY2NlcHQtRW5jb2RpbmcNCkNvbnRlbnQtTGVuZ3RoOiAyMzg3DQpDb25uZWN0aW9uOiBjbG9zZQ0KQ29udGVudC1UeXBlOiB0ZXh0L2h0bWw7IGNoYXJzZXQ9dXRmLTgNCg0KPHAgY2xhc3M9Im5vdGljZSI+UGxlYXNlIHJlbW92ZSB0aGUgL2luc3RhbGwgZm9sZGVyIG5vdzwvcD48IURPQ1RZUEUgSFRNTCBQVUJMSUMgIi0vL1czQy8vRFREIEhUTUwgNC4wMS8vRU4iDQogICAgICAgICAgICAiaHR0cDovL3d3dy53My5vcmcvVFIvaHRtbDQvc3RyaWN0LmR0ZCI+DQo8aGVhZD4NCjxsaW5rIHJlbD0ic2hvcnRjdXQgaWNvbiIgaHI=",
+            "length": 752
+          },
+          {
+            "type": "SnipSegment",
+            "length": 144
+          },
+          {
+            "type": "DataSegment",
+            "data": "PG1ldGEgaHR0cC1lcXVpdj0iQ29udGVudC1UeXBlIiBjb250ZW50PSJ0ZXh0L2h0bWw7IGNoYXJzZXQ9dXRmLTgiPg0K",
+            "length": 69
+          },
+          {
+            "type": "HighlightSegment",
+            "data": "PGxpbmsgcmVsPSJzdHlsZXNoZWV0IiB0eXBlPSJ0ZXh0L2NzcyIgaHJlZj0ic3R5bGUuY3NzIiBtZWRpYT0ic2NyZWVuLCBwcm9qZWN0aW9uIj4=",
+            "length": 83
+          },
+          {
+            "type": "DataSegment",
+            "data": "DQo8bWV0YSBuYW1lPSJkZXNjcmlwdGlvbiIgY29udGVudD0iZ2V0Ym9vIGlzIGEgZnJlZSBvbmxpbmUgYm9va21hcmtpbmcgc2VydmljZSB3aGljaCBhbGxvd3MgeW91IHRvIHN0b3JlLCBlZGl0IGFuZCByZXRyaWV2ZSB5b3VyIGJvb2ttYXJrcyBmcm9tIGFueXdoZXJlIC0gb25saW5lLiI+",
+            "length": 165
+          },
+          {
+            "type": "SnipSegment",
+            "length": 1726
+          }
+        ],
+        "was_redirect_followed": false,
+        "request_time": "1756770747452"
+      }
+    },
+    {
+      "type": "FirstOrderEvidence",
+      "detail": {
+        "band_flags": [
+          "in_band"
+        ]
+      },
+      "request_response": {
+        "url": "http://192.168.1.113/getboo/populartags.php/vlm0ig/?sortOrder=alphabet",
+        "request": [
+          {
+            "type": "DataSegment",
+            "data": "R0VUIC9nZXRib28vcG9wdWxhcnRhZ3MucGhw",
+            "length": 27
+          },
+          {
+            "type": "HighlightSegment",
+            "data": "L3ZsbTBpZy8=",
+            "length": 8
+          },
+          {
+            "type": "DataSegment",
+            "data": "P3NvcnRPcmRlcj1hbHBoYWJldCBIVFRQLzEuMQ0KSG9zdDogMTkyLjE2OC4xLjExMw0KQ2FjaGUtQ29udHJvbDogbWF4LWFnZT0wDQpTZWMtQ0gtVUE6ICJHb29nbGUgQ2hyb21lIjt2PSIxMzgiLCAiTm90PUE/QnJhbmQiO3Y9IjgiLCAiQ2hyb21pdW0iO3Y9IjEzOCINClNlYy1DSC1VQS1Nb2JpbGU6ID8wDQpTZWMtQ0gtVUEtUGxhdGZvcm06ICJMaW51eCINCkFjY2VwdC1MYW5ndWFnZTogZW4tVVM7cT0wLjksZW47cT0wLjgNClVzZXItQWdlbnQ6IE1vemlsbGEvNS4wIChYMTE7IExpbnV4IHg4Nl82NCkgQXBwbGVXZWJLaXQvNTM3LjM2IChLSFRNTCwgbGlrZSBHZWNrbykgQ2hyb21lLzEzOC4wLjAuMCBTYWZhcmkvNTM3LjM2DQpBY2NlcHQ6IHRleHQvaHRtbCxhcHBsaWNhdGlvbi94aHRtbCt4bWwsYXBwbGljYXRpb24veG1sO3E9MC45LGltYWdlL2F2aWYsaW1hZ2Uvd2VicCxpbWFnZS9hcG5nLCovKjtxPTAuOCxhcHBsaWNhdGlvbi9zaWduZWQtZXhjaGFuZ2U7dj1iMztxPTAuNw0KU2VjLUZldGNoLVNpdGU6IG5vbmUNClNlYy1GZXRjaC1Nb2RlOiBuYXZpZ2F0ZQ0KU2VjLUZldGNoLVVzZXI6ID8xDQpTZWMtRmV0Y2gtRGVzdDogZG9jdW1lbnQNCkFjY2VwdC1FbmNvZGluZzogZ3ppcCwgZGVmbGF0ZSwgYnINCkNvbm5lY3Rpb246IGNsb3NlDQpDb29raWU6IFBIUFNFU1NJRD1pdGJ0NXZrOHQwdTdjc2MwNWk2YmQ0aTNrNjsgYWNvcGVuZGl2aWRzPXN3aW5nc2V0LGpvdHRvLHBocGJiMixyZWRtaW5lOyBhY2dyb3Vwc3dpdGhwZXJzaXN0PW5hZGENClVwZ3JhZGUtSW5zZWN1cmUtUmVxdWVzdHM6IDENClJlZmVyZXI6IGh0dHA6Ly8xOTIuMTY4LjEuMTEzL2dldGJvby9wb3B1bGFydGFncy5waHANCkNvbnRlbnQtTGVuZ3RoOiAwDQoNCg==",
+            "length": 874
+          }
+        ],
+        "response": [
+          {
+            "type": "DataSegment",
+            "data": "SFRUUC8xLjEgMjAwIE9LDQpEYXRlOiBNb24sIDAxIFNlcCAyMDI1IDIzOjUyOjI2IEdNVA0KU2VydmVyOiBBcGFjaGUvMi4yLjE0IChVYnVudHUpIG1vZF9tb25vLzIuNC4zIFBIUC81LjMuMi0xdWJ1bnR1NC4zMCB3aXRoIFN1aG9zaW4tUGF0Y2ggcHJveHlfaHRtbC8zLjAuMSBtb2RfcHl0aG9uLzMuMy4xIFB5dGhvbi8yLjYuNSBtb2Rfc3NsLzIuMi4xNCBPcGVuU1NMLzAuOS44ayBQaHVzaW9uX1Bhc3Nlbmdlci80LjAuMzggbW9kX3BlcmwvMi4wLjQgUGVybC92NS4xMC4xDQpYLVBvd2VyZWQtQnk6IFBIUC81LjMuMi0xdWJ1bnR1NC4zMA0KRXhwaXJlczogVGh1LCAxOSBOb3YgMTk4MSAwODo1MjowMCBHTVQNCkNhY2hlLUNvbnRyb2w6IG5vLXN0b3JlLCBuby1jYWNoZSwgbXVzdC1yZXZhbGlkYXRlLCBwb3N0LWNoZWNrPTAsIHByZS1jaGVjaz0wDQpQcmFnbWE6IG5vLWNhY2hlDQpWYXJ5OiBBY2NlcHQtRW5jb2RpbmcNCkNvbnRlbnQtTGVuZ3RoOiAyMzg3DQpDb25uZWN0aW9uOiBjbG9zZQ0KQ29udGVudC1UeXBlOiB0ZXh0L2h0bWw7IGNoYXJzZXQ9dXRmLTgNCg0KPHAgY2xhc3M9Im5vdGljZSI+UGxlYXNlIHJlbW92ZSB0aGUgL2luc3RhbGwgZm9sZGVyIG5vdzwvcD48IURPQ1RZUEUgSFRNTCBQVUJMSUMgIi0vL1czQy8vRFREIEhUTUwgNC4wMS8vRU4iDQogICAgICAgICAgICAiaHR0cDovL3d3dy53My5vcmcvVFIvaHRtbDQvc3RyaWN0LmR0ZCI+DQo8aGVhZD4NCjxsaW5rIHJlbD0ic2hvcnRjdXQgaWNvbiIgaHI=",
+            "length": 752
+          },
+          {
+            "type": "SnipSegment",
+            "length": 144
+          },
+          {
+            "type": "DataSegment",
+            "data": "PG1ldGEgaHR0cC1lcXVpdj0iQ29udGVudC1UeXBlIiBjb250ZW50PSJ0ZXh0L2h0bWw7IGNoYXJzZXQ9dXRmLTgiPg0K",
+            "length": 69
+          },
+          {
+            "type": "HighlightSegment",
+            "data": "PGxpbmsgcmVsPSJzdHlsZXNoZWV0IiB0eXBlPSJ0ZXh0L2NzcyIgaHJlZj0ic3R5bGUuY3NzIiBtZWRpYT0ic2NyZWVuLCBwcm9qZWN0aW9uIj4=",
+            "length": 83
+          },
+          {
+            "type": "DataSegment",
+            "data": "DQo8bWV0YSBuYW1lPSJkZXNjcmlwdGlvbiIgY29udGVudD0iZ2V0Ym9vIGlzIGEgZnJlZSBvbmxpbmUgYm9va21hcmtpbmcgc2VydmljZSB3aGljaCBhbGxvd3MgeW91IHRvIHN0b3JlLCBlZGl0IGFuZCByZXRyaWV2ZSB5b3VyIGJvb2ttYXJrcyBmcm9tIGFueXdoZXJlIC0gb25saW5lLiI+",
+            "length": 165
+          },
+          {
+            "type": "SnipSegment",
+            "length": 1726
+          }
+        ],
+        "was_redirect_followed": false,
+        "request_time": "1756770747170"
+      }
+    },
+    {
+      "type": "FirstOrderEvidence",
+      "detail": {
+        "band_flags": [
+          "in_band"
+        ]
+      },
+      "request_response": {
+        "url": "http://192.168.1.113/getboo/populartags.php/vlm0ig/style.css",
+        "request": [
+          {
+            "type": "DataSegment",
+            "data": "R0VUIA==",
+            "length": 4
+          },
+          {
+            "type": "HighlightSegment",
+            "data": "L2dldGJvby9wb3B1bGFydGFncy5waHAvdmxtMGlnL3N0eWxlLmNzcw==",
+            "length": 40
+          },
+          {
+            "type": "DataSegment",
+            "data": "IEhUVFAvMS4xDQpIb3N0OiAxOTIuMTY4LjEuMTEzDQpDYWNoZS1Db250cm9sOiBtYXgtYWdlPTANClNlYy1DSC1VQTogIkdvb2dsZSBDaHJvbWUiO3Y9IjEzOCIsICJOb3Q9QT9CcmFuZCI7dj0iOCIsICJDaHJvbWl1bSI7dj0iMTM4Ig0KU2VjLUNILVVBLU1vYmlsZTogPzANClNlYy1DSC1VQS1QbGF0Zm9ybTogIkxpbnV4Ig0KQWNjZXB0LUxhbmd1YWdlOiBlbi1VUztxPTAuOSxlbjtxPTAuOA0KVXNlci1BZ2VudDogTW96aWxsYS81LjAgKFgxMTsgTGludXggeDg2XzY0KSBBcHBsZVdlYktpdC81MzcuMzYgKEtIVE1MLCBsaWtlIEdlY2tvKSBDaHJvbWUvMTM4LjAuMC4wIFNhZmFyaS81MzcuMzYNCkFjY2VwdDogdGV4dC9odG1sLGFwcGxpY2F0aW9uL3hodG1sK3htbCxhcHBsaWNhdGlvbi94bWw7cT0wLjksaW1hZ2UvYXZpZixpbWFnZS93ZWJwLGltYWdlL2FwbmcsKi8qO3E9MC44LGFwcGxpY2F0aW9uL3NpZ25lZC1leGNoYW5nZTt2PWIzO3E9MC43DQpTZWMtRmV0Y2gtU2l0ZTogbm9uZQ0KU2VjLUZldGNoLU1vZGU6IG5hdmlnYXRlDQpTZWMtRmV0Y2gtVXNlcjogPzENClNlYy1GZXRjaC1EZXN0OiBkb2N1bWVudA0KQWNjZXB0LUVuY29kaW5nOiBnemlwLCBkZWZsYXRlLCBicg0KQ29ubmVjdGlvbjogY2xvc2UNCkNvb2tpZTogUEhQU0VTU0lEPWl0YnQ1dms4dDB1N2NzYzA1aTZiZDRpM2s2OyBhY29wZW5kaXZpZHM9c3dpbmdzZXQsam90dG8scGhwYmIyLHJlZG1pbmU7IGFjZ3JvdXBzd2l0aHBlcnNpc3Q9bmFkYQ0KVXBncmFkZS1JbnNlY3VyZS1SZXF1ZXN0czogMQ0KUmVmZXJlcjogaHR0cDovLzE5Mi4xNjguMS4xMTMvZ2V0Ym9vL3BvcHVsYXJ0YWdzLnBocA0KQ29udGVudC1MZW5ndGg6IDANCg0K",
+            "length": 855
+          }
+        ],
+        "response": [
+          {
+            "type": "DataSegment",
+            "data": "SFRUUC8xLjEgMjAwIE9LDQpEYXRlOiBNb24sIDAxIFNlcCAyMDI1IDIzOjUyOjI3IEdNVA0KU2VydmVyOiBBcGFjaGUvMi4yLjE0IChVYnVudHUpIG1vZF9tb25vLzIuNC4zIFBIUC81LjMuMi0xdWJ1bnR1NC4zMCB3aXRoIFN1aG9zaW4tUGF0Y2ggcHJveHlfaHRtbC8zLjAuMSBtb2RfcHl0aG9uLzMuMy4xIFB5dGhvbi8yLjYuNSBtb2Rfc3NsLzIuMi4xNCBPcGVuU1NMLzAuOS44ayBQaHVzaW9uX1Bhc3Nlbmdlci80LjAuMzggbW9kX3BlcmwvMi4wLjQgUGVybC92NS4xMC4xDQpYLVBvd2VyZWQtQnk6IFBIUC81LjMuMi0xdWJ1bnR1NC4zMA0KRXhwaXJlczogVGh1LCAxOSBOb3YgMTk4MSAwODo1MjowMCBHTVQNCkNhY2hlLUNvbnRyb2w6IG5vLXN0b3JlLCBuby1jYWNoZSwgbXVzdC1yZXZhbGlkYXRlLCBwb3N0LWNoZWNrPTAsIHByZS1jaGVjaz0wDQpQcmFnbWE6IG5vLWNhY2hlDQpWYXJ5OiBBY2NlcHQtRW5jb2RpbmcNCkNvbnRlbnQtTGVuZ3RoOiAyMzg3DQpDb25uZWN0aW9uOiBjbG9zZQ0KQ29udGVudC1UeXBlOiB0ZXh0L2h0bWw7IGNoYXJzZXQ9dXRmLTgNCg0KPHAgY2xhc3M9Im5vdGljZSI+UGxlYXNlIHJlbW92ZSB0aGUgL2luc3RhbGwgZm9sZGVyIG5vdzwvcD48IURPQ1RZUEUgSFRNTCBQVUJMSUMgIi0vL1czQy8vRFREIEhUTUwgNC4wMS8vRU4iDQogICAgICAgICAgICAiaHR0cDovL3d3dy53My5vcmcvVFIvaHRtbDQvc3RyaWN0LmR0ZCI+DQo8aGVhZD4NCjxsaW5rIHJlbD0ic2hvcnRjdXQgaWNvbiIgaHI=",
+            "length": 752
+          },
+          {
+            "type": "SnipSegment",
+            "length": 2187
+          }
+        ],
+        "was_redirect_followed": false,
+        "request_time": "1756770747452"
+      }
+    }
+  ],
+  "description": "The application may be vulnerable to path-relative style sheet import (PRSSI) attacks. The first four conditions for an exploitable vulnerability are present (see issue background):<ol><li>The original response contains a path-relative style sheet import (see response 1).</li><li>When superfluous path-like data is placed into the URL following the original filename (see request 2), the application's response still contains a path-relative style sheet import (see response 2).</li><li>Response 2 can be made to render in a browser's quirks mode. The page does not contain a doctype directive, and so it will always be rendered in quirks mode. Further, the response does not prevent itself from being framed, so an attacker can frame the response within a page that they control, to force it to be rendered in quirks mode. (Note that this technique is IE-specific and due to P3P restrictions might sometimes limit the impact of a successful attack.)</li><li>When the path-relative style sheet import in response 2 is requested (see request 3) the application returns something other than the CSS response that was supposed to be imported (see response 3).</li></ol>It was not verified whether condition 5 holds (see issue background), and you should manually investigate whether it is possible to manipulate some text within response 3, to enable full exploitation of this issue.",
+  "remediation": "",
+  "references": []
+}

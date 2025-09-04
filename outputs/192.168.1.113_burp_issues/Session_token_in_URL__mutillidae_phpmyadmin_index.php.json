@@ -1,0 +1,122 @@
+{
+  "name": "Session token in URL",
+  "type": "vulnerability",
+  "severity": "Medium",
+  "confidence": "Firm",
+  "host": "",
+  "path": "/mutillidae/phpmyadmin/index.php",
+  "url": "/mutillidae/phpmyadmin/index.php",
+  "evidence": [
+    {
+      "type": "InformationListEvidence",
+      "request_response": {
+        "url": "http://192.168.1.113/mutillidae/phpmyadmin/index.php",
+        "request": [
+          {
+            "type": "DataSegment",
+            "data": "R0VUIC9tdXRpbGxpZGFlL3BocG15YWRtaW4vaW5kZXgucGhwIEhUVFAvMS4xDQpIb3N0OiAxOTIuMTY4LjEuMTEzDQpDYWNoZS1Db250cm9sOiBtYXgtYWdlPTANClNlYy1DSC1VQTogIkdvb2dsZSBDaHJvbWUiO3Y9IjEzOCIsICJOb3Q9QT9CcmFuZCI7dj0iOCIsICJDaHJvbWl1bSI7dj0iMTM4Ig0KU2VjLUNILVVBLU1vYmlsZTogPzANClNlYy1DSC1VQS1QbGF0Zm9ybTogIkxpbnV4Ig0KQWNjZXB0LUxhbmd1YWdlOiBlbi1VUztxPTAuOSxlbjtxPTAuOA0KVXNlci1BZ2VudDogTW96aWxsYS81LjAgKFgxMTsgTGludXggeDg2XzY0KSBBcHBsZVdlYktpdC81MzcuMzYgKEtIVE1MLCBsaWtlIEdlY2tvKSBDaHJvbWUvMTM4LjAuMC4wIFNhZmFyaS81MzcuMzYNCkFjY2VwdDogdGV4dC9odG1sLGFwcGxpY2F0aW9uL3hodG1sK3htbCxhcHBsaWNhdGlvbi94bWw7cT0wLjksaW1hZ2UvYXZpZixpbWFnZS93ZWJwLGltYWdlL2FwbmcsKi8qO3E9MC44LGFwcGxpY2F0aW9uL3NpZ25lZC1leGNoYW5nZTt2PWIzO3E9MC43DQpTZWMtRmV0Y2gtU2l0ZTogbm9uZQ0KU2VjLUZldGNoLU1vZGU6IG5hdmlnYXRlDQpTZWMtRmV0Y2gtVXNlcjogPzENClNlYy1GZXRjaC1EZXN0OiBkb2N1bWVudA0KQWNjZXB0LUVuY29kaW5nOiBnemlwLCBkZWZsYXRlLCBicg0KQ29ubmVjdGlvbjogY2xvc2UNCkNvb2tpZTogc2hvd2hpbnRzPTE7IFBIUFNFU1NJRD1yMDFqZWtldHM4cWQxMDhnNmdmbDg3bjA2NjsgYWNvcGVuZGl2aWRzPXN3aW5nc2V0LGpvdHRvLHBocGJiMixyZWRtaW5lOyBhY2dyb3Vwc3dpdGhwZXJzaXN0PW5hZGENClVwZ3JhZGUtSW5zZWN1cmUtUmVxdWVzdHM6IDENClJlZmVyZXI6IGh0dHA6Ly8xOTIuMTY4LjEuMTEzL211dGlsbGlkYWUvaW5kZXgucGhwP3BhZ2U9cGhwbXlhZG1pbi5waHANCg0K",
+            "length": 903
+          }
+        ],
+        "response": [
+          {
+            "type": "DataSegment",
+            "data": "SFRUUC8xLjEgMjAwIE9LDQpEYXRlOiBNb24sIDAxIFNlcCAyMDI1IDIyOjM4OjAzIEdNVA0KU2VydmVyOiBBcGFjaGUvMi4yLjE0IChVYnVudHUpIG1vZF9tb25vLzIuNC4zIFBIUC81LjMuMi0xdWJ1bnR1NC4zMCB3aXRoIFN1aG9zaW4tUGF0Y2ggcHJveHlfaHRtbC8zLjAuMSBtb2RfcHl0aG9uLzMuMy4xIFB5dGhvbi8yLjYuNSBtb2Rfc3NsLzIuMi4xNCBPcGVuU1NMLzAuOS44ayBQaHVzaW9uX1Bhc3Nlbmdlci80LjAuMzggbW9kX3BlcmwvMi4wLjQgUGVybC92NS4xMC4xDQpYLVBvd2VyZWQtQnk6IFBIUC81LjMuMi0xdWJ1bnR1NC4zMA0KU2V0LUNvb2tpZTogcGhwTXlBZG1pbj02dTNzM2ZjcXJxZXRldTVyYzI4aG05YTZqdThwcm52ZTsgcGF0aD0vbXV0aWxsaWRhZS9waHBteWFkbWluLzsgSHR0cE9ubHkNCkV4cGlyZXM6IFRodSwgMTkgTm92IDE5ODEgMDg6NTI6MDAgR01UDQpDYWNoZS1Db250cm9sOiBwcml2YXRlLCBtYXgtYWdlPTEwODAwLCBwcmUtY2hlY2s9MTA4MDANCkxhc3QtTW9kaWZpZWQ6IEZyaSwgMjcgU2VwIDIwMTMgMDI6NDc6MDggR01UDQpTZXQtQ29va2llOiBwbWFfbGFuZz1lbjsgZXhwaXJlcz1XZWQsIDAxLU9jdC0yMDI1IDIyOjM4OjAzIEdNVDsgcGF0aD0vbXV0aWxsaWRhZS9waHBteWFkbWluLzsgaHR0cG9ubHkNClNldC1Db29raWU6IHBtYV9jb2xsYXRpb25fY29ubmVjdGlvbj11dGY4X2dlbmVyYWxfY2k7IGV4cGlyZXM9V2VkLCAwMS1PY3QtMjAyNSAyMjozODowMyBHTVQ7IHBhdGg9L211dGlsbGlkYWUvcGhwbXlhZG1pbi87IGh0dHBvbmx5DQpWYXJ5OiBBY2NlcHQtRW5jb2RpbmcNCkNvbnRlbnQtTGVuZ3RoOiA0ODk3DQpDb25uZWN0aW9uOiBjbG9zZQ0KQ29udGVudC1UeXBlOiB0ZXh0L2h0bWw7IGNoYXJzZXQ9dXRmLTgNCg0KPCFET0NUWVBFIGh0bWwgUFVCTElDICItLy9XM0MvL0RURCBYSFRNTCAxLjAgVHJhbnNpdGlvbmFsLy9FTiIKICAgICJodHRwOi8vd3d3LnczLm9yZy9UUi94aHRtbDEvRFREL3hodG1sMS10cmFuc2l0aW9uYWwuZHRkIj4KPGh0bWwgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzE5OTkveGh0bWwiIHhtbDpsYW5nPSJlbiIgbGFuZz0iZW4iIGRpcj0ibHQ=",
+            "length": 1091
+          },
+          {
+            "type": "SnipSegment",
+            "length": 248
+          },
+          {
+            "type": "DataSegment",
+            "data": "PC90aXRsZT4KICAgIA==",
+            "length": 13
+          },
+          {
+            "type": "HighlightSegment",
+            "data": "PGxpbmsgcmVsPSJzdHlsZXNoZWV0IiB0eXBlPSJ0ZXh0L2NzcyIgaHJlZj0icGhwbXlhZG1pbi5jc3MucGhwP3NlcnZlcj0xJmFtcDtsYW5nPWVuJmFtcDtjb2xsYXRpb25fY29ubmVjdGlvbj11dGY4X2dlbmVyYWxfY2kmYW1wO3Rva2VuPWI2YzYwMjEyNGY1YmZkYThkOTI1ZGVmZTBmNjBkYjJhJmFtcDtqc19mcmFtZT1yaWdodCZhbXA7bm9jYWNoZT00MTQwNzUwNDcxIiAvPg==",
+            "length": 214
+          },
+          {
+            "type": "DataSegment",
+            "data": "CiAgICA8bGluayByZWw9InN0eWxlc2hlZXQiIHR5cGU9InRleHQvY3NzIiBocmVmPSJwcmludC5jc3MiIG1lZGlhPSJwcmludCIgLz4=",
+            "length": 77
+          },
+          {
+            "type": "SnipSegment",
+            "length": 696
+          },
+          {
+            "type": "DataSegment",
+            "data": "PC9zY3JpcHQ+Cg==",
+            "length": 10
+          },
+          {
+            "type": "HighlightSegment",
+            "data": "PHNjcmlwdCBzcmM9Ii4vanMvbWVzc2FnZXMucGhwP2xhbmc9ZW4mYW1wO2RiPSZhbXA7Y29sbGF0aW9uX2Nvbm5lY3Rpb249dXRmOF9nZW5lcmFsX2NpJmFtcDt0b2tlbj1iNmM2MDIxMjRmNWJmZGE4ZDkyNWRlZmUwZjYwZGIyYSIgdHlwZT0idGV4dC9qYXZhc2NyaXB0Ij4=",
+            "length": 155
+          },
+          {
+            "type": "DataSegment",
+            "data": "PC9zY3JpcHQ+",
+            "length": 9
+          },
+          {
+            "type": "SnipSegment",
+            "length": 617
+          },
+          {
+            "type": "DataSegment",
+            "data": "PC9zdHJvbmc+",
+            "length": 9
+          },
+          {
+            "type": "HighlightSegment",
+            "data": "PGEgaHJlZj0iLi91cmwucGhwP3VybD1odHRwJTNBJTJGJTJGZGV2Lm15c3FsLmNvbSUyRmRvYyUyRnJlZm1hbiUyRjUuMCUyRmVuJTJGZXJyb3ItbWVzc2FnZXMtc2VydmVyLmh0bWwmYW1wO2xhbmc9ZW4mYW1wO2NvbGxhdGlvbl9jb25uZWN0aW9uPXV0ZjhfZ2VuZXJhbF9jaSZhbXA7dG9rZW49YjZjNjAyMTI0ZjViZmRhOGQ5MjVkZWZlMGY2MGRiMmEiIHRhcmdldD0ibXlzcWxfZG9jIj4=",
+            "length": 221
+          },
+          {
+            "type": "DataSegment",
+            "data": "PGltZyBzcmM9InRoZW1lcy9kb3QuZ2lmIiB0aXRsZT0iRG9jdW1lbnRhdGlvbiIgYWx0PSJEb2N1bWVudGF0aW9uIiBjbGFzcz0iaWNvbiBpY19iX2hlbHAiIC8+",
+            "length": 93
+          },
+          {
+            "type": "SnipSegment",
+            "length": 1990
+          },
+          {
+            "type": "DataSegment",
+            "data": "PC9zY3JpcHQ+Cg==",
+            "length": 10
+          },
+          {
+            "type": "HighlightSegment",
+            "data": "PGEgaHJlZj0iaW5kZXgucGhwP3RhcmdldD1pbmRleC5waHAmYW1wO2xhbmc9ZW4mYW1wO2NvbGxhdGlvbl9jb25uZWN0aW9uPXV0ZjhfZ2VuZXJhbF9jaSZhbXA7dG9rZW49YjZjNjAyMTI0ZjViZmRhOGQ5MjVkZWZlMGY2MGRiMmEiIHRpdGxlPSJPcGVuIG5ldyBwaHBNeUFkbWluIHdpbmRvdyIgdGFyZ2V0PSJfYmxhbmsiPg==",
+            "length": 184
+          },
+          {
+            "type": "DataSegment",
+            "data": "PGltZyBzcmM9InRoZW1lcy9kb3QuZ2lmIiB0aXRsZT0iT3BlbiBuZXcgcGhwTXlBZG1pbiB3aW5kb3ciIGFsdD0iT3BlbiBuZXcgcGhwTXlBZG1pbiB3aW5kb3ciIGNsYXNzPSJpY29uIGljX3dpbmRvdy1uZXciIC8+",
+            "length": 123
+          },
+          {
+            "type": "SnipSegment",
+            "length": 28
+          }
+        ],
+        "was_redirect_followed": false,
+        "request_time": "1756766297005"
+      },
+      "information_items": [
+        "http://192.168.1.113/mutillidae/phpmyadmin/url.php?url=http%3A%2F%2Fdev.mysql.com%2Fdoc%2Frefman%2F5.0%2Fen%2Ferror-messages-server.html&lang=en&collation_connection=utf8_general_ci&token=b6c602124f5bfda8d925defe0f60db2a",
+        "http://192.168.1.113/mutillidae/phpmyadmin/index.php?target=index.php&lang=en&collation_connection=utf8_general_ci&token=b6c602124f5bfda8d925defe0f60db2a",
+        "http://192.168.1.113/mutillidae/phpmyadmin/js/messages.php?lang=en&db=&collation_connection=utf8_general_ci&token=b6c602124f5bfda8d925defe0f60db2a",
+        "http://192.168.1.113/mutillidae/phpmyadmin/phpmyadmin.css.php?server=1&lang=en&collation_connection=utf8_general_ci&token=b6c602124f5bfda8d925defe0f60db2a&js_frame=right&nocache=4140750471"
+      ]
+    }
+  ],
+  "description": "The response contains the following links that appear to contain session tokens:<ul><li>http://192.168.1.113/mutillidae/phpmyadmin/url.php?url=http%3A%2F%2Fdev.mysql.com%2Fdoc%2Frefman%2F5.0%2Fen%2Ferror-messages-server.html&amp;lang=en&amp;collation_connection=utf8_general_ci&amp;token=b6c602124f5bfda8d925defe0f60db2a</li><li>http://192.168.1.113/mutillidae/phpmyadmin/index.php?target=index.php&amp;lang=en&amp;collation_connection=utf8_general_ci&amp;token=b6c602124f5bfda8d925defe0f60db2a</li><li>http://192.168.1.113/mutillidae/phpmyadmin/js/messages.php?lang=en&amp;db=&amp;collation_connection=utf8_general_ci&amp;token=b6c602124f5bfda8d925defe0f60db2a</li><li>http://192.168.1.113/mutillidae/phpmyadmin/phpmyadmin.css.php?server=1&amp;lang=en&amp;collation_connection=utf8_general_ci&amp;token=b6c602124f5bfda8d925defe0f60db2a&amp;js_frame=right&amp;nocache=4140750471</li></ul>",
+  "remediation": "",
+  "references": []
+}

@@ -1,0 +1,15 @@
+# Nmap 7.95 scan initiated Tue Sep  2 15:32:27 2025 as: /usr/libWarning: 192.168.1.50 giving up on port because retransmission cap hit (6).
+Nmap scan report for 192.168.1.50 (192.168.1.50)
+Host is up (0.0028s latency).
+Not shown: 70 open|filtered udp ports (no-response), 26 closed udp ports (port-unreach)
+PORT     STATE SERVICE
+53/udp   open  domain
+111/udp  open  rpcbind
+137/udp  open  netbios-ns
+2049/udp open  nfs
+MAC Address: 08:00:27:58:9E:87 (PCS Systemtechnik/Oracle VirtualBox virtual NIC)
+
+Nmap done: 1 IP address (1 host up) scanned in 22.88 seconds
+58:9E:87 (PCS Systemtechnik/Oracle VirtualBox virtual NIC)
+
+# Nmap done at Tue Sep  2 15:32:50 2025 -- 1 IP address (1 host up) scanned in 22.88 seconds

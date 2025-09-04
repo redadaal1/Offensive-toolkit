@@ -1,0 +1,53 @@
+{
+  "name": "Cookie without HttpOnly flag set",
+  "type": "vulnerability",
+  "severity": "Low",
+  "confidence": "Firm",
+  "host": "",
+  "path": "/AppSensorDemo/login.jsp",
+  "url": "/AppSensorDemo/login.jsp",
+  "evidence": [
+    {
+      "type": "InformationListEvidence",
+      "request_response": {
+        "url": "http://192.168.1.113/AppSensorDemo/login.jsp",
+        "request": [
+          {
+            "type": "DataSegment",
+            "data": "R0VUIC9BcHBTZW5zb3JEZW1vL2xvZ2luLmpzcCBIVFRQLzEuMQ0KSG9zdDogMTkyLjE2OC4xLjExMw0KQ2FjaGUtQ29udHJvbDogbWF4LWFnZT0wDQpTZWMtQ0gtVUE6ICJHb29nbGUgQ2hyb21lIjt2PSIxMzgiLCAiTm90PUE/QnJhbmQiO3Y9IjgiLCAiQ2hyb21pdW0iO3Y9IjEzOCINClNlYy1DSC1VQS1Nb2JpbGU6ID8wDQpTZWMtQ0gtVUEtUGxhdGZvcm06ICJMaW51eCINCkFjY2VwdC1MYW5ndWFnZTogZW4tVVM7cT0wLjksZW47cT0wLjgNClVzZXItQWdlbnQ6IE1vemlsbGEvNS4wIChYMTE7IExpbnV4IHg4Nl82NCkgQXBwbGVXZWJLaXQvNTM3LjM2IChLSFRNTCwgbGlrZSBHZWNrbykgQ2hyb21lLzEzOC4wLjAuMCBTYWZhcmkvNTM3LjM2DQpBY2NlcHQ6IHRleHQvaHRtbCxhcHBsaWNhdGlvbi94aHRtbCt4bWwsYXBwbGljYXRpb24veG1sO3E9MC45LGltYWdlL2F2aWYsaW1hZ2Uvd2VicCxpbWFnZS9hcG5nLCovKjtxPTAuOCxhcHBsaWNhdGlvbi9zaWduZWQtZXhjaGFuZ2U7dj1iMztxPTAuNw0KU2VjLUZldGNoLVNpdGU6IG5vbmUNClNlYy1GZXRjaC1Nb2RlOiBuYXZpZ2F0ZQ0KU2VjLUZldGNoLVVzZXI6ID8xDQpTZWMtRmV0Y2gtRGVzdDogZG9jdW1lbnQNCkFjY2VwdC1FbmNvZGluZzogZ3ppcCwgZGVmbGF0ZSwgYnINCkNvbm5lY3Rpb246IGNsb3NlDQpVcGdyYWRlLUluc2VjdXJlLVJlcXVlc3RzOiAxDQpSZWZlcmVyOiBodHRwOi8vMTkyLjE2OC4xLjExMy8NCg0K",
+            "length": 726
+          }
+        ],
+        "response": [
+          {
+            "type": "DataSegment",
+            "data": "SFRUUC8xLjEgMjAwIE9LDQpEYXRlOiBUdWUsIDAyIFNlcCAyMDI1IDEzOjIyOjU0IEdNVA0KU2VydmVyOiBBcGFjaGUtQ295b3RlLzEuMQ0KQ29udGVudC1UeXBlOiB0ZXh0L2h0bWwNCg==",
+            "length": 106
+          },
+          {
+            "type": "HighlightSegment",
+            "data": "U2V0LUNvb2tpZTogSlNFU1NJT05JRD1FOTVEQTIyRjRDQjNDNzdFNUY2QkRBQTNBQ0ZFQTNGMTsgUGF0aD0v",
+            "length": 63
+          },
+          {
+            "type": "DataSegment",
+            "data": "DQpWaWE6IDEuMSAxMjcuMC4xLjENClZhcnk6IEFjY2VwdC1FbmNvZGluZw0KQ29udGVudC1MZW5ndGg6IDE1NDQNCkNvbm5lY3Rpb246IGNsb3NlDQoNCg0KDQoNCg0KDQoNCg0KPGh0bWw+DQo8aGVhZD4NCjx0aXRsZT5BcHBTZW5zb3IgLSBEZW1vIEFwcGxpY2F0aW9uPC90aXRsZT4NCjwhLS0gPGxpbmsgcmVsPSJzdHlsZXNoZWV0IiB0eXBlPSJ0ZXh0L2NzcyIgaHJlZj0ic3R5bGUvc3R5bGUuY3NzIiAvPi0tPg0KDQo8L2hlYWQ+DQoNCg0KPGRpdiBpZD0iY29udGFpbmVyIj4NCgk8ZGl2IGFsaWduPSJy",
+            "length": 288
+          },
+          {
+            "type": "SnipSegment",
+            "length": 1344
+          }
+        ],
+        "was_redirect_followed": false,
+        "request_time": "1756819375577"
+      },
+      "information_items": [
+        "Session: JSESSIONID"
+      ]
+    }
+  ],
+  "description": "The following cookie was issued by the application and does not have the HttpOnly flag set:<ul><li><b>JSESSIONID</b></li></ul>The cookie appears to contain a session token, which may increase the risk associated with this issue. You should review the contents of the cookie to determine its function.",
+  "remediation": "",
+  "references": []
+}

@@ -1,0 +1,72 @@
+{
+  "name": "HTML5 storage manipulation (DOM-based)",
+  "type": "vulnerability",
+  "severity": "Info",
+  "confidence": "Firm",
+  "host": "",
+  "path": "/mutillidae/index.php",
+  "url": "/mutillidae/index.php",
+  "evidence": [
+    {
+      "type": "DynamicJavascriptAnalysisEvidence",
+      "detail": {
+        "band_flags": [
+          "in_band"
+        ]
+      },
+      "javascript_request_responses": [],
+      "source_caption": "input.value",
+      "sink_caption": "sessionStorage.setItem.value",
+      "composable_evidence": {
+        "type": "FirstOrderEvidence",
+        "detail": {
+          "band_flags": [
+            "in_band"
+          ]
+        },
+        "request_response": {
+          "url": "http://192.168.1.113/mutillidae/index.php?page=html5-storage.php",
+          "request": [
+            {
+              "type": "DataSegment",
+              "data": "R0VUIC9tdXRpbGxpZGFlL2luZGV4LnBocD9wYWdlPWh0bWw1LXN0b3JhZ2UucGhwIEhUVFAvMS4xDQpIb3N0OiAxOTIuMTY4LjEuMTEzDQpDYWNoZS1Db250cm9sOiBtYXgtYWdlPTANClNlYy1DSC1VQTogIkdvb2dsZSBDaHJvbWUiO3Y9IjEzOCIsICJOb3Q9QT9CcmFuZCI7dj0iOCIsICJDaHJvbWl1bSI7dj0iMTM4Ig0KU2VjLUNILVVBLU1vYmlsZTogPzANClNlYy1DSC1VQS1QbGF0Zm9ybTogIkxpbnV4Ig0KQWNjZXB0LUxhbmd1YWdlOiBlbi1VUztxPTAuOSxlbjtxPTAuOA0KVXNlci1BZ2VudDogTW96aWxsYS81LjAgKFgxMTsgTGludXggeDg2XzY0KSBBcHBsZVdlYktpdC81MzcuMzYgKEtIVE1MLCBsaWtlIEdlY2tvKSBDaHJvbWUvMTM4LjAuMC4wIFNhZmFyaS81MzcuMzYNCkFjY2VwdDogdGV4dC9odG1sLGFwcGxpY2F0aW9uL3hodG1sK3htbCxhcHBsaWNhdGlvbi94bWw7cT0wLjksaW1hZ2UvYXZpZixpbWFnZS93ZWJwLGltYWdlL2FwbmcsKi8qO3E9MC44LGFwcGxpY2F0aW9uL3NpZ25lZC1leGNoYW5nZTt2PWIzO3E9MC43DQpTZWMtRmV0Y2gtU2l0ZTogbm9uZQ0KU2VjLUZldGNoLU1vZGU6IG5hdmlnYXRlDQpTZWMtRmV0Y2gtVXNlcjogPzENClNlYy1GZXRjaC1EZXN0OiBkb2N1bWVudA0KQWNjZXB0LUVuY29kaW5nOiBnemlwLCBkZWZsYXRlLCBicg0KQ29ubmVjdGlvbjogY2xvc2UNCkNvb2tpZTogc2hvd2hpbnRzPTE7IFBIUFNFU1NJRD1zcWo0bTAwZm83aW1naG1sbWU1YjlpODZtMDsgYWNvcGVuZGl2aWRzPXN3aW5nc2V0LGpvdHRvLHBocGJiMixyZWRtaW5lOyBhY2dyb3Vwc3dpdGhwZXJzaXN0PW5hZGENClVwZ3JhZGUtSW5zZWN1cmUtUmVxdWVzdHM6IDENClJlZmVyZXI6IGh0dHA6Ly8xOTIuMTY4LjEuMTEzL211dGlsbGlkYWUvaW5kZXgucGhwDQoNCg==",
+              "length": 895
+            }
+          ],
+          "response": [
+            {
+              "type": "DataSegment",
+              "data": "SFRUUC8xLjEgMjAwIE9LDQpEYXRlOiBNb24sIDAxIFNlcCAyMDI1IDIyOjMzOjIxIEdNVA0KU2VydmVyOiBBcGFjaGUvMi4yLjE0IChVYnVudHUpIG1vZF9tb25vLzIuNC4zIFBIUC81LjMuMi0xdWJ1bnR1NC4zMCB3aXRoIFN1aG9zaW4tUGF0Y2ggcHJveHlfaHRtbC8zLjAuMSBtb2RfcHl0aG9uLzMuMy4xIFB5dGhvbi8yLjYuNSBtb2Rfc3NsLzIuMi4xNCBPcGVuU1NMLzAuOS44ayBQaHVzaW9uX1Bhc3Nlbmdlci80LjAuMzggbW9kX3BlcmwvMi4wLjQgUGVybC92NS4xMC4xDQpYLVBvd2VyZWQtQnk6IFBIUC81LjMuMi0xdWJ1bnR1NC4zMA0KTG9nZ2VkLUluLVVzZXI6IA0KVmFyeTogQWNjZXB0LUVuY29kaW5nDQpDb250ZW50LUxlbmd0aDogNTQ5NDMNCkNvbm5lY3Rpb246IGNsb3NlDQpDb250ZW50LVR5cGU6IHRleHQvaHRtbA0KDQoNCg0KPCFET0NUWVBFIEhUTUwgUFVCTElDICItLy9XM0MvL0RURCBIVE1MIDQuMDEgVHJhbnNpdGlvbmFsLy9FTiIgImh0dHA6Ly93d3cudzMub3JnL1RSLzE5OTkvUkVDLWh0bWw0MDEtMTk5OTEyMjQvbG9vc2UuZHRkIj4NCjxodG1sPg0KPGhlYWQ+DQoJPGxpbmsgcmVsPSJzaG9ydGN1dCBpY29uIiBocmVmPSIuL2ltYWdlcy9mYXZpY29uLmljbyIgdA==",
+              "length": 619
+            },
+            {
+              "type": "SnipSegment",
+              "length": 54743
+            }
+          ],
+          "was_redirect_followed": false,
+          "request_time": "1756766013194"
+        }
+      },
+      "source_stack_trace": "at Object.BQODu (<anonymous>:1:95774)\nat Object.USBMk (<anonymous>:1:394438)\nat HTMLInputElement.get (<anonymous>:1:398284)\nat HTMLInputElement.get [as value] (<anonymous>:1:514193)\nat addItemToStorage (http://192.168.1.113/mutillidae/index.php?page=html5-storage.php:1091:39)\nat HTMLInputElement.onclick (http://192.168.1.113/mutillidae/index.php?page=html5-storage.php:1191:24)\nat _0x14405e (<anonymous>:1:147957)\nat _0x2a880c (<anonymous>:1:151903)\nat Object.fEpIW (<anonymous>:1:94004)\nat _0x4ca456 (<anonymous>:1:574787)",
+      "sink_stack_trace": "at Object.XMhUr (<anonymous>:1:544502)\nat _0x13dcf0 (<anonymous>:1:558761)\nat Object.lkSNo (<anonymous>:1:101155)\nat Object.ZAQld (<anonymous>:1:455018)\nat Storage.setItem (<anonymous>:1:456256)\nat addItemToStorage (http://192.168.1.113/mutillidae/index.php?page=html5-storage.php:1109:27)\nat HTMLInputElement.onclick (http://192.168.1.113/mutillidae/index.php?page=html5-storage.php:1191:24)\nat _0x14405e (<anonymous>:1:147957)\nat _0x2a880c (<anonymous>:1:151903)\nat Object.fEpIW (<anonymous>:1:94004)\nat _0x4ca456 (<anonymous>:1:574787)",
+      "event_listener_stack_trace": "",
+      "source_value": "",
+      "sink_value": "mn5egy3ddi%2527%2522`'\"/mn5egy3ddi/><mn5egy3ddi/\\>vc0mbtczhz&",
+      "origin": "",
+      "origin_checked": false,
+      "event_handler_data": "",
+      "event_handler_data_type": "",
+      "event_handler_modified_data": "",
+      "source_element_id": "idDOMStorageItemInput",
+      "source_element_name": "DOMStorageItem",
+      "event_fired_event_name": "click",
+      "event_fired_element_id": "",
+      "event_fired_element_name": "",
+      "event_fired_outer_html": "<input onclick=\"addItemToStorage(this.form);\" class=\"button\" type=\"button\" value=\"Add New\">"
+    }
+  ],
+  "description": "The application may be vulnerable to DOM-based HTML5 storage manipulation. Data is read from <b>input.value</b> and passed to <b>sessionStorage.setItem.value</b>.",
+  "remediation": "",
+  "references": []
+}

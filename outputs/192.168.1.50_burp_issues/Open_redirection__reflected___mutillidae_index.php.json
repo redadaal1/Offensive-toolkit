@@ -1,0 +1,74 @@
+{
+  "name": "Open redirection (reflected)",
+  "type": "vulnerability",
+  "severity": "Low",
+  "confidence": "Certain",
+  "host": "",
+  "path": "/mutillidae/index.php",
+  "url": "/mutillidae/index.php",
+  "evidence": [
+    {
+      "type": "FirstOrderEvidence",
+      "detail": {
+        "payload": {
+          "bytes": "aHR0cDovL2F0bXNvcTF4bG83L2E/aHR0cDovL3d3dy5pcm9uZ2Vlay5jb20v",
+          "flags": 0
+        },
+        "band_flags": [
+          "in_band"
+        ]
+      },
+      "request_response": {
+        "url": "http://192.168.1.50/mutillidae/index.php?page=redirectandlog.php&forwardurl=http%3a%2f%2fatmsoq1xlo7%2fa%3fhttp%3a%2f%2fwww.irongeek.com%2f",
+        "request": [
+          {
+            "type": "DataSegment",
+            "data": "R0VUIC9tdXRpbGxpZGFlL2luZGV4LnBocD9wYWdlPXJlZGlyZWN0YW5kbG9nLnBocCZmb3J3YXJkdXJsPQ==",
+            "length": 61
+          },
+          {
+            "type": "HighlightSegment",
+            "data": "aHR0cCUzYSUyZiUyZmF0bXNvcTF4bG83JTJmYSUzZmh0dHAlM2ElMmYlMmZ3d3cuaXJvbmdlZWsuY29tJTJm",
+            "length": 63
+          },
+          {
+            "type": "DataSegment",
+            "data": "IEhUVFAvMS4xDQpIb3N0OiAxOTIuMTY4LjEuNTANCkNhY2hlLUNvbnRyb2w6IG1heC1hZ2U9MA0KU2VjLUNILVVBOiAiR29vZ2xlIENocm9tZSI7dj0iMTM4IiwgIk5vdD1BP0JyYW5kIjt2PSI4IiwgIkNocm9taXVtIjt2PSIxMzgiDQpTZWMtQ0gtVUEtTW9iaWxlOiA/MA0KU2VjLUNILVVBLVBsYXRmb3JtOiAiTGludXgiDQpBY2NlcHQtTGFuZ3VhZ2U6IGVuLVVTO3E9MC45LGVuO3E9MC44DQpVc2VyLUFnZW50OiBNb3ppbGxhLzUuMCAoWDExOyBMaW51eCB4ODZfNjQpIEFwcGxlV2ViS2l0LzUzNy4zNiAoS0hUTUwsIGxpa2UgR2Vja28pIENocm9tZS8xMzguMC4wLjAgU2FmYXJpLzUzNy4zNg0KQWNjZXB0OiB0ZXh0L2h0bWwsYXBwbGljYXRpb24veGh0bWwreG1sLGFwcGxpY2F0aW9uL3htbDtxPTAuOSxpbWFnZS9hdmlmLGltYWdlL3dlYnAsaW1hZ2UvYXBuZywqLyo7cT0wLjgsYXBwbGljYXRpb24vc2lnbmVkLWV4Y2hhbmdlO3Y9YjM7cT0wLjcNClNlYy1GZXRjaC1TaXRlOiBub25lDQpTZWMtRmV0Y2gtTW9kZTogbmF2aWdhdGUNClNlYy1GZXRjaC1Vc2VyOiA/MQ0KU2VjLUZldGNoLURlc3Q6IGRvY3VtZW50DQpBY2NlcHQtRW5jb2Rpbmc6IGd6aXAsIGRlZmxhdGUsIGJyDQpDb25uZWN0aW9uOiBjbG9zZQ0KQ29va2llOiBQSFBTRVNTSUQ9MWE2MTRjMDEyZDlkN2RkYzc5ZTI0MjFiOWM1YWQ3OGYNClVwZ3JhZGUtSW5zZWN1cmUtUmVxdWVzdHM6IDENClJlZmVyZXI6IGh0dHA6Ly8xOTIuMTY4LjEuNTAvbXV0aWxsaWRhZS9pbmRleC5waHA/cGFnZT1jcmVkaXRzLnBocA0KQ29udGVudC1MZW5ndGg6IDANCg0K",
+            "length": 804
+          }
+        ],
+        "response": [
+          {
+            "type": "DataSegment",
+            "data": "SFRUUC8xLjEgMjAwIE9LDQpEYXRlOiBUdWUsIDAyIFNlcCAyMDI1IDE0OjUyOjU4IEdNVA0KU2VydmVyOiBBcGFjaGUvMi4yLjggKFVidW50dSkgREFWLzINClgtUG93ZXJlZC1CeTogUEhQLzUuMi40LTJ1YnVudHU1LjEwDQpFeHBpcmVzOiBUaHUsIDE5IE5vdiAxOTgxIDA4OjUyOjAwIEdNVA0KTG9nZ2VkLUluLVVzZXI6IA0KQ2FjaGUtQ29udHJvbDogcHVibGljDQpQcmFnbWE6IHB1YmxpYw0KTGFzdC1Nb2RpZmllZDogVHVlLCAwMiBTZXAgMjAyNSAxNDo1Mjo1OCBHTVQNCkNvbm5lY3Rpb246IGNsb3NlDQpDb250ZW50LVR5cGU6IHRleHQvaHRtbA0KQ29udGVudC1MZW5ndGg6IDIwNjE4DQoNCg0KCQkJPCEtLSBJIHRoaW5rIHRoZSBkYXRhYmFzZSBwYXNzd29yZCBpcyBzZXQgdG8gYmxhbmsgb3IgcGVyaGFwcyBzYW11cmFpLg0KCQkJSXQgZGVwZW5kcyBvbiB3aGV0aGVyIHlvdSBpbnN0YWxsZWQgdGhpcyB3ZWIgYXBwIGZyb20gaXJvbmdlZWtzIHNpdGUgb3INCgkJCWFyZSB1c2luZyBpdCBpbnNpZGUgS2V2aW4gSm9obnNvbnMgU2FtdXJhaSB3",
+            "length": 540
+          },
+          {
+            "type": "SnipSegment",
+            "length": 20329
+          },
+          {
+            "type": "DataSegment",
+            "data": "PG1ldGEgaHR0cC1lcXVpdj0icmVmcmVzaCIgY29udGVudD0iMDt1cmw9",
+            "length": 42
+          },
+          {
+            "type": "HighlightSegment",
+            "data": "aHR0cDovL2F0bXNvcTF4bG83L2E/aHR0cDovL3d3dy5pcm9uZ2Vlay5jb20v",
+            "length": 45
+          },
+          {
+            "type": "DataSegment",
+            "data": "Ij4=",
+            "length": 2
+          }
+        ],
+        "was_redirect_followed": false,
+        "request_time": "448"
+      }
+    }
+  ],
+  "description": "The value of the <b>forwardurl</b> request parameter is used to perform a redirect using a META HTTP-EQUIV tag. The payload <b>http://atmsoq1xlo7/a?http://www.irongeek.com/</b> was submitted in the forwardurl parameter. This caused a redirection to the following URL:<ul><li>http://atmsoq1xlo7/a?http://www.irongeek.com/</li></ul>",
+  "remediation": "",
+  "references": []
+}

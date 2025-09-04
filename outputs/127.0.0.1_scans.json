@@ -1,0 +1,21 @@
+{
+    "target": "127.0.0.1",
+    "timestamp": "2025-09-01T14:11:18.004684",
+    "scans": {
+        "tcp_fast": {
+            "file": "/home/reda_daal/Desktop/Offsec/outputs/127.0.0.1_tcp_fast.txt",
+            "exists": false,
+            "size": 0
+        },
+        "tcp_full": {
+            "file": "/home/reda_daal/Desktop/Offsec/outputs/127.0.0.1_tcp_full.txt",
+            "exists": false,
+            "size": 0
+        },
+        "udp_fast": {
+            "file": "/home/reda_daal/Desktop/Offsec/outputs/127.0.0.1_udp_fast.txt",
+            "exists": false,
+            "size": 0
+        }
+    }
+}

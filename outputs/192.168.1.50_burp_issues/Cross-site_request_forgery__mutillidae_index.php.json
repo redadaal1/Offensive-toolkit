@@ -1,0 +1,109 @@
+{
+  "name": "Cross-site request forgery",
+  "type": "vulnerability",
+  "severity": "Info",
+  "confidence": "Tentative",
+  "host": "",
+  "path": "/mutillidae/index.php",
+  "url": "/mutillidae/index.php",
+  "evidence": [
+    {
+      "type": "DiffableEvidence",
+      "first_evidence": {
+        "type": "FirstOrderEvidence",
+        "detail": {
+          "band_flags": [
+            "in_band"
+          ]
+        },
+        "request_response": {
+          "url": "http://192.168.1.50/mutillidae/index.php?page=add-to-your-blog.php",
+          "request": [
+            {
+              "type": "DataSegment",
+              "data": "UE9TVCAvbXV0aWxsaWRhZS9pbmRleC5waHA/cGFnZT1hZGQtdG8teW91ci1ibG9nLnBocCBIVFRQLzEuMQ0KSG9zdDogMTkyLjE2OC4xLjUwDQpDYWNoZS1Db250cm9sOiBtYXgtYWdlPTANClNlYy1DSC1VQTogIkdvb2dsZSBDaHJvbWUiO3Y9IjEzOCIsICJOb3Q9QT9CcmFuZCI7dj0iOCIsICJDaHJvbWl1bSI7dj0iMTM4Ig0KU2VjLUNILVVBLU1vYmlsZTogPzANClNlYy1DSC1VQS1QbGF0Zm9ybTogIkxpbnV4Ig0KQWNjZXB0LUxhbmd1YWdlOiBlbi1VUztxPTAuOSxlbjtxPTAuOA0KVXNlci1BZ2VudDogTW96aWxsYS81LjAgKFgxMTsgTGludXggeDg2XzY0KSBBcHBsZVdlYktpdC81MzcuMzYgKEtIVE1MLCBsaWtlIEdlY2tvKSBDaHJvbWUvMTM4LjAuMC4wIFNhZmFyaS81MzcuMzYNCkFjY2VwdDogdGV4dC9odG1sLGFwcGxpY2F0aW9uL3hodG1sK3htbCxhcHBsaWNhdGlvbi94bWw7cT0wLjksaW1hZ2UvYXZpZixpbWFnZS93ZWJwLGltYWdlL2FwbmcsKi8qO3E9MC44LGFwcGxpY2F0aW9uL3NpZ25lZC1leGNoYW5nZTt2PWIzO3E9MC43DQpTZWMtRmV0Y2gtU2l0ZTogbm9uZQ0KU2VjLUZldGNoLU1vZGU6IG5hdmlnYXRlDQpTZWMtRmV0Y2gtVXNlcjogPzENClNlYy1GZXRjaC1EZXN0OiBkb2N1bWVudA0KQWNjZXB0LUVuY29kaW5nOiBnemlwLCBkZWZsYXRlLCBicg0KQ29ubmVjdGlvbjogY2xvc2UNCkNvb2tpZTogUEhQU0VTU0lEPWRmZDE1NWM0ZmM1M2I3MTIwNzk1Nzk0ZWI0NDVlOTY4DQpPcmlnaW46IGh0dHA6Ly8xOTIuMTY4LjEuNTANClVwZ3JhZGUtSW5zZWN1cmUtUmVxdWVzdHM6IDENClJlZmVyZXI6IGh0dHA6Ly8=",
+              "length": 812
+            },
+            {
+              "type": "HighlightSegment",
+              "data": "MTkyLjE2OC4xLjUw",
+              "length": 12
+            },
+            {
+              "type": "DataSegment",
+              "data": "L211dGlsbGlkYWUvP3BhZ2U9YWRkLXRvLXlvdXItYmxvZy5waHANCkNvbnRlbnQtVHlwZTogYXBwbGljYXRpb24veC13d3ctZm9ybS11cmxlbmNvZGVkDQpDb250ZW50LUxlbmd0aDogOTINCg0K",
+              "length": 111
+            },
+            {
+              "type": "HighlightSegment",
+              "data": "Y3NyZi10b2tlbj1TZWN1cml0eUlzRGlzYWJsZWQ=",
+              "length": 29
+            },
+            {
+              "type": "DataSegment",
+              "data": "JmJsb2dfZW50cnk9JmFkZC10by15b3VyLWJsb2ctcGhwLXN1Ym1pdC1idXR0b249U2F2ZStCbG9nK0VudHJ5",
+              "length": 63
+            }
+          ],
+          "response": [
+            {
+              "type": "DataSegment",
+              "data": "SFRUUC8xLjEgMjAwIE9LDQpEYXRlOiBUdWUsIDAyIFNlcCAyMDI1IDE0OjE2OjAwIEdNVA0KU2VydmVyOiBBcGFjaGUvMi4yLjggKFVidW50dSkgREFWLzINClgtUG93ZXJlZC1CeTogUEhQLzUuMi40LTJ1YnVudHU1LjEwDQpFeHBpcmVzOiBUaHUsIDE5IE5vdiAxOTgxIDA4OjUyOjAwIEdNVA0KTG9nZ2VkLUluLVVzZXI6IA0KQ2FjaGUtQ29udHJvbDogcHVibGljDQpQcmFnbWE6IHB1YmxpYw0KTGFzdC1Nb2RpZmllZDogVHVlLCAwMiBTZXAgMjAyNSAxNDoxNjowMSBHTVQNCkNvbm5lY3Rpb246IGNsb3NlDQpDb250ZW50LVR5cGU6IHRleHQvaHRtbA0KQ29udGVudC1MZW5ndGg6IDI1NTU3DQoNCg0KCQkJPCEtLSBJIHRoaW5rIHRoZSBkYXRhYmFzZSBwYXNzd29yZCBpcyBzZXQgdG8gYmxhbmsgb3IgcGVyaGFwcyBzYW11cmFpLg0KCQkJSXQgZGVwZW5kcyBvbiB3aGV0aGVyIHlvdSBpbnN0YWxsZWQgdGhpcyB3ZWIgYXBwIGZyb20gaXJvbmdlZWtzIHNpdGUgb3INCgkJCWFyZSB1c2luZyBpdCBpbnNpZGUgS2V2aW4gSm9obnNvbnMgU2FtdXJhaSB3",
+              "length": 540
+            },
+            {
+              "type": "SnipSegment",
+              "length": 25357
+            }
+          ],
+          "was_redirect_followed": false,
+          "request_time": "1756824277140"
+        }
+      },
+      "second_evidence": {
+        "type": "FirstOrderEvidence",
+        "detail": {
+          "band_flags": [
+            "in_band"
+          ]
+        },
+        "request_response": {
+          "url": "http://192.168.1.50/mutillidae/index.php?page=add-to-your-blog.php",
+          "request": [
+            {
+              "type": "DataSegment",
+              "data": "UE9TVCAvbXV0aWxsaWRhZS9pbmRleC5waHA/cGFnZT1hZGQtdG8teW91ci1ibG9nLnBocCBIVFRQLzEuMQ0KSG9zdDogMTkyLjE2OC4xLjUwDQpDYWNoZS1Db250cm9sOiBtYXgtYWdlPTANClNlYy1DSC1VQTogIkdvb2dsZSBDaHJvbWUiO3Y9IjEzOCIsICJOb3Q9QT9CcmFuZCI7dj0iOCIsICJDaHJvbWl1bSI7dj0iMTM4Ig0KU2VjLUNILVVBLU1vYmlsZTogPzANClNlYy1DSC1VQS1QbGF0Zm9ybTogIkxpbnV4Ig0KQWNjZXB0LUxhbmd1YWdlOiBlbi1VUztxPTAuOSxlbjtxPTAuOA0KVXNlci1BZ2VudDogTW96aWxsYS81LjAgKFgxMTsgTGludXggeDg2XzY0KSBBcHBsZVdlYktpdC81MzcuMzYgKEtIVE1MLCBsaWtlIEdlY2tvKSBDaHJvbWUvMTM4LjAuMC4wIFNhZmFyaS81MzcuMzYNCkFjY2VwdDogdGV4dC9odG1sLGFwcGxpY2F0aW9uL3hodG1sK3htbCxhcHBsaWNhdGlvbi94bWw7cT0wLjksaW1hZ2UvYXZpZixpbWFnZS93ZWJwLGltYWdlL2FwbmcsKi8qO3E9MC44LGFwcGxpY2F0aW9uL3NpZ25lZC1leGNoYW5nZTt2PWIzO3E9MC43DQpTZWMtRmV0Y2gtU2l0ZTogbm9uZQ0KU2VjLUZldGNoLU1vZGU6IG5hdmlnYXRlDQpTZWMtRmV0Y2gtVXNlcjogPzENClNlYy1GZXRjaC1EZXN0OiBkb2N1bWVudA0KQWNjZXB0LUVuY29kaW5nOiBnemlwLCBkZWZsYXRlLCBicg0KQ29ubmVjdGlvbjogY2xvc2UNCkNvb2tpZTogUEhQU0VTU0lEPWRmZDE1NWM0ZmM1M2I3MTIwNzk1Nzk0ZWI0NDVlOTY4DQpPcmlnaW46IGh0dHA6Ly8xOTIuMTY4LjEuNTANClVwZ3JhZGUtSW5zZWN1cmUtUmVxdWVzdHM6IDENClJlZmVyZXI6IGh0dHA6Ly8=",
+              "length": 812
+            },
+            {
+              "type": "HighlightSegment",
+              "data": "SXJsaHR6YkwuY29t",
+              "length": 12
+            },
+            {
+              "type": "DataSegment",
+              "data": "L211dGlsbGlkYWUvP3BhZ2U9YWRkLXRvLXlvdXItYmxvZy5waHANCkNvbnRlbnQtVHlwZTogYXBwbGljYXRpb24veC13d3ctZm9ybS11cmxlbmNvZGVkDQpDb250ZW50LUxlbmd0aDogNjINCg0KYmxvZ19lbnRyeT0mYWRkLXRvLXlvdXItYmxvZy1waHAtc3VibWl0LWJ1dHRvbj1TYXZlK0Jsb2crRW50cnk=",
+              "length": 173
+            }
+          ],
+          "response": [
+            {
+              "type": "DataSegment",
+              "data": "SFRUUC8xLjEgMjAwIE9LDQpEYXRlOiBUdWUsIDAyIFNlcCAyMDI1IDE0OjQ0OjM3IEdNVA0KU2VydmVyOiBBcGFjaGUvMi4yLjggKFVidW50dSkgREFWLzINClgtUG93ZXJlZC1CeTogUEhQLzUuMi40LTJ1YnVudHU1LjEwDQpFeHBpcmVzOiBUaHUsIDE5IE5vdiAxOTgxIDA4OjUyOjAwIEdNVA0KTG9nZ2VkLUluLVVzZXI6IA0KQ2FjaGUtQ29udHJvbDogcHVibGljDQpQcmFnbWE6IHB1YmxpYw0KTGFzdC1Nb2RpZmllZDogVHVlLCAwMiBTZXAgMjAyNSAxNDo0NDozNyBHTVQNCkNvbm5lY3Rpb246IGNsb3NlDQpDb250ZW50LVR5cGU6IHRleHQvaHRtbA0KQ29udGVudC1MZW5ndGg6IDI1NTU3DQoNCg0KCQkJPCEtLSBJIHRoaW5rIHRoZSBkYXRhYmFzZSBwYXNzd29yZCBpcyBzZXQgdG8gYmxhbmsgb3IgcGVyaGFwcyBzYW11cmFpLg0KCQkJSXQgZGVwZW5kcyBvbiB3aGV0aGVyIHlvdSBpbnN0YWxsZWQgdGhpcyB3ZWIgYXBwIGZyb20gaXJvbmdlZWtzIHNpdGUgb3INCgkJCWFyZSB1c2luZyBpdCBpbnNpZGUgS2V2aW4gSm9obnNvbnMgU2FtdXJhaSB3",
+              "length": 540
+            },
+            {
+              "type": "SnipSegment",
+              "length": 25357
+            }
+          ],
+          "was_redirect_followed": false,
+          "request_time": "1756824279539"
+        }
+      }
+    }
+  ],
+  "description": "The request appears to be vulnerable to cross-site request forgery (CSRF) attacks against unauthenticated functionality. This is unlikely to constitute a security vulnerability in its own right, however it may facilitate exploitation of other vulnerabilities affecting application users.<br><br>The original request contains parameters that look like they may be anti-CSRF tokens. However the request is successful if these parameters are removed.<br><br>The original request contains parameters that look like they may be anti-CSRF tokens. However, the values of these parameters do not change if the submitting form is reloaded without supplying any cookies. Hence, the parameters are probably not being used as anti-CSRF tokens.",
+  "remediation": "",
+  "references": []
+}

@@ -1,0 +1,55 @@
+{
+  "name": "HTML does not specify charset",
+  "type": "vulnerability",
+  "severity": "Info",
+  "confidence": "Certain",
+  "host": "",
+  "path": "/mutillidae/set-up-database.php",
+  "url": "/mutillidae/set-up-database.php",
+  "evidence": [
+    {
+      "type": "FirstOrderEvidence",
+      "detail": {
+        "band_flags": [
+          "in_band"
+        ]
+      },
+      "request_response": {
+        "url": "http://192.168.1.50/mutillidae/set-up-database.php",
+        "request": [
+          {
+            "type": "DataSegment",
+            "data": "R0VUIC9tdXRpbGxpZGFlL3NldC11cC1kYXRhYmFzZS5waHAgSFRUUC8xLjENCkhvc3Q6IDE5Mi4xNjguMS41MA0KQ2FjaGUtQ29udHJvbDogbWF4LWFnZT0wDQpTZWMtQ0gtVUE6ICJHb29nbGUgQ2hyb21lIjt2PSIxMzgiLCAiTm90PUE/QnJhbmQiO3Y9IjgiLCAiQ2hyb21pdW0iO3Y9IjEzOCINClNlYy1DSC1VQS1Nb2JpbGU6ID8wDQpTZWMtQ0gtVUEtUGxhdGZvcm06ICJMaW51eCINCkFjY2VwdC1MYW5ndWFnZTogZW4tVVM7cT0wLjksZW47cT0wLjgNClVzZXItQWdlbnQ6IE1vemlsbGEvNS4wIChYMTE7IExpbnV4IHg4Nl82NCkgQXBwbGVXZWJLaXQvNTM3LjM2IChLSFRNTCwgbGlrZSBHZWNrbykgQ2hyb21lLzEzOC4wLjAuMCBTYWZhcmkvNTM3LjM2DQpBY2NlcHQ6IHRleHQvaHRtbCxhcHBsaWNhdGlvbi94aHRtbCt4bWwsYXBwbGljYXRpb24veG1sO3E9MC45LGltYWdlL2F2aWYsaW1hZ2Uvd2VicCxpbWFnZS9hcG5nLCovKjtxPTAuOCxhcHBsaWNhdGlvbi9zaWduZWQtZXhjaGFuZ2U7dj1iMztxPTAuNw0KU2VjLUZldGNoLVNpdGU6IG5vbmUNClNlYy1GZXRjaC1Nb2RlOiBuYXZpZ2F0ZQ0KU2VjLUZldGNoLVVzZXI6ID8xDQpTZWMtRmV0Y2gtRGVzdDogZG9jdW1lbnQNCkFjY2VwdC1FbmNvZGluZzogZ3ppcCwgZGVmbGF0ZSwgYnINCkNvbm5lY3Rpb246IGNsb3NlDQpDb29raWU6IFBIUFNFU1NJRD1jM2FjNjM1YjQ1OGM3OWU0MjkyZjJjOThjMGZlODU2OQ0KVXBncmFkZS1JbnNlY3VyZS1SZXF1ZXN0czogMQ0KUmVmZXJlcjogaHR0cDovLzE5Mi4xNjguMS41MC9tdXRpbGxpZGFlLw0KDQo=",
+            "length": 794
+          }
+        ],
+        "response": [
+          {
+            "type": "DataSegment",
+            "data": "SFRUUC8xLjEgMjAwIE9LDQpEYXRlOiBUdWUsIDAyIFNlcCAyMDI1IDEzOjE0OjU2IEdNVA0KU2VydmVyOiBBcGFjaGUvMi4yLjggKFVidW50dSkgREFWLzINClgtUG93ZXJlZC1CeTogUEhQLzUuMi40LTJ1YnVudHU1LjEwDQpDb25uZWN0aW9uOiBjbG9zZQ0K",
+            "length": 147
+          },
+          {
+            "type": "HighlightSegment",
+            "data": "Q29udGVudC1UeXBlOiB0ZXh0L2h0bWw=",
+            "length": 23
+          },
+          {
+            "type": "DataSegment",
+            "data": "DQpDb250ZW50LUxlbmd0aDogMjgyMA0KDQo8IURPQ1RZUEUgSFRNTCBQVUJMSUMgIi0vL1czQy8vRFREIEhUTUwgNC4wMSBUcmFuc2l0aW9uYWwvL0VOIiAiaHR0cDovL3d3dy53My5vcmcvVFIvMTk5OS9SRUMtaHRtbDQwMS0xOTk5MTIyNC9sb29zZS5kdGQiPg0KPGh0bWw+DQoJPGhlYWQ+DQoJCTxsaW5rIHJlbD0ic2hvcnRjdXQgaWNvbiIgaHJlZj0iZmF2aWNvbi5pY28iIHR5cGU9ImltYWdlLw==",
+            "length": 226
+          },
+          {
+            "type": "SnipSegment",
+            "length": 2620
+          }
+        ],
+        "was_redirect_followed": false,
+        "request_time": "1756818898029"
+      }
+    }
+  ],
+  "description": "",
+  "remediation": "",
+  "references": []
+}

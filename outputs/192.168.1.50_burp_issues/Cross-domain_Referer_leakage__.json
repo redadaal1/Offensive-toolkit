@@ -1,0 +1,215 @@
+{
+  "name": "Cross-domain Referer leakage",
+  "type": "vulnerability",
+  "severity": "Info",
+  "confidence": "Certain",
+  "host": "",
+  "path": "/",
+  "url": "/",
+  "evidence": [
+    {
+      "type": "InformationListEvidence",
+      "request_response": {
+        "url": "http://192.168.1.50/mutillidae/index.php?page=add-to-your-blog.php",
+        "request": [
+          {
+            "type": "DataSegment",
+            "data": "UE9TVCAvbXV0aWxsaWRhZS9pbmRleC5waHA/cGFnZT1hZGQtdG8teW91ci1ibG9nLnBocCBIVFRQLzEuMQ0KSG9zdDogMTkyLjE2OC4xLjUwDQpDYWNoZS1Db250cm9sOiBtYXgtYWdlPTANClNlYy1DSC1VQTogIkdvb2dsZSBDaHJvbWUiO3Y9IjEzOCIsICJOb3Q9QT9CcmFuZCI7dj0iOCIsICJDaHJvbWl1bSI7dj0iMTM4Ig0KU2VjLUNILVVBLU1vYmlsZTogPzANClNlYy1DSC1VQS1QbGF0Zm9ybTogIkxpbnV4Ig0KQWNjZXB0LUxhbmd1YWdlOiBlbi1VUztxPTAuOSxlbjtxPTAuOA0KVXNlci1BZ2VudDogTW96aWxsYS81LjAgKFgxMTsgTGludXggeDg2XzY0KSBBcHBsZVdlYktpdC81MzcuMzYgKEtIVE1MLCBsaWtlIEdlY2tvKSBDaHJvbWUvMTM4LjAuMC4wIFNhZmFyaS81MzcuMzYNCkFjY2VwdDogdGV4dC9odG1sLGFwcGxpY2F0aW9uL3hodG1sK3htbCxhcHBsaWNhdGlvbi94bWw7cT0wLjksaW1hZ2UvYXZpZixpbWFnZS93ZWJwLGltYWdlL2FwbmcsKi8qO3E9MC44LGFwcGxpY2F0aW9uL3NpZ25lZC1leGNoYW5nZTt2PWIzO3E9MC43DQpTZWMtRmV0Y2gtU2l0ZTogbm9uZQ0KU2VjLUZldGNoLU1vZGU6IG5hdmlnYXRlDQpTZWMtRmV0Y2gtVXNlcjogPzENClNlYy1GZXRjaC1EZXN0OiBkb2N1bWVudA0KQWNjZXB0LUVuY29kaW5nOiBnemlwLCBkZWZsYXRlLCBicg0KQ29ubmVjdGlvbjogY2xvc2UNCkNvb2tpZTogUEhQU0VTU0lEPTdhMjAyNzRlNGQ3YjU0MTkwMTYwNTBmM2RkNTIyMjE3DQpPcmlnaW46IGh0dHA6Ly8xOTIuMTY4LjEuNTANClVwZ3JhZGUtSW5zZWN1cmUtUmVxdWVzdHM6IDENClJlZmVyZXI6IGh0dHA6Ly8xOTIuMTY4LjEuNTAvbXV0aWxsaWRhZS8/cGFnZT1hZGQtdG8teW91ci1ibG9nLnBocA0KQ29udGVudC1UeXBlOiBhcHBsaWNhdGlvbi94LXd3dy1mb3JtLXVybGVuY29kZWQNCkNvbnRlbnQtTGVuZ3RoOiA5Mg0KDQpjc3JmLXRva2VuPVNlY3VyaXR5SXNEaXNhYmxlZCZibG9nX2VudHJ5PSZhZGQtdG8teW91ci1ibG9nLXBocC1zdWJtaXQtYnV0dG9uPVNhdmUrQmxvZytFbnRyeQ==",
+            "length": 1027
+          }
+        ],
+        "response": [
+          {
+            "type": "DataSegment",
+            "data": "SFRUUC8xLjEgMjAwIE9LDQpEYXRlOiBUdWUsIDAyIFNlcCAyMDI1IDE0OjE1OjIwIEdNVA0KU2VydmVyOiBBcGFjaGUvMi4yLjggKFVidW50dSkgREFWLzINClgtUG93ZXJlZC1CeTogUEhQLzUuMi40LTJ1YnVudHU1LjEwDQpFeHBpcmVzOiBUaHUsIDE5IE5vdiAxOTgxIDA4OjUyOjAwIEdNVA0KTG9nZ2VkLUluLVVzZXI6IA0KQ2FjaGUtQ29udHJvbDogcHVibGljDQpQcmFnbWE6IHB1YmxpYw0KTGFzdC1Nb2RpZmllZDogVHVlLCAwMiBTZXAgMjAyNSAxNDoxNToyMCBHTVQNCkNvbm5lY3Rpb246IGNsb3NlDQpDb250ZW50LVR5cGU6IHRleHQvaHRtbA0KQ29udGVudC1MZW5ndGg6IDI1NTU3DQoNCg0KCQkJPCEtLSBJIHRoaW5rIHRoZSBkYXRhYmFzZSBwYXNzd29yZCBpcyBzZXQgdG8gYmxhbmsgb3IgcGVyaGFwcyBzYW11cmFpLg0KCQkJSXQgZGVwZW5kcyBvbiB3aGV0aGVyIHlvdSBpbnN0YWxsZWQgdGhpcyB3ZWIgYXBwIGZyb20gaXJvbmdlZWtzIHNpdGUgb3INCgkJCWFyZSB1c2luZyBpdCBpbnNpZGUgS2V2aW4gSm9obnNvbnMgU2FtdXJhaSB3",
+            "length": 540
+          },
+          {
+            "type": "SnipSegment",
+            "length": 21829
+          },
+          {
+            "type": "DataSegment",
+            "data": "PHNwYW4+DQoJCQk=",
+            "length": 11
+          },
+          {
+            "type": "HighlightSegment",
+            "data": "PGEgaHJlZj0iaHR0cDovL2xvY2FsaG9zdC9tdXRpbGxpZGFlL2luZGV4LnBocD9wYWdlPXZpZXctc29tZW9uZXMtYmxvZy5waHAiPg==",
+            "length": 76
+          },
+          {
+            "type": "DataSegment",
+            "data": "DQoJCQk8aW1nIHN0eWxlPSJ2ZXJ0aWNhbC1hbGlnbjogbWlkZGxlOyIgc3JjPSIuL2ltYWdlcy9tYWduaWZ5aW5nLWdsYXNzLWljb24uanBlZyIgaGVpZ2h0PSIzMnB4IiB3aWR0aD0iMzJweCIgLz4=",
+            "length": 113
+          },
+          {
+            "type": "SnipSegment",
+            "length": 3328
+          }
+        ],
+        "was_redirect_followed": false,
+        "request_time": "1756822523711"
+      },
+      "information_items": [
+        "localhost",
+        "www.textfiles.com",
+        "twiki.org",
+        "addons.mozilla.org",
+        "en.wikipedia.org",
+        "irongeek.com",
+        "samurai.inguardians.com",
+        "twitter.com",
+        "www.hackersforcharity.org",
+        "www.irongeek.com",
+        "www.owasp.org",
+        "www.youtube.com",
+        "www.backtrack-linux.org",
+        "www.eclipse.org",
+        "www.php.net",
+        "www.quest.com",
+        "ha.ckers.org",
+        "cygwin.com",
+        "download.cnet.com",
+        "gnu.org"
+      ]
+    },
+    {
+      "type": "InformationListEvidence",
+      "request_response": {
+        "url": "http://192.168.1.50/mutillidae/index.php?page=text-file-viewer.php",
+        "request": [
+          {
+            "type": "DataSegment",
+            "data": "UE9TVCAvbXV0aWxsaWRhZS9pbmRleC5waHA/cGFnZT10ZXh0LWZpbGUtdmlld2VyLnBocCBIVFRQLzEuMQ0KSG9zdDogMTkyLjE2OC4xLjUwDQpDYWNoZS1Db250cm9sOiBtYXgtYWdlPTANClNlYy1DSC1VQTogIkdvb2dsZSBDaHJvbWUiO3Y9IjEzOCIsICJOb3Q9QT9CcmFuZCI7dj0iOCIsICJDaHJvbWl1bSI7dj0iMTM4Ig0KU2VjLUNILVVBLU1vYmlsZTogPzANClNlYy1DSC1VQS1QbGF0Zm9ybTogIkxpbnV4Ig0KQWNjZXB0LUxhbmd1YWdlOiBlbi1VUztxPTAuOSxlbjtxPTAuOA0KVXNlci1BZ2VudDogTW96aWxsYS81LjAgKFgxMTsgTGludXggeDg2XzY0KSBBcHBsZVdlYktpdC81MzcuMzYgKEtIVE1MLCBsaWtlIEdlY2tvKSBDaHJvbWUvMTM4LjAuMC4wIFNhZmFyaS81MzcuMzYNCkFjY2VwdDogdGV4dC9odG1sLGFwcGxpY2F0aW9uL3hodG1sK3htbCxhcHBsaWNhdGlvbi94bWw7cT0wLjksaW1hZ2UvYXZpZixpbWFnZS93ZWJwLGltYWdlL2FwbmcsKi8qO3E9MC44LGFwcGxpY2F0aW9uL3NpZ25lZC1leGNoYW5nZTt2PWIzO3E9MC43DQpTZWMtRmV0Y2gtU2l0ZTogbm9uZQ0KU2VjLUZldGNoLU1vZGU6IG5hdmlnYXRlDQpTZWMtRmV0Y2gtVXNlcjogPzENClNlYy1GZXRjaC1EZXN0OiBkb2N1bWVudA0KQWNjZXB0LUVuY29kaW5nOiBnemlwLCBkZWZsYXRlLCBicg0KQ29ubmVjdGlvbjogY2xvc2UNCkNvb2tpZTogUEhQU0VTU0lEPTg3YjljNDIyZjcxNWI2ZTEyYzBiOTM0MGQyMTllMDExDQpPcmlnaW46IGh0dHA6Ly8xOTIuMTY4LjEuNTANClVwZ3JhZGUtSW5zZWN1cmUtUmVxdWVzdHM6IDENClJlZmVyZXI6IGh0dHA6Ly8xOTIuMTY4LjEuNTAvbXV0aWxsaWRhZS9pbmRleC5waHA/cGFnZT10ZXh0LWZpbGUtdmlld2VyLnBocA0KQ29udGVudC1UeXBlOiBhcHBsaWNhdGlvbi94LXd3dy1mb3JtLXVybGVuY29kZWQNCkNvbnRlbnQtTGVuZ3RoOiAxMDkNCg0KdGV4dGZpbGU9aHR0cCUzQSUyRiUyRnd3dy50ZXh0ZmlsZXMuY29tJTJGaGFja2luZyUyRmF1ZGl0b29sLnR4dCZ0ZXh0LWZpbGUtdmlld2VyLXBocC1zdWJtaXQtYnV0dG9uPVZpZXcrRmlsZQ==",
+            "length": 1054
+          }
+        ],
+        "response": [
+          {
+            "type": "DataSegment",
+            "data": "SFRUUC8xLjEgMjAwIE9LDQpEYXRlOiBUdWUsIDAyIFNlcCAyMDI1IDE0OjE3OjMyIEdNVA0KU2VydmVyOiBBcGFjaGUvMi4yLjggKFVidW50dSkgREFWLzINClgtUG93ZXJlZC1CeTogUEhQLzUuMi40LTJ1YnVudHU1LjEwDQpFeHBpcmVzOiBUaHUsIDE5IE5vdiAxOTgxIDA4OjUyOjAwIEdNVA0KTG9nZ2VkLUluLVVzZXI6IA0KQ2FjaGUtQ29udHJvbDogcHVibGljDQpQcmFnbWE6IHB1YmxpYw0KTGFzdC1Nb2RpZmllZDogVHVlLCAwMiBTZXAgMjAyNSAxNDoxNzozMiBHTVQNCkNvbm5lY3Rpb246IGNsb3NlDQpDb250ZW50LVR5cGU6IHRleHQvaHRtbA0KQ29udGVudC1MZW5ndGg6IDM2NTQ1DQoNCg0KCQkJPCEtLSBJIHRoaW5rIHRoZSBkYXRhYmFzZSBwYXNzd29yZCBpcyBzZXQgdG8gYmxhbmsgb3IgcGVyaGFwcyBzYW11cmFpLg0KCQkJSXQgZGVwZW5kcyBvbiB3aGV0aGVyIHlvdSBpbnN0YWxsZWQgdGhpcyB3ZWIgYXBwIGZyb20gaXJvbmdlZWtzIHNpdGUgb3INCgkJCWFyZSB1c2luZyBpdCBpbnNpZGUgS2V2aW4gSm9obnNvbnMgU2FtdXJhaSB3",
+            "length": 540
+          },
+          {
+            "type": "SnipSegment",
+            "length": 22538
+          },
+          {
+            "type": "DataSegment",
+            "data": "PHRkIGNsYXNzPSJsYWJlbCIgY29sc3Bhbj0iMiI+Rm9yIG90aGVyIGdyZWF0IG9sZCBzY2hvb2wgaGFja2luZyB0ZXh0cywgY2hlY2sgb3V0IA==",
+            "length": 82
+          },
+          {
+            "type": "HighlightSegment",
+            "data": "PGEgaHJlZj0iaHR0cDovL3d3dy50ZXh0ZmlsZXMuY29tLyI+",
+            "length": 36
+          },
+          {
+            "type": "DataSegment",
+            "data": "aHR0cDovL3d3dy50ZXh0ZmlsZXMuY29tLzwvYT4=",
+            "length": 29
+          },
+          {
+            "type": "SnipSegment",
+            "length": 13660
+          }
+        ],
+        "was_redirect_followed": false,
+        "request_time": "1756822655864"
+      },
+      "information_items": [
+        "http://www.textfiles.com/"
+      ]
+    },
+    {
+      "type": "InformationListEvidence",
+      "request_response": {
+        "url": "http://192.168.1.50/twiki/bin/view/Main/WebHome?topic=",
+        "request": [
+          {
+            "type": "DataSegment",
+            "data": "R0VUIC90d2lraS9iaW4vdmlldy9NYWluL1dlYkhvbWU/dG9waWM9IEhUVFAvMS4xDQpIb3N0OiAxOTIuMTY4LjEuNTANCkNhY2hlLUNvbnRyb2w6IG1heC1hZ2U9MA0KU2VjLUNILVVBOiAiR29vZ2xlIENocm9tZSI7dj0iMTM4IiwgIk5vdD1BP0JyYW5kIjt2PSI4IiwgIkNocm9taXVtIjt2PSIxMzgiDQpTZWMtQ0gtVUEtTW9iaWxlOiA/MA0KU2VjLUNILVVBLVBsYXRmb3JtOiAiTGludXgiDQpBY2NlcHQtTGFuZ3VhZ2U6IGVuLVVTO3E9MC45LGVuO3E9MC44DQpVc2VyLUFnZW50OiBNb3ppbGxhLzUuMCAoWDExOyBMaW51eCB4ODZfNjQpIEFwcGxlV2ViS2l0LzUzNy4zNiAoS0hUTUwsIGxpa2UgR2Vja28pIENocm9tZS8xMzguMC4wLjAgU2FmYXJpLzUzNy4zNg0KQWNjZXB0OiB0ZXh0L2h0bWwsYXBwbGljYXRpb24veGh0bWwreG1sLGFwcGxpY2F0aW9uL3htbDtxPTAuOSxpbWFnZS9hdmlmLGltYWdlL3dlYnAsaW1hZ2UvYXBuZywqLyo7cT0wLjgsYXBwbGljYXRpb24vc2lnbmVkLWV4Y2hhbmdlO3Y9YjM7cT0wLjcNClNlYy1GZXRjaC1TaXRlOiBub25lDQpTZWMtRmV0Y2gtTW9kZTogbmF2aWdhdGUNClNlYy1GZXRjaC1Vc2VyOiA/MQ0KU2VjLUZldGNoLURlc3Q6IGRvY3VtZW50DQpBY2NlcHQtRW5jb2Rpbmc6IGd6aXAsIGRlZmxhdGUsIGJyDQpDb25uZWN0aW9uOiBjbG9zZQ0KVXBncmFkZS1JbnNlY3VyZS1SZXF1ZXN0czogMQ0KUmVmZXJlcjogaHR0cDovLzE5Mi4xNjguMS41MC90d2lraS9iaW4vdmlldy9NYWluL1dlYkhvbWUNCg0K",
+            "length": 762
+          }
+        ],
+        "response": [
+          {
+            "type": "DataSegment",
+            "data": "SFRUUC8xLjEgMjAwIE9LDQpEYXRlOiBUdWUsIDAyIFNlcCAyMDI1IDE0OjExOjIwIEdNVA0KU2VydmVyOiBBcGFjaGUvMi4yLjggKFVidW50dSkgREFWLzINCkNvbnRlbnQtTGVuZ3RoOiAxMDAzOQ0KQ29ubmVjdGlvbjogY2xvc2UNCkNvbnRlbnQtVHlwZTogdGV4dC9odG1sOyBjaGFyc2V0PUlTTy04ODU5LTENCg0KPCFET0NUWVBFIGh0bWwgUFVCTElDICItLy9XM0MvL0RURCBYSFRNTCAxLjAgVHJhbnNpdGlvbmFsLy9FTiIgImh0dHA6Ly93d3cudzMub3JnL1RSL3hodG1sMS9EVEQveGh0bWwxLXRyYW5zaXRpb25hbC5kdGQiPgo8aHRtbCB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMTk5OS94aHRtbCIgeG1sOmxhbmc9ImVuIiBsYW5nPSJlbiI+IAo8aGVhZD4KIDw=",
+            "length": 380
+          },
+          {
+            "type": "SnipSegment",
+            "length": 369
+          },
+          {
+            "type": "DataSegment",
+            "data": "PHRkIGJnY29sb3I9IiNGRkZGQzAiIHJvd3NwYW49IjIiIHZhbGlnbj0idG9wIiB3aWR0aD0iMSUiPgogICA=",
+            "length": 62
+          },
+          {
+            "type": "HighlightSegment",
+            "data": "PGEgaHJlZj0iaHR0cDovL1RXaWtpLm9yZy8iPg==",
+            "length": 28
+          },
+          {
+            "type": "DataSegment",
+            "data": "PGltZyBzcmM9Imh0dHA6Ly8xOTIuMTY4LjEuNTAvdHdpa2kvcHViL1RXaWtpL1RXaWtpTG9nb3MvdHdpa2lSb2JvdDQ2eDUwLmdpZiIgYm9yZGVyPSIwIiBhbHQ9IlRXaWtpIGhvbWUiIC8+",
+            "length": 108
+          },
+          {
+            "type": "SnipSegment",
+            "length": 1408
+          },
+          {
+            "type": "DataSegment",
+            "data": "PHRkPgo=",
+            "length": 5
+          },
+          {
+            "type": "HighlightSegment",
+            "data": "PGEgaHJlZj0iaHR0cDovL1RXaWtpLm9yZy8iPg==",
+            "length": 28
+          },
+          {
+            "type": "DataSegment",
+            "data": "PGltZyBzcmM9Imh0dHA6Ly8xOTIuMTY4LjEuNTAvdHdpa2kvcHViL1RXaWtpL1RXaWtpTG9nb3MvdHdpa2lSb2JvdDEzMXg2NC5naWYiIHdpZHRoPSIxMzEiIGhlaWdodD0iNjQiIGFsdD0iUG93ZXJlZCBieSBUV2lraSIgYm9yZGVyPSIwIiAvPg==",
+            "length": 139
+          },
+          {
+            "type": "SnipSegment",
+            "length": 50
+          },
+          {
+            "type": "DataSegment",
+            "data": "PGJyPiBhdCA=",
+            "length": 8
+          },
+          {
+            "type": "HighlightSegment",
+            "data": "PGEgaHJlZj0iaHR0cDovL1RXaWtpLm9yZy8iIHRhcmdldD0iX3RvcCI+",
+            "length": 42
+          },
+          {
+            "type": "DataSegment",
+            "data": "aHR0cDovL1RXaWtpLm9yZy88L2E+",
+            "length": 21
+          },
+          {
+            "type": "SnipSegment",
+            "length": 7571
+          }
+        ],
+        "was_redirect_followed": false,
+        "request_time": "1756822283045"
+      },
+      "information_items": [
+        "http://twiki.org/"
+      ]
+    }
+  ],
+  "description": "The application contains links to the following other domains from URLs containing a query string:<ul><li>localhost</li><li>www.textfiles.com</li><li>twiki.org</li><li>addons.mozilla.org</li><li>en.wikipedia.org</li><li>irongeek.com</li><li>samurai.inguardians.com</li><li>twitter.com</li><li>www.hackersforcharity.org</li><li>www.irongeek.com</li><li>www.owasp.org</li><li>www.youtube.com</li><li>www.backtrack-linux.org</li><li>www.eclipse.org</li><li>www.php.net</li><li>www.quest.com</li><li>ha.ckers.org</li><li>cygwin.com</li><li>download.cnet.com</li><li>gnu.org</li></ul>Numerous links to other domains were found and the above are a sample subset.<br><br>This issue was found in multiple locations under the reported path.",
+  "remediation": "",
+  "references": []
+}

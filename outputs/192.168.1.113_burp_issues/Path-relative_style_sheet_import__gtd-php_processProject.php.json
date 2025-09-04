@@ -1,0 +1,177 @@
+{
+  "name": "Path-relative style sheet import",
+  "type": "vulnerability",
+  "severity": "Info",
+  "confidence": "Firm",
+  "host": "",
+  "path": "/gtd-php/processProject.php",
+  "url": "/gtd-php/processProject.php",
+  "evidence": [
+    {
+      "type": "FirstOrderEvidence",
+      "detail": {
+        "band_flags": [
+          "in_band"
+        ]
+      },
+      "request_response": {
+        "url": "http://192.168.1.113/gtd-php/processProject.php",
+        "request": [
+          {
+            "type": "DataSegment",
+            "data": "UE9TVCAvZ3RkLXBocC9wcm9jZXNzUHJvamVjdC5waHAgSFRUUC8xLjENCkhvc3Q6IDE5Mi4xNjguMS4xMTMNCkNhY2hlLUNvbnRyb2w6IG1heC1hZ2U9MA0KU2VjLUNILVVBOiAiR29vZ2xlIENocm9tZSI7dj0iMTM4IiwgIk5vdD1BP0JyYW5kIjt2PSI4IiwgIkNocm9taXVtIjt2PSIxMzgiDQpTZWMtQ0gtVUEtTW9iaWxlOiA/MA0KU2VjLUNILVVBLVBsYXRmb3JtOiAiTGludXgiDQpBY2NlcHQtTGFuZ3VhZ2U6IGVuLVVTO3E9MC45LGVuO3E9MC44DQpVc2VyLUFnZW50OiBNb3ppbGxhLzUuMCAoWDExOyBMaW51eCB4ODZfNjQpIEFwcGxlV2ViS2l0LzUzNy4zNiAoS0hUTUwsIGxpa2UgR2Vja28pIENocm9tZS8xMzguMC4wLjAgU2FmYXJpLzUzNy4zNg0KQWNjZXB0OiB0ZXh0L2h0bWwsYXBwbGljYXRpb24veGh0bWwreG1sLGFwcGxpY2F0aW9uL3htbDtxPTAuOSxpbWFnZS9hdmlmLGltYWdlL3dlYnAsaW1hZ2UvYXBuZywqLyo7cT0wLjgsYXBwbGljYXRpb24vc2lnbmVkLWV4Y2hhbmdlO3Y9YjM7cT0wLjcNClNlYy1GZXRjaC1TaXRlOiBub25lDQpTZWMtRmV0Y2gtTW9kZTogbmF2aWdhdGUNClNlYy1GZXRjaC1Vc2VyOiA/MQ0KU2VjLUZldGNoLURlc3Q6IGRvY3VtZW50DQpBY2NlcHQtRW5jb2Rpbmc6IGd6aXAsIGRlZmxhdGUsIGJyDQpDb25uZWN0aW9uOiBjbG9zZQ0KQ29va2llOiBhY29wZW5kaXZpZHM9c3dpbmdzZXQsam90dG8scGhwYmIyLHJlZG1pbmU7IGFjZ3JvdXBzd2l0aHBlcnNpc3Q9bmFkYQ0KT3JpZ2luOiBodHRwOi8vMTkyLjE2OC4xLjExMw0KVXBncmFkZS1JbnNlY3VyZS1SZXF1ZXN0czogMQ0KUmVmZXJlcjogaHR0cDovLzE5Mi4xNjguMS4xMTMvZ3RkLXBocC9wcm9qZWN0LnBocD90eXBlPXANCkNvbnRlbnQtVHlwZTogYXBwbGljYXRpb24veC13d3ctZm9ybS11cmxlbmNvZGVkDQpDb250ZW50LUxlbmd0aDogMjAxDQoNCm5hbWU9dGJoQkJQS3QmY2F0ZWdvcnlJZD0yJmRlYWRsaW5lPXRqSFZqcyZkYXRlQ29tcGxldGVkPXBNUVVRYyZkZXNjcmlwdGlvbj1EZXNjcmlwdGlvbiUzQSZvdXRjb21lPURlc2lyZWQrT3V0Y29tZSUzQSZyZXBlYXQ9UENPVXhLJnN1cHByZXNzPXkmc3VwcHJlc3NVbnRpbD11WHZKeUUmaXNTb21lZGF5PXkmdHlwZT1wJnN1Ym1pdD1BZGQrUHJvamVj",
+            "length": 1134
+          },
+          {
+            "type": "SnipSegment",
+            "length": 1
+          }
+        ],
+        "response": [
+          {
+            "type": "DataSegment",
+            "data": "SFRUUC8xLjEgMjAwIE9LDQpEYXRlOiBNb24sIDAxIFNlcCAyMDI1IDIzOjAwOjE3IEdNVA0KU2VydmVyOiBBcGFjaGUvMi4yLjE0IChVYnVudHUpIG1vZF9tb25vLzIuNC4zIFBIUC81LjMuMi0xdWJ1bnR1NC4zMCB3aXRoIFN1aG9zaW4tUGF0Y2ggcHJveHlfaHRtbC8zLjAuMSBtb2RfcHl0aG9uLzMuMy4xIFB5dGhvbi8yLjYuNSBtb2Rfc3NsLzIuMi4xNCBPcGVuU1NMLzAuOS44ayBQaHVzaW9uX1Bhc3Nlbmdlci80LjAuMzggbW9kX3BlcmwvMi4wLjQgUGVybC92NS4xMC4xDQpYLVBvd2VyZWQtQnk6IFBIUC81LjMuMi0xdWJ1bnR1NC4zMA0KVmFyeTogQWNjZXB0LUVuY29kaW5nDQpDb250ZW50LUxlbmd0aDogNDc2NQ0KQ29ubmVjdGlvbjogY2xvc2UNCkNvbnRlbnQtVHlwZTogdGV4dC9odG1sDQoNCjwhRE9DVFlQRSBodG1sIFBVQkxJQyAiLS8vVzNDLy9EVEQgWEhUTUwgMS4wIFN0cmljdC8vRU4iCgkJICAiaHR0cDovL3d3dy53My5vcmcvVFIveGh0bWwxL0RURC94aHRtbDEtc3RyaWN0LmR0ZCI+CjxodG1sIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5L3hodG1sIiBsYW5nPSJlbiIgeG1sOmxhbmc9ImVuIj4KCjxoZWFkPgogCgoJPHRpdGxl",
+            "length": 600
+          },
+          {
+            "type": "SnipSegment",
+            "length": 19
+          },
+          {
+            "type": "DataSegment",
+            "data": "PCEtLSB0aGVtZSBtYWluIHN0eWxlc2hlZXQgLS0+Cgk=",
+            "length": 32
+          },
+          {
+            "type": "HighlightSegment",
+            "data": "PGxpbmsgcmVsPSJzdHlsZXNoZWV0IiBocmVmPSJ0aGVtZXMvZGVmYXVsdC9zdHlsZS5jc3MiIHR5cGU9InRleHQvY3NzIi8+",
+            "length": 72
+          },
+          {
+            "type": "DataSegment",
+            "data": "CgoJPCEtLSB0aGVtZSBzY3JlZW4gc3R5bGVzaGVldCAoc2hvdWxkIGNoZWNrIHRvIHNlZSBpZiB0aGlzIGFjdHVhbGx5IGV4aXN0cykgLS0+",
+            "length": 81
+          },
+          {
+            "type": "SnipSegment",
+            "length": 4361
+          }
+        ],
+        "was_redirect_followed": false,
+        "request_time": "1756768592905"
+      }
+    },
+    {
+      "type": "FirstOrderEvidence",
+      "detail": {
+        "band_flags": [
+          "in_band"
+        ]
+      },
+      "request_response": {
+        "url": "http://192.168.1.113/gtd-php/processProject.php/t9bgjn/",
+        "request": [
+          {
+            "type": "DataSegment",
+            "data": "UE9TVCAvZ3RkLXBocC9wcm9jZXNzUHJvamVjdC5waHA=",
+            "length": 32
+          },
+          {
+            "type": "HighlightSegment",
+            "data": "L3Q5Ymdqbi8=",
+            "length": 8
+          },
+          {
+            "type": "DataSegment",
+            "data": "IEhUVFAvMS4xDQpIb3N0OiAxOTIuMTY4LjEuMTEzDQpDYWNoZS1Db250cm9sOiBtYXgtYWdlPTANClNlYy1DSC1VQTogIkdvb2dsZSBDaHJvbWUiO3Y9IjEzOCIsICJOb3Q9QT9CcmFuZCI7dj0iOCIsICJDaHJvbWl1bSI7dj0iMTM4Ig0KU2VjLUNILVVBLU1vYmlsZTogPzANClNlYy1DSC1VQS1QbGF0Zm9ybTogIkxpbnV4Ig0KQWNjZXB0LUxhbmd1YWdlOiBlbi1VUztxPTAuOSxlbjtxPTAuOA0KVXNlci1BZ2VudDogTW96aWxsYS81LjAgKFgxMTsgTGludXggeDg2XzY0KSBBcHBsZVdlYktpdC81MzcuMzYgKEtIVE1MLCBsaWtlIEdlY2tvKSBDaHJvbWUvMTM4LjAuMC4wIFNhZmFyaS81MzcuMzYNCkFjY2VwdDogdGV4dC9odG1sLGFwcGxpY2F0aW9uL3hodG1sK3htbCxhcHBsaWNhdGlvbi94bWw7cT0wLjksaW1hZ2UvYXZpZixpbWFnZS93ZWJwLGltYWdlL2FwbmcsKi8qO3E9MC44LGFwcGxpY2F0aW9uL3NpZ25lZC1leGNoYW5nZTt2PWIzO3E9MC43DQpTZWMtRmV0Y2gtU2l0ZTogbm9uZQ0KU2VjLUZldGNoLU1vZGU6IG5hdmlnYXRlDQpTZWMtRmV0Y2gtVXNlcjogPzENClNlYy1GZXRjaC1EZXN0OiBkb2N1bWVudA0KQWNjZXB0LUVuY29kaW5nOiBnemlwLCBkZWZsYXRlLCBicg0KQ29ubmVjdGlvbjogY2xvc2UNCkNvb2tpZTogYWNvcGVuZGl2aWRzPXN3aW5nc2V0LGpvdHRvLHBocGJiMixyZWRtaW5lOyBhY2dyb3Vwc3dpdGhwZXJzaXN0PW5hZGENCk9yaWdpbjogaHR0cDovLzE5Mi4xNjguMS4xMTMNClVwZ3JhZGUtSW5zZWN1cmUtUmVxdWVzdHM6IDENClJlZmVyZXI6IGh0dHA6Ly8xOTIuMTY4LjEuMTEzL2d0ZC1waHAvcHJvamVjdC5waHA/dHlwZT1wDQpDb250ZW50LVR5cGU6IGFwcGxpY2F0aW9uL3gtd3d3LWZvcm0tdXJsZW5jb2RlZA0KQ29udGVudC1MZW5ndGg6IDIwMQ0KDQpuYW1lPXRiaEJCUEt0JmNhdGVnb3J5SWQ9MiZkZWFkbGluZT10akhWanMmZGF0ZUNvbXBsZXRlZD1wTVFVUWMmZGVzY3JpcHRpb249RGVzY3JpcHRpb24lM0Emb3V0Y29tZT1EZXNpcmVkK091dGNvbWUlM0EmcmVwZWF0PVBDT1V4SyZzdXBwcmVzcz15JnN1cHByZXNzVW50aWw9dVh2SnlFJmlzU29tZWRheT15JnR5cGU9cCZzdWJtaXQ9QWRkK1Byb2plYw==",
+            "length": 1102
+          },
+          {
+            "type": "SnipSegment",
+            "length": 1
+          }
+        ],
+        "response": [
+          {
+            "type": "DataSegment",
+            "data": "SFRUUC8xLjEgMjAwIE9LDQpEYXRlOiBNb24sIDAxIFNlcCAyMDI1IDIzOjE2OjMxIEdNVA0KU2VydmVyOiBBcGFjaGUvMi4yLjE0IChVYnVudHUpIG1vZF9tb25vLzIuNC4zIFBIUC81LjMuMi0xdWJ1bnR1NC4zMCB3aXRoIFN1aG9zaW4tUGF0Y2ggcHJveHlfaHRtbC8zLjAuMSBtb2RfcHl0aG9uLzMuMy4xIFB5dGhvbi8yLjYuNSBtb2Rfc3NsLzIuMi4xNCBPcGVuU1NMLzAuOS44ayBQaHVzaW9uX1Bhc3Nlbmdlci80LjAuMzggbW9kX3BlcmwvMi4wLjQgUGVybC92NS4xMC4xDQpYLVBvd2VyZWQtQnk6IFBIUC81LjMuMi0xdWJ1bnR1NC4zMA0KVmFyeTogQWNjZXB0LUVuY29kaW5nDQpDb250ZW50LUxlbmd0aDogNDc2NQ0KQ29ubmVjdGlvbjogY2xvc2UNCkNvbnRlbnQtVHlwZTogdGV4dC9odG1sDQoNCjwhRE9DVFlQRSBodG1sIFBVQkxJQyAiLS8vVzNDLy9EVEQgWEhUTUwgMS4wIFN0cmljdC8vRU4iCgkJICAiaHR0cDovL3d3dy53My5vcmcvVFIveGh0bWwxL0RURC94aHRtbDEtc3RyaWN0LmR0ZCI+CjxodG1sIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5L3hodG1sIiBsYW5nPSJlbiIgeG1sOmxhbmc9ImVuIj4KCjxoZWFkPgogCgoJPHRpdGxl",
+            "length": 600
+          },
+          {
+            "type": "SnipSegment",
+            "length": 19
+          },
+          {
+            "type": "DataSegment",
+            "data": "PCEtLSB0aGVtZSBtYWluIHN0eWxlc2hlZXQgLS0+Cgk=",
+            "length": 32
+          },
+          {
+            "type": "HighlightSegment",
+            "data": "PGxpbmsgcmVsPSJzdHlsZXNoZWV0IiBocmVmPSJ0aGVtZXMvZGVmYXVsdC9zdHlsZS5jc3MiIHR5cGU9InRleHQvY3NzIi8+",
+            "length": 72
+          },
+          {
+            "type": "DataSegment",
+            "data": "CgoJPCEtLSB0aGVtZSBzY3JlZW4gc3R5bGVzaGVldCAoc2hvdWxkIGNoZWNrIHRvIHNlZSBpZiB0aGlzIGFjdHVhbGx5IGV4aXN0cykgLS0+",
+            "length": 81
+          },
+          {
+            "type": "SnipSegment",
+            "length": 4361
+          }
+        ],
+        "was_redirect_followed": false,
+        "request_time": "1756768591948"
+      }
+    },
+    {
+      "type": "FirstOrderEvidence",
+      "detail": {
+        "band_flags": [
+          "in_band"
+        ]
+      },
+      "request_response": {
+        "url": "http://192.168.1.113/gtd-php/processProject.php/t9bgjn/themes/default/style.css",
+        "request": [
+          {
+            "type": "DataSegment",
+            "data": "UE9TVCA=",
+            "length": 5
+          },
+          {
+            "type": "HighlightSegment",
+            "data": "L2d0ZC1waHAvcHJvY2Vzc1Byb2plY3QucGhwL3Q5Ymdqbi90aGVtZXMvZGVmYXVsdC9zdHlsZS5jc3M=",
+            "length": 59
+          },
+          {
+            "type": "DataSegment",
+            "data": "IEhUVFAvMS4xDQpIb3N0OiAxOTIuMTY4LjEuMTEzDQpDYWNoZS1Db250cm9sOiBtYXgtYWdlPTANClNlYy1DSC1VQTogIkdvb2dsZSBDaHJvbWUiO3Y9IjEzOCIsICJOb3Q9QT9CcmFuZCI7dj0iOCIsICJDaHJvbWl1bSI7dj0iMTM4Ig0KU2VjLUNILVVBLU1vYmlsZTogPzANClNlYy1DSC1VQS1QbGF0Zm9ybTogIkxpbnV4Ig0KQWNjZXB0LUxhbmd1YWdlOiBlbi1VUztxPTAuOSxlbjtxPTAuOA0KVXNlci1BZ2VudDogTW96aWxsYS81LjAgKFgxMTsgTGludXggeDg2XzY0KSBBcHBsZVdlYktpdC81MzcuMzYgKEtIVE1MLCBsaWtlIEdlY2tvKSBDaHJvbWUvMTM4LjAuMC4wIFNhZmFyaS81MzcuMzYNCkFjY2VwdDogdGV4dC9odG1sLGFwcGxpY2F0aW9uL3hodG1sK3htbCxhcHBsaWNhdGlvbi94bWw7cT0wLjksaW1hZ2UvYXZpZixpbWFnZS93ZWJwLGltYWdlL2FwbmcsKi8qO3E9MC44LGFwcGxpY2F0aW9uL3NpZ25lZC1leGNoYW5nZTt2PWIzO3E9MC43DQpTZWMtRmV0Y2gtU2l0ZTogbm9uZQ0KU2VjLUZldGNoLU1vZGU6IG5hdmlnYXRlDQpTZWMtRmV0Y2gtVXNlcjogPzENClNlYy1GZXRjaC1EZXN0OiBkb2N1bWVudA0KQWNjZXB0LUVuY29kaW5nOiBnemlwLCBkZWZsYXRlLCBicg0KQ29ubmVjdGlvbjogY2xvc2UNCkNvb2tpZTogYWNvcGVuZGl2aWRzPXN3aW5nc2V0LGpvdHRvLHBocGJiMixyZWRtaW5lOyBhY2dyb3Vwc3dpdGhwZXJzaXN0PW5hZGENCk9yaWdpbjogaHR0cDovLzE5Mi4xNjguMS4xMTMNClVwZ3JhZGUtSW5zZWN1cmUtUmVxdWVzdHM6IDENClJlZmVyZXI6IGh0dHA6Ly8xOTIuMTY4LjEuMTEzL2d0ZC1waHAvcHJvamVjdC5waHA/dHlwZT1wDQpDb250ZW50LVR5cGU6IGFwcGxpY2F0aW9uL3gtd3d3LWZvcm0tdXJsZW5jb2RlZA0KQ29udGVudC1MZW5ndGg6IDIwMQ0KDQpuYW1lPXRiaEJCUEt0JmNhdGVnb3J5SWQ9MiZkZWFkbGluZT10akhWanMmZGF0ZUNvbXBsZXRlZD1wTVFVUWMmZGVzY3JpcHRpb249RGVzY3JpcHRpb24lM0Emb3V0Y29tZT1EZXNpcmVkK091dGNvbWUlM0EmcmVwZWF0PVBDT1V4SyZzdXBwcmVzcz15JnN1cHByZXNzVW50aWw9dVh2SnlFJmlzU29tZWRheT15JnR5cGU9cCZzdWJtaXQ9QWRkK1Byb2plYw==",
+            "length": 1102
+          },
+          {
+            "type": "SnipSegment",
+            "length": 1
+          }
+        ],
+        "response": [
+          {
+            "type": "DataSegment",
+            "data": "SFRUUC8xLjEgMjAwIE9LDQpEYXRlOiBNb24sIDAxIFNlcCAyMDI1IDIzOjE2OjMyIEdNVA0KU2VydmVyOiBBcGFjaGUvMi4yLjE0IChVYnVudHUpIG1vZF9tb25vLzIuNC4zIFBIUC81LjMuMi0xdWJ1bnR1NC4zMCB3aXRoIFN1aG9zaW4tUGF0Y2ggcHJveHlfaHRtbC8zLjAuMSBtb2RfcHl0aG9uLzMuMy4xIFB5dGhvbi8yLjYuNSBtb2Rfc3NsLzIuMi4xNCBPcGVuU1NMLzAuOS44ayBQaHVzaW9uX1Bhc3Nlbmdlci80LjAuMzggbW9kX3BlcmwvMi4wLjQgUGVybC92NS4xMC4xDQpYLVBvd2VyZWQtQnk6IFBIUC81LjMuMi0xdWJ1bnR1NC4zMA0KVmFyeTogQWNjZXB0LUVuY29kaW5nDQpDb250ZW50LUxlbmd0aDogNDc2NQ0KQ29ubmVjdGlvbjogY2xvc2UNCkNvbnRlbnQtVHlwZTogdGV4dC9odG1sDQoNCjwhRE9DVFlQRSBodG1sIFBVQkxJQyAiLS8vVzNDLy9EVEQgWEhUTUwgMS4wIFN0cmljdC8vRU4iCgkJICAiaHR0cDovL3d3dy53My5vcmcvVFIveGh0bWwxL0RURC94aHRtbDEtc3RyaWN0LmR0ZCI+CjxodG1sIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5L3hodG1sIiBsYW5nPSJlbiIgeG1sOmxhbmc9ImVuIj4KCjxoZWFkPgogCgoJPHRpdGxl",
+            "length": 600
+          },
+          {
+            "type": "SnipSegment",
+            "length": 4565
+          }
+        ],
+        "was_redirect_followed": false,
+        "request_time": "1756768592905"
+      }
+    }
+  ],
+  "description": "The application may be vulnerable to path-relative style sheet import (PRSSI) attacks. The first four conditions for an exploitable vulnerability are present (see issue background):<ol><li>The original response contains a path-relative style sheet import (see response 1).</li><li>When superfluous path-like data is placed into the URL following the original filename (see request 2), the application's response still contains a path-relative style sheet import (see response 2).</li><li>Response 2 can be made to render in a browser's quirks mode. Although the page contains a modern doctype directive, the response does not prevent itself from being framed. An attacker can frame the response within a page that they control, to force it to be rendered in quirks mode. (Note that this technique is IE-specific and due to P3P restrictions might sometimes limit the impact of a successful attack.)</li><li>When the path-relative style sheet import in response 2 is requested (see request 3) the application returns something other than the CSS response that was supposed to be imported (see response 3).</li></ol>It was not verified whether condition 5 holds (see issue background), and you should manually investigate whether it is possible to manipulate some text within response 3, to enable full exploitation of this issue.",
+  "remediation": "",
+  "references": []
+}

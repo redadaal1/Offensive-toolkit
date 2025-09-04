@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Offsec Toolkit - GUI Backend & Frontend Technical Report</title>
+  <style>
+    :root { color-scheme: light dark; }
+    body { font-family: system-ui, -apple-system, Segoe UI, Roboto, Ubuntu, Cantarell, Noto Sans, Arial, sans-serif; line-height: 1.45; margin: 24px; }
+    h1 { margin-bottom: 0.25rem; }
+    h2 { margin-top: 2rem; margin-bottom: 0.5rem; }
+    h3 { margin-top: 1.25rem; margin-bottom: 0.25rem; }
+    code, pre { font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, "Liberation Mono", monospace; font-size: 0.95em; }
+    pre { background: rgba(127,127,127,0.08); padding: 12px; border-radius: 6px; overflow: auto; }
+    .muted { opacity: 0.75; }
+    .k { font-weight: 600; }
+    table { border-collapse: collapse; width: 100%; }
+    th, td { text-align: left; padding: 8px 10px; border-bottom: 1px solid rgba(127,127,127,0.2); vertical-align: top; }
+    .pill { display: inline-block; padding: 2px 8px; border-radius: 999px; font-size: 12px; border: 1px solid currentColor; }
+    .ok { color: #2e7d32; }
+    .warn { color: #b26a00; }
+    .err { color: #c62828; }
+  </style>
+</head>
+<body>
+  <h1>Offsec Toolkit - GUI Backend & Frontend Technical Report</h1>
+  <div class="muted">This document details the dashboard backend (FastAPI) and frontend (React/Vite), their APIs, data flow, and operational considerations.</div>
+
+  <h2>1) System Overview</h2>
+  <p>The dashboard provides a web-based orchestration layer for the toolkit, enabling users to run reconnaissance, exploitation, post-exploitation, reporting, vulnerability assessment, and evasion phases. It exposes HTTP APIs that delegate to the CLI entrypoint and streams logs back to the browser in real-time.</p>
+
+  <h3>Components</h3>
+  <ul>
+    <li><span class="k">Backend</span>: FastAPI app in <code>gui/server.py</code> serving REST APIs, log streaming (SSE), and static frontend.</li>
+    <li><span class="k">Frontend (SPA)</span>: React + Vite app in <code>gui/frontend</code> that calls the APIs, renders forms, and shows streaming logs.</li>
+    <li><span class="k">Legacy templates</span>: Minimal HTML views under <code>gui/templates/</code> used when SPA build is absent.</li>
+  </ul>
+
+  <h2>2) Backend (FastAPI)</h2>
+  <p><code>gui/server.py</code> implements the HTTP API and process orchestration. It can serve the built SPA from <code>gui/frontend/dist</code> when present and otherwise falls back to legacy templates.</p>
+
+  <h3>Startup and Static Files</h3>
+  <ul>
+    <li><span class="k">CORS</span>: <code>allow_origins=["*"]</code> to simplify local development and alternate frontends.</li>
+    <li><span class="k">Static mount</span>: If <code>gui/frontend/dist</code> exists, mounted at <code>/app</code> and assets at <code>/assets</code>.</li>
+    <li><span class="k">Port</span>: Controlled by <code>OFFSEC_GUI_PORT</code> (default <code>8000</code>).</li>
+    <li><span class="k">Run</span>: <code>python3 -m gui.server</code> (wraps <code>uvicorn</code>).</li>
+  </ul>
+
+  <h3>Session Model</h3>
+  <p>Each browser session is tracked by an in-memory <code>Session</code> object with a per-session async <code>log_queue</code>, current process handle, and status.</p>
+
+  <h3>Command Orchestration</h3>
+  <ul>
+    <li><span class="k">Command builder</span>: <code>build_cli_cmd(action, target, attacker_ip, attacker_port, services, use_rockyou, no_confirm, with_vuln_assess)</code> forms a CLI command targeting <code>cli/main.py</code>.</li>
+    <li><span class="k">Auto-detection</span>: The backend defers attacker IP resolution to the CLI. If the UI leaves it blank, the CLI auto-detects (see below). An auxiliary endpoint <code>GET /api/attacker-ip</code> is provided to prefill the UI.</li>
+    <li><span class="k">Process runner</span>: <code>run_cli_and_stream(session, cmd)</code> starts a subprocess and streams stdout lines into the session queue.</li>
+  </ul>
+
+  <h3>APIs</h3>
+  <table>
+    <thead>
+      <tr><th>Method</th><th>Path</th><th>Purpose</th><th>Notes</th></tr>
+    </thead>
+    <tbody>
+      <tr><td>GET</td><td><code>/</code>, <code>/dashboard</code></td><td>Serve dashboard (SPA if built, else legacy)</td><td>Redirects to <code>/app</code> when SPA is present.</td></tr>
+      <tr><td>GET</td><td><code>/app</code>, <code>/assets/*</code></td><td>Serve SPA and assets</td><td>Only when <code>gui/frontend/dist</code> exists.</td></tr>
+      <tr><td>POST</td><td><code>/api/run</code></td><td>Start a CLI task</td><td>Returns <code>session_id</code>; logs via SSE.</td></tr>
+      <tr><td>POST</td><td><code>/api/stop</code></td><td>Terminate current task</td><td>Sends <code>SIGTERM</code> to process group.</td></tr>
+      <tr><td>POST</td><td><code>/api/pause</code></td><td>Pause current task</td><td>Sends <code>SIGSTOP</code>.</td></tr>
+      <tr><td>POST</td><td><code>/api/resume</code></td><td>Resume paused task</td><td>Sends <code>SIGCONT</code>.</td></tr>
+      <tr><td>GET</td><td><code>/api/logs/{session_id}</code></td><td>Stream logs (SSE)</td><td>Text/event-stream; one stream per session.</td></tr>
+      <tr><td>GET</td><td><code>/api/status</code></td><td>Query status</td><td>Optionally filter by <code>session_id</code>.</td></tr>
+      <tr><td>GET</td><td><code>/api/sessions</code></td><td>List sessions</td><td>IDs and states.</td></tr>
+      <tr><td>GET</td><td><code>/api/outputs</code></td><td>List output files</td><td>Supports filters: <code>?phase=</code>, <code>?tool=</code>, <code>?ext=</code>, <code>?contains=</code>. Returns <code>files</code> and detailed <code>items</code> with inferred tags.</td></tr>
+      <tr><td>GET</td><td><code>/outputs/{name}</code></td><td>Download a file</td><td>Static file from <code>outputs/</code>.</td></tr>
+      <tr><td>POST</td><td><code>/api/clear-outputs</code></td><td>Clear outputs</td><td>Keeps <code>loot/</code> if present.</td></tr>
+      <tr><td>GET</td><td><code>/api/attacker-ip</code></td><td>Detect local IP</td><td>New: returns detected IP given optional <code>?target=</code>.</td></tr>
+      <tr><td>GET</td><td><code>/api/preflight</code></td><td>Safety/readiness checks</td><td>Reports tool presence, versions and outputs/ writability.</td></tr>
+      <tr><td>POST</td><td><code>/api/webhook-config</code></td><td>Configure webhooks</td><td>Set URL/token for phase/done events.</td></tr>
+    </tbody>
+  </table>
+
+  <h3>Accepted Actions</h3>
+  <p><code>action</code> values used by <code>/api/run</code>:</p>
+  <ul>
+    <li><code>recon</code>, <code>exploit</code>, <code>post-exploit</code>, <code>report</code>, <code>walkthrough</code>, <code>walkthrough-full</code>, <code>vuln-assess</code>, <code>evasion</code>, <code>list-services</code></li>
+  </ul>
+
+  <h3>Request/Response Examples</h3>
+  <pre>{
+  "action": "exploit",
+  "target": "192.168.1.113",
+  "attacker_ip": "" ,   // optional; if empty CLI auto-detects
+  "attacker_port": "4444",
+  "services": ["http","ssh"],
+  "use_rockyou": false,
+  "no_confirm": true,
+  "with_vuln_assess": false
+}</pre>
+  <p class="muted">Response: <code>{"status":"started","session_id":"&lt;id&gt;"}</code>. Then connect to <code>/api/logs/&lt;id&gt;</code> using EventSource.</p>
+
+  <h3>Security Considerations</h3>
+  <ul>
+    <li><span class="pill warn">CORS *</span> For convenience in development. Restrict in production.</li>
+    <li><span class="pill err">No auth</span> Protect the server with a reverse proxy (Basic/OAuth) and bind to trusted interfaces.</li>
+    <li>Subprocess execution of CLI implies the server has local execution rights. Run as a limited user on isolated hosts.</li>
+  </ul>
+
+  <h2>3) Frontend (React + Vite)</h2>
+  <p>The SPA in <code>gui/frontend</code> provides a modern UI for configuring runs and viewing live logs.</p>
+
+  <h3>Key Behaviors</h3>
+  <ul>
+    <li><span class="k">Forms</span>: Inputs for target, optional services, attacker IP/port, and feature toggles (rockyou, vuln assess, confirmations).</li>
+    <li><span class="k">Action gating</span>: Certain modes require target; attacker IP can be left blank (CLI auto-detects). The UI can prefill via <code>/api/attacker-ip</code>.</li>
+    <li><span class="k">Log streaming</span>: Uses Server-Sent Events from <code>/api/logs/{session_id}</code> to render live CLI output.</li>
+    <li><span class="k">Build artifacts</span>: Production build outputs to <code>gui/frontend/dist</code> which the backend serves at <code>/app</code>.</li>
+  </ul>
+
+  <h3>Development & Build</h3>
+  <pre># One-time
+cd gui/frontend
+npm install
+
+# Development server
+npm run dev
+
+# Production build (served by FastAPI)
+npm run build
+  </pre>
+  <p class="muted">Ensure dependencies like <code>vite</code>, <code>react</code>, <code>@vitejs/plugin-react-swc</code> are installed. Type defs (e.g., <code>vite/client</code>) should be referenced in <code>src/vite-env.d.ts</code>.</p>
+
+  <h2>4) CLI Integration and Auto-Detection</h2>
+  <ul>
+    <li><span class="k">CLI entrypoint</span>: <code>cli/main.py</code> orchestrates phases. Backend calls it via <code>python3 -m cli.main</code>.</li>
+    <li><span class="k">Attacker IP auto-detection</span>: If <code>--attacker-ip</code> is omitted for exploit/walkthrough/post-exploit, the CLI now auto-detects using:
+      <ol>
+        <li><code>ip route get &lt;target&gt;</code> → extract <code>src</code></li>
+        <li><code>ip -4 addr show scope global</code></li>
+        <li><code>ifconfig</code> parsing</li>
+        <li>Non-sending UDP socket trick</li>
+      </ol>
+      You can always override with <code>--attacker-ip</code>.</li>
+  </ul>
+
+  <h2>5) Data Flow</h2>
+  <ol>
+    <li>Frontend POSTs to <code>/api/run</code> with the desired action and parameters.</li>
+    <li>Backend builds a command and starts the CLI in a subprocess, storing a <code>Session</code>.</li>
+    <li>Backend streams stdout lines to the browser via <code>/api/logs/{session_id}</code>.</li>
+    <li>Outputs are written under <code>outputs/</code> and can be listed or downloaded via the provided endpoints.</li>
+  </ol>
+
+  <h2>6) Operational Tips</h2>
+  <ul>
+    <li>Prefer running the backend bound to <code>127.0.0.1</code> behind a proxy when exposing to networks.</li>
+    <li>Use the Pause/Resume/Stop controls to manage long-running scans.</li>
+    <li>For <span class="k">evasion</span>, sudo-heavy steps require passwordless sudo or interactive shells; otherwise they are skipped by the CLI when not available.</li>
+    <li>Use <code>/api/clear-outputs</code> to reset results between runs (loot folder is preserved).</li>
+  </ul>
+
+  <h2>7) Troubleshooting</h2>
+  <ul>
+    <li><span class="k">Missing Node modules</span>: Run <code>npm install</code> in <code>gui/frontend</code>. Ensure Vite/React plugins are present.</li>
+    <li><span class="k">Type errors</span>: Add <code>/// &lt;reference types="vite/client" /&gt;</code> in <code>src/vite-env.d.ts</code>.</li>
+    <li><span class="k">No logs</span>: Verify EventSource connection to <code>/api/logs/{session_id}</code> and that the subprocess is running.</li>
+    <li><span class="k">Attacker IP</span>: Leave blank to auto-detect, or explicitly set in the UI/CLI.</li>
+  </ul>
+
+  <h2>8) Change Log (GUI-related)</h2>
+  <ul>
+    <li>Added Phase Timeline with normalized keys (<code>recon</code>, <code>exploit</code>, <code>post</code>, <code>report</code>, <code>evasion</code>); backend maps variants from <code>[PHASE]</code> lines.</li>
+    <li>Outputs API enriched with tags and filters (phase/tool/ext/contains).</li>
+    <li>Smart logs: filter chips, regex mode, noise hider, bookmarks and jump-to-error.</li>
+    <li>Outputs explorer v2: tags shown, JSON tree rendering, simple diff tool.</li>
+    <li>Evasion lab: dry‑run preview payload and ETA note.</li>
+    <li>Preflight endpoint and webhook configuration for phase/done notifications.</li>
+  </ul>
+
+  <h2>9) New Frontend Features</h2>
+  <ul>
+    <li><span class="k">Operator HUD</span>: Always-visible bar showing target, services, attacker, mode, and elapsed time; quick Edit drawer.</li>
+    <li><span class="k">Phase timeline</span>: Text badges with live %; click to slice logs for that phase.</li>
+    <li><span class="k">Smart logs</span>: Chips (ERROR/WARN/nmap), regex mode, hide-noise, bookmarks, jump-to-error, export filtered.</li>
+    <li><span class="k">Outputs explorer v2</span>: Phase/tool/ext filters, tags per file, JSON tree render, file diff and open-latest.</li>
+    <li><span class="k">Evasion lab controls</span>: Inline tooltips, dry-run payload preview and ETA.</li>
+    <li><span class="k">Presets & history</span>: Save/load presets; sessions are stored locally on run.</li>
+  </ul>
+
+  <p class="muted">Paths referenced: <code>gui/server.py</code>, <code>gui/frontend/</code>, <code>gui/templates/</code>, <code>cli/main.py</code>, <code>outputs/</code>.</p>
+</body>
+</html>
+

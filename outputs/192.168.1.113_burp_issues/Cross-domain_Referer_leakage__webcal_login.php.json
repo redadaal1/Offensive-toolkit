@@ -1,0 +1,62 @@
+{
+  "name": "Cross-domain Referer leakage",
+  "type": "vulnerability",
+  "severity": "Info",
+  "confidence": "Certain",
+  "host": "",
+  "path": "/webcal/login.php",
+  "url": "/webcal/login.php",
+  "evidence": [
+    {
+      "type": "InformationListEvidence",
+      "request_response": {
+        "url": "http://192.168.1.113/webcal/login.php?",
+        "request": [
+          {
+            "type": "DataSegment",
+            "data": "R0VUIC93ZWJjYWwvbG9naW4ucGhwPyBIVFRQLzEuMQ0KSG9zdDogMTkyLjE2OC4xLjExMw0KQ2FjaGUtQ29udHJvbDogbWF4LWFnZT0wDQpTZWMtQ0gtVUE6ICJHb29nbGUgQ2hyb21lIjt2PSIxMzgiLCAiTm90PUE/QnJhbmQiO3Y9IjgiLCAiQ2hyb21pdW0iO3Y9IjEzOCINClNlYy1DSC1VQS1Nb2JpbGU6ID8wDQpTZWMtQ0gtVUEtUGxhdGZvcm06ICJMaW51eCINCkFjY2VwdC1MYW5ndWFnZTogZW4tVVM7cT0wLjksZW47cT0wLjgNClVzZXItQWdlbnQ6IE1vemlsbGEvNS4wIChYMTE7IExpbnV4IHg4Nl82NCkgQXBwbGVXZWJLaXQvNTM3LjM2IChLSFRNTCwgbGlrZSBHZWNrbykgQ2hyb21lLzEzOC4wLjAuMCBTYWZhcmkvNTM3LjM2DQpBY2NlcHQ6IHRleHQvaHRtbCxhcHBsaWNhdGlvbi94aHRtbCt4bWwsYXBwbGljYXRpb24veG1sO3E9MC45LGltYWdlL2F2aWYsaW1hZ2Uvd2VicCxpbWFnZS9hcG5nLCovKjtxPTAuOCxhcHBsaWNhdGlvbi9zaWduZWQtZXhjaGFuZ2U7dj1iMztxPTAuNw0KU2VjLUZldGNoLVNpdGU6IG5vbmUNClNlYy1GZXRjaC1Nb2RlOiBuYXZpZ2F0ZQ0KU2VjLUZldGNoLVVzZXI6ID8xDQpTZWMtRmV0Y2gtRGVzdDogZG9jdW1lbnQNCkFjY2VwdC1FbmNvZGluZzogZ3ppcCwgZGVmbGF0ZSwgYnINCkNvbm5lY3Rpb246IGNsb3NlDQpVcGdyYWRlLUluc2VjdXJlLVJlcXVlc3RzOiAxDQpSZWZlcmVyOiBodHRwOi8vMTkyLjE2OC4xLjExMy8NCg0K",
+            "length": 720
+          }
+        ],
+        "response": [
+          {
+            "type": "DataSegment",
+            "data": "SFRUUC8xLjEgMjAwIE9LDQpEYXRlOiBUdWUsIDAyIFNlcCAyMDI1IDEzOjE5OjM3IEdNVA0KU2VydmVyOiBBcGFjaGUvMi4yLjE0IChVYnVudHUpIG1vZF9tb25vLzIuNC4zIFBIUC81LjMuMi0xdWJ1bnR1NC4zMCB3aXRoIFN1aG9zaW4tUGF0Y2ggcHJveHlfaHRtbC8zLjAuMSBtb2RfcHl0aG9uLzMuMy4xIFB5dGhvbi8yLjYuNSBtb2Rfc3NsLzIuMi4xNCBPcGVuU1NMLzAuOS44ayBQaHVzaW9uX1Bhc3Nlbmdlci80LjAuMzggbW9kX3BlcmwvMi4wLjQgUGVybC92NS4xMC4xDQpYLVBvd2VyZWQtQnk6IFBIUC81LjMuMi0xdWJ1bnR1NC4zMA0KU2V0LUNvb2tpZTogd2ViY2FsZW5kYXJfc2Vzc2lvbj1kZWxldGVkOyBleHBpcmVzPU1vbiwgMDItU2VwLTIwMjQgMTM6MTk6MzcgR01UOyBwYXRoPS93ZWJjYWwvDQpTZXQtQ29va2llOiB3ZWJjYWxlbmRhcl9zZXNzaW9uPWRlbGV0ZWQ7IGV4cGlyZXM9TW9uLCAwMi1TZXAtMjAyNCAxMzoxOTozNyBHTVQ7IHBhdGg9L3dlYmNhbA0KVmFyeTogQWNjZXB0LUVuY29kaW5nDQpDb250ZW50LUxlbmd0aDogMTYxMzENCkNvbm5lY3Rpb246IGNsb3NlDQpDb250ZW50LVR5cGU6IHRleHQvaHRtbA0KDQo8P3htbCB2ZXJzaW9uPSIxLjAiIGVuY29kaW5nPSJpc28tODg1OS0xIj8+CjwhRE9DVFlQRSBodG1sCiAgICBQVUJMSUMgIi0vL1czQy8vRFREIFhIVE1MIDEuMCBUcmFuc2l0aW9uYWwvL0VOIiAiRFREL3hodG1sMS10cmFuc2l0aW9uYWwuZHRkIj4KPGh0bWwgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzE5OTkveGh0bWwiIHhtbDpsYW5nPSJlbiIgbA==",
+            "length": 790
+          },
+          {
+            "type": "SnipSegment",
+            "length": 15808
+          },
+          {
+            "type": "DataSegment",
+            "data": "PGJyIC8+Cg==",
+            "length": 7
+          },
+          {
+            "type": "HighlightSegment",
+            "data": "PGEgaHJlZj0iaHR0cDovL3dlYmNhbGVuZGFyLnNvdXJjZWZvcmdlLm5ldC8iIGlkPSJwcm9ncmFtbmFtZSI+",
+            "length": 63
+          },
+          {
+            "type": "DataSegment",
+            "data": "V2ViQ2FsZW5kYXIgdjEuMC4zICgxMSBBcHIgMjAwNik8L2E+",
+            "length": 36
+          },
+          {
+            "type": "SnipSegment",
+            "length": 17
+          }
+        ],
+        "was_redirect_followed": false,
+        "request_time": "1756819179654"
+      },
+      "information_items": [
+        "http://webcalendar.sourceforge.net/"
+      ]
+    }
+  ],
+  "description": "The page was loaded from a URL containing a query string:<ul><li>http://192.168.1.113/webcal/login.php</li></ul>The response contains the following link to another domain:<ul><li>http://webcalendar.sourceforge.net/</li></ul>",
+  "remediation": "",
+  "references": []
+}

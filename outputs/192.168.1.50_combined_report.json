@@ -1,0 +1,1988 @@
+{
+    "target": "192.168.1.50",
+    "timestamp": "2025-09-02T16:34:48.711474",
+    "services": {
+        "irc": {
+            "svc_name": "Irc",
+            "port_protocol": "Multiple",
+            "instances": [
+                {
+                    "target": "192.168.1.50",
+                    "nmap_irc_banner": "Starting Nmap 7.95 ( https://nmap.org ) at 2025-09-02 15:35 +01\nNmap scan report for 192.168.1.50 (192.168.1.50)\nHost is up (0.0014s latency).\n\nPORT     STATE SERVICE VERSION\n6667/tcp open  irc     UnrealIRCd\nMAC Address: 08:00:27:58:9E:87 (PCS Systemtechnik/Oracle VirtualBox virtual NIC)\nService Info: Host: irc.Metasploitable.LAN\n\nService detection performed. Please report any incorrect results at https://nmap.org/submit/ .\nNmap done: 1 IP address (1 host up) scanned in 1.46 seconds",
+                    "irc_raw_banner": ":irc.Metasploitable.LAN NOTICE AUTH :*** Looking up your hostname...\r\n:irc.Metasploitable.LAN NOTICE AUTH :*** Found your hostname (cached)",
+                    "msf_exploit_found": "no",
+                    "msf_exploit_mods": [
+                        "none"
+                    ],
+                    "msf_exploit_cves": [
+                        "none"
+                    ],
+                    "port_protocol": "6697/tcp",
+                    "svc_name": "Irc",
+                    "port": "6697",
+                    "risk_level": "low"
+                },
+                {
+                    "target": "192.168.1.50",
+                    "nmap_irc_banner": "Starting Nmap 7.95 ( https://nmap.org ) at 2025-09-02 16:01 +01\nNmap scan report for 192.168.1.50 (192.168.1.50)\nHost is up (0.010s latency).\n\nPORT     STATE SERVICE VERSION\n6667/tcp open  irc     UnrealIRCd\nMAC Address: 08:00:27:58:9E:87 (PCS Systemtechnik/Oracle VirtualBox virtual NIC)\nService Info: Host: irc.Metasploitable.LAN\n\nService detection performed. Please report any incorrect results at https://nmap.org/submit/ .\nNmap done: 1 IP address (1 host up) scanned in 1.08 seconds",
+                    "irc_raw_banner": "ERROR :Closing Link: [192.168.1.16] (Throttled: Reconnecting too fast) -Email admin@Metasploitable.LAN for more information.",
+                    "msf_exploit_found": "no",
+                    "msf_exploit_mods": [
+                        "none"
+                    ],
+                    "msf_exploit_cves": [
+                        "none"
+                    ],
+                    "port_protocol": "6667/tcp",
+                    "svc_name": "Irc",
+                    "port": "6667",
+                    "risk_level": "low"
+                }
+            ],
+            "risk_level": "low"
+        },
+        "ajp13_8009_tcp": {
+            "target": "192.168.1.50",
+            "port": 8009,
+            "protocol": "tcp",
+            "note": "No footprint module available for ajp13",
+            "port_protocol": "8009/tcp",
+            "svc_name": "Ajp13",
+            "risk_level": "low"
+        },
+        "nlockmgr_44654_tcp": {
+            "target": "192.168.1.50",
+            "port": 44654,
+            "protocol": "tcp",
+            "note": "No footprint module available for nlockmgr",
+            "port_protocol": "44654/tcp",
+            "svc_name": "Nlockmgr",
+            "risk_level": "low"
+        },
+        "domain": {
+            "svc_name": "Domain",
+            "port_protocol": "Multiple",
+            "instances": [
+                {
+                    "target": "192.168.1.50",
+                    "port": 53,
+                    "protocol": "tcp",
+                    "note": "No footprint module available for domain",
+                    "port_protocol": "53/tcp",
+                    "svc_name": "Domain",
+                    "risk_level": "low"
+                },
+                {
+                    "target": "192.168.1.50",
+                    "port": 53,
+                    "protocol": "udp",
+                    "note": "No footprint module available for domain",
+                    "port_protocol": "53/udp",
+                    "svc_name": "Domain",
+                    "risk_level": "low"
+                }
+            ],
+            "risk_level": "low"
+        },
+        "wdbrpc_17185_udp": {
+            "target": "192.168.1.50",
+            "port": 17185,
+            "protocol": "udp",
+            "note": "No footprint module available for wdbrpc",
+            "port_protocol": "17185/udp",
+            "svc_name": "Wdbrpc",
+            "risk_level": "low"
+        },
+        "backorifice_31337_udp": {
+            "target": "192.168.1.50",
+            "port": 31337,
+            "protocol": "udp",
+            "note": "No footprint module available for backorifice",
+            "port_protocol": "31337/udp",
+            "svc_name": "Backorifice",
+            "risk_level": "low"
+        },
+        "x11_6000_tcp": {
+            "target": "192.168.1.50",
+            "port": 6000,
+            "protocol": "tcp",
+            "note": "No footprint module available for x11",
+            "port_protocol": "6000/tcp",
+            "svc_name": "X11",
+            "risk_level": "low"
+        },
+        "exec-_512_tcp": {
+            "target": "192.168.1.50",
+            "port": 512,
+            "protocol": "tcp",
+            "note": "No footprint module available for exec?",
+            "port_protocol": "512/tcp",
+            "svc_name": "Exec-",
+            "risk_level": "low"
+        },
+        "ftp": {
+            "svc_name": "Ftp",
+            "port_protocol": "Multiple",
+            "instances": [
+                {
+                    "target": "192.168.1.50",
+                    "port": 21,
+                    "server": "vsftpd",
+                    "version": "2.3.4",
+                    "anonymous_login_allowed": "yes",
+                    "anonymous_upload_allowed": "no",
+                    "backdoor_detected": "yes",
+                    "ftp_syst": {
+                        "|   STAT": "",
+                        "| FTP server status": "",
+                        "|      TYPE": "ASCII",
+                        "| ftp-vsftpd-backdoor": "",
+                        "|   VULNERABLE": "",
+                        "|     State": "VULNERABLE (Exploitable)",
+                        "|     IDs": "BID:48539  CVE:CVE-2011-2523",
+                        "|     Disclosure date": "2011-07-03",
+                        "|     Exploit results": "",
+                        "|       Shell command": "id",
+                        "|       Results": "uid=0(root) gid=0(root)",
+                        "|     References": "",
+                        "|       https": "//cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2011-2523",
+                        "|       http": "//scarybeastsecurity.blogspot.com/2011/07/alert-vsftpd-download-backdoored.html",
+                        "|_      https": "//www.securityfocus.com/bid/48539",
+                        "|_ftp-anon": "Anonymous FTP login allowed (FTP code 230)",
+                        "MAC Address": "08:00:27:58:9E:87 (PCS Systemtechnik/Oracle VirtualBox virtual NIC)",
+                        "Service Info": "OS: Unix"
+                    },
+                    "exploitdb_mods": [
+                        "vsftpd 2.3.4 - Backdoor Command Execution (unix/remote/49757.py)",
+                        "vsftpd 2.3.4 - Backdoor Command Execution (Metasploit) (unix/remote/17491.rb)"
+                    ],
+                    "exploitdb_cves": [
+                        "none"
+                    ],
+                    "msf_mods": [
+                        "exploit/unix/ftp/vsftpd_234_backdoor"
+                    ],
+                    "msf_cves": [
+                        "none"
+                    ],
+                    "port_protocol": "21/tcp",
+                    "svc_name": "Ftp",
+                    "risk_level": "high"
+                },
+                {
+                    "target": "192.168.1.50",
+                    "port": 2121,
+                    "server": "ProFTPD",
+                    "version": "1.3.1",
+                    "anonymous_login_allowed": "no",
+                    "anonymous_upload_allowed": "no",
+                    "backdoor_detected": "no",
+                    "ftp_syst": {},
+                    "exploitdb_mods": [
+                        "none"
+                    ],
+                    "exploitdb_cves": [
+                        "none"
+                    ],
+                    "msf_mods": [
+                        "none"
+                    ],
+                    "msf_cves": [
+                        "none"
+                    ],
+                    "port_protocol": "2121/tcp",
+                    "svc_name": "Ftp",
+                    "risk_level": "high"
+                }
+            ],
+            "risk_level": "high"
+        },
+        "unknown_49152_udp": {
+            "target": "192.168.1.50",
+            "port": 49152,
+            "protocol": "udp",
+            "note": "No footprint module available for unknown",
+            "port_protocol": "49152/udp",
+            "svc_name": "Unknown",
+            "risk_level": "low"
+        },
+        "smtp_25_tcp": {
+            "target": "192.168.1.50",
+            "smtp_open": "yes",
+            "smtp_banner": "Starting Nmap 7.95 ( https://nmap.org ) at 2025-09-02 16:33 +01",
+            "open_relay": "yes",
+            "users_valid": 0,
+            "smtp_exploit_found": "no",
+            "smtp_exploit_mods": [
+                "none"
+            ],
+            "smtp_exploit_cves": [
+                "none"
+            ],
+            "port_protocol": "25/tcp",
+            "svc_name": "Smtp",
+            "port": "25",
+            "risk_level": "medium"
+        },
+        "netbios-ssn": {
+            "svc_name": "Netbios-Ssn",
+            "port_protocol": "Multiple",
+            "instances": [
+                {
+                    "target": "192.168.1.50",
+                    "port": 139,
+                    "protocol": "tcp",
+                    "note": "No footprint module available for netbios-ssn",
+                    "port_protocol": "139/tcp",
+                    "svc_name": "Netbios-Ssn",
+                    "risk_level": "low"
+                },
+                {
+                    "target": "192.168.1.50",
+                    "port": 445,
+                    "protocol": "tcp",
+                    "note": "No footprint module available for netbios-ssn",
+                    "port_protocol": "445/tcp",
+                    "svc_name": "Netbios-Ssn",
+                    "risk_level": "low"
+                }
+            ],
+            "risk_level": "low"
+        },
+        "22_ssh": {
+            "target": "192.168.1.50",
+            "port": 22,
+            "server": "OpenSSH",
+            "version": "4.7p1",
+            "auth_methods": [
+                ""
+            ],
+            "allows_password_auth": false,
+            "audit": {},
+            "exploitdb_mods": [
+                "OpenSSH 2.3 < 7.7 - Username Enumeration (PoC) (linux/remote/45210.py)",
+                "OpenSSH 2.3 < 7.7 - Username Enumeration (linux/remote/45233.py)",
+                "OpenSSH < 6.6 SFTP (x64) - Command Execution (linux_x86-64/remote/45000.c)",
+                "OpenSSH < 6.6 SFTP - Command Execution (linux/remote/45001.py)",
+                "OpenSSH < 7.4 - 'UsePrivilegeSeparation Disabled' Forwarded Unix Domain So (linux/local/40962.txt)",
+                "OpenSSH < 7.4 - agent Protocol Arbitrary Library Loading (linux/remote/40963.txt)",
+                "OpenSSH < 7.7 - User Enumeration (2) (linux/remote/45939.py)"
+            ],
+            "exploitdb_cves": [
+                "none"
+            ],
+            "msf_mods": [
+                "none"
+            ],
+            "msf_cves": [
+                "none"
+            ],
+            "port_protocol": "ssh",
+            "svc_name": "22",
+            "risk_level": "high"
+        },
+        "2121_ftp": {
+            "target": "192.168.1.50",
+            "port": 2121,
+            "server": "ProFTPD",
+            "version": "1.3.1",
+            "anonymous_login_allowed": "no",
+            "anonymous_upload_allowed": "no",
+            "backdoor_detected": "no",
+            "ftp_syst": {},
+            "exploitdb_mods": [
+                "none"
+            ],
+            "exploitdb_cves": [
+                "none"
+            ],
+            "msf_mods": [
+                "none"
+            ],
+            "msf_cves": [
+                "none"
+            ],
+            "port_protocol": "ftp",
+            "svc_name": "2121",
+            "risk_level": "high"
+        },
+        "status_39086_tcp": {
+            "target": "192.168.1.50",
+            "port": 39086,
+            "protocol": "tcp",
+            "note": "No footprint module available for status",
+            "port_protocol": "39086/tcp",
+            "svc_name": "Status",
+            "risk_level": "low"
+        },
+        "sometimes-rpc6_32771_udp": {
+            "target": "192.168.1.50",
+            "port": 32771,
+            "protocol": "udp",
+            "note": "No footprint module available for sometimes-rpc6",
+            "port_protocol": "32771/udp",
+            "svc_name": "Sometimes-Rpc6",
+            "risk_level": "low"
+        },
+        "ms-sql-s_1433_udp": {
+            "target": "192.168.1.50",
+            "port": 1433,
+            "protocol": "udp",
+            "note": "No footprint module available for ms-sql-s",
+            "port_protocol": "1433/udp",
+            "svc_name": "Ms-Sql-S",
+            "risk_level": "low"
+        },
+        "vnc_5900_tcp": {
+            "target": "192.168.1.50",
+            "nmap_vnc_banner": "Starting Nmap 7.95 ( https://nmap.org ) at 2025-09-02 16:12 +01\nNmap scan report for 192.168.1.50 (192.168.1.50)\nHost is up (0.0060s latency).\n\nPORT     STATE SERVICE VERSION\n5900/tcp open  vnc     VNC (protocol 3.3)\nMAC Address: 08:00:27:58:9E:87 (PCS Systemtechnik/Oracle VirtualBox virtual NIC)\n\nService detection performed. Please report any incorrect results at https://nmap.org/submit/ .\nNmap done: 1 IP address (1 host up) scanned in 1.41 seconds",
+            "raw_vnc_banner": "RFB 003.003",
+            "msf_exploit_found": "no",
+            "msf_exploit_mods": [
+                "none"
+            ],
+            "msf_exploit_cves": [
+                "none"
+            ],
+            "port_protocol": "5900/tcp",
+            "svc_name": "Vnc",
+            "port": "5900",
+            "risk_level": "high"
+        },
+        "bindshell_1524_tcp": {
+            "target": "192.168.1.50",
+            "port": 1524,
+            "protocol": "tcp",
+            "note": "No footprint module available for bindshell",
+            "port_protocol": "1524/tcp",
+            "svc_name": "Bindshell",
+            "risk_level": "low"
+        },
+        "http": {
+            "svc_name": "Http",
+            "port_protocol": "Multiple",
+            "instances": [
+                {
+                    "target": "192.168.1.50",
+                    "os_fingerprint": "Linux 2.6.9 - 2.6.33",
+                    "http_banner": "Apache/2.2.8 (Ubuntu) DAV/2",
+                    "https_banner": "unknown",
+                    "discovered_endpoints": [
+                        {
+                            "url": "http://192.168.1.50/.htaccess.zip",
+                            "type": "general_endpoint",
+                            "parameters": [
+                                "id",
+                                "file",
+                                "page",
+                                "param",
+                                "action"
+                            ]
+                        },
+                        {
+                            "url": "http://192.168.1.50/.htpasswd.php",
+                            "type": "dynamic_file",
+                            "parameters": [
+                                "id",
+                                "file",
+                                "page",
+                                "include",
+                                "path",
+                                "cmd",
+                                "exec",
+                                "param",
+                                "action"
+                            ]
+                        },
+                        {
+                            "url": "http://192.168.1.50/.htaccess.txt",
+                            "type": "general_endpoint",
+                            "parameters": [
+                                "id",
+                                "file",
+                                "page",
+                                "param",
+                                "action"
+                            ]
+                        },
+                        {
+                            "url": "http://192.168.1.50/.hta.zip",
+                            "type": "general_endpoint",
+                            "parameters": [
+                                "id",
+                                "file",
+                                "page",
+                                "param",
+                                "action"
+                            ]
+                        },
+                        {
+                            "url": "http://192.168.1.50/.htpasswd.zip",
+                            "type": "general_endpoint",
+                            "parameters": [
+                                "id",
+                                "file",
+                                "page",
+                                "param",
+                                "action"
+                            ]
+                        },
+                        {
+                            "url": "http://192.168.1.50/.htaccess.config",
+                            "type": "sensitive_file",
+                            "parameters": [
+                                "file",
+                                "path",
+                                "include"
+                            ]
+                        },
+                        {
+                            "url": "http://192.168.1.50/server-status",
+                            "type": "general_endpoint",
+                            "parameters": [
+                                "id",
+                                "file",
+                                "page",
+                                "param",
+                                "action"
+                            ]
+                        },
+                        {
+                            "url": "http://192.168.1.50/.hta.config",
+                            "type": "sensitive_file",
+                            "parameters": [
+                                "file",
+                                "path",
+                                "include"
+                            ]
+                        },
+                        {
+                            "url": "http://192.168.1.50/.htpasswd",
+                            "type": "general_endpoint",
+                            "parameters": [
+                                "id",
+                                "file",
+                                "page",
+                                "param",
+                                "action"
+                            ]
+                        },
+                        {
+                            "url": "http://192.168.1.50/cgi-bin/",
+                            "type": "general_endpoint",
+                            "parameters": [
+                                "id",
+                                "file",
+                                "page",
+                                "param",
+                                "action"
+                            ]
+                        },
+                        {
+                            "url": "http://192.168.1.50/test",
+                            "type": "general_endpoint",
+                            "parameters": [
+                                "id",
+                                "file",
+                                "page",
+                                "param",
+                                "action"
+                            ]
+                        },
+                        {
+                            "url": "http://192.168.1.50/phpMyAdmin",
+                            "type": "admin_panel",
+                            "parameters": [
+                                "username",
+                                "password",
+                                "user",
+                                "pass",
+                                "admin",
+                                "login",
+                                "auth"
+                            ]
+                        },
+                        {
+                            "url": "http://192.168.1.50/phpinfo.php",
+                            "type": "dynamic_file",
+                            "parameters": [
+                                "id",
+                                "file",
+                                "page",
+                                "include",
+                                "path",
+                                "cmd",
+                                "exec",
+                                "param",
+                                "action"
+                            ]
+                        },
+                        {
+                            "url": "http://192.168.1.50/twiki",
+                            "type": "general_endpoint",
+                            "parameters": [
+                                "id",
+                                "file",
+                                "page",
+                                "param",
+                                "action"
+                            ]
+                        },
+                        {
+                            "url": "http://192.168.1.50/.htpasswd.txt",
+                            "type": "general_endpoint",
+                            "parameters": [
+                                "id",
+                                "file",
+                                "page",
+                                "param",
+                                "action"
+                            ]
+                        },
+                        {
+                            "url": "http://192.168.1.50/phpinfo",
+                            "type": "general_endpoint",
+                            "parameters": [
+                                "id",
+                                "file",
+                                "page",
+                                "param",
+                                "action"
+                            ]
+                        },
+                        {
+                            "url": "http://192.168.1.50/.htpasswd.config",
+                            "type": "sensitive_file",
+                            "parameters": [
+                                "file",
+                                "path",
+                                "include"
+                            ]
+                        },
+                        {
+                            "url": "http://192.168.1.50/.htaccess.php",
+                            "type": "dynamic_file",
+                            "parameters": [
+                                "id",
+                                "file",
+                                "page",
+                                "include",
+                                "path",
+                                "cmd",
+                                "exec",
+                                "param",
+                                "action"
+                            ]
+                        },
+                        {
+                            "url": "http://192.168.1.50/index",
+                            "type": "general_endpoint",
+                            "parameters": [
+                                "id",
+                                "file",
+                                "page",
+                                "param",
+                                "action"
+                            ]
+                        },
+                        {
+                            "url": "http://192.168.1.50/index.php",
+                            "type": "dynamic_file",
+                            "parameters": [
+                                "id",
+                                "file",
+                                "page",
+                                "include",
+                                "path",
+                                "cmd",
+                                "exec",
+                                "param",
+                                "action"
+                            ]
+                        },
+                        {
+                            "url": "http://192.168.1.50/.hta.php",
+                            "type": "dynamic_file",
+                            "parameters": [
+                                "id",
+                                "file",
+                                "page",
+                                "include",
+                                "path",
+                                "cmd",
+                                "exec",
+                                "param",
+                                "action"
+                            ]
+                        },
+                        {
+                            "url": "http://192.168.1.50/.htaccess",
+                            "type": "general_endpoint",
+                            "parameters": [
+                                "id",
+                                "file",
+                                "page",
+                                "param",
+                                "action"
+                            ]
+                        },
+                        {
+                            "url": "http://192.168.1.50/.htaccess.bak",
+                            "type": "sensitive_file",
+                            "parameters": [
+                                "file",
+                                "path",
+                                "include"
+                            ]
+                        },
+                        {
+                            "url": "http://192.168.1.50/.hta.txt",
+                            "type": "general_endpoint",
+                            "parameters": [
+                                "id",
+                                "file",
+                                "page",
+                                "param",
+                                "action"
+                            ]
+                        },
+                        {
+                            "url": "http://192.168.1.50/.htpasswd.bak",
+                            "type": "sensitive_file",
+                            "parameters": [
+                                "file",
+                                "path",
+                                "include"
+                            ]
+                        },
+                        {
+                            "url": "http://192.168.1.50/.hta.bak",
+                            "type": "sensitive_file",
+                            "parameters": [
+                                "file",
+                                "path",
+                                "include"
+                            ]
+                        },
+                        {
+                            "url": "http://192.168.1.50/.hta",
+                            "type": "general_endpoint",
+                            "parameters": [
+                                "id",
+                                "file",
+                                "page",
+                                "param",
+                                "action"
+                            ]
+                        },
+                        {
+                            "url": "http://192.168.1.50/tikiwiki",
+                            "type": "general_endpoint",
+                            "parameters": [
+                                "id",
+                                "file",
+                                "page",
+                                "param",
+                                "action"
+                            ]
+                        }
+                    ],
+                    "vulnerable_endpoints": {
+                        "sql_injection": [
+                            {
+                                "url": "http://192.168.1.50/phpinfo.php",
+                                "parameter": "id",
+                                "type": "sql_injection",
+                                "evidence": "SQL error detected"
+                            },
+                            {
+                                "url": "http://192.168.1.50/phpinfo.php",
+                                "parameter": "file",
+                                "type": "sql_injection",
+                                "evidence": "SQL error detected"
+                            },
+                            {
+                                "url": "http://192.168.1.50/phpinfo.php",
+                                "parameter": "page",
+                                "type": "sql_injection",
+                                "evidence": "SQL error detected"
+                            },
+                            {
+                                "url": "http://192.168.1.50/phpinfo.php",
+                                "parameter": "include",
+                                "type": "sql_injection",
+                                "evidence": "SQL error detected"
+                            },
+                            {
+                                "url": "http://192.168.1.50/phpinfo.php",
+                                "parameter": "path",
+                                "type": "sql_injection",
+                                "evidence": "SQL error detected"
+                            },
+                            {
+                                "url": "http://192.168.1.50/phpinfo.php",
+                                "parameter": "cmd",
+                                "type": "sql_injection",
+                                "evidence": "SQL error detected"
+                            },
+                            {
+                                "url": "http://192.168.1.50/phpinfo.php",
+                                "parameter": "exec",
+                                "type": "sql_injection",
+                                "evidence": "SQL error detected"
+                            },
+                            {
+                                "url": "http://192.168.1.50/phpinfo.php",
+                                "parameter": "param",
+                                "type": "sql_injection",
+                                "evidence": "SQL error detected"
+                            },
+                            {
+                                "url": "http://192.168.1.50/phpinfo.php",
+                                "parameter": "action",
+                                "type": "sql_injection",
+                                "evidence": "SQL error detected"
+                            },
+                            {
+                                "url": "http://192.168.1.50/phpinfo",
+                                "parameter": "id",
+                                "type": "sql_injection",
+                                "evidence": "SQL error detected"
+                            },
+                            {
+                                "url": "http://192.168.1.50/phpinfo",
+                                "parameter": "file",
+                                "type": "sql_injection",
+                                "evidence": "SQL error detected"
+                            },
+                            {
+                                "url": "http://192.168.1.50/phpinfo",
+                                "parameter": "page",
+                                "type": "sql_injection",
+                                "evidence": "SQL error detected"
+                            },
+                            {
+                                "url": "http://192.168.1.50/phpinfo",
+                                "parameter": "param",
+                                "type": "sql_injection",
+                                "evidence": "SQL error detected"
+                            },
+                            {
+                                "url": "http://192.168.1.50/phpinfo",
+                                "parameter": "action",
+                                "type": "sql_injection",
+                                "evidence": "SQL error detected"
+                            }
+                        ],
+                        "xss": [],
+                        "lfi": [
+                            {
+                                "url": "http://192.168.1.50/phpinfo.php",
+                                "parameter": "file",
+                                "type": "lfi",
+                                "evidence": "LFI vulnerability confirmed (passwd markers present)"
+                            },
+                            {
+                                "url": "http://192.168.1.50/phpinfo.php",
+                                "parameter": "page",
+                                "type": "lfi",
+                                "evidence": "LFI vulnerability confirmed (passwd markers present)"
+                            },
+                            {
+                                "url": "http://192.168.1.50/phpinfo.php",
+                                "parameter": "include",
+                                "type": "lfi",
+                                "evidence": "LFI vulnerability confirmed (passwd markers present)"
+                            },
+                            {
+                                "url": "http://192.168.1.50/phpinfo.php",
+                                "parameter": "path",
+                                "type": "lfi",
+                                "evidence": "LFI vulnerability confirmed (passwd markers present)"
+                            },
+                            {
+                                "url": "http://192.168.1.50/phpinfo",
+                                "parameter": "file",
+                                "type": "lfi",
+                                "evidence": "LFI vulnerability confirmed (passwd markers present)"
+                            },
+                            {
+                                "url": "http://192.168.1.50/phpinfo",
+                                "parameter": "page",
+                                "type": "lfi",
+                                "evidence": "LFI vulnerability confirmed (passwd markers present)"
+                            }
+                        ],
+                        "file_upload": []
+                    },
+                    "auth_bypass_opportunities": [
+                        "HTTP TRACE Method"
+                    ],
+                    "exposed_directories": [
+                        "/phpMyAdmin/changelog.php:",
+                        "/phpMyAdmin/ChangeLog:",
+                        "/phpMyAdmin/ChangeLog:",
+                        "/phpMyAdmin/:",
+                        "/phpMyAdmin/Documentation.html:",
+                        "/phpMyAdmin/README:"
+                    ],
+                    "default_files": [
+                        "/index:",
+                        "/phpMyAdmin/changelog.php:"
+                    ],
+                    "misconfigurations": [
+                        "mod_negotiation + MultiViews Enabled (Brute-force Files)",
+                        "HTTP TRACE Method Enabled (XST Attack)",
+                        "ETag Information Leak (Inode Leakage)"
+                    ],
+                    "outdated_software": [
+                        "Apache/2.2.8",
+                        "PHP/5.2.4-2ubuntu5.10.",
+                        "Apache/2.2.8",
+                        "Apache/2.4.54)."
+                    ],
+                    "exploitable_versions": {},
+                    "vhosts": [],
+                    "subdomains": [],
+                    "wayback_urls": [],
+                    "dns_records": [],
+                    "technologies": {
+                        "web_server": [
+                            "Apache"
+                        ],
+                        "programming_language": [
+                            "PHP"
+                        ],
+                        "framework": [],
+                        "cms": [],
+                        "database": [],
+                        "javascript": [],
+                        "other": []
+                    },
+                    "wordpress_findings": {
+                        "version": "unknown",
+                        "plugins": [],
+                        "themes": [],
+                        "vulnerabilities": []
+                    },
+                    "joomla_findings": {
+                        "version": "unknown",
+                        "components": [],
+                        "vulnerabilities": []
+                    },
+                    "sqlmap_findings": {
+                        "injectable_parameters": [],
+                        "database_type": "unknown",
+                        "technique": "unknown"
+                    },
+                    "burp_summary": {},
+                    "burp_runner": {},
+                    "login_form_sql_injection": {
+                        "success": false,
+                        "proof": "",
+                        "poc": "",
+                        "evidence": {}
+                    },
+                    "os_exploit_found": "yes",
+                    "os_exploit_mods": [
+                        "exploit/linux/http/dreambox_openpli_shell",
+                        "exploit/linux/local/netfilter_xtables_heap_oob_write_priv_esc",
+                        "exploit/linux/local/rds_rds_page_copy_user_priv_esc",
+                        "exploit/linux/local/sock_sendpage",
+                        "exploit/linux/pop3/cyrus_pop3d_popsubfolders"
+                    ],
+                    "os_exploit_cves": [
+                        "CVE-2006-2502",
+                        "CVE-2009-2692",
+                        "CVE-2010-3904",
+                        "CVE-2021-22555"
+                    ],
+                    "os_exploitdb_exploits": [],
+                    "http_exploit_found": "no",
+                    "http_exploit_mods": [
+                        "none"
+                    ],
+                    "http_exploit_cves": [
+                        "none"
+                    ],
+                    "http_exploitdb_exploits": [],
+                    "https_exploit_found": "no",
+                    "https_exploit_mods": [
+                        "none"
+                    ],
+                    "https_exploit_cves": [
+                        "none"
+                    ],
+                    "software_exploitdb_exploits": [],
+                    "port_protocol": "80/tcp",
+                    "svc_name": "Http",
+                    "port": "80",
+                    "risk_level": "medium"
+                },
+                {
+                    "target": "192.168.1.50",
+                    "os_fingerprint": "Linux 2.6.9 - 2.6.33",
+                    "http_banner": "Apache/2.2.8 (Ubuntu) DAV/2",
+                    "https_banner": "unknown",
+                    "discovered_endpoints": [
+                        {
+                            "url": "http://192.168.1.50/.htpasswd.txt",
+                            "type": "general_endpoint",
+                            "parameters": [
+                                "id",
+                                "file",
+                                "page",
+                                "param",
+                                "action"
+                            ]
+                        },
+                        {
+                            "url": "http://192.168.1.50/.htpasswd.config",
+                            "type": "sensitive_file",
+                            "parameters": [
+                                "file",
+                                "path",
+                                "include"
+                            ]
+                        },
+                        {
+                            "url": "http://192.168.1.50/twiki",
+                            "type": "general_endpoint",
+                            "parameters": [
+                                "id",
+                                "file",
+                                "page",
+                                "param",
+                                "action"
+                            ]
+                        },
+                        {
+                            "url": "http://192.168.1.50/index.php",
+                            "type": "dynamic_file",
+                            "parameters": [
+                                "id",
+                                "file",
+                                "page",
+                                "include",
+                                "path",
+                                "cmd",
+                                "exec",
+                                "param",
+                                "action"
+                            ]
+                        },
+                        {
+                            "url": "http://192.168.1.50/.htpasswd.bak",
+                            "type": "sensitive_file",
+                            "parameters": [
+                                "file",
+                                "path",
+                                "include"
+                            ]
+                        },
+                        {
+                            "url": "http://192.168.1.50/cgi-bin/",
+                            "type": "general_endpoint",
+                            "parameters": [
+                                "id",
+                                "file",
+                                "page",
+                                "param",
+                                "action"
+                            ]
+                        },
+                        {
+                            "url": "http://192.168.1.50/.hta",
+                            "type": "general_endpoint",
+                            "parameters": [
+                                "id",
+                                "file",
+                                "page",
+                                "param",
+                                "action"
+                            ]
+                        },
+                        {
+                            "url": "http://192.168.1.50/.htaccess",
+                            "type": "general_endpoint",
+                            "parameters": [
+                                "id",
+                                "file",
+                                "page",
+                                "param",
+                                "action"
+                            ]
+                        },
+                        {
+                            "url": "http://192.168.1.50/phpinfo.php",
+                            "type": "dynamic_file",
+                            "parameters": [
+                                "id",
+                                "file",
+                                "page",
+                                "include",
+                                "path",
+                                "cmd",
+                                "exec",
+                                "param",
+                                "action"
+                            ]
+                        },
+                        {
+                            "url": "http://192.168.1.50/.htaccess.php",
+                            "type": "dynamic_file",
+                            "parameters": [
+                                "id",
+                                "file",
+                                "page",
+                                "include",
+                                "path",
+                                "cmd",
+                                "exec",
+                                "param",
+                                "action"
+                            ]
+                        },
+                        {
+                            "url": "http://192.168.1.50/server-status",
+                            "type": "general_endpoint",
+                            "parameters": [
+                                "id",
+                                "file",
+                                "page",
+                                "param",
+                                "action"
+                            ]
+                        },
+                        {
+                            "url": "http://192.168.1.50/.hta.zip",
+                            "type": "general_endpoint",
+                            "parameters": [
+                                "id",
+                                "file",
+                                "page",
+                                "param",
+                                "action"
+                            ]
+                        },
+                        {
+                            "url": "http://192.168.1.50/.htaccess.config",
+                            "type": "sensitive_file",
+                            "parameters": [
+                                "file",
+                                "path",
+                                "include"
+                            ]
+                        },
+                        {
+                            "url": "http://192.168.1.50/.htaccess.zip",
+                            "type": "general_endpoint",
+                            "parameters": [
+                                "id",
+                                "file",
+                                "page",
+                                "param",
+                                "action"
+                            ]
+                        },
+                        {
+                            "url": "http://192.168.1.50/.hta.php",
+                            "type": "dynamic_file",
+                            "parameters": [
+                                "id",
+                                "file",
+                                "page",
+                                "include",
+                                "path",
+                                "cmd",
+                                "exec",
+                                "param",
+                                "action"
+                            ]
+                        },
+                        {
+                            "url": "http://192.168.1.50/.htpasswd",
+                            "type": "general_endpoint",
+                            "parameters": [
+                                "id",
+                                "file",
+                                "page",
+                                "param",
+                                "action"
+                            ]
+                        },
+                        {
+                            "url": "http://192.168.1.50/.htpasswd.zip",
+                            "type": "general_endpoint",
+                            "parameters": [
+                                "id",
+                                "file",
+                                "page",
+                                "param",
+                                "action"
+                            ]
+                        },
+                        {
+                            "url": "http://192.168.1.50/phpMyAdmin",
+                            "type": "admin_panel",
+                            "parameters": [
+                                "username",
+                                "password",
+                                "user",
+                                "pass",
+                                "admin",
+                                "login",
+                                "auth"
+                            ]
+                        },
+                        {
+                            "url": "http://192.168.1.50/test",
+                            "type": "general_endpoint",
+                            "parameters": [
+                                "id",
+                                "file",
+                                "page",
+                                "param",
+                                "action"
+                            ]
+                        },
+                        {
+                            "url": "http://192.168.1.50/phpinfo",
+                            "type": "general_endpoint",
+                            "parameters": [
+                                "id",
+                                "file",
+                                "page",
+                                "param",
+                                "action"
+                            ]
+                        },
+                        {
+                            "url": "http://192.168.1.50/index",
+                            "type": "general_endpoint",
+                            "parameters": [
+                                "id",
+                                "file",
+                                "page",
+                                "param",
+                                "action"
+                            ]
+                        },
+                        {
+                            "url": "http://192.168.1.50/.htaccess.txt",
+                            "type": "general_endpoint",
+                            "parameters": [
+                                "id",
+                                "file",
+                                "page",
+                                "param",
+                                "action"
+                            ]
+                        },
+                        {
+                            "url": "http://192.168.1.50/.hta.txt",
+                            "type": "general_endpoint",
+                            "parameters": [
+                                "id",
+                                "file",
+                                "page",
+                                "param",
+                                "action"
+                            ]
+                        },
+                        {
+                            "url": "http://192.168.1.50/.hta.config",
+                            "type": "sensitive_file",
+                            "parameters": [
+                                "file",
+                                "path",
+                                "include"
+                            ]
+                        },
+                        {
+                            "url": "http://192.168.1.50/.htpasswd.php",
+                            "type": "dynamic_file",
+                            "parameters": [
+                                "id",
+                                "file",
+                                "page",
+                                "include",
+                                "path",
+                                "cmd",
+                                "exec",
+                                "param",
+                                "action"
+                            ]
+                        },
+                        {
+                            "url": "http://192.168.1.50/.hta.bak",
+                            "type": "sensitive_file",
+                            "parameters": [
+                                "file",
+                                "path",
+                                "include"
+                            ]
+                        },
+                        {
+                            "url": "http://192.168.1.50/.htaccess.bak",
+                            "type": "sensitive_file",
+                            "parameters": [
+                                "file",
+                                "path",
+                                "include"
+                            ]
+                        },
+                        {
+                            "url": "http://192.168.1.50/tikiwiki",
+                            "type": "general_endpoint",
+                            "parameters": [
+                                "id",
+                                "file",
+                                "page",
+                                "param",
+                                "action"
+                            ]
+                        }
+                    ],
+                    "vulnerable_endpoints": {
+                        "sql_injection": [
+                            {
+                                "url": "http://192.168.1.50/phpinfo.php",
+                                "parameter": "id",
+                                "type": "sql_injection",
+                                "evidence": "SQL error detected"
+                            },
+                            {
+                                "url": "http://192.168.1.50/phpinfo.php",
+                                "parameter": "file",
+                                "type": "sql_injection",
+                                "evidence": "SQL error detected"
+                            },
+                            {
+                                "url": "http://192.168.1.50/phpinfo.php",
+                                "parameter": "page",
+                                "type": "sql_injection",
+                                "evidence": "SQL error detected"
+                            },
+                            {
+                                "url": "http://192.168.1.50/phpinfo.php",
+                                "parameter": "include",
+                                "type": "sql_injection",
+                                "evidence": "SQL error detected"
+                            },
+                            {
+                                "url": "http://192.168.1.50/phpinfo.php",
+                                "parameter": "path",
+                                "type": "sql_injection",
+                                "evidence": "SQL error detected"
+                            },
+                            {
+                                "url": "http://192.168.1.50/phpinfo.php",
+                                "parameter": "cmd",
+                                "type": "sql_injection",
+                                "evidence": "SQL error detected"
+                            },
+                            {
+                                "url": "http://192.168.1.50/phpinfo.php",
+                                "parameter": "exec",
+                                "type": "sql_injection",
+                                "evidence": "SQL error detected"
+                            },
+                            {
+                                "url": "http://192.168.1.50/phpinfo.php",
+                                "parameter": "param",
+                                "type": "sql_injection",
+                                "evidence": "SQL error detected"
+                            },
+                            {
+                                "url": "http://192.168.1.50/phpinfo.php",
+                                "parameter": "action",
+                                "type": "sql_injection",
+                                "evidence": "SQL error detected"
+                            },
+                            {
+                                "url": "http://192.168.1.50/phpinfo",
+                                "parameter": "id",
+                                "type": "sql_injection",
+                                "evidence": "SQL error detected"
+                            },
+                            {
+                                "url": "http://192.168.1.50/phpinfo",
+                                "parameter": "file",
+                                "type": "sql_injection",
+                                "evidence": "SQL error detected"
+                            },
+                            {
+                                "url": "http://192.168.1.50/phpinfo",
+                                "parameter": "page",
+                                "type": "sql_injection",
+                                "evidence": "SQL error detected"
+                            },
+                            {
+                                "url": "http://192.168.1.50/phpinfo",
+                                "parameter": "param",
+                                "type": "sql_injection",
+                                "evidence": "SQL error detected"
+                            },
+                            {
+                                "url": "http://192.168.1.50/phpinfo",
+                                "parameter": "action",
+                                "type": "sql_injection",
+                                "evidence": "SQL error detected"
+                            }
+                        ],
+                        "xss": [],
+                        "lfi": [
+                            {
+                                "url": "http://192.168.1.50/phpinfo.php",
+                                "parameter": "file",
+                                "type": "lfi",
+                                "evidence": "LFI vulnerability confirmed (passwd markers present)"
+                            },
+                            {
+                                "url": "http://192.168.1.50/phpinfo.php",
+                                "parameter": "page",
+                                "type": "lfi",
+                                "evidence": "LFI vulnerability confirmed (passwd markers present)"
+                            },
+                            {
+                                "url": "http://192.168.1.50/phpinfo.php",
+                                "parameter": "include",
+                                "type": "lfi",
+                                "evidence": "LFI vulnerability confirmed (passwd markers present)"
+                            },
+                            {
+                                "url": "http://192.168.1.50/phpinfo.php",
+                                "parameter": "path",
+                                "type": "lfi",
+                                "evidence": "LFI vulnerability confirmed (passwd markers present)"
+                            },
+                            {
+                                "url": "http://192.168.1.50/phpinfo",
+                                "parameter": "file",
+                                "type": "lfi",
+                                "evidence": "LFI vulnerability confirmed (passwd markers present)"
+                            },
+                            {
+                                "url": "http://192.168.1.50/phpinfo",
+                                "parameter": "page",
+                                "type": "lfi",
+                                "evidence": "LFI vulnerability confirmed (passwd markers present)"
+                            }
+                        ],
+                        "file_upload": []
+                    },
+                    "auth_bypass_opportunities": [],
+                    "exposed_directories": [],
+                    "default_files": [],
+                    "misconfigurations": [],
+                    "outdated_software": [],
+                    "exploitable_versions": {},
+                    "vhosts": [],
+                    "subdomains": [],
+                    "wayback_urls": [],
+                    "dns_records": [],
+                    "technologies": {
+                        "web_server": [
+                            "Apache"
+                        ],
+                        "programming_language": [
+                            "PHP"
+                        ],
+                        "framework": [],
+                        "cms": [],
+                        "database": [],
+                        "javascript": [],
+                        "other": []
+                    },
+                    "wordpress_findings": {
+                        "version": "unknown",
+                        "plugins": [],
+                        "themes": [],
+                        "vulnerabilities": []
+                    },
+                    "joomla_findings": {
+                        "version": "unknown",
+                        "components": [],
+                        "vulnerabilities": []
+                    },
+                    "sqlmap_findings": {
+                        "injectable_parameters": [],
+                        "database_type": "unknown",
+                        "technique": "unknown"
+                    },
+                    "burp_summary": {},
+                    "burp_runner": {},
+                    "login_form_sql_injection": {
+                        "success": false,
+                        "proof": "",
+                        "poc": "",
+                        "evidence": {}
+                    },
+                    "os_exploit_found": "yes",
+                    "os_exploit_mods": [
+                        "exploit/linux/http/dreambox_openpli_shell",
+                        "exploit/linux/local/netfilter_xtables_heap_oob_write_priv_esc",
+                        "exploit/linux/local/rds_rds_page_copy_user_priv_esc",
+                        "exploit/linux/local/sock_sendpage",
+                        "exploit/linux/pop3/cyrus_pop3d_popsubfolders"
+                    ],
+                    "os_exploit_cves": [
+                        "CVE-2006-2502",
+                        "CVE-2009-2692",
+                        "CVE-2010-3904",
+                        "CVE-2021-22555"
+                    ],
+                    "os_exploitdb_exploits": [],
+                    "http_exploit_found": "no",
+                    "http_exploit_mods": [
+                        "none"
+                    ],
+                    "http_exploit_cves": [
+                        "none"
+                    ],
+                    "http_exploitdb_exploits": [],
+                    "https_exploit_found": "no",
+                    "https_exploit_mods": [
+                        "none"
+                    ],
+                    "https_exploit_cves": [
+                        "none"
+                    ],
+                    "software_exploitdb_exploits": [],
+                    "port_protocol": "8180/tcp",
+                    "svc_name": "Http",
+                    "port": "8180",
+                    "risk_level": "medium"
+                }
+            ],
+            "risk_level": "medium"
+        },
+        "radacct_1646_udp": {
+            "target": "192.168.1.50",
+            "port": 1646,
+            "protocol": "udp",
+            "note": "No footprint module available for radacct",
+            "port_protocol": "1646/udp",
+            "svc_name": "Radacct",
+            "risk_level": "low"
+        },
+        "mountd_47917_tcp": {
+            "target": "192.168.1.50",
+            "port": 47917,
+            "protocol": "tcp",
+            "note": "No footprint module available for mountd",
+            "port_protocol": "47917/tcp",
+            "svc_name": "Mountd",
+            "risk_level": "low"
+        },
+        "rpcbind": {
+            "svc_name": "Rpcbind",
+            "port_protocol": "Multiple",
+            "instances": [
+                {
+                    "target": "192.168.1.50",
+                    "port": 111,
+                    "protocol": "udp",
+                    "note": "No footprint module available for rpcbind",
+                    "port_protocol": "111/udp",
+                    "svc_name": "Rpcbind",
+                    "risk_level": "low"
+                },
+                {
+                    "target": "192.168.1.50",
+                    "port": 111,
+                    "protocol": "tcp",
+                    "note": "No footprint module available for rpcbind",
+                    "port_protocol": "111/tcp",
+                    "svc_name": "Rpcbind",
+                    "risk_level": "low"
+                }
+            ],
+            "risk_level": "low"
+        },
+        "nfs": {
+            "svc_name": "Nfs",
+            "port_protocol": "Multiple",
+            "instances": [
+                {
+                    "target": "192.168.1.50",
+                    "nfs_version": "nfs",
+                    "nfs_exports": [
+                        "none"
+                    ],
+                    "nfs_exports_count": 0,
+                    "rpc_services_count": 23,
+                    "exploits_found": "yes",
+                    "metasploit_modules": [
+                        "exploit/multi/http/atlassian_confluence_namespace_ognl_injection",
+                        "exploit/multi/http/atlassian_confluence_rce_cve_2024_21683",
+                        "exploit/multi/http/atlassian_confluence_unauth_backup",
+                        "exploit/multi/http/atlassian_confluence_webwork_ognl_injection",
+                        "exploit/netware/sunrpc/pkernel_callit",
+                        "exploit/osx/local/nfs_mount_root",
+                        "exploit/windows/ftp/labf_nfsaxe",
+                        "exploit/windows/ftp/xlink_client",
+                        "exploit/windows/ftp/xlink_server",
+                        "exploit/windows/nfs/xlink_nfsd"
+                    ],
+                    "port_protocol": "2049/udp",
+                    "svc_name": "Nfs",
+                    "port": "2049",
+                    "risk_level": "low"
+                },
+                {
+                    "target": "192.168.1.50",
+                    "nfs_version": "nfs",
+                    "nfs_exports": [
+                        "none"
+                    ],
+                    "nfs_exports_count": 0,
+                    "rpc_services_count": 23,
+                    "exploits_found": "yes",
+                    "metasploit_modules": [
+                        "exploit/multi/http/atlassian_confluence_namespace_ognl_injection",
+                        "exploit/multi/http/atlassian_confluence_rce_cve_2024_21683",
+                        "exploit/multi/http/atlassian_confluence_unauth_backup",
+                        "exploit/multi/http/atlassian_confluence_webwork_ognl_injection",
+                        "exploit/netware/sunrpc/pkernel_callit",
+                        "exploit/osx/local/nfs_mount_root",
+                        "exploit/windows/ftp/labf_nfsaxe",
+                        "exploit/windows/ftp/xlink_client",
+                        "exploit/windows/ftp/xlink_server",
+                        "exploit/windows/nfs/xlink_nfsd"
+                    ],
+                    "port_protocol": "2049/tcp",
+                    "svc_name": "Nfs",
+                    "port": "2049",
+                    "risk_level": "low"
+                }
+            ],
+            "risk_level": "low"
+        },
+        "login-_513_tcp": {
+            "target": "192.168.1.50",
+            "port": 513,
+            "protocol": "tcp",
+            "note": "No footprint module available for login?",
+            "port_protocol": "513/tcp",
+            "svc_name": "Login-",
+            "risk_level": "low"
+        },
+        "msantipiracy_2222_udp": {
+            "target": "192.168.1.50",
+            "port": 2222,
+            "protocol": "udp",
+            "note": "No footprint module available for msantipiracy",
+            "port_protocol": "2222/udp",
+            "svc_name": "Msantipiracy",
+            "risk_level": "low"
+        },
+        "ssh_22_tcp": {
+            "target": "192.168.1.50",
+            "port": 22,
+            "server": "OpenSSH",
+            "version": "4.7p1",
+            "auth_methods": [
+                ""
+            ],
+            "allows_password_auth": false,
+            "audit": {},
+            "exploitdb_mods": [
+                "OpenSSH 2.3 < 7.7 - Username Enumeration (PoC) (linux/remote/45210.py)",
+                "OpenSSH 2.3 < 7.7 - Username Enumeration (linux/remote/45233.py)",
+                "OpenSSH < 6.6 SFTP (x64) - Command Execution (linux_x86-64/remote/45000.c)",
+                "OpenSSH < 6.6 SFTP - Command Execution (linux/remote/45001.py)",
+                "OpenSSH < 7.4 - 'UsePrivilegeSeparation Disabled' Forwarded Unix Domain So (linux/local/40962.txt)",
+                "OpenSSH < 7.4 - agent Protocol Arbitrary Library Loading (linux/remote/40963.txt)",
+                "OpenSSH < 7.7 - User Enumeration (2) (linux/remote/45939.py)"
+            ],
+            "exploitdb_cves": [
+                "none"
+            ],
+            "msf_mods": [
+                "none"
+            ],
+            "msf_cves": [
+                "none"
+            ],
+            "port_protocol": "22/tcp",
+            "svc_name": "Ssh",
+            "risk_level": "high"
+        },
+        "postgresql_5432_tcp": {
+            "target": "192.168.1.50",
+            "nmap_postgresql_banner": "Starting Nmap 7.95 ( https://nmap.org ) at 2025-09-02 16:16 +01\nNmap scan report for 192.168.1.50 (192.168.1.50)\nHost is up (0.0027s latency).\n\nPORT     STATE SERVICE    VERSION\n5432/tcp open  postgresql PostgreSQL DB 8.3.0 - 8.3.7\nMAC Address: 08:00:27:58:9E:87 (PCS Systemtechnik/Oracle VirtualBox virtual NIC)\n\nService detection performed. Please report any incorrect results at https://nmap.org/submit/ .\nNmap done: 1 IP address (1 host up) scanned in 7.31 seconds",
+            "raw_postgresql_banner": "[!] No banner \u2014 PostgreSQL requires proper handshake.",
+            "msf_exploit_found": "yes",
+            "msf_exploit_mods": [
+                "exploit/linux/http/acronis_cyber_infra_cve_2023_45249",
+                "exploit/linux/http/appsmith_rce_cve_2024_55964",
+                "exploit/linux/http/beyondtrust_pra_rs_unauth_rce",
+                "exploit/linux/postgres/postgres_payload",
+                "exploit/multi/http/manage_engine_dc_pmp_sqli",
+                "exploit/multi/http/rudder_server_sqli_rce",
+                "exploit/multi/postgres/postgres_copy_from_program_cmd_exec",
+                "exploit/multi/postgres/postgres_createlang",
+                "exploit/windows/misc/manageengine_eventlog_analyzer_rce",
+                "exploit/windows/postgres/postgres_payload"
+            ],
+            "msf_exploit_cves": [
+                "CVE-2007-3280",
+                "CVE-2014-3996",
+                "CVE-2015-7387",
+                "CVE-2019-9193",
+                "CVE-2023-30625",
+                "CVE-2023-45249",
+                "CVE-2024-12356",
+                "CVE-2024-55963",
+                "CVE-2024-55964",
+                "CVE-2025-1094"
+            ],
+            "port_protocol": "5432/tcp",
+            "svc_name": "Postgresql",
+            "port": "5432",
+            "risk_level": "low"
+        },
+        "21_ftp": {
+            "target": "192.168.1.50",
+            "port": 21,
+            "server": "vsftpd",
+            "version": "2.3.4",
+            "anonymous_login_allowed": "yes",
+            "anonymous_upload_allowed": "no",
+            "backdoor_detected": "yes",
+            "ftp_syst": {
+                "|   STAT": "",
+                "| FTP server status": "",
+                "|      TYPE": "ASCII",
+                "| ftp-vsftpd-backdoor": "",
+                "|   VULNERABLE": "",
+                "|     State": "VULNERABLE (Exploitable)",
+                "|     IDs": "BID:48539  CVE:CVE-2011-2523",
+                "|     Disclosure date": "2011-07-03",
+                "|     Exploit results": "",
+                "|       Shell command": "id",
+                "|       Results": "uid=0(root) gid=0(root)",
+                "|     References": "",
+                "|       https": "//cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2011-2523",
+                "|       http": "//scarybeastsecurity.blogspot.com/2011/07/alert-vsftpd-download-backdoored.html",
+                "|_      https": "//www.securityfocus.com/bid/48539",
+                "|_ftp-anon": "Anonymous FTP login allowed (FTP code 230)",
+                "MAC Address": "08:00:27:58:9E:87 (PCS Systemtechnik/Oracle VirtualBox virtual NIC)",
+                "Service Info": "OS: Unix"
+            },
+            "exploitdb_mods": [
+                "vsftpd 2.3.4 - Backdoor Command Execution (unix/remote/49757.py)",
+                "vsftpd 2.3.4 - Backdoor Command Execution (Metasploit) (unix/remote/17491.rb)"
+            ],
+            "exploitdb_cves": [
+                "none"
+            ],
+            "msf_mods": [
+                "exploit/unix/ftp/vsftpd_234_backdoor"
+            ],
+            "msf_cves": [
+                "none"
+            ],
+            "port_protocol": "ftp",
+            "svc_name": "21",
+            "risk_level": "high"
+        },
+        "iad1_1030_udp": {
+            "target": "192.168.1.50",
+            "port": 1030,
+            "protocol": "udp",
+            "note": "No footprint module available for iad1",
+            "port_protocol": "1030/udp",
+            "svc_name": "Iad1",
+            "risk_level": "low"
+        },
+        "tcpwrapped_514_tcp": {
+            "target": "192.168.1.50",
+            "port": 514,
+            "protocol": "tcp",
+            "note": "No footprint module available for tcpwrapped",
+            "port_protocol": "514/tcp",
+            "svc_name": "Tcpwrapped",
+            "risk_level": "low"
+        },
+        "drb_8787_tcp": {
+            "target": "192.168.1.50",
+            "port": 8787,
+            "protocol": "tcp",
+            "note": "No footprint module available for drb",
+            "port_protocol": "8787/tcp",
+            "svc_name": "Drb",
+            "risk_level": "low"
+        },
+        "tftp_69_udp": {
+            "target": "192.168.1.50",
+            "port": 69,
+            "protocol": "udp",
+            "note": "No footprint module available for tftp",
+            "port_protocol": "69/udp",
+            "svc_name": "Tftp",
+            "risk_level": "low"
+        },
+        "asf-rmcp_623_udp": {
+            "target": "192.168.1.50",
+            "port": 623,
+            "protocol": "udp",
+            "note": "No footprint module available for asf-rmcp",
+            "port_protocol": "623/udp",
+            "svc_name": "Asf-Rmcp",
+            "risk_level": "low"
+        },
+        "telnet_23_tcp": {
+            "target": "192.168.1.50",
+            "port": 23,
+            "protocol": "tcp",
+            "note": "No footprint module available for telnet",
+            "port_protocol": "23/tcp",
+            "svc_name": "Telnet",
+            "risk_level": "high"
+        },
+        "adobeserver-3_3703_udp": {
+            "target": "192.168.1.50",
+            "port": 3703,
+            "protocol": "udp",
+            "note": "No footprint module available for adobeserver-3",
+            "port_protocol": "3703/udp",
+            "svc_name": "Adobeserver-3",
+            "risk_level": "low"
+        },
+        "distccd_3632_tcp": {
+            "target": "192.168.1.50",
+            "port": 3632,
+            "protocol": "tcp",
+            "note": "No footprint module available for distccd",
+            "port_protocol": "3632/tcp",
+            "svc_name": "Distccd",
+            "risk_level": "low"
+        },
+        "login_513_tcp": {
+            "target": "192.168.1.50",
+            "port": 513,
+            "protocol": "tcp",
+            "note": "No footprint module available for login",
+            "port_protocol": "513/tcp",
+            "svc_name": "Login",
+            "risk_level": "low"
+        },
+        "rockwell-csp2_2223_udp": {
+            "target": "192.168.1.50",
+            "port": 2223,
+            "protocol": "udp",
+            "note": "No footprint module available for rockwell-csp2",
+            "port_protocol": "2223/udp",
+            "svc_name": "Rockwell-Csp2",
+            "risk_level": "low"
+        },
+        "netbios-ns_137_udp": {
+            "target": "192.168.1.50",
+            "port": 137,
+            "protocol": "udp",
+            "note": "No footprint module available for netbios-ns",
+            "port_protocol": "137/udp",
+            "svc_name": "Netbios-Ns",
+            "risk_level": "low"
+        },
+        "dls-monitor_2048_udp": {
+            "target": "192.168.1.50",
+            "port": 2048,
+            "protocol": "udp",
+            "note": "No footprint module available for dls-monitor",
+            "port_protocol": "2048/udp",
+            "svc_name": "Dls-Monitor",
+            "risk_level": "low"
+        },
+        "cisco-sccp_2000_udp": {
+            "target": "192.168.1.50",
+            "port": 2000,
+            "protocol": "udp",
+            "note": "No footprint module available for cisco-sccp",
+            "port_protocol": "2000/udp",
+            "svc_name": "Cisco-Sccp",
+            "risk_level": "low"
+        },
+        "blackjack_1025_udp": {
+            "target": "192.168.1.50",
+            "port": 1025,
+            "protocol": "udp",
+            "note": "No footprint module available for blackjack",
+            "port_protocol": "1025/udp",
+            "svc_name": "Blackjack",
+            "risk_level": "low"
+        },
+        "ndmp_10000_udp": {
+            "target": "192.168.1.50",
+            "port": 10000,
+            "protocol": "udp",
+            "note": "No footprint module available for ndmp",
+            "port_protocol": "10000/udp",
+            "svc_name": "Ndmp",
+            "risk_level": "low"
+        },
+        "netbios-dgm_138_udp": {
+            "target": "192.168.1.50",
+            "port": 138,
+            "protocol": "udp",
+            "note": "No footprint module available for netbios-dgm",
+            "port_protocol": "138/udp",
+            "svc_name": "Netbios-Dgm",
+            "risk_level": "low"
+        },
+        "dhcpc_68_udp": {
+            "target": "192.168.1.50",
+            "port": 68,
+            "protocol": "udp",
+            "note": "No footprint module available for dhcpc",
+            "port_protocol": "68/udp",
+            "svc_name": "Dhcpc",
+            "risk_level": "low"
+        },
+        "cfdptkt_120_udp": {
+            "target": "192.168.1.50",
+            "port": 120,
+            "protocol": "udp",
+            "note": "No footprint module available for cfdptkt",
+            "port_protocol": "120/udp",
+            "svc_name": "Cfdptkt",
+            "risk_level": "low"
+        },
+        "https_443_udp": {
+            "target": "192.168.1.50",
+            "port": 443,
+            "protocol": "udp",
+            "note": "No footprint module available for https",
+            "port_protocol": "443/udp",
+            "svc_name": "Https",
+            "risk_level": "medium"
+        },
+        "mysql_3306_tcp": {
+            "target": "192.168.1.50",
+            "port": 3306,
+            "protocol": "tcp",
+            "error": "Decoding error: 'utf-8' codec can't decode byte 0xff in position 4: invalid start byte",
+            "port_protocol": "3306/tcp",
+            "svc_name": "Mysql",
+            "risk_level": "low"
+        },
+        "bakbonenetvault_20031_udp": {
+            "target": "192.168.1.50",
+            "port": 20031,
+            "protocol": "udp",
+            "note": "No footprint module available for bakbonenetvault",
+            "port_protocol": "20031/udp",
+            "svc_name": "Bakbonenetvault",
+            "risk_level": "low"
+        },
+        "retrospect_497_udp": {
+            "target": "192.168.1.50",
+            "port": 497,
+            "protocol": "udp",
+            "note": "No footprint module available for retrospect",
+            "port_protocol": "497/udp",
+            "svc_name": "Retrospect",
+            "risk_level": "low"
+        },
+        "h225gatedisc_1718_udp": {
+            "target": "192.168.1.50",
+            "port": 1718,
+            "protocol": "udp",
+            "note": "No footprint module available for h225gatedisc",
+            "port_protocol": "1718/udp",
+            "svc_name": "H225Gatedisc",
+            "risk_level": "low"
+        },
+        "java-rmi_1099_tcp": {
+            "target": "192.168.1.50",
+            "port": 1099,
+            "protocol": "tcp",
+            "note": "No footprint module available for java-rmi",
+            "port_protocol": "1099/tcp",
+            "svc_name": "Java-Rmi",
+            "risk_level": "low"
+        }
+    },
+    "tcp_fast_scan": "# Nmap 7.95 scan initiated Tue Sep  2 15:32:27 2025 as: /usr/libNmap scan report for 192.168.1.50 (192.168.1.50)\nHost is up (0.0020s latency).\nNot shown: 977 closed tcp ports (reset)\nPORT     STATE SERVICE     VERSION\n21/tcp   open  ftp         vsftpd 2.3.4\n22/tcp   open  ssh         OpenSSH 4.7p1 Debian 8ubuntu1 (protocol 2.0)\n23/tcp   open  telnet      Linux telnetd\n25/tcp   open  smtp        Postfix smtpd\n53/tcp   open  domain      ISC BIND 9.4.2\n80/tcp   open  http        Apache httpd 2.2.8 ((Ubuntu) DAV/2)\n111/tcp  open  rpcbind     2 (RPC #100000)\n139/tcp  open  netbios-ssn Samba smbd 3.X - 4.X (workgroup: WORKGROUP)\n445/tcp  open  netbios-ssn Samba smbd 3.X - 4.X (workgroup: WORKGROUP)\n512/tcp  open  exec?\n513/tcp  open  login       OpenBSD or Solaris rlogind\n514/tcp  open  tcpwrapped\n1099/tcp open  java-rmi    GNU Classpath grmiregistry\n1524/tcp open  bindshell   Metasploitable root shell\n2049/tcp open  nfs         2-4 (RPC #100003)\n2121/tcp open  ftp         ProFTPD 1.3.1\n3306/tcp open  mysql       MySQL 5.0.51a-3ubuntu5\n5432/tcp open  postgresql  PostgreSQL DB 8.3.0 - 8.3.7\n5900/tcp open  vnc         VNC (protocol 3.3)\n6000/tcp open  X11         (access denied)\n6667/tcp open  irc         UnrealIRCd\n8009/tcp open  ajp13       Apache Jserv (Protocol v1.3)\n8180/tcp open  http        Apache Tomcat/Coyote JSP engine 1.1\nMAC Address: 08:00:27:58:9E:87 (PCS Systemtechnik/Oracle VirtualBox virtual NIC)\nService Info: Hosts:  metasploitable.localdomain, irc.Metasploitable.LAN; OSs: Unix, Linux; CPE: cpe:/o:linux:linux_kernel\n\nService detection performed. Please report any incorrect results at https://nmap.org/submit/ .\nNmap done: 1 IP address (1 host up) scanned in 139.82 seconds\nort any incorrect results at https://nmap.org/submit/ .\n# Nmap done at Tue Sep  2 15:34:47 2025 -- 1 IP address (1 host up) scanned in 139.82 seconds\n",
+    "tcp_full_scan": "# Nmap 7.95 scan initiated Tue Sep  2 15:32:27 2025 as: /usr/libNmap scan report for 192.168.1.50 (192.168.1.50)\nHost is up (0.0026s latency).\nNot shown: 65505 closed tcp ports (reset)\nPORT      STATE SERVICE     VERSION\n21/tcp    open  ftp         vsftpd 2.3.4\n22/tcp    open  ssh         OpenSSH 4.7p1 Debian 8ubuntu1 (protocol 2.0)\n23/tcp    open  telnet      Linux telnetd\n25/tcp    open  smtp        Postfix smtpd\n53/tcp    open  domain      ISC BIND 9.4.2\n80/tcp    open  http        Apache httpd 2.2.8 ((Ubuntu) DAV/2)\n111/tcp   open  rpcbind     2 (RPC #100000)\n139/tcp   open  netbios-ssn Samba smbd 3.X - 4.X (workgroup: WORKGROUP)\n445/tcp   open  netbios-ssn Samba smbd 3.X - 4.X (workgroup: WORKGROUP)\n512/tcp   open  exec?\n513/tcp   open  login       OpenBSD or Solaris rlogind\n514/tcp   open  tcpwrapped\n1099/tcp  open  java-rmi    GNU Classpath grmiregistry\n1524/tcp  open  bindshell   Metasploitable root shell\n2049/tcp  open  nfs         2-4 (RPC #100003)\n2121/tcp  open  ftp         ProFTPD 1.3.1\n3306/tcp  open  mysql       MySQL 5.0.51a-3ubuntu5\n3632/tcp  open  distccd     distccd v1 ((GNU) 4.2.4 (Ubuntu 4.2.4-1ubuntu4))\n5432/tcp  open  postgresql  PostgreSQL DB 8.3.0 - 8.3.7\n5900/tcp  open  vnc         VNC (protocol 3.3)\n6000/tcp  open  X11         (access denied)\n6667/tcp  open  irc         UnrealIRCd\n6697/tcp  open  irc         UnrealIRCd\n8009/tcp  open  ajp13       Apache Jserv (Protocol v1.3)\n8180/tcp  open  http        Apache Tomcat/Coyote JSP engine 1.1\n8787/tcp  open  drb         Ruby DRb RMI (Ruby 1.8; path /usr/lib/ruby/1.8/drb)\n39086/tcp open  status      1 (RPC #100024)\n44654/tcp open  nlockmgr    1-4 (RPC #100021)\n47917/tcp open  mountd      1-3 (RPC #100005)\n57400/tcp open  java-rmi    GNU Classpath grmiregistry\nMAC Address: 08:00:27:58:9E:87 (PCS Systemtechnik/Oracle VirtualBox virtual NIC)\nService Info: Hosts:  metasploitable.localdomain, irc.Metasploitable.LAN; OSs: Unix, Linux; CPE: cpe:/o:linux:linux_kernel\n\nService detection performed. Please report any incorrect results at https://nmap.org/submit/ .\nNmap done: 1 IP address (1 host up) scanned in 152.22 seconds\n report any incorrect results at https://nmap.org/submit/ .\n# Nmap done at Tue Sep  2 15:34:59 2025 -- 1 IP address (1 host up) scanned in 152.22 seconds\n",
+    "udp_fast_scan": "# Nmap 7.95 scan initiated Tue Sep  2 15:32:27 2025 as: /usr/libWarning: 192.168.1.50 giving up on port because retransmission cap hit (6).\nNmap scan report for 192.168.1.50 (192.168.1.50)\nHost is up (0.0028s latency).\nNot shown: 70 open|filtered udp ports (no-response), 26 closed udp ports (port-unreach)\nPORT     STATE SERVICE\n53/udp   open  domain\n111/udp  open  rpcbind\n137/udp  open  netbios-ns\n2049/udp open  nfs\nMAC Address: 08:00:27:58:9E:87 (PCS Systemtechnik/Oracle VirtualBox virtual NIC)\n\nNmap done: 1 IP address (1 host up) scanned in 22.88 seconds\n58:9E:87 (PCS Systemtechnik/Oracle VirtualBox virtual NIC)\n\n# Nmap done at Tue Sep  2 15:32:50 2025 -- 1 IP address (1 host up) scanned in 22.88 seconds\n",
+    "scan_summary": {
+        "total_services": 53,
+        "open_ports": 53,
+        "vulnerable_services": 4,
+        "high_risk_services": 8,
+        "medium_risk_services": 4,
+        "low_risk_services": 48,
+        "risk_breakdown": {
+            "high": [
+                "ftp",
+                "22",
+                "2121",
+                "vnc",
+                "ssh",
+                "21",
+                "telnet",
+                "ftp"
+            ],
+            "medium": [
+                "smtp",
+                "http",
+                "https",
+                "http"
+            ],
+            "low": [
+                "irc",
+                "ajp13",
+                "nlockmgr",
+                "domain",
+                "wdbrpc",
+                "backorifice",
+                "x11",
+                "exec-",
+                "unknown",
+                "netbios-ssn",
+                "status",
+                "sometimes-rpc6",
+                "ms-sql-s",
+                "bindshell",
+                "radacct",
+                "mountd",
+                "rpcbind",
+                "nfs",
+                "login-",
+                "msantipiracy",
+                "postgresql",
+                "nfs",
+                "iad1",
+                "tcpwrapped",
+                "drb",
+                "tftp",
+                "irc",
+                "asf-rmcp",
+                "netbios-ssn",
+                "adobeserver-3",
+                "domain",
+                "distccd",
+                "login",
+                "rockwell-csp2",
+                "netbios-ns",
+                "rpcbind",
+                "dls-monitor",
+                "cisco-sccp",
+                "blackjack",
+                "ndmp",
+                "netbios-dgm",
+                "dhcpc",
+                "cfdptkt",
+                "mysql",
+                "bakbonenetvault",
+                "retrospect",
+                "h225gatedisc",
+                "java-rmi"
+            ]
+        }
+    }
+}

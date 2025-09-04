@@ -1,0 +1,6 @@
+{
+    "target": "192.168.1.50",
+    "port": 23,
+    "protocol": "tcp",
+    "note": "No footprint module available for telnet"
+}

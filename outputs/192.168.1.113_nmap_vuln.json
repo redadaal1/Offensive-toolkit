@@ -1,0 +1,5 @@
+{
+  "tool": "nmap_vuln",
+  "cve_count": 131,
+  "output_path": "/home/reda_daal/Desktop/Offsec/outputs/192.168.1.113_nmap_vuln.txt"
+}

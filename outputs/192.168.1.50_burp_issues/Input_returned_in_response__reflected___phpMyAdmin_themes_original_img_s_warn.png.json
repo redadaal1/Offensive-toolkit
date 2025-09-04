@@ -1,0 +1,69 @@
+{
+  "name": "Input returned in response (reflected)",
+  "type": "vulnerability",
+  "severity": "Info",
+  "confidence": "Certain",
+  "host": "",
+  "path": "/phpMyAdmin/themes/original/img/s_warn.png",
+  "url": "/phpMyAdmin/themes/original/img/s_warn.png",
+  "evidence": [
+    {
+      "type": "FirstOrderEvidence",
+      "detail": {
+        "payload": {
+          "bytes": "czR0aTZzY3BqMA==",
+          "flags": 0
+        },
+        "band_flags": [
+          "in_band"
+        ]
+      },
+      "request_response": {
+        "url": "http://192.168.1.50/phpMyAdmin/themes/original/img/s_warn.pngs4ti6scpj0",
+        "request": [
+          {
+            "type": "DataSegment",
+            "data": "R0VUIC9waHBNeUFkbWluL3RoZW1lcy9vcmlnaW5hbC9pbWcvc193YXJuLnBuZw==",
+            "length": 46
+          },
+          {
+            "type": "HighlightSegment",
+            "data": "czR0aTZzY3BqMA==",
+            "length": 10
+          },
+          {
+            "type": "DataSegment",
+            "data": "IEhUVFAvMS4xDQpIb3N0OiAxOTIuMTY4LjEuNTANCkNhY2hlLUNvbnRyb2w6IG1heC1hZ2U9MA0KU2VjLUNILVVBOiAiR29vZ2xlIENocm9tZSI7dj0iMTM4IiwgIk5vdD1BP0JyYW5kIjt2PSI4IiwgIkNocm9taXVtIjt2PSIxMzgiDQpTZWMtQ0gtVUEtTW9iaWxlOiA/MA0KU2VjLUNILVVBLVBsYXRmb3JtOiAiTGludXgiDQpBY2NlcHQtTGFuZ3VhZ2U6IGVuLVVTO3E9MC45LGVuO3E9MC44DQpVc2VyLUFnZW50OiBNb3ppbGxhLzUuMCAoWDExOyBMaW51eCB4ODZfNjQpIEFwcGxlV2ViS2l0LzUzNy4zNiAoS0hUTUwsIGxpa2UgR2Vja28pIENocm9tZS8xMzguMC4wLjAgU2FmYXJpLzUzNy4zNg0KQWNjZXB0OiBpbWFnZS9hdmlmLGltYWdlL3dlYnAsaW1hZ2UvYXBuZyxpbWFnZS9zdmcreG1sLGltYWdlLyosKi8qO3E9MC44DQpTZWMtRmV0Y2gtU2l0ZTogbm9uZQ0KU2VjLUZldGNoLU1vZGU6IG5hdmlnYXRlDQpTZWMtRmV0Y2gtVXNlcjogPzENClNlYy1GZXRjaC1EZXN0OiBkb2N1bWVudA0KQWNjZXB0LUVuY29kaW5nOiBnemlwLCBkZWZsYXRlLCBicg0KQ29ubmVjdGlvbjogY2xvc2UNCkNvb2tpZTogcGhwTXlBZG1pbj01OWJlNmIwYTE0ZGVkMzBjZjk3MTIyODYzZjc4NDUzZjI1YjFjYjU0OyBwbWFfbGFuZz1lbi11dGYtODsgcG1hX2NoYXJzZXQ9dXRmLTg7IHBtYV90aGVtZT1vcmlnaW5hbDsgcG1hX2ZvbnRzaXplPTgyJTI1DQpSZWZlcmVyOiBodHRwOi8vMTkyLjE2OC4xLjUwL3BocE15QWRtaW4vcGhwbXlhZG1pbi5jc3MucGhwP2xhbmc9ZW4tdXRmLTgmY29udmNoYXJzZXQ9dXRmLTgmdG9rZW49YWVhOGZiYmIxMDYwZDJiNjhjN2Y2MmE3MmM0NWYyZDYmanNfZnJhbWU9cmlnaHQmbm9jYWNoZT0yNDU3Njg3MTUxDQoNCg==",
+            "length": 868
+          }
+        ],
+        "response": [
+          {
+            "type": "DataSegment",
+            "data": "SFRUUC8xLjEgNDA0IE5vdCBGb3VuZA0KRGF0ZTogVHVlLCAwMiBTZXAgMjAyNSAxMzowOTo1NiBHTVQNClNlcnZlcjogQXBhY2hlLzIuMi44IChVYnVudHUpIERBVi8yDQpDb250ZW50LUxlbmd0aDogMzMyDQpDb25uZWN0aW9uOiBjbG9zZQ0KQ29udGVudC1UeXBlOiB0ZXh0L2h0bWw7IGNoYXJzZXQ9aXNvLTg4NTktMQ0KDQo8IURPQ1RZUEUgSFRNTCBQVUJMSUMgIi0vL0lFVEYvL0RURCBIVE1MIDIuMC8vRU4iPgo8aHRtbD48aGVhZD4KPHRpdGxlPjQwNCBOb3QgRm91bmQ8L3RpdGxlPgo8L2hlYWQ+PGJvZHk+CjxoMT5Ob3QgRm91bmQ8L2gxPgo8cD5UaGUgcmVxdWVzdGVkIFVSTCAvcGhwTXlBZG1pbi90aGVtZXMvb3JpZ2luYWwvaW1nL3Nfd2Fybi5wbmc=",
+            "length": 374
+          },
+          {
+            "type": "HighlightSegment",
+            "data": "czR0aTZzY3BqMA==",
+            "length": 10
+          },
+          {
+            "type": "DataSegment",
+            "data": "IHdhcyBub3QgZm91bmQgb24gdGhpcyBzZXJ2ZXIuPC9wPg==",
+            "length": 34
+          },
+          {
+            "type": "SnipSegment",
+            "length": 99
+          }
+        ],
+        "was_redirect_followed": false,
+        "request_time": "1756818595849"
+      }
+    }
+  ],
+  "description": "The value of the URL path filename is copied into the application's response.",
+  "remediation": "",
+  "references": []
+}

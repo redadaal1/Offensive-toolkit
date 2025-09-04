@@ -1,0 +1,6 @@
+{
+    "target": "10.1.3.2",
+    "port": 177,
+    "protocol": "udp",
+    "note": "No footprint module available for xdmcp"
+}

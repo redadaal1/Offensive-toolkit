@@ -1,0 +1,6 @@
+{
+    "target": "192.168.1.50",
+    "port": 3306,
+    "protocol": "tcp",
+    "error": "Decoding error: 'utf-8' codec can't decode byte 0xff in position 4: invalid start byte"
+}

@@ -1,0 +1,12 @@
+{
+  "target": "10.1.3.2",
+  "nmap_irc_banner": "Starting Nmap 7.95 ( https://nmap.org ) at 2025-09-03 22:31 +01\nNmap scan report for 10.1.3.2\nHost is up (0.00045s latency).\n\nPORT     STATE SERVICE VERSION\n6667/tcp open  irc     UnrealIRCd\nMAC Address: 08:00:27:58:9E:87 (PCS Systemtechnik/Oracle VirtualBox virtual NIC)\nService Info: Host: irc.Metasploitable.LAN\n\nService detection performed. Please report any incorrect results at https://nmap.org/submit/ .\nNmap done: 1 IP address (1 host up) scanned in 1.15 seconds",
+  "irc_raw_banner": ":irc.Metasploitable.LAN NOTICE AUTH :*** Looking up your hostname...",
+  "msf_exploit_found": "no",
+  "msf_exploit_mods": [
+    "none"
+  ],
+  "msf_exploit_cves": [
+    "none"
+  ]
+}

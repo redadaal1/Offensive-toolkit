@@ -1,0 +1,6 @@
+{
+    "target": "10.1.3.2",
+    "port": 3306,
+    "protocol": "tcp",
+    "error": "Decoding error: 'utf-8' codec can't decode byte 0xaa in position 36: invalid start byte"
+}

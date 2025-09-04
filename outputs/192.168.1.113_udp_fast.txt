@@ -1,0 +1,26 @@
+# Nmap 7.95 scan initiated Mon Sep  1 22:49:59 2025 as: /usr/libWarning: 192.168.1.113 giving up on port because retransmission cap hit (6).
+Nmap scan report for 192.168.1.113 (192.168.1.113)
+Host is up (0.00068s latency).
+Not shown: 85 closed udp ports (port-unreach)
+PORT      STATE         SERVICE
+17/udp    open|filtered qotd
+68/udp    open|filtered dhcpc
+111/udp   open|filtered rpcbind
+120/udp   open|filtered cfdptkt
+136/udp   open|filtered profile
+137/udp   open          netbios-ns
+138/udp   open|filtered netbios-dgm
+445/udp   open|filtered microsoft-ds
+1026/udp  open|filtered win-rpc
+1718/udp  open|filtered h225gatedisc
+1900/udp  open|filtered upnp
+3283/udp  open|filtered netassistant
+3456/udp  open|filtered IISrpc-or-vat
+49152/udp open|filtered unknown
+49186/udp open|filtered unknown
+MAC Address: 08:00:27:AB:58:94 (PCS Systemtechnik/Oracle VirtualBox virtual NIC)
+
+Nmap done: 1 IP address (1 host up) scanned in 85.10 seconds
+7:AB:58:94 (PCS Systemtechnik/Oracle VirtualBox virtual NIC)
+
+# Nmap done at Mon Sep  1 22:51:24 2025 -- 1 IP address (1 host up) scanned in 85.10 seconds

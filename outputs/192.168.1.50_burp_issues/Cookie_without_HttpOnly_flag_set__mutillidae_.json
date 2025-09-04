@@ -1,0 +1,53 @@
+{
+  "name": "Cookie without HttpOnly flag set",
+  "type": "vulnerability",
+  "severity": "Low",
+  "confidence": "Firm",
+  "host": "",
+  "path": "/mutillidae/",
+  "url": "/mutillidae/",
+  "evidence": [
+    {
+      "type": "InformationListEvidence",
+      "request_response": {
+        "url": "http://192.168.1.50/mutillidae/",
+        "request": [
+          {
+            "type": "DataSegment",
+            "data": "R0VUIC9tdXRpbGxpZGFlLyBIVFRQLzEuMQ0KSG9zdDogMTkyLjE2OC4xLjUwDQpDYWNoZS1Db250cm9sOiBtYXgtYWdlPTANClNlYy1DSC1VQTogIkdvb2dsZSBDaHJvbWUiO3Y9IjEzOCIsICJOb3Q9QT9CcmFuZCI7dj0iOCIsICJDaHJvbWl1bSI7dj0iMTM4Ig0KU2VjLUNILVVBLU1vYmlsZTogPzANClNlYy1DSC1VQS1QbGF0Zm9ybTogIkxpbnV4Ig0KQWNjZXB0LUxhbmd1YWdlOiBlbi1VUztxPTAuOSxlbjtxPTAuOA0KVXNlci1BZ2VudDogTW96aWxsYS81LjAgKFgxMTsgTGludXggeDg2XzY0KSBBcHBsZVdlYktpdC81MzcuMzYgKEtIVE1MLCBsaWtlIEdlY2tvKSBDaHJvbWUvMTM4LjAuMC4wIFNhZmFyaS81MzcuMzYNCkFjY2VwdDogdGV4dC9odG1sLGFwcGxpY2F0aW9uL3hodG1sK3htbCxhcHBsaWNhdGlvbi94bWw7cT0wLjksaW1hZ2UvYXZpZixpbWFnZS93ZWJwLGltYWdlL2FwbmcsKi8qO3E9MC44LGFwcGxpY2F0aW9uL3NpZ25lZC1leGNoYW5nZTt2PWIzO3E9MC43DQpTZWMtRmV0Y2gtU2l0ZTogbm9uZQ0KU2VjLUZldGNoLU1vZGU6IG5hdmlnYXRlDQpTZWMtRmV0Y2gtVXNlcjogPzENClNlYy1GZXRjaC1EZXN0OiBkb2N1bWVudA0KQWNjZXB0LUVuY29kaW5nOiBnemlwLCBkZWZsYXRlLCBicg0KQ29ubmVjdGlvbjogY2xvc2UNClVwZ3JhZGUtSW5zZWN1cmUtUmVxdWVzdHM6IDENClJlZmVyZXI6IGh0dHA6Ly8xOTIuMTY4LjEuNTAvDQoNCg==",
+            "length": 712
+          }
+        ],
+        "response": [
+          {
+            "type": "DataSegment",
+            "data": "SFRUUC8xLjEgMjAwIE9LDQpEYXRlOiBUdWUsIDAyIFNlcCAyMDI1IDEzOjA5OjE1IEdNVA0KU2VydmVyOiBBcGFjaGUvMi4yLjggKFVidW50dSkgREFWLzINClgtUG93ZXJlZC1CeTogUEhQLzUuMi40LTJ1YnVudHU1LjEwDQpFeHBpcmVzOiBUaHUsIDE5IE5vdiAxOTgxIDA4OjUyOjAwIEdNVA0KTG9nZ2VkLUluLVVzZXI6IA0KQ2FjaGUtQ29udHJvbDogcHVibGljDQpQcmFnbWE6IHB1YmxpYw0K",
+            "length": 225
+          },
+          {
+            "type": "HighlightSegment",
+            "data": "U2V0LUNvb2tpZTogUEhQU0VTU0lEPTI4OTg2MGMyZjliYjMxNmRiOTQ2Yjc4NTU2OTE4YzAyOyBwYXRoPS8=",
+            "length": 62
+          },
+          {
+            "type": "DataSegment",
+            "data": "DQpMYXN0LU1vZGlmaWVkOiBUdWUsIDAyIFNlcCAyMDI1IDEzOjA5OjE2IEdNVA0KQ29ubmVjdGlvbjogY2xvc2UNCkNvbnRlbnQtVHlwZTogdGV4dC9odG1sDQpDb250ZW50LUxlbmd0aDogMjQyODgNCg0KDQoJCQk8IS0tIEkgdGhpbmsgdGhlIGRhdGFiYXNlIHBhc3N3b3JkIGlzIHNldCB0byBibGFuayBvciBwZXJoYXBzIHNhbXVyYWkuDQoJCQlJdCBkZXBlbmRzIG9uIHdoZXRoZXIgeW91IGluc3RhbGxlZCB0aGlzIHdlYiBhcHAgZnJvbSBpcm9uZ2Vla3Mgc2l0ZSBvcg0KCQkJYXJlIHVzaW5nIGl0IGluc2lkZSBLZXZpbiBKb2huc29ucyBTYW11cmFpIHc=",
+            "length": 317
+          },
+          {
+            "type": "SnipSegment",
+            "length": 24088
+          }
+        ],
+        "was_redirect_followed": false,
+        "request_time": "1756818560165"
+      },
+      "information_items": [
+        "Session: PHPSESSID"
+      ]
+    }
+  ],
+  "description": "The following cookie was issued by the application and does not have the HttpOnly flag set:<ul><li><b>PHPSESSID</b></li></ul>The cookie appears to contain a session token, which may increase the risk associated with this issue. You should review the contents of the cookie to determine its function.",
+  "remediation": "",
+  "references": []
+}

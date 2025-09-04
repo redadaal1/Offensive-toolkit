@@ -1,0 +1,79 @@
+{
+  "name": "Input returned in response (reflected)",
+  "type": "vulnerability",
+  "severity": "Info",
+  "confidence": "Certain",
+  "host": "",
+  "path": "/shepherd/login.jsp",
+  "url": "/shepherd/login.jsp",
+  "evidence": [
+    {
+      "type": "FirstOrderEvidence",
+      "detail": {
+        "payload": {
+          "bytes": "Zmlic3Y1YXV0OQ==",
+          "flags": 0
+        },
+        "band_flags": [
+          "in_band"
+        ]
+      },
+      "request_response": {
+        "url": "http://192.168.1.113/shepherd/login.jsp",
+        "request": [
+          {
+            "type": "DataSegment",
+            "data": "R0VUIC9zaGVwaGVyZC9sb2dpbi5qc3AgSFRUUC8xLjENCkhvc3Q6IDE5Mi4xNjguMS4xMTMNCkNhY2hlLUNvbnRyb2w6IG1heC1hZ2U9MA0KU2VjLUNILVVBOiAiR29vZ2xlIENocm9tZSI7dj0iMTM4IiwgIk5vdD1BP0JyYW5kIjt2PSI4IiwgIkNocm9taXVtIjt2PSIxMzgiDQpTZWMtQ0gtVUEtTW9iaWxlOiA/MA0KU2VjLUNILVVBLVBsYXRmb3JtOiAiTGludXgiDQpBY2NlcHQtTGFuZ3VhZ2U6IGVuLVVTO3E9MC45LGVuO3E9MC44DQpVc2VyLUFnZW50OiBNb3ppbGxhLzUuMCAoWDExOyBMaW51eCB4ODZfNjQpIEFwcGxlV2ViS2l0LzUzNy4zNiAoS0hUTUwsIGxpa2UgR2Vja28pIENocm9tZS8xMzguMC4wLjAgU2FmYXJpLzUzNy4zNg0KQWNjZXB0OiB0ZXh0L2h0bWwsYXBwbGljYXRpb24veGh0bWwreG1sLGFwcGxpY2F0aW9uL3htbDtxPTAuOSxpbWFnZS9hdmlmLGltYWdlL3dlYnAsaW1hZ2UvYXBuZywqLyo7cT0wLjgsYXBwbGljYXRpb24vc2lnbmVkLWV4Y2hhbmdlO3Y9YjM7cT0wLjcNClNlYy1GZXRjaC1TaXRlOiBub25lDQpTZWMtRmV0Y2gtTW9kZTogbmF2aWdhdGUNClNlYy1GZXRjaC1Vc2VyOiA/MQ0KU2VjLUZldGNoLURlc3Q6IGRvY3VtZW50DQpBY2NlcHQtRW5jb2Rpbmc6IGd6aXAsIGRlZmxhdGUsIGJyDQpDb25uZWN0aW9uOiBjbG9zZQ0KQ29va2llOiBhY29wZW5kaXZpZHM9c3dpbmdzZXQsam90dG8scGhwYmIyLHJlZG1pbmU7IGFjZ3JvdXBzd2l0aHBlcnNpc3Q9bmFkYTsgSlNFU1NJT05JRD05RDUzNTg0NUU1NDUyODRENUU1MkNFMTREMzhDMUUxQQ==",
+            "length": 778
+          },
+          {
+            "type": "HighlightSegment",
+            "data": "Zmlic3Y1YXV0OQ==",
+            "length": 10
+          },
+          {
+            "type": "DataSegment",
+            "data": "DQpVcGdyYWRlLUluc2VjdXJlLVJlcXVlc3RzOiAxDQpSZWZlcmVyOiBodHRwOi8vMmNiYzBlMTctNDA5YS00MWEwLWI2ZDktYmU0OTBlYTI5ZjM0LmNvbS8NCg0K",
+            "length": 93
+          }
+        ],
+        "response": [
+          {
+            "type": "DataSegment",
+            "data": "SFRUUC8xLjEgMjAwIE9LDQpEYXRlOiBNb24sIDAxIFNlcCAyMDI1IDIxOjQwOjU3IEdNVA0KU2VydmVyOiBBcGFjaGUtQ295b3RlLzEuMQ0KQ29udGVudC1UeXBlOiB0ZXh0L2h0bWw7Y2hhcnNldD1pc28tODg1OS0xDQpTZXQtQ29va2llOiBKU0VTU0lPTklEPTlENTM1ODQ1RTU0NTI4NEQ1RTUyQ0UxNEQzOEMxRTFB",
+            "length": 180
+          },
+          {
+            "type": "HighlightSegment",
+            "data": "Zmlic3Y1YXV0OQ==",
+            "length": 10
+          },
+          {
+            "type": "DataSegment",
+            "data": "OyBQYXRoPS8NClNldC1Db29raWU6IEpTRVNTSU9OSUQ9OUQ1MzU4NDVFNTQ1Mjg0RDVFNTJDRTE0RDM4QzFFMUE=",
+            "length": 65
+          },
+          {
+            "type": "HighlightSegment",
+            "data": "Zmlic3Y1YXV0OQ==",
+            "length": 10
+          },
+          {
+            "type": "DataSegment",
+            "data": "OyBQYXRoPS8NClZpYTogMS4xIDEyNy4wLjEuMQ0KVmFyeTogQWNjZXB0LUVuY29kaW5nDQpDb250ZW50LUxlbmd0aDogNDY3Mg0KQ29ubmVjdGlvbjogY2xvc2UNCg0KDQoNCg0KPGh0bWwgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzE5OTkveGh0bWwiPg0KPGhlYWQ+DQo8dGl0bGU+T1dBU1AgU2VjdXJpdHkgU2hlcGhlcmQgLSBMb2dpbjwvdGl0bGU+DQoNCjxsaW5rIGhyZWY9ImNzcy90aGVDc3MuY3NzIiByZWw9InN0eWxlc2hlZXQiIHR5cGU9InRleHQvY3NzIiBtZWRpYT0ic2NyZWVuIiAvPg0KPC9oZWFkPg0KPGI=",
+            "length": 296
+          },
+          {
+            "type": "SnipSegment",
+            "length": 4472
+          }
+        ],
+        "was_redirect_followed": false,
+        "request_time": "1756762859328"
+      }
+    }
+  ],
+  "description": "The value of the <b>JSESSIONID</b> cookie is copied into the application's response.",
+  "remediation": "",
+  "references": []
+}

@@ -1,0 +1,116 @@
+{
+  "name": "Input returned in response (reflected)",
+  "type": "vulnerability",
+  "severity": "Info",
+  "confidence": "Certain",
+  "host": "",
+  "path": "/yazd/bay/images/blank.gif",
+  "url": "/yazd/bay/images/blank.gif",
+  "evidence": [
+    {
+      "type": "FirstOrderEvidence",
+      "detail": {
+        "payload": {
+          "bytes": "a3VlZ3d1enpmZw==",
+          "flags": 0
+        },
+        "band_flags": [
+          "in_band"
+        ]
+      },
+      "request_response": {
+        "url": "http://192.168.1.113/yazd/bay/images/blank.gifkuegwuzzfg",
+        "request": [
+          {
+            "type": "DataSegment",
+            "data": "R0VUIC95YXpkL2JheS9pbWFnZXMvYmxhbmsuZ2lm",
+            "length": 30
+          },
+          {
+            "type": "HighlightSegment",
+            "data": "a3VlZ3d1enpmZw==",
+            "length": 10
+          },
+          {
+            "type": "DataSegment",
+            "data": "IEhUVFAvMS4xDQpIb3N0OiAxOTIuMTY4LjEuMTEzDQpDYWNoZS1Db250cm9sOiBtYXgtYWdlPTANClNlYy1DSC1VQTogIkdvb2dsZSBDaHJvbWUiO3Y9IjEzOCIsICJOb3Q9QT9CcmFuZCI7dj0iOCIsICJDaHJvbWl1bSI7dj0iMTM4Ig0KU2VjLUNILVVBLU1vYmlsZTogPzANClNlYy1DSC1VQS1QbGF0Zm9ybTogIkxpbnV4Ig0KQWNjZXB0LUxhbmd1YWdlOiBlbi1VUztxPTAuOSxlbjtxPTAuOA0KVXNlci1BZ2VudDogTW96aWxsYS81LjAgKFgxMTsgTGludXggeDg2XzY0KSBBcHBsZVdlYktpdC81MzcuMzYgKEtIVE1MLCBsaWtlIEdlY2tvKSBDaHJvbWUvMTM4LjAuMC4wIFNhZmFyaS81MzcuMzYNCkFjY2VwdDogaW1hZ2UvYXZpZixpbWFnZS93ZWJwLGltYWdlL2FwbmcsaW1hZ2Uvc3ZnK3htbCxpbWFnZS8qLCovKjtxPTAuOA0KU2VjLUZldGNoLVNpdGU6IG5vbmUNClNlYy1GZXRjaC1Nb2RlOiBuYXZpZ2F0ZQ0KU2VjLUZldGNoLVVzZXI6ID8xDQpTZWMtRmV0Y2gtRGVzdDogZG9jdW1lbnQNCkFjY2VwdC1FbmNvZGluZzogZ3ppcCwgZGVmbGF0ZSwgYnINCkNvbm5lY3Rpb246IGNsb3NlDQpDb29raWU6IEpTRVNTSU9OSUQ9NjYwOEM5MEJBRDUzOEQ5OEUzRTc3RUE0MThGQ0EyMzk7IGppdmVMYXN0VmlzaXRlZD0xNzU2NzYyOTQ3Mjk4OyBhY29wZW5kaXZpZHM9c3dpbmdzZXQsam90dG8scGhwYmIyLHJlZG1pbmU7IGFjZ3JvdXBzd2l0aHBlcnNpc3Q9bmFkYQ0KUmVmZXJlcjogaHR0cDovLzE5Mi4xNjguMS4xMTMveWF6ZC9iYXkvDQoNCg==",
+            "length": 760
+          }
+        ],
+        "response": [
+          {
+            "type": "DataSegment",
+            "data": "SFRUUC8xLjEgNDA0IE5vdCBGb3VuZA0KRGF0ZTogTW9uLCAwMSBTZXAgMjAyNSAyMTo0MjozOCBHTVQNClNlcnZlcjogQXBhY2hlLUNveW90ZS8xLjENCkNvbnRlbnQtVHlwZTogdGV4dC9odG1sO2NoYXJzZXQ9dXRmLTgNClZpYTogMS4xIDEyNy4wLjEuMQ0KVmFyeTogQWNjZXB0LUVuY29kaW5nDQpDb250ZW50LUxlbmd0aDogMTA2MA0KQ29ubmVjdGlvbjogY2xvc2UNCg0KPGh0bWw+PGhlYWQ+PHRpdGxlPkFwYWNoZSBUb21jYXQvNi4wLjI0IC0gRXJyb3IgcmVwb3J0PC90aXRsZT48c3R5bGU+PCEtLUgxIHtmb250LWZhbWlseTpUYWhvbWEsQXJpYWwsc2Fucy1zZXJpZjtjb2xvcjp3aGl0ZTtiYWNrZ3JvdW5kLWNvbG9yOiM1MjVENzY7Zm9udC1zaXplOjIycHg7fSBIMiB7Zm9udC1mYW1pbHk6VGFob21hLEFyaWFsLHNhbnM=",
+            "length": 413
+          },
+          {
+            "type": "SnipSegment",
+            "length": 483
+          },
+          {
+            "type": "DataSegment",
+            "data": "PGgxPkhUVFAgU3RhdHVzIDQwNCAtIC95YXpkL2JheS9pbWFnZXMvYmxhbmsuZ2lm",
+            "length": 48
+          },
+          {
+            "type": "HighlightSegment",
+            "data": "a3VlZ3d1enpmZw==",
+            "length": 10
+          },
+          {
+            "type": "DataSegment",
+            "data": "PC9oMT4=",
+            "length": 5
+          },
+          {
+            "type": "SnipSegment",
+            "length": 81
+          },
+          {
+            "type": "DataSegment",
+            "data": "PHU+L3lhemQvYmF5L2ltYWdlcy9ibGFuay5naWY=",
+            "length": 29
+          },
+          {
+            "type": "HighlightSegment",
+            "data": "a3VlZ3d1enpmZw==",
+            "length": 10
+          },
+          {
+            "type": "DataSegment",
+            "data": "PC91Pg==",
+            "length": 4
+          },
+          {
+            "type": "SnipSegment",
+            "length": 26
+          },
+          {
+            "type": "DataSegment",
+            "data": "PHU+VGhlIHJlcXVlc3RlZCByZXNvdXJjZSAoL3lhemQvYmF5L2ltYWdlcy9ibGFuay5naWY=",
+            "length": 53
+          },
+          {
+            "type": "HighlightSegment",
+            "data": "a3VlZ3d1enpmZw==",
+            "length": 10
+          },
+          {
+            "type": "DataSegment",
+            "data": "KSBpcyBub3QgYXZhaWxhYmxlLjwvdT4=",
+            "length": 23
+          },
+          {
+            "type": "SnipSegment",
+            "length": 78
+          }
+        ],
+        "was_redirect_followed": false,
+        "request_time": "1756762958489"
+      }
+    }
+  ],
+  "description": "The value of the URL path filename is copied into the application's response.",
+  "remediation": "",
+  "references": []
+}

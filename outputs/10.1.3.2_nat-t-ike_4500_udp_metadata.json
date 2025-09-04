@@ -1,0 +1,6 @@
+{
+    "target": "10.1.3.2",
+    "port": 4500,
+    "protocol": "udp",
+    "note": "No footprint module available for nat-t-ike"
+}

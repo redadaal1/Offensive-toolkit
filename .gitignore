@@ -26,7 +26,7 @@ logs/
 *.log
 
 # Outputs and generated reports
-outputs/
+#outputs/
 !outputs/.gitkeep
 
 # Node / Frontend

@@ -1,0 +1,124 @@
+{
+  "tool": "ssh-audit",
+  "recommendations": {
+    "critical": {
+      "chg": {
+        "kex": [
+          {
+            "name": "diffie-hellman-group-exchange-sha256",
+            "notes": "increase modulus size to 3072 bits or larger"
+          }
+        ]
+      },
+      "del": {
+        "enc": [
+          {
+            "name": "3des-cbc",
+            "notes": ""
+          },
+          {
+            "name": "arcfour128",
+            "notes": ""
+          },
+          {
+            "name": "arcfour",
+            "notes": ""
+          },
+          {
+            "name": "arcfour256",
+            "notes": ""
+          },
+          {
+            "name": "blowfish-cbc",
+            "notes": ""
+          },
+          {
+            "name": "cast128-cbc",
+            "notes": ""
+          },
+          {
+            "name": "rijndael-cbc@lysator.liu.se",
+            "notes": ""
+          }
+        ],
+        "kex": [
+          {
+            "name": "diffie-hellman-group14-sha1",
+            "notes": ""
+          },
+          {
+            "name": "diffie-hellman-group1-sha1",
+            "notes": ""
+          },
+          {
+            "name": "diffie-hellman-group-exchange-sha1",
+            "notes": ""
+          }
+        ],
+        "key": [
+          {
+            "name": "ssh-dss",
+            "notes": ""
+          },
+          {
+            "name": "ssh-rsa",
+            "notes": ""
+          }
+        ],
+        "mac": [
+          {
+            "name": "hmac-md5",
+            "notes": ""
+          },
+          {
+            "name": "hmac-md5-96",
+            "notes": ""
+          },
+          {
+            "name": "hmac-ripemd160",
+            "notes": ""
+          },
+          {
+            "name": "hmac-ripemd160@openssh.com",
+            "notes": ""
+          },
+          {
+            "name": "hmac-sha1",
+            "notes": ""
+          },
+          {
+            "name": "hmac-sha1-96",
+            "notes": ""
+          }
+        ]
+      }
+    },
+    "warning": {
+      "del": {
+        "enc": [
+          {
+            "name": "aes128-cbc",
+            "notes": ""
+          },
+          {
+            "name": "aes192-cbc",
+            "notes": ""
+          },
+          {
+            "name": "aes256-cbc",
+            "notes": ""
+          }
+        ],
+        "mac": [
+          {
+            "name": "umac-64@openssh.com",
+            "notes": ""
+          }
+        ]
+      }
+    }
+  },
+  "summary": {
+    "recommendations": 2
+  }
+}

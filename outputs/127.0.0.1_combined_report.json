@@ -1,0 +1,209 @@
+{
+    "target": "127.0.0.1",
+    "timestamp": "2025-09-01T14:11:18.004440",
+    "services": {
+        "22_ssh": {
+            "target": "127.0.0.1",
+            "port": 22,
+            "server": "OpenSSH",
+            "version": "10.0p2",
+            "auth_methods": [
+                ""
+            ],
+            "allows_password_auth": false,
+            "audit": {},
+            "exploitdb_mods": [
+                "none"
+            ],
+            "exploitdb_cves": [
+                "none"
+            ],
+            "msf_mods": [
+                "none"
+            ],
+            "msf_cves": [
+                "none"
+            ],
+            "port_protocol": "ssh",
+            "svc_name": "22",
+            "risk_level": "high"
+        },
+        "http_8000_tcp": {
+            "target": "127.0.0.1",
+            "os_fingerprint": "Linux 2.6.32, Linux 5.0 - 6.2",
+            "http_banner": "unknown",
+            "https_banner": "unknown",
+            "discovered_endpoints": [],
+            "vulnerable_endpoints": {
+                "sql_injection": [],
+                "xss": [],
+                "lfi": [],
+                "file_upload": []
+            },
+            "auth_bypass_opportunities": [],
+            "exposed_directories": [],
+            "default_files": [],
+            "misconfigurations": [],
+            "outdated_software": [],
+            "exploitable_versions": {},
+            "vhosts": [],
+            "subdomains": [],
+            "wayback_urls": [],
+            "dns_records": [],
+            "technologies": {
+                "web_server": [],
+                "programming_language": [],
+                "framework": [],
+                "cms": [],
+                "database": [],
+                "javascript": [],
+                "other": []
+            },
+            "wordpress_findings": {
+                "version": "unknown",
+                "plugins": [],
+                "themes": [],
+                "vulnerabilities": []
+            },
+            "joomla_findings": {
+                "version": "unknown",
+                "components": [],
+                "vulnerabilities": []
+            },
+            "sqlmap_findings": {
+                "injectable_parameters": [],
+                "database_type": "unknown",
+                "technique": "unknown"
+            },
+            "burp_summary": {},
+            "burp_runner": {},
+            "login_form_sql_injection": {
+                "success": false,
+                "proof": "",
+                "poc": "",
+                "evidence": {}
+            },
+            "os_exploit_found": "no",
+            "os_exploit_mods": [
+                "none"
+            ],
+            "os_exploit_cves": [
+                "none"
+            ],
+            "os_exploitdb_exploits": [],
+            "http_exploit_found": "no",
+            "http_exploit_mods": [
+                "none"
+            ],
+            "http_exploit_cves": [
+                "none"
+            ],
+            "http_exploitdb_exploits": [],
+            "https_exploit_found": "no",
+            "https_exploit_mods": [
+                "none"
+            ],
+            "https_exploit_cves": [
+                "none"
+            ],
+            "software_exploitdb_exploits": [],
+            "port_protocol": "8000/tcp",
+            "svc_name": "Http",
+            "port": "8000",
+            "risk_level": "medium"
+        },
+        "ssh_22_tcp": {
+            "target": "127.0.0.1",
+            "port": 22,
+            "server": "OpenSSH",
+            "version": "10.0p2",
+            "auth_methods": [
+                ""
+            ],
+            "allows_password_auth": false,
+            "audit": {},
+            "exploitdb_mods": [
+                "none"
+            ],
+            "exploitdb_cves": [
+                "none"
+            ],
+            "msf_mods": [
+                "none"
+            ],
+            "msf_cves": [
+                "none"
+            ],
+            "port_protocol": "22/tcp",
+            "svc_name": "Ssh",
+            "risk_level": "high"
+        },
+        "postgresql_5432_tcp": {
+            "target": "127.0.0.1",
+            "nmap_postgresql_banner": "Starting Nmap 7.95 ( https://nmap.org ) at 2025-09-01 13:41 +01\nNmap scan report for localhost (127.0.0.1)\nHost is up (0.000081s latency).\n\nPORT     STATE SERVICE    VERSION\n5432/tcp open  postgresql PostgreSQL DB 9.6.0 or later\n\nService detection performed. Please report any incorrect results at https://nmap.org/submit/ .\nNmap done: 1 IP address (1 host up) scanned in 7.12 seconds",
+            "raw_postgresql_banner": "[!] No banner \u2014 PostgreSQL requires proper handshake.",
+            "msf_exploit_found": "yes",
+            "msf_exploit_mods": [
+                "exploit/linux/http/acronis_cyber_infra_cve_2023_45249",
+                "exploit/linux/http/appsmith_rce_cve_2024_55964",
+                "exploit/linux/http/beyondtrust_pra_rs_unauth_rce",
+                "exploit/linux/postgres/postgres_payload",
+                "exploit/multi/http/manage_engine_dc_pmp_sqli",
+                "exploit/multi/http/rudder_server_sqli_rce",
+                "exploit/multi/postgres/postgres_copy_from_program_cmd_exec",
+                "exploit/multi/postgres/postgres_createlang",
+                "exploit/windows/misc/manageengine_eventlog_analyzer_rce",
+                "exploit/windows/postgres/postgres_payload"
+            ],
+            "msf_exploit_cves": [
+                "CVE-2007-3280",
+                "CVE-2014-3996",
+                "CVE-2015-7387",
+                "CVE-2019-9193",
+                "CVE-2023-30625",
+                "CVE-2023-45249",
+                "CVE-2024-12356",
+                "CVE-2024-55963",
+                "CVE-2024-55964",
+                "CVE-2025-1094"
+            ],
+            "port_protocol": "5432/tcp",
+            "svc_name": "Postgresql",
+            "port": "5432",
+            "risk_level": "low"
+        },
+        "http-proxy_8080_tcp": {
+            "target": "127.0.0.1",
+            "port": 8080,
+            "protocol": "tcp",
+            "note": "No footprint module available for http-proxy",
+            "port_protocol": "8080/tcp",
+            "svc_name": "Http-Proxy",
+            "risk_level": "low"
+        }
+    },
+    "tcp_fast_scan": "No TCP fast scan data available",
+    "tcp_full_scan": "No TCP full scan data available",
+    "udp_fast_scan": "No UDP fast scan data available",
+    "scan_summary": {
+        "total_services": 5,
+        "open_ports": 5,
+        "vulnerable_services": 2,
+        "high_risk_services": 2,
+        "medium_risk_services": 1,
+        "low_risk_services": 2,
+        "risk_breakdown": {
+            "high": [
+                "22",
+                "ssh"
+            ],
+            "medium": [
+                "http"
+            ],
+            "low": [
+                "postgresql",
+                "http-proxy"
+            ]
+        }
+    }
+}

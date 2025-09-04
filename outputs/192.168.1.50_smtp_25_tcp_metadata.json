@@ -1,0 +1,14 @@
+{
+    "target": "192.168.1.50",
+    "smtp_open": "yes",
+    "smtp_banner": "Starting Nmap 7.95 ( https://nmap.org ) at 2025-09-02 16:33 +01",
+    "open_relay": "yes",
+    "users_valid": 0,
+    "smtp_exploit_found": "no",
+    "smtp_exploit_mods": [
+        "none"
+    ],
+    "smtp_exploit_cves": [
+        "none"
+    ]
+}

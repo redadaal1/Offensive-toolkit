@@ -1,0 +1,30 @@
+{
+  "target": "10.1.3.2",
+  "port": 21,
+  "server": "vsftpd",
+  "version": "2.3.4",
+  "anonymous_login_allowed": "yes",
+  "anonymous_upload_allowed": "no",
+  "backdoor_detected": "yes",
+  "ftp_syst": {
+    "|   STAT": "",
+    "| FTP server status": "",
+    "|      TYPE": "ASCII",
+    "|_ftp-anon": "Anonymous FTP login allowed (FTP code 230)",
+    "MAC Address": "08:00:27:58:9E:87 (PCS Systemtechnik/Oracle VirtualBox virtual NIC)",
+    "Service Info": "OS: Unix"
+  },
+  "exploitdb_mods": [
+    "vsftpd 2.3.4 - Backdoor Command Execution (unix/remote/49757.py)",
+    "vsftpd 2.3.4 - Backdoor Command Execution (Metasploit) (unix/remote/17491.rb)"
+  ],
+  "exploitdb_cves": [
+    "none"
+  ],
+  "msf_mods": [
+    "exploit/unix/ftp/vsftpd_234_backdoor"
+  ],
+  "msf_cves": [
+    "none"
+  ]
+}

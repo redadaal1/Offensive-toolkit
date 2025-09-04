@@ -1,0 +1,53 @@
+{
+  "name": "Cookie without HttpOnly flag set",
+  "type": "vulnerability",
+  "severity": "Low",
+  "confidence": "Firm",
+  "host": "",
+  "path": "/bodgeit/",
+  "url": "/bodgeit/",
+  "evidence": [
+    {
+      "type": "InformationListEvidence",
+      "request_response": {
+        "url": "http://192.168.1.113/bodgeit/",
+        "request": [
+          {
+            "type": "DataSegment",
+            "data": "R0VUIC9ib2RnZWl0LyBIVFRQLzEuMQ0KSG9zdDogMTkyLjE2OC4xLjExMw0KQ2FjaGUtQ29udHJvbDogbWF4LWFnZT0wDQpTZWMtQ0gtVUE6ICJHb29nbGUgQ2hyb21lIjt2PSIxMzgiLCAiTm90PUE/QnJhbmQiO3Y9IjgiLCAiQ2hyb21pdW0iO3Y9IjEzOCINClNlYy1DSC1VQS1Nb2JpbGU6ID8wDQpTZWMtQ0gtVUEtUGxhdGZvcm06ICJMaW51eCINCkFjY2VwdC1MYW5ndWFnZTogZW4tVVM7cT0wLjksZW47cT0wLjgNClVzZXItQWdlbnQ6IE1vemlsbGEvNS4wIChYMTE7IExpbnV4IHg4Nl82NCkgQXBwbGVXZWJLaXQvNTM3LjM2IChLSFRNTCwgbGlrZSBHZWNrbykgQ2hyb21lLzEzOC4wLjAuMCBTYWZhcmkvNTM3LjM2DQpBY2NlcHQ6IHRleHQvaHRtbCxhcHBsaWNhdGlvbi94aHRtbCt4bWwsYXBwbGljYXRpb24veG1sO3E9MC45LGltYWdlL2F2aWYsaW1hZ2Uvd2VicCxpbWFnZS9hcG5nLCovKjtxPTAuOCxhcHBsaWNhdGlvbi9zaWduZWQtZXhjaGFuZ2U7dj1iMztxPTAuNw0KU2VjLUZldGNoLVNpdGU6IG5vbmUNClNlYy1GZXRjaC1Nb2RlOiBuYXZpZ2F0ZQ0KU2VjLUZldGNoLVVzZXI6ID8xDQpTZWMtRmV0Y2gtRGVzdDogZG9jdW1lbnQNCkFjY2VwdC1FbmNvZGluZzogZ3ppcCwgZGVmbGF0ZSwgYnINCkNvbm5lY3Rpb246IGNsb3NlDQpVcGdyYWRlLUluc2VjdXJlLVJlcXVlc3RzOiAxDQpSZWZlcmVyOiBodHRwOi8vMTkyLjE2OC4xLjExMy8NCg0K",
+            "length": 711
+          }
+        ],
+        "response": [
+          {
+            "type": "DataSegment",
+            "data": "SFRUUC8xLjEgMjAwIE9LDQpEYXRlOiBUdWUsIDAyIFNlcCAyMDI1IDEzOjA1OjMxIEdNVA0KU2VydmVyOiBBcGFjaGUtQ295b3RlLzEuMQ0KQ29udGVudC1UeXBlOiB0ZXh0L2h0bWwNCg==",
+            "length": 106
+          },
+          {
+            "type": "HighlightSegment",
+            "data": "U2V0LUNvb2tpZTogSlNFU1NJT05JRD0zMkVGM0IyNzY1MTcyMEU1Qzg4NTI3NTM5MDcwM0REMDsgUGF0aD0v",
+            "length": 63
+          },
+          {
+            "type": "DataSegment",
+            "data": "DQpWaWE6IDEuMSAxMjcuMC4xLjENClZhcnk6IEFjY2VwdC1FbmNvZGluZw0KQ29udGVudC1MZW5ndGg6IDMxOTgNCkNvbm5lY3Rpb246IGNsb3NlDQoNCgoKCgoNCgoKCgoKPCFET0NUWVBFIEhUTUwgUFVCTElDICItLy9XM0MvL0RURCBIVE1MIDMuMi8vRU4iPgo8aHRtbD4KPGhlYWQ+Cjx0aXRsZT5UaGUgQm9kZ2VJdCBTdG9yZTwvdGl0bGU+CjxsaW5rIGhyZWY9InN0eWxlLmNzcyIgcmVsPSJzdHlsZXNoZWV0IiB0eXBlPSJ0ZXh0L2NzcyIgLz4KPHNjcmlwdCB0eXBlPSJ0ZXh0L2phdmFzY3JpcHQiIHNy",
+            "length": 288
+          },
+          {
+            "type": "SnipSegment",
+            "length": 2998
+          }
+        ],
+        "was_redirect_followed": false,
+        "request_time": "1756818335029"
+      },
+      "information_items": [
+        "Session: JSESSIONID"
+      ]
+    }
+  ],
+  "description": "The following cookie was issued by the application and does not have the HttpOnly flag set:<ul><li><b>JSESSIONID</b></li></ul>The cookie appears to contain a session token, which may increase the risk associated with this issue. You should review the contents of the cookie to determine its function.",
+  "remediation": "",
+  "references": []
+}
